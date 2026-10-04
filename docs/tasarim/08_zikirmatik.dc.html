@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Zikirmatik</title>
+<script src="cb154d27-9cb3-4848-a63a-b418f1f18d33"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; align-items: center; gap: 8px; padding: 48px 12px 8px; flex-shrink: 0">
+<a href="Dualar.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<h1 style="margin: 0; flex-grow: 1; font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-weight: 600; color: #0F3D33">Zikirmatik</h1>
+<button aria-label="Sayacı sıfırla" sc-camel-on-click="{{reset}}" style="width: 44px; height: 44px; border-radius: 14px; border: 1px solid #E1E5DF; background: #FFFFFF; color: #0F3D33; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.5-5.8"></path><path d="M4 4v4h4"></path></svg></button>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 8px 20px 20px">
+
+<div style="display: flex; gap: 8px; overflow-x: auto; width: 100%; padding-bottom: 2px">
+<sc-for list="{{zikirler}}" as="z" hint-placeholder-count="4">
+<button sc-camel-on-click="{{z.pick}}" aria-pressed="{{z.pressed}}" style="{{z.style}}">{{z.ad}}</button>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; min-height: 104px">
+<p dir="rtl" lang="ar" style="margin: 0; font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 36px; line-height: 1.6; color: #0F3D33">{{arapca}}</p>
+<p style="margin: 0; font-size: 14px; color: #56625D">{{anlam}}</p>
+</div>
+
+<button sc-camel-on-click="{{tap}}" aria-label="{{tapLabel}}" style="position: relative; width: 280px; height: 280px; border-radius: 140px; border: none; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; flex-shrink: 0">
+<svg aria-hidden="true" width="280" height="280" sc-camel-view-box="0 0 280 280" style="position: absolute; inset: 0"><circle cx="140" cy="140" r="120" fill="none" stroke="#E3ECE7" stroke-width="14"></circle><circle cx="140" cy="140" r="120" fill="none" stroke="#0F3D33" stroke-width="14" stroke-linecap="round" stroke-dasharray="753.98" stroke-dashoffset="{{offset}}" transform="rotate(-90 140 140)"></circle></svg>
+<span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px">
+<span style="font-family: 'Fraunces', Georgia, serif; font-size: 76px; font-weight: 500; line-height: 1; color: #0F3D33">{{count}}</span>
+<span style="font-size: 15px; color: #56625D; font-weight: 600">/ {{target}}</span>
+<span style="font-size: 12px; color: #8A6316; font-weight: 700; margin-top: 8px">Dokun ve say</span>
+</span>
+</button>
+
+<sc-if value="{{hasRounds}}" hint-placeholder-val="{{false}}">
+<div style="padding: 8px 14px; border-radius: 20px; background: #F4EBD6; color: #6E4F12; font-size: 13px; font-weight: 700">{{roundsText}}</div>
+</sc-if>
+
+<div style="width: 100%; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 700">Hedef</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: #E6EAE4; padding: 4px; border-radius: 14px">
+<sc-for list="{{hedefler}}" as="h" hint-placeholder-count="3">
+<button sc-camel-on-click="{{h.pick}}" aria-pressed="{{h.pressed}}" style="{{h.style}}">{{h.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="width: 100%; display: flex; justify-content: space-between; padding: 14px 16px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 16px; font-size: 14px">
+<span style="color: #56625D">Bugünkü toplam zikir</span>
+<span style="font-weight: 700">{{total}}</span>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { zikir: 'subhan', count: 12, target: 33, rounds: 0, total: 78 };
+  }
+  renderVals() {
+    const list = [
+      { id: 'subhan', ad: 'Sübhânallah', ar: 'سُبْحَانَ اللّٰهِ', anlam: 'Allah her türlü eksiklikten uzaktır.' },
+      { id: 'hamd', ad: 'Elhamdülillah', ar: 'اَلْحَمْدُ لِلّٰهِ', anlam: 'Hamd Allah\'a mahsustur.' },
+      { id: 'tekbir', ad: 'Allâhu Ekber', ar: 'اَللّٰهُ أَكْبَرُ', anlam: 'Allah en büyüktür.' },
+      { id: 'tevhid', ad: 'Lâ ilâhe illallah', ar: 'لَا إِلٰهَ إِلَّا اللّٰهُ', anlam: 'Allah\'tan başka ilah yoktur.' }
+    ];
+    const s = this.state;
+    const cur = list.find((z) => z.id === s.zikir) || list[0];
+    const zikirler = list.map((z) => {
+      const on = z.id === s.zikir;
+      return Object.assign({}, z, {
+        pressed: on ? 'true' : 'false',
+        style: 'flex-shrink: 0; min-height: 44px; padding: 0 16px; border-radius: 22px; font-family: inherit; font-size: 14px; cursor: pointer; white-space: nowrap; font-weight: ' + (on ? '700' : '600') + '; border: 1px solid ' + (on ? '#0F3D33' : '#E1E5DF') + '; background: ' + (on ? '#0F3D33' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#17231F'),
+        pick: () => this.setState({ zikir: z.id, count: 0, rounds: 0 })
+      });
+    });
+    const hedefler = [33, 99, 100].map((n) => {
+      const on = s.target === n;
+      return {
+        label: String(n),
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 40px; border: none; border-radius: 10px; font-family: inherit; font-size: 14px; cursor: pointer; font-weight: ' + (on ? '700' : '600') + '; background: ' + (on ? '#FFFFFF' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#56625D'),
+        pick: () => this.setState({ target: n, count: 0, rounds: 0 })
+      };
+    });
+    const C = 753.98;
+    const offset = (C * (1 - s.count / s.target)).toFixed(2);
+    return {
+      zikirler,
+      hedefler,
+      arapca: cur.ar,
+      anlam: cur.anlam,
+      count: s.count,
+      target: s.target,
+      offset: offset,
+      total: s.total,
+      hasRounds: s.rounds > 0,
+      roundsText: s.rounds + ' tur tamamlandı · Allah kabul etsin',
+      tapLabel: cur.ad + ' say, şu an ' + s.count,
+      tap: () => {
+        const next = this.state.count + 1;
+        if (next >= this.state.target) {
+          this.setState({ count: 0, rounds: this.state.rounds + 1, total: this.state.total + 1 });
+        } else {
+          this.setState({ count: next, total: this.state.total + 1 });
+        }
+      },
+      reset: () => this.setState({ count: 0, rounds: 0 })
+    };
+  }
+}
+</script>
+
+
+</body></html>

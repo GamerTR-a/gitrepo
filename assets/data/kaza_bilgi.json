@@ -1,0 +1,13 @@
+{
+  "aciklama": "Kaza borcu sihirbazında gösterilen kısa fıkıh bilgileri (Hanefi, Diyanet uygulaması). Yayın öncesi bir hoca tarafından incelenmelidir (CLAUDE.md §8).",
+  "kaynak": "Diyanet İşleri Başkanlığı ilmihal bilgileri (özet); madde madde doğrulanmalı",
+  "incelendi": false,
+  "inceleyen": null,
+  "not": "Metinler özet olarak yazılmıştır; ifadeler ve kapsam hoca tarafından gözden geçirilmeli.",
+  "maddeler": [
+    "Vaktinde kılınamayan farz namazlar ve vitir namazı kaza edilir.",
+    "Kaza namazı için belirli bir vakit yoktur; kerahat vakitleri dışında her zaman kılınabilir.",
+    "Kaç vakit kaza borcunuz olduğunu tam bilmiyorsanız, borcunuzun kalmadığına kanaat getirinceye kadar kılmaya devam edersiniz.",
+    "Tutulamayan Ramazan oruçları, gün sayısınca kaza edilir."
+  ]
+}

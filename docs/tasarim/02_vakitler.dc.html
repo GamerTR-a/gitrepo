@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Namaz Vakitleri</title>
+<script src="057ef67c-9bb7-4708-8d1b-9a90227a64ca"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: 52px 20px 24px">
+
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 30px; font-weight: 600; color: #0F3D33">Namaz Vakitleri</h1>
+<button style="min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #E1E5DF; background: #FFFFFF; color: #0F3D33; font-family: inherit; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; cursor: pointer">
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+<span>İstanbul</span></button>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 18px; padding: 6px">
+<button aria-label="Önceki gün" style="width: 44px; height: 44px; border-radius: 14px; border: none; background: #F3F4EF; color: #0F3D33; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></button>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
+<span style="font-size: 15px; font-weight: 700">2 Ekim 2026 Cuma</span>
+<span style="font-size: 12px; color: #8A6316; font-weight: 600">20 Rebiülâhir 1448</span>
+</div>
+<button aria-label="Sonraki gün" style="width: 44px; height: 44px; border-radius: 14px; border: none; background: #F3F4EF; color: #0F3D33; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></button>
+</div>
+
+<div style="background: #0F3D33; color: #FFFFFF; border-radius: 22px; padding: 20px; display: flex; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; color: #CFE0D8">İkindi vaktine kalan</span>
+<span style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; letter-spacing: -0.5px; line-height: 1.1">02:14:36</span>
+</div>
+<svg aria-hidden="true" width="64" height="64" sc-camel-view-box="0 0 24 24" fill="none" stroke="#E2C27A" stroke-width="0.7"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 22px; padding: 6px; display: flex; flex-direction: column">
+<sc-for list="{{rows}}" as="row" hint-placeholder-count="6">
+<div style="{{row.rowStyle}}">
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1">
+<span style="font-size: 16px; font-weight: 700">{{row.name}}</span>
+<sc-if value="{{row.hasBadge}}" hint-placeholder-val="{{false}}">
+<span style="{{row.badgeStyle}}">{{row.badge}}</span>
+</sc-if>
+</div>
+<span style="font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 500; margin-right: 8px">{{row.time}}</span>
+<button aria-label="{{row.alarmLabel}}" aria-pressed="{{row.alarmPressed}}" sc-camel-on-click="{{row.toggle}}" style="{{row.alarmStyle}}">
+<sc-if value="{{row.alarm}}" hint-placeholder-val="{{true}}">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg>
+</sc-if>
+<sc-if value="{{row.noAlarm}}" hint-placeholder-val="{{false}}">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 9.5-4.9"></path><path d="M18 11v5l1.5 2H8"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path><path d="M4 4l16 16"></path></svg>
+</sc-if>
+</button>
+</div>
+</sc-for>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 16px">
+<svg aria-hidden="true" width="72" height="72" sc-camel-view-box="0 0 72 72" fill="none"><circle cx="36" cy="36" r="33" stroke="#E1E5DF" stroke-width="2"></circle><circle cx="36" cy="36" r="25" stroke="#E3ECE7" stroke-width="1"></circle><text x="36" y="12" text-anchor="middle" font-size="8" font-weight="700" fill="#56625D" font-family="Manrope, sans-serif">K</text><g transform="rotate(151 36 36)"><path d="M36 10 L41 36 L36 32 L31 36 Z" fill="#0F3D33"></path><path d="M36 62 L41 36 L36 40 L31 36 Z" fill="#C9D3CE"></path></g><circle cx="36" cy="36" r="3" fill="#E2C27A"></circle></svg>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; color: #56625D">Kıble yönü</span>
+<span style="font-size: 17px; font-weight: 700">151° Güneydoğu</span>
+<a href="#" style="font-size: 13px; font-weight: 700; color: #0F3D33; min-height: 28px; display: flex; align-items: center">Pusulayı aç</a>
+</div>
+</div>
+
+<p style="margin: 0; font-size: 12px; color: #56625D; text-align: center">Hesaplama yöntemi: Diyanet İşleri Başkanlığı · Ayarlardan değiştirilebilir</p>
+</main>
+<nav aria-label="Ana menü" style="display: flex; justify-content: space-around; padding: 8px 6px 22px; background: #FFFFFF; border-top: 1px solid #E1E5DF; flex-shrink: 0">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span>Ana Sayfa</span></a>
+<a href="Vakitler.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #0F3D33; font-size: 11px; font-weight: 700"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Vakitler</span></a>
+<a href="Kuran.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5V19c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V4.5c-3-.5-6 0-8 1.5z"></path><path d="M12 6v14.5"></path></svg><span>Kur'an</span></a>
+<a href="Dualar.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><span>Dualar</span></a>
+<a href="Gunler.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg><span>Günler</span></a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { alarms: { imsak: true, gunes: false, ogle: true, ikindi: true, aksam: true, yatsi: true } };
+  }
+  renderVals() {
+    const base = [
+      { id: 'imsak', name: 'İmsak', time: '05:38', status: 'gecti' },
+      { id: 'gunes', name: 'Güneş', time: '07:05', status: 'gecti' },
+      { id: 'ogle', name: 'Öğle', time: '12:58', status: 'simdi' },
+      { id: 'ikindi', name: 'İkindi', time: '16:06', status: 'sirada' },
+      { id: 'aksam', name: 'Akşam', time: '18:47', status: '' },
+      { id: 'yatsi', name: 'Yatsı', time: '20:03', status: '' }
+    ];
+    const alarms = this.state.alarms;
+    const rows = base.map((r) => {
+      const on = !!alarms[r.id];
+      const isNext = r.status === 'sirada';
+      const isNow = r.status === 'simdi';
+      const past = r.status === 'gecti';
+      let bg = 'transparent';
+      if (isNext) bg = '#F4EBD6';
+      return Object.assign({}, r, {
+        alarm: on,
+        noAlarm: !on,
+        alarmPressed: on ? 'true' : 'false',
+        alarmLabel: r.name + ' ezan bildirimi ' + (on ? 'açık' : 'kapalı'),
+        hasBadge: isNext || isNow,
+        badge: isNext ? 'Sıradaki vakit' : (isNow ? 'Şu anki vakit' : ''),
+        badgeStyle: 'font-size: 12px; font-weight: 600; color: ' + (isNext ? '#8A6316' : '#0F3D33'),
+        rowStyle: 'display: flex; align-items: center; padding: 12px 10px 12px 14px; border-radius: 16px; min-height: 52px; background: ' + bg + '; color: ' + (past ? '#6B7772' : '#17231F'),
+        alarmStyle: 'width: 44px; height: 44px; border-radius: 14px; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; background: ' + (on ? '#E3ECE7' : '#F3F4EF') + '; color: ' + (on ? '#0F3D33' : '#6B7772'),
+        toggle: () => {
+          const next = Object.assign({}, this.state.alarms);
+          next[r.id] = !next[r.id];
+          this.setState({ alarms: next });
+        }
+      });
+    });
+    return { rows };
+  }
+}
+</script>
+
+
+</body></html>

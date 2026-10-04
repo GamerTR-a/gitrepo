@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Kaza Takibi</title>
+<script src="d248c803-d7b8-4db2-a485-4bff85f8e63f"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; align-items: center; gap: 8px; padding: 48px 12px 8px; flex-shrink: 0">
+<a href="Main.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<h1 style="margin: 0; flex-grow: 1; font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 600; color: #0F3D33">Kaza Takibi</h1>
+<button sc-camel-on-click="{{toggleHide}}" aria-pressed="{{hidePressed}}" aria-label="{{hideLabel}}" style="min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #E1E5DF; background: #FFFFFF; color: #0F3D33; font-family: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer">
+<svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+<span>{{hideText}}</span></button>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 8px 20px 28px">
+
+<div style="position: relative; overflow: hidden; background: #0F3D33; color: #FFFFFF; border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<svg aria-hidden="true" width="170" height="170" sc-camel-view-box="0 0 24 24" fill="none" stroke="#E2C27A" stroke-width="0.3" style="position: absolute; right: -50px; top: -50px; opacity: 0.4"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect><circle cx="12" cy="12" r="4.2"></circle></svg>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #CFE0D8">Kalan kaza namazı</span>
+<span style="font-family: 'Fraunces', Georgia, serif; font-size: 44px; font-weight: 500; line-height: 1.05">{{totalText}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+<span style="font-size: 12px; color: #CFE0D8">Tahmini bitiş</span>
+<span style="font-size: 16px; font-weight: 700; color: #E2C27A">{{finishText}}</span>
+</div>
+</div>
+<div style="position: relative; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; color: #CFE0D8">Günde kaç vakit kaza kılarım?</span>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{tempos}}" as="t" hint-placeholder-count="4">
+<button sc-camel-on-click="{{t.pick}}" aria-pressed="{{t.pressed}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+
+<sc-if value="{{hasToday}}" hint-placeholder-val="{{false}}">
+<div style="background: #E3ECE7; color: #0F3D33; border-radius: 16px; padding: 12px 16px; font-size: 14px; font-weight: 600">{{todayText}}</div>
+</sc-if>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">Namaz</h2>
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 22px; padding: 4px 14px; display: flex; flex-direction: column">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+<div style="{{r.rowStyle}}">
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 700">{{r.ad}}</span>
+<span style="font-size: 13px; color: #56625D">{{r.countText}}</span>
+</div>
+<button aria-label="{{r.addLabel}}" sc-camel-on-click="{{r.add}}" style="width: 44px; height: 44px; border-radius: 14px; border: 1px solid #E1E5DF; background: #FFFFFF; color: #56625D; font-family: inherit; font-size: 20px; cursor: pointer">+</button>
+<button aria-label="{{r.doneLabel}}" sc-camel-on-click="{{r.done}}" style="min-height: 44px; padding: 0 14px; border-radius: 14px; border: none; background: #0F3D33; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Kıldım</button>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">Oruç</h2>
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 22px; padding: 14px; display: flex; align-items: center; gap: 10px">
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 700">Ramazan kazası</span>
+<span style="font-size: 13px; color: #56625D">{{orucText}}</span>
+</div>
+<button aria-label="Kaza orucu ekle" sc-camel-on-click="{{orucAdd}}" style="width: 44px; height: 44px; border-radius: 14px; border: 1px solid #E1E5DF; background: #FFFFFF; color: #56625D; font-family: inherit; font-size: 20px; cursor: pointer">+</button>
+<button aria-label="Bir kaza orucu tuttum" sc-camel-on-click="{{orucDone}}" style="min-height: 44px; padding: 0 14px; border-radius: 14px; border: none; background: #0F3D33; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Tuttum</button>
+</div>
+</section>
+
+<a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 18px; text-decoration: none; color: #17231F">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#8A6316" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5"></path><path d="M12 8h.01"></path></svg>
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 700">Kaza borcumu nasıl hesaplarım?</span><span style="font-size: 12px; color: #56625D">Adım adım hesaplama ve kısa fıkıh bilgisi</span></span>
+<svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#56625D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg>
+</a>
+
+<p style="margin: 0; font-size: 12px; color: #56625D; text-align: center; line-height: 1.5">Bu bilgiler sadece bu telefonda saklanır.</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: false,
+      tempo: 2,
+      today: 0,
+      oruc: 12,
+      counts: { sabah: 212, ogle: 198, ikindi: 205, aksam: 190, yatsi: 220, vitir: 223 }
+    };
+  }
+  fmtDuration(days) {
+    if (days <= 0) return 'Tamamlandı';
+    const months = Math.round(days / 30.4);
+    if (months < 1) return days + ' gün';
+    const y = Math.floor(months / 12);
+    const m = months % 12;
+    if (y === 0) return m + ' ay';
+    if (m === 0) return y + ' yıl';
+    return y + ' yıl ' + m + ' ay';
+  }
+  renderVals() {
+    const st = this.state;
+    const H = st.hidden;
+    const mask = (n, unit) => H ? '•••' : (n + ' ' + unit);
+    const defs = [
+      { id: 'sabah', ad: 'Sabah' },
+      { id: 'ogle', ad: 'Öğle' },
+      { id: 'ikindi', ad: 'İkindi' },
+      { id: 'aksam', ad: 'Akşam' },
+      { id: 'yatsi', ad: 'Yatsı' },
+      { id: 'vitir', ad: 'Vitir' }
+    ];
+    let total = 0;
+    defs.forEach((d) => { total += st.counts[d.id]; });
+    const change = (id, delta) => {
+      const next = Object.assign({}, this.state.counts);
+      next[id] = Math.max(0, next[id] + delta);
+      const t = delta < 0 && this.state.counts[id] > 0 ? this.state.today + 1 : this.state.today;
+      this.setState({ counts: next, today: t });
+    };
+    const rows = defs.map((d, i) => ({
+      ad: d.ad,
+      countText: mask(st.counts[d.id], 'kaldı'),
+      addLabel: d.ad + ' kazası ekle',
+      doneLabel: 'Bir ' + d.ad.toLowerCase() + ' kazası kıldım',
+      add: () => change(d.id, 1),
+      done: () => change(d.id, -1),
+      rowStyle: 'display: flex; align-items: center; gap: 8px; padding: 12px 0; ' + (i < defs.length - 1 ? 'border-bottom: 1px solid #EEF1EC' : '')
+    }));
+    const tempos = [1, 2, 3, 5].map((n) => {
+      const on = st.tempo === n;
+      return {
+        label: String(n),
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 40px; border-radius: 12px; font-family: inherit; font-size: 14px; cursor: pointer; font-weight: 700; border: 1px solid ' + (on ? '#E2C27A' : 'rgba(255,255,255,0.25)') + '; background: ' + (on ? '#E2C27A' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#FFFFFF'),
+        pick: () => this.setState({ tempo: n })
+      };
+    });
+    const days = Math.ceil(total / st.tempo);
+    return {
+      rows,
+      tempos,
+      totalText: H ? '•••' : total.toLocaleString('tr-TR'),
+      finishText: H ? '•••' : this.fmtDuration(days),
+      orucText: mask(st.oruc, 'gün kaldı'),
+      hasToday: st.today > 0,
+      todayText: 'Bugün ' + st.today + ' kaza kıldınız. Allah kabul etsin.',
+      hideText: H ? 'Göster' : 'Gizle',
+      hidePressed: H ? 'true' : 'false',
+      hideLabel: H ? 'Sayıları göster' : 'Sayıları gizle',
+      toggleHide: () => this.setState({ hidden: !this.state.hidden }),
+      orucAdd: () => this.setState({ oruc: this.state.oruc + 1 }),
+      orucDone: () => this.setState({ oruc: Math.max(0, this.state.oruc - 1) })
+    };
+  }
+}
+</script>
+
+
+</body></html>

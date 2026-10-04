@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Toplu Hatim</title>
+<script src="1d3420f3-5b38-4804-a978-879810eb7d7e"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; align-items: center; gap: 8px; padding: 48px 12px 8px; flex-shrink: 0">
+<a href="Kuran.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<h1 style="margin: 0; flex-grow: 1; font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 600; color: #0F3D33">Toplu Hatim</h1>
+<button aria-label="Yeni hatim başlat" style="width: 44px; height: 44px; border-radius: 14px; border: 1px solid #E1E5DF; background: #FFFFFF; color: #0F3D33; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></button>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 8px 20px 28px">
+
+<div style="position: relative; overflow: hidden; background: #0F3D33; color: #FFFFFF; border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<svg aria-hidden="true" width="170" height="170" sc-camel-view-box="0 0 24 24" fill="none" stroke="#E2C27A" stroke-width="0.3" style="position: absolute; right: -50px; top: -50px; opacity: 0.4"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect><circle cx="12" cy="12" r="4.2"></circle></svg>
+<span style="position: relative; font-size: 12px; color: #E2C27A; font-weight: 700">Devam eden hatim</span>
+<span style="position: relative; font-size: 22px; font-weight: 700">Ramazan Aile Hatmi</span>
+<div style="position: relative; display: flex; align-items: center; gap: 10px">
+<span style="flex-grow: 1; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.18); overflow: hidden"><span style="{{barStyle}}"></span></span>
+<span style="font-size: 13px; font-weight: 700">{{readText}}</span>
+</div>
+<span style="position: relative; font-size: 13px; color: #CFE0D8">9 kişi katıldı · Hedef: Kadir Gecesi</span>
+<button style="position: relative; align-self: flex-start; min-height: 44px; padding: 0 16px; border-radius: 22px; border: none; background: #E2C27A; color: #0F3D33; font-family: inherit; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg>Linki paylaş</button>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; background: #E6EAE4; padding: 4px; border-radius: 14px">
+<sc-for list="{{modes}}" as="m" hint-placeholder-count="2">
+<button sc-camel-on-click="{{m.pick}}" aria-pressed="{{m.pressed}}" style="{{m.style}}">{{m.label}}</button>
+</sc-for>
+</div>
+
+<section style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 15px; font-weight: 700">{{gridTitle}}</span>
+<span style="font-size: 12px; color: #56625D">{{gridHint}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="30">
+<button sc-camel-on-click="{{c.tap}}" disabled="{{c.locked}}" aria-label="{{c.label}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.no}}</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: #56625D">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #0F3D33"></span>Okundu</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #DCE4DF"></span>Alındı</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E2C27A"></span>Senin</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid #B7C1BB; box-sizing: border-box"></span>Boş</span>
+</div>
+</section>
+
+<sc-if value="{{hasMine}}" hint-placeholder-val="{{true}}">
+<a href="KuranOku.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #FBF5E7; border: 1px solid #E4D6B4; border-radius: 20px; text-decoration: none; color: #17231F">
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #6E4F12; font-weight: 700">Senin payın</span><span style="font-size: 16px; font-weight: 700">{{mineText}}</span></span>
+<span style="min-height: 44px; padding: 0 14px; border-radius: 14px; background: #0F3D33; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center">Okumaya başla</span>
+</a>
+</sc-if>
+
+<p style="margin: 0; font-size: 12px; color: #56625D; text-align: center; line-height: 1.5">Hesap gerekmez. Linki olan herkes katılabilir, katılanların isimleri gösterilmez.</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: 'cuz', mineCuz: [20], minePage: [] };
+  }
+  renderVals() {
+    const st = this.state;
+    const readCuz = [1,2,3,4,5,6,7,8,9,10,13,14];
+    const takenCuz = [11,12,15,16,17,18,19,22,23];
+    const readPage = [402,403,404,405,406,407];
+    const takenPage = [408,409,410,411,414,415];
+    const isCuz = st.mode === 'cuz';
+    const nums = isCuz ? Array.from({ length: 30 }, (_, i) => i + 1) : Array.from({ length: 20 }, (_, i) => 402 + i);
+    const readL = isCuz ? readCuz : readPage;
+    const takenL = isCuz ? takenCuz : takenPage;
+    const mineL = isCuz ? st.mineCuz : st.minePage;
+    const key = isCuz ? 'mineCuz' : 'minePage';
+    const unit = isCuz ? 'Cüz' : 'Sayfa';
+    const cells = nums.map((n) => {
+      const read = readL.indexOf(n) >= 0;
+      const taken = takenL.indexOf(n) >= 0;
+      const mine = mineL.indexOf(n) >= 0;
+      let bg = '#FFFFFF', fg = '#17231F', border = '1.5px solid #B7C1BB', label = unit + ' ' + n + ', boş, almak için dokun';
+      if (read) { bg = '#0F3D33'; fg = '#FFFFFF'; border = '1.5px solid #0F3D33'; label = unit + ' ' + n + ', okundu'; }
+      else if (taken) { bg = '#DCE4DF'; fg = '#3E4A45'; border = '1.5px solid #DCE4DF'; label = unit + ' ' + n + ', başkası aldı'; }
+      else if (mine) { bg = '#E2C27A'; fg = '#0F3D33'; border = '1.5px solid #B9944A'; label = unit + ' ' + n + ', senin, bırakmak için dokun'; }
+      return {
+        no: String(n),
+        label: label,
+        locked: read || taken,
+        pressed: mine ? 'true' : 'false',
+        style: 'min-height: 48px; border-radius: 12px; font-family: inherit; font-size: ' + (isCuz ? '15px' : '13px') + '; font-weight: 700; cursor: ' + (read || taken ? 'default' : 'pointer') + '; background: ' + bg + '; color: ' + fg + '; border: ' + border,
+        tap: () => {
+          if (read || taken) return;
+          const cur = this.state[key].slice();
+          const i = cur.indexOf(n);
+          if (i >= 0) cur.splice(i, 1); else cur.push(n);
+          cur.sort((a, b) => a - b);
+          const upd = {};
+          upd[key] = cur;
+          this.setState(upd);
+        }
+      };
+    });
+    const modes = [
+      { id: 'cuz', label: 'Cüz cüz' },
+      { id: 'sayfa', label: 'Sayfa sayfa' }
+    ].map((m) => {
+      const on = m.id === st.mode;
+      return {
+        label: m.label,
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 44px; border: none; border-radius: 10px; font-family: inherit; font-size: 14px; cursor: pointer; font-weight: ' + (on ? '700' : '600') + '; background: ' + (on ? '#FFFFFF' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#56625D'),
+        pick: () => this.setState({ mode: m.id })
+      };
+    });
+    const parts = [];
+    if (st.mineCuz.length) parts.push(st.mineCuz.map((n) => n + '. cüz').join(', '));
+    if (st.minePage.length) parts.push('sayfa ' + st.minePage.join(', '));
+    const pct = Math.round(readCuz.length / 30 * 100);
+    return {
+      modes,
+      cells,
+      gridTitle: isCuz ? 'Bir cüz seç' : '21. cüz · sayfa 402–421',
+      gridHint: isCuz ? 'Boş bir cüze dokunarak sorumluluğu al.' : 'Vaktin azsa sadece birkaç sayfa al, borçlu kalma endişesi olmasın.',
+      readText: readCuz.length + ' / 30 cüz',
+      barStyle: 'display: block; height: 8px; width: ' + pct + '%; background: #E2C27A',
+      hasMine: parts.length > 0,
+      mineText: parts.join(' · ')
+    };
+  }
+}
+</script>
+
+
+</body></html>

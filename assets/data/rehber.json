@@ -1,0 +1,36 @@
+{
+  "aciklama": "Namaz ve abdest rehberi adımları (Hanefi, Diyanet uygulaması). Metinler tasarım taslağından alınmıştır; her adım yayın öncesi bir hoca tarafından incelenmelidir (CLAUDE.md §8). 'cizim' alanı assets/rehber/ altındaki çizim dosyasının adıdır; çizimler henüz yoktur.",
+  "rehberler": [
+    {
+      "id": "namaz",
+      "ad": "Namaz Rehberi",
+      "altBaslik": "Örnek: sabah namazının farzı · 2 rekat",
+      "adimlar": [
+        {"id": "niyet", "baslik": "Niyet", "aciklama": "Hangi namazı kılacağınızı kalben belirleyin. Niyeti dil ile de söylemek güzeldir.", "arapca": null, "okunus": "Niyet ettim Allah rızası için bugünkü sabah namazının farzını kılmaya.", "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "tekbir", "baslik": "İftitah Tekbiri", "aciklama": "Kıbleye dönün ve ellerinizi kaldırarak tekbir alın. Erkekler ellerini kulak hizasına, kadınlar omuz hizasına kaldırır.", "arapca": "اللّٰهُ أَكْبَرُ", "okunus": "Allâhu Ekber", "anlam": "Allah en büyüktür.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "kiyam", "baslik": "Kıyam", "aciklama": "Ayakta durarak sırasıyla Sübhâneke, Eûzü-Besmele, Fâtiha ve kısa bir sure okuyun.", "arapca": "سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ", "okunus": "Sübhâneke'llâhümme ve bi-hamdik", "anlam": "Allah'ım, seni her türlü noksanlıktan uzak tutar, sana hamd ederim.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "ruku", "baslik": "Rükû", "aciklama": "Tekbir alarak eğilin, ellerinizi dizlerinize koyun ve sırtınızı düz tutun. Aşağıdaki tesbihi üç kez okuyun.", "arapca": "سُبْحَانَ رَبِّيَ الْعَظِيمِ", "okunus": "Sübhâne Rabbiye'l-azîm", "anlam": "Yüce Rabbimi her türlü noksanlıktan uzak tutarım.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "kavme", "baslik": "Kavme", "aciklama": "Rükûdan doğrulurken bunu söyleyin; tam doğrulunca \"Rabbenâ leke'l-hamd\" deyin.", "arapca": "سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ", "okunus": "Semiallâhü limen hamideh", "anlam": "Allah, kendisine hamd edeni işitir.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "secde", "baslik": "Secde", "aciklama": "Tekbirle secdeye varın; alın, burun, eller, dizler ve ayak parmakları yere değsin. Tesbihi üç kez okuyun. Kısa bir oturuştan sonra ikinci secdeyi yapın.", "arapca": "سُبْحَانَ رَبِّيَ الْأَعْلَى", "okunus": "Sübhâne Rabbiye'l-a'lâ", "anlam": "Yüce Rabbimi her türlü noksanlıktan uzak tutarım.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "ikinci_rekat", "baslik": "İkinci Rekat", "aciklama": "Ayağa kalkın; Besmele, Fâtiha ve bir sure okuyun. Rükû ve iki secdeyi aynı şekilde tekrarlayın.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "son_oturus", "baslik": "Son Oturuş", "aciklama": "Oturarak Ettehiyyâtü, Allâhümme Salli, Allâhümme Bârik ve Rabbenâ dualarını okuyun.", "arapca": "التَّحِيَّاتُ لِلّٰهِ", "okunus": "Ettehiyyâtü lillâhi…", "anlam": "Bütün tazimler Allah'adır…", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "selam", "baslik": "Selam", "aciklama": "Başınızı önce sağa, sonra sola çevirerek selam verin. Namazınız tamamlandı.", "arapca": "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ", "okunus": "Esselâmü aleyküm ve rahmetullâh", "anlam": "Selam ve Allah'ın rahmeti üzerinize olsun.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""}
+      ]
+    },
+    {
+      "id": "abdest",
+      "ad": "Abdest Rehberi",
+      "altBaslik": "Abdestin adım adım alınışı",
+      "adimlar": [
+        {"id": "niyet", "baslik": "Niyet ve Besmele", "aciklama": "Abdest almaya niyet edin ve Besmele çekin.", "arapca": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ", "okunus": "Bismillâhirrahmânirrahîm", "anlam": "Rahmân ve Rahîm olan Allah'ın adıyla.", "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "eller", "baslik": "Eller", "aciklama": "Ellerinizi bileklere kadar üç kez yıkayın, parmak aralarını ovun. Yüzük varsa oynatın.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "agiz", "baslik": "Ağız", "aciklama": "Sağ elinizle ağzınıza üç kez su alıp iyice çalkalayın.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "burun", "baslik": "Burun", "aciklama": "Sağ elinizle burnunuza üç kez su çekin, sol elinizle temizleyin.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "yuz", "baslik": "Yüz", "aciklama": "Yüzünüzü alından çene altına, bir kulak yumuşağından diğerine kadar üç kez yıkayın.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "kollar", "baslik": "Kollar", "aciklama": "Önce sağ, sonra sol kolunuzu dirseklerle beraber üç kez yıkayın.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "bas", "baslik": "Baş, Kulak ve Boyun", "aciklama": "Islak elle başınızın en az dörtte birini mesh edin; ardından kulaklarınızı ve boynunuzu mesh edin.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""},
+        {"id": "ayaklar", "baslik": "Ayaklar", "aciklama": "Önce sağ, sonra sol ayağınızı topuklarla beraber, parmak aralarını ovarak üç kez yıkayın. Abdestiniz tamamlandı.", "arapca": null, "okunus": null, "anlam": null, "cizim": null, "kaynak": "Tasarım taslağı", "incelendi": false, "inceleyen": null, "not": ""}
+      ]
+    }
+  ]
+}

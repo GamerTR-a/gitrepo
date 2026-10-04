@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Ayarlar</title>
+<script src="906f0aab-d742-4829-b7a0-39e0a27772c7"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; align-items: center; gap: 8px; padding: 48px 12px 8px; flex-shrink: 0">
+<a href="Main.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 600; color: #0F3D33">Ayarlar</h1>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: 8px 20px 28px">
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700; color: #56625D">Okunabilirlik</h2>
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 15px; font-weight: 700">Yazı boyutu</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: #EEF1EC; padding: 4px; border-radius: 14px">
+<sc-for list="{{sizes}}" as="s" hint-placeholder-count="3">
+<button sc-camel-on-click="{{s.pick}}" aria-pressed="{{s.pressed}}" style="{{s.style}}">{{s.label}}</button>
+</sc-for>
+</div>
+<div style="{{previewBox}}">
+<p dir="rtl" lang="ar" style="{{previewAr}}">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
+<p style="{{previewTr}}">Hamd, âlemlerin Rabbi olan Allah'a mahsustur.</p>
+</div>
+<span style="font-size: 12px; color: #56625D; line-height: 1.5">Seçtiğiniz boyut bütün ekranlarda, Kur'an ve dualar dahil uygulanır. Telefonun kendi yazı boyutu ayarına da uyar.</span>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700; color: #56625D">Ezan ve bildirimler</h2>
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 20px; padding: 4px 16px; display: flex; flex-direction: column">
+<sc-for list="{{switches}}" as="sw" hint-placeholder-count="4">
+<div style="{{sw.rowStyle}}">
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 15px; font-weight: 700">{{sw.label}}</span>
+<span style="font-size: 12px; color: #56625D; line-height: 1.45">{{sw.desc}}</span>
+</div>
+<button role="switch" aria-checked="{{sw.checked}}" aria-label="{{sw.label}}" sc-camel-on-click="{{sw.toggle}}" style="{{sw.trackStyle}}"><span style="{{sw.knobStyle}}"></span></button>
+</div>
+</sc-for>
+</div>
+<div style="background: #F4EBD6; border-radius: 18px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start">
+<svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="#6E4F12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><rect x="3" y="7" width="16" height="10" rx="2"></rect><path d="M21 10.5v3"></path><path d="M7 10v4"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; font-weight: 700; color: #4F380C">Ezanın her durumda çalması için</span>
+<span style="font-size: 13px; color: #4F380C; line-height: 1.5">Telefonunuz pil tasarrufu için uygulamayı durdurabilir. Bu uygulama için pil optimizasyonunu kapatın.</span>
+<button style="align-self: flex-start; min-height: 40px; padding: 0 14px; border-radius: 20px; border: none; background: #0F3D33; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Ayarı aç</button>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700; color: #56625D">Vakit hesaplama</h2>
+<div style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 20px; padding: 4px 16px; display: flex; flex-direction: column">
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 56px; text-decoration: none; color: #17231F; border-bottom: 1px solid #EEF1EC"><span style="flex-grow: 1; font-size: 15px; font-weight: 600">Konum</span><span style="font-size: 14px; color: #56625D">Otomatik</span><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#56625D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 56px; text-decoration: none; color: #17231F; border-bottom: 1px solid #EEF1EC"><span style="flex-grow: 1; font-size: 15px; font-weight: 600">Hesaplama yöntemi</span><span style="font-size: 14px; color: #56625D">Diyanet</span><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#56625D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 56px; text-decoration: none; color: #17231F"><span style="flex-grow: 1; font-size: 15px; font-weight: 600">Vakitlere dakika ekle/çıkar</span><span style="font-size: 14px; color: #56625D">Kapalı</span><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="#56625D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg></a>
+</div>
+</section>
+
+<section style="background: #0F3D33; color: #FFFFFF; border-radius: 22px; padding: 18px; display: flex; gap: 14px; align-items: flex-start">
+<svg width="28" height="28" sc-camel-view-box="0 0 24 24" fill="none" stroke="#E2C27A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6z"></path><path d="m9 12 2 2 4-4"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 15px; font-weight: 700">Mahremiyetiniz emanettir</span>
+<span style="font-size: 13px; color: #CFE0D8; line-height: 1.55">Bu uygulama hiçbir veri toplamaz, reklam göstermez ve hesap istemez. Konumunuz sadece vakitleri hesaplamak için bu telefonda kullanılır, hiçbir yere gönderilmez.</span>
+</div>
+</section>
+
+<p style="margin: 0; font-size: 12px; color: #56625D; text-align: center">Sürüm 1.0 · Ücretsizdir, ücretsiz kalacaktır.</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { size: 'normal', sw: { alarm: true, once: true, kontrast: false, sessiz: false } };
+  }
+  renderVals() {
+    const st = this.state;
+    const sizeDefs = [
+      { id: 'normal', label: 'Normal', tr: 16, ar: 26 },
+      { id: 'buyuk', label: 'Büyük', tr: 20, ar: 32 },
+      { id: 'cok', label: 'Çok büyük', tr: 24, ar: 38 }
+    ];
+    const cur = sizeDefs.find((s) => s.id === st.size) || sizeDefs[0];
+    const hc = !!st.sw.kontrast;
+    const sizes = sizeDefs.map((s) => {
+      const on = s.id === st.size;
+      return {
+        label: s.label,
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 44px; border: none; border-radius: 10px; font-family: inherit; font-size: 13px; cursor: pointer; font-weight: ' + (on ? '700' : '600') + '; background: ' + (on ? '#FFFFFF' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#56625D'),
+        pick: () => this.setState({ size: s.id })
+      };
+    });
+    const defs = [
+      { id: 'alarm', label: 'Ezanı alarm olarak çal', desc: 'Medya sesi kısık olsa da, ekran kapalıyken de ezan duyulur.' },
+      { id: 'once', label: 'Vakitten 15 dk önce hatırlat', desc: 'Özellikle sabah ve sahur için ikinci bir uyarı.' },
+      { id: 'sessiz', label: 'Cuma ve camide sessiz', desc: 'Seçtiğiniz saatlerde ezan yerine titreşim.' },
+      { id: 'kontrast', label: 'Yüksek kontrast', desc: 'Yazı ve zemin arasındaki farkı artırır.' }
+    ];
+    const switches = defs.map((d, i) => {
+      const on = !!st.sw[d.id];
+      return Object.assign({}, d, {
+        checked: on ? 'true' : 'false',
+        rowStyle: 'display: flex; align-items: center; gap: 14px; padding: 14px 0; ' + (i < defs.length - 1 ? 'border-bottom: 1px solid #EEF1EC' : ''),
+        trackStyle: 'position: relative; width: 52px; height: 32px; flex-shrink: 0; border-radius: 16px; border: none; padding: 0; cursor: pointer; background: ' + (on ? '#0F3D33' : '#C9D0CB'),
+        knobStyle: 'position: absolute; top: 3px; left: ' + (on ? '23px' : '3px') + '; width: 26px; height: 26px; border-radius: 13px; background: #FFFFFF',
+        toggle: () => {
+          const next = Object.assign({}, this.state.sw);
+          next[d.id] = !next[d.id];
+          this.setState({ sw: next });
+        }
+      });
+    });
+    return {
+      sizes,
+      switches,
+      previewBox: 'display: flex; flex-direction: column; gap: 6px; padding: 14px; border-radius: 14px; background: ' + (hc ? '#000000' : '#FBFBF8') + '; border: 1px solid ' + (hc ? '#000000' : '#E9ECE6'),
+      previewAr: 'margin: 0; font-family: \'Amiri\', serif; text-align: right; line-height: 1.8; font-size: ' + cur.ar + 'px; color: ' + (hc ? '#FFFFFF' : '#0F3D33'),
+      previewTr: 'margin: 0; line-height: 1.5; font-size: ' + cur.tr + 'px; color: ' + (hc ? '#FFFFFF' : '#17231F')
+    };
+  }
+}
+</script>
+
+
+</body></html>

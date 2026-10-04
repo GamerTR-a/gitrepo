@@ -1,0 +1,14 @@
+{
+  "aciklama": "Diyanet İşleri Başkanlığı'nın yayımladığı vakitler (namazvakitleri.diyanet.gov.tr). Hesaplama motoru bu değerlerle ±2 dakika toleransla karşılaştırılır. 'kayitlar' boşken ilgili testler atlanır. Her kayıt: sehir (assets/data/sehirler.json'daki adıyla), tarih (YYYY-AA-GG) ve altı vakit (SS:DD, yerel saat). En az şu şehirler eklenmelidir: İstanbul, Ankara, İzmir, Erzurum, Van, Trabzon, Berlin, Amsterdam; yaz ve kış günleri ile yaz saati geçiş haftaları dahil.",
+  "ornek": {
+    "sehir": "İstanbul",
+    "tarih": "2026-10-02",
+    "imsak": "00:00",
+    "gunes": "00:00",
+    "ogle": "00:00",
+    "ikindi": "00:00",
+    "aksam": "00:00",
+    "yatsi": "00:00"
+  },
+  "kayitlar": []
+}

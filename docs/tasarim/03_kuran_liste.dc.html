@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Kur'an-ı Kerim</title>
+<script src="56471a35-cf6c-4cd2-9034-b41642fce167"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 52px 20px 24px">
+
+<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 30px; font-weight: 600; color: #0F3D33">Kur'an-ı Kerim</h1>
+
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 16px; color: #56625D">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Sure veya ayet ara</span>
+<input type="search" placeholder="Sure, ayet veya kelime ara" style="flex-grow: 1; border: none; outline: none; background: transparent; font-family: inherit; font-size: 15px; color: #17231F">
+</label>
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; background: #E6EAE4; padding: 4px; border-radius: 14px">
+<sc-for list="{{tabs}}" as="tab" hint-placeholder-count="4">
+<button sc-camel-on-click="{{tab.pick}}" aria-pressed="{{tab.pressed}}" style="{{tab.style}}">{{tab.label}}</button>
+</sc-for>
+</div>
+
+<a href="KuranOku.dc.html" style="position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 10px; padding: 18px; border-radius: 22px; background: #0F3D33; color: #FFFFFF; text-decoration: none">
+<svg aria-hidden="true" width="160" height="160" sc-camel-view-box="0 0 24 24" fill="none" stroke="#E2C27A" stroke-width="0.35" style="position: absolute; right: -40px; bottom: -50px; opacity: 0.4"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect><circle cx="12" cy="12" r="4.2"></circle></svg>
+<span style="position: relative; font-size: 12px; color: #E2C27A; font-weight: 700">Kaldığın yer</span>
+<span style="position: relative; font-size: 20px; font-weight: 700">Bakara Suresi · 255. ayet</span>
+<span style="position: relative; font-size: 13px; color: #CFE0D8">Sayfa 42 · 3. cüz</span>
+<span style="position: relative; display: flex; align-items: center; gap: 10px">
+<span style="flex-grow: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); overflow: hidden"><span style="display: block; width: 7%; height: 6px; background: #E2C27A"></span></span>
+<span style="font-size: 12px; font-weight: 700">Hatim %7</span>
+</span>
+</a>
+
+<div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 22px; padding: 4px 6px">
+<sc-for list="{{sureler}}" as="s" hint-placeholder-count="8">
+<a href="KuranOku.dc.html" style="display: flex; align-items: center; gap: 14px; padding: 12px 8px; min-height: 52px; text-decoration: none; color: #17231F; border-bottom: 1px solid #EEF1EC">
+<span style="position: relative; width: 40px; height: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #0F3D33">
+<svg aria-hidden="true" width="40" height="40" sc-camel-view-box="0 0 24 24" fill="none" stroke="#B9944A" stroke-width="0.9" style="position: absolute; inset: 0"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect></svg>
+<span style="position: relative; font-size: 13px; font-weight: 700">{{s.no}}</span>
+</span>
+<span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 16px; font-weight: 700">{{s.ad}}</span>
+<span style="font-size: 12px; color: #56625D">{{s.bilgi}}</span>
+</span>
+<span dir="rtl" lang="ar" style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 22px; color: #0F3D33">{{s.arapca}}</span>
+</a>
+</sc-for>
+</div>
+
+</main>
+<nav aria-label="Ana menü" style="display: flex; justify-content: space-around; padding: 8px 6px 22px; background: #FFFFFF; border-top: 1px solid #E1E5DF; flex-shrink: 0">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span>Ana Sayfa</span></a>
+<a href="Vakitler.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Vakitler</span></a>
+<a href="Kuran.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #0F3D33; font-size: 11px; font-weight: 700"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5V19c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V4.5c-3-.5-6 0-8 1.5z"></path><path d="M12 6v14.5"></path></svg><span>Kur'an</span></a>
+<a href="Dualar.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><span>Dualar</span></a>
+<a href="Gunler.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 64px; min-height: 48px; padding-top: 6px; text-decoration: none; color: #5E6B66; font-size: 11px; font-weight: 600"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg><span>Günler</span></a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'sure' };
+  }
+  renderVals() {
+    const defs = [
+      { id: 'sure', label: 'Sure' },
+      { id: 'cuz', label: 'Cüz' },
+      { id: 'sayfa', label: 'Sayfa' },
+      { id: 'imler', label: 'İmlerim' }
+    ];
+    const tabs = defs.map((t) => {
+      const on = this.state.tab === t.id;
+      return Object.assign({}, t, {
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 40px; border: none; border-radius: 10px; font-family: inherit; font-size: 13px; cursor: pointer; font-weight: ' + (on ? '700' : '600') + '; background: ' + (on ? '#FFFFFF' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#56625D'),
+        pick: () => this.setState({ tab: t.id })
+      });
+    });
+    const sureler = [
+      { no: '1', ad: 'Fâtiha', bilgi: 'Mekkî · 7 ayet', arapca: 'الفاتحة' },
+      { no: '2', ad: 'Bakara', bilgi: 'Medenî · 286 ayet', arapca: 'البقرة' },
+      { no: '3', ad: 'Âl-i İmrân', bilgi: 'Medenî · 200 ayet', arapca: 'آل عمران' },
+      { no: '4', ad: 'Nisâ', bilgi: 'Medenî · 176 ayet', arapca: 'النساء' },
+      { no: '5', ad: 'Mâide', bilgi: 'Medenî · 120 ayet', arapca: 'المائدة' },
+      { no: '6', ad: 'En\'âm', bilgi: 'Mekkî · 165 ayet', arapca: 'الأنعام' },
+      { no: '7', ad: 'A\'râf', bilgi: 'Mekkî · 206 ayet', arapca: 'الأعراف' },
+      { no: '8', ad: 'Enfâl', bilgi: 'Medenî · 75 ayet', arapca: 'الأنفال' }
+    ];
+    return { tabs, sureler };
+  }
+}
+</script>
+
+
+</body></html>

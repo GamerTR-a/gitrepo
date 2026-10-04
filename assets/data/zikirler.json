@@ -1,0 +1,45 @@
+{
+  "aciklama": "Zikirmatik'teki hazır zikirler. Her kayıt yayın öncesi incelenmelidir (CLAUDE.md §8).",
+  "zikirler": [
+    {
+      "id": "subhanallah",
+      "ad": "Sübhânallah",
+      "arapca": "سُبْحَانَ اللّٰهِ",
+      "anlam": "Allah her türlü eksiklikten uzaktır.",
+      "kaynak": "Tasarım taslağı",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "elhamdulillah",
+      "ad": "Elhamdülillah",
+      "arapca": "اَلْحَمْدُ لِلّٰهِ",
+      "anlam": "Hamd Allah'a mahsustur.",
+      "kaynak": "Tasarım taslağı",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "allahuekber",
+      "ad": "Allâhu Ekber",
+      "arapca": "اَللّٰهُ أَكْبَرُ",
+      "anlam": "Allah en büyüktür.",
+      "kaynak": "Tasarım taslağı",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "tevhid",
+      "ad": "Lâ ilâhe illallah",
+      "arapca": "لَا إِلٰهَ إِلَّا اللّٰهُ",
+      "anlam": "Allah'tan başka ilah yoktur.",
+      "kaynak": "Tasarım taslağı",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    }
+  ]
+}

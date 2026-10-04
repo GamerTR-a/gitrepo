@@ -1,0 +1,897 @@
+{
+ "aciklama": "Esmâ-ül Hüsnâ (Tirmizî rivayetindeki sıra). Her kayıt yayın öncesi incelenmelidir (CLAUDE.md §8).",
+ "kaynak": "Tirmizî, Deavât (liste); anlamlar özet olarak yazılmıştır",
+ "isimler": [
+  {
+   "no": 1,
+   "ad": "Allah",
+   "arapca": "اللّٰهُ",
+   "anlam": "Bütün güzel isimleri kendinde toplayan, kendisinden başka ilah olmayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 2,
+   "ad": "er-Rahmân",
+   "arapca": "الرَّحْمٰنُ",
+   "anlam": "Rahmeti bütün varlıkları kuşatan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 3,
+   "ad": "er-Rahîm",
+   "arapca": "الرَّحِيمُ",
+   "anlam": "Müminlere sonsuz merhamet eden",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 4,
+   "ad": "el-Melik",
+   "arapca": "الْمَلِكُ",
+   "anlam": "Mülkün gerçek sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 5,
+   "ad": "el-Kuddûs",
+   "arapca": "الْقُدُّوسُ",
+   "anlam": "Her türlü eksiklikten uzak",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 6,
+   "ad": "es-Selâm",
+   "arapca": "السَّلَامُ",
+   "anlam": "Esenlik veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 7,
+   "ad": "el-Mü'min",
+   "arapca": "الْمُؤْمِنُ",
+   "anlam": "Güven veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 8,
+   "ad": "el-Müheymin",
+   "arapca": "الْمُهَيْمِنُ",
+   "anlam": "Gözetip koruyan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 9,
+   "ad": "el-Azîz",
+   "arapca": "الْعَزِيزُ",
+   "anlam": "Yenilmeyen, izzet sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 10,
+   "ad": "el-Cebbâr",
+   "arapca": "الْجَبَّارُ",
+   "anlam": "Dilediğini mutlaka yapan, eksikleri tamamlayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 11,
+   "ad": "el-Mütekebbir",
+   "arapca": "الْمُتَكَبِّرُ",
+   "anlam": "Büyüklükte eşi olmayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 12,
+   "ad": "el-Hâlık",
+   "arapca": "الْخَالِقُ",
+   "anlam": "Yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 13,
+   "ad": "el-Bâri'",
+   "arapca": "الْبَارِئُ",
+   "anlam": "Kusursuz ve uyumlu yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 14,
+   "ad": "el-Musavvir",
+   "arapca": "الْمُصَوِّرُ",
+   "anlam": "Her şeye şekil ve özellik veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 15,
+   "ad": "el-Gaffâr",
+   "arapca": "الْغَفَّارُ",
+   "anlam": "Günahları çokça bağışlayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 16,
+   "ad": "el-Kahhâr",
+   "arapca": "الْقَهَّارُ",
+   "anlam": "Her şeye üstün gelen",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 17,
+   "ad": "el-Vehhâb",
+   "arapca": "الْوَهَّابُ",
+   "anlam": "Karşılıksız çokça veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 18,
+   "ad": "er-Rezzâk",
+   "arapca": "الرَّزَّاقُ",
+   "anlam": "Bütün canlıların rızkını veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 19,
+   "ad": "el-Fettâh",
+   "arapca": "الْفَتَّاحُ",
+   "anlam": "Hayır kapılarını açan, adaletle hükmeden",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 20,
+   "ad": "el-Alîm",
+   "arapca": "الْعَلِيمُ",
+   "anlam": "Her şeyi hakkıyla bilen",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 21,
+   "ad": "el-Kâbız",
+   "arapca": "الْقَابِضُ",
+   "anlam": "Dilediğine rızkı daraltan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 22,
+   "ad": "el-Bâsıt",
+   "arapca": "الْبَاسِطُ",
+   "anlam": "Dilediğine rızkı genişleten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 23,
+   "ad": "el-Hâfıd",
+   "arapca": "الْخَافِضُ",
+   "anlam": "Dilediğini alçaltan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 24,
+   "ad": "er-Râfi'",
+   "arapca": "الرَّافِعُ",
+   "anlam": "Dilediğini yükselten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 25,
+   "ad": "el-Muiz",
+   "arapca": "الْمُعِزُّ",
+   "anlam": "Dilediğini aziz kılan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 26,
+   "ad": "el-Müzil",
+   "arapca": "الْمُذِلُّ",
+   "anlam": "Dilediğini zelil kılan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 27,
+   "ad": "es-Semî'",
+   "arapca": "السَّمِيعُ",
+   "anlam": "Her şeyi işiten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 28,
+   "ad": "el-Basîr",
+   "arapca": "الْبَصِيرُ",
+   "anlam": "Her şeyi gören",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 29,
+   "ad": "el-Hakem",
+   "arapca": "الْحَكَمُ",
+   "anlam": "Mutlak hüküm sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 30,
+   "ad": "el-Adl",
+   "arapca": "الْعَدْلُ",
+   "anlam": "Mutlak adalet sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 31,
+   "ad": "el-Latîf",
+   "arapca": "اللَّطِيفُ",
+   "anlam": "Lütfu bol, en ince işleri bilen",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 32,
+   "ad": "el-Habîr",
+   "arapca": "الْخَبِيرُ",
+   "anlam": "Her şeyden haberdar olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 33,
+   "ad": "el-Halîm",
+   "arapca": "الْحَلِيمُ",
+   "anlam": "Cezada acele etmeyen, yumuşak davranan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 34,
+   "ad": "el-Azîm",
+   "arapca": "الْعَظِيمُ",
+   "anlam": "Pek yüce",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 35,
+   "ad": "el-Gafûr",
+   "arapca": "الْغَفُورُ",
+   "anlam": "Bağışlaması çok olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 36,
+   "ad": "eş-Şekûr",
+   "arapca": "الشَّكُورُ",
+   "anlam": "Az iyiliğe çok karşılık veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 37,
+   "ad": "el-Aliyy",
+   "arapca": "الْعَلِيُّ",
+   "anlam": "Yüceler yücesi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 38,
+   "ad": "el-Kebîr",
+   "arapca": "الْكَبِيرُ",
+   "anlam": "Büyüklüğüne sınır olmayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 39,
+   "ad": "el-Hafîz",
+   "arapca": "الْحَفِيظُ",
+   "anlam": "Koruyup gözeten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 40,
+   "ad": "el-Mukît",
+   "arapca": "الْمُقِيتُ",
+   "anlam": "Her canlının gıdasını veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 41,
+   "ad": "el-Hasîb",
+   "arapca": "الْحَسِيبُ",
+   "anlam": "Hesaba çeken, kullarına yeten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 42,
+   "ad": "el-Celîl",
+   "arapca": "الْجَلِيلُ",
+   "anlam": "Celal ve azamet sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 43,
+   "ad": "el-Kerîm",
+   "arapca": "الْكَرِيمُ",
+   "anlam": "Keremi ve ihsanı bol",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 44,
+   "ad": "er-Rakîb",
+   "arapca": "الرَّقِيبُ",
+   "anlam": "Her an gözetleyen",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 45,
+   "ad": "el-Mücîb",
+   "arapca": "الْمُجِيبُ",
+   "anlam": "Dualara karşılık veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 46,
+   "ad": "el-Vâsi'",
+   "arapca": "الْوَاسِعُ",
+   "anlam": "İlmi ve rahmeti her şeyi kuşatan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 47,
+   "ad": "el-Hakîm",
+   "arapca": "الْحَكِيمُ",
+   "anlam": "Her işi hikmetli olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 48,
+   "ad": "el-Vedûd",
+   "arapca": "الْوَدُودُ",
+   "anlam": "Kullarını seven ve sevilen",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 49,
+   "ad": "el-Mecîd",
+   "arapca": "الْمَجِيدُ",
+   "anlam": "Şanı yüce olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 50,
+   "ad": "el-Bâis",
+   "arapca": "الْبَاعِثُ",
+   "anlam": "Ölüleri dirilten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 51,
+   "ad": "eş-Şehîd",
+   "arapca": "الشَّهِيدُ",
+   "anlam": "Her şeye şahit olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 52,
+   "ad": "el-Hakk",
+   "arapca": "الْحَقُّ",
+   "anlam": "Varlığı gerçek olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 53,
+   "ad": "el-Vekîl",
+   "arapca": "الْوَكِيلُ",
+   "anlam": "Kendisine güvenilip dayanılan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 54,
+   "ad": "el-Kaviyy",
+   "arapca": "الْقَوِيُّ",
+   "anlam": "Pek güçlü",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 55,
+   "ad": "el-Metîn",
+   "arapca": "الْمَتِينُ",
+   "anlam": "Gücü sarsılmaz olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 56,
+   "ad": "el-Veliyy",
+   "arapca": "الْوَلِيُّ",
+   "anlam": "Müminlerin dostu ve yardımcısı",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 57,
+   "ad": "el-Hamîd",
+   "arapca": "الْحَمِيدُ",
+   "anlam": "Övülmeye layık olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 58,
+   "ad": "el-Muhsî",
+   "arapca": "الْمُحْصِي",
+   "anlam": "Her şeyi tek tek sayıp bilen",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 59,
+   "ad": "el-Mübdi'",
+   "arapca": "الْمُبْدِئُ",
+   "anlam": "İlk defa yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 60,
+   "ad": "el-Muîd",
+   "arapca": "الْمُعِيدُ",
+   "anlam": "Ölümden sonra yeniden yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 61,
+   "ad": "el-Muhyî",
+   "arapca": "الْمُحْيِي",
+   "anlam": "Hayat veren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 62,
+   "ad": "el-Mümît",
+   "arapca": "الْمُمِيتُ",
+   "anlam": "Ölümü yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 63,
+   "ad": "el-Hayy",
+   "arapca": "الْحَيُّ",
+   "anlam": "Ezelî ve ebedî hayat sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 64,
+   "ad": "el-Kayyûm",
+   "arapca": "الْقَيُّومُ",
+   "anlam": "Her şeyi ayakta tutan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 65,
+   "ad": "el-Vâcid",
+   "arapca": "الْوَاجِدُ",
+   "anlam": "Dilediğini dilediği an bulan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 66,
+   "ad": "el-Mâcid",
+   "arapca": "الْمَاجِدُ",
+   "anlam": "Şanı ve keremi yüce olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 67,
+   "ad": "el-Vâhid",
+   "arapca": "الْوَاحِدُ",
+   "anlam": "Bir ve tek olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 68,
+   "ad": "es-Samed",
+   "arapca": "الصَّمَدُ",
+   "anlam": "Hiçbir şeye muhtaç olmayan, her şeyin kendisine muhtaç olduğu",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 69,
+   "ad": "el-Kâdir",
+   "arapca": "الْقَادِرُ",
+   "anlam": "Her şeye gücü yeten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 70,
+   "ad": "el-Muktedir",
+   "arapca": "الْمُقْتَدِرُ",
+   "anlam": "Kudreti her şeye üstün olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 71,
+   "ad": "el-Mukaddim",
+   "arapca": "الْمُقَدِّمُ",
+   "anlam": "Dilediğini öne alan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 72,
+   "ad": "el-Muahhir",
+   "arapca": "الْمُؤَخِّرُ",
+   "anlam": "Dilediğini geriye bırakan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 73,
+   "ad": "el-Evvel",
+   "arapca": "الْأَوَّلُ",
+   "anlam": "Varlığının başlangıcı olmayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 74,
+   "ad": "el-Âhir",
+   "arapca": "الْآخِرُ",
+   "anlam": "Varlığının sonu olmayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 75,
+   "ad": "ez-Zâhir",
+   "arapca": "الظَّاهِرُ",
+   "anlam": "Varlığı apaçık olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 76,
+   "ad": "el-Bâtın",
+   "arapca": "الْبَاطِنُ",
+   "anlam": "Zatı akıllarla kavranamayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 77,
+   "ad": "el-Vâlî",
+   "arapca": "الْوَالِي",
+   "anlam": "Bütün kâinatı yöneten",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 78,
+   "ad": "el-Müteâlî",
+   "arapca": "الْمُتَعَالِي",
+   "anlam": "Aklın alabileceği her şeyden yüce olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 79,
+   "ad": "el-Berr",
+   "arapca": "الْبَرُّ",
+   "anlam": "İyiliği ve ihsanı bol",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 80,
+   "ad": "et-Tevvâb",
+   "arapca": "التَّوَّابُ",
+   "anlam": "Tövbeleri çokça kabul eden",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 81,
+   "ad": "el-Müntakım",
+   "arapca": "الْمُنْتَقِمُ",
+   "anlam": "Suçluları adaletiyle cezalandıran",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 82,
+   "ad": "el-Afüvv",
+   "arapca": "الْعَفُوُّ",
+   "anlam": "Çok affeden",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 83,
+   "ad": "er-Raûf",
+   "arapca": "الرَّؤُوفُ",
+   "anlam": "Çok şefkatli",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 84,
+   "ad": "Mâlikü'l-Mülk",
+   "arapca": "مَالِكُ الْمُلْكِ",
+   "anlam": "Mülkün ebedî sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 85,
+   "ad": "Zü'l-Celâli ve'l-İkrâm",
+   "arapca": "ذُو الْجَلَالِ وَالْإِكْرَامِ",
+   "anlam": "Azamet ve ikram sahibi",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 86,
+   "ad": "el-Muksit",
+   "arapca": "الْمُقْسِطُ",
+   "anlam": "Bütün işlerini adaletle yapan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 87,
+   "ad": "el-Câmi'",
+   "arapca": "الْجَامِعُ",
+   "anlam": "Dilediğini dilediği zaman bir araya getiren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 88,
+   "ad": "el-Ganiyy",
+   "arapca": "الْغَنِيُّ",
+   "anlam": "Hiçbir şeye ihtiyacı olmayan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 89,
+   "ad": "el-Muğnî",
+   "arapca": "الْمُغْنِي",
+   "anlam": "Dilediğini zengin kılan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 90,
+   "ad": "el-Mâni'",
+   "arapca": "الْمَانِعُ",
+   "anlam": "Dilemediği şeye engel olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 91,
+   "ad": "ed-Dârr",
+   "arapca": "الضَّارُّ",
+   "anlam": "Zarar verici şeyleri de yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 92,
+   "ad": "en-Nâfi'",
+   "arapca": "النَّافِعُ",
+   "anlam": "Fayda veren şeyleri yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 93,
+   "ad": "en-Nûr",
+   "arapca": "النُّورُ",
+   "anlam": "Âlemleri nurlandıran",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 94,
+   "ad": "el-Hâdî",
+   "arapca": "الْهَادِي",
+   "anlam": "Hidayete erdiren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 95,
+   "ad": "el-Bedî'",
+   "arapca": "الْبَدِيعُ",
+   "anlam": "Örneksiz ve eşsiz yaratan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 96,
+   "ad": "el-Bâkî",
+   "arapca": "الْبَاقِي",
+   "anlam": "Varlığı sürekli olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 97,
+   "ad": "el-Vâris",
+   "arapca": "الْوَارِثُ",
+   "anlam": "Her şeyin gerçek sahibi, varlığı devam eden",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 98,
+   "ad": "er-Reşîd",
+   "arapca": "الرَّشِيدُ",
+   "anlam": "Doğru yolu gösteren",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  },
+  {
+   "no": 99,
+   "ad": "es-Sabûr",
+   "arapca": "الصَّبُورُ",
+   "anlam": "Çok sabırlı olan",
+   "incelendi": false,
+   "inceleyen": null,
+   "not": ""
+  }
+ ]
+}

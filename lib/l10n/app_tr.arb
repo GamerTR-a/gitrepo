@@ -1,0 +1,1020 @@
+{
+  "@@locale": "tr",
+  "uygulamaAdi": "Abyad",
+  "geri": "Geri",
+  "tamam": "Tamam",
+  "vazgec": "Vazgeç",
+  "devam": "Devam",
+  "atla": "Atla",
+  "acik": "Açık",
+  "kapali": "Kapalı",
+  "bugun": "Bugün",
+  "gecti": "Geçti",
+  "tumu": "Tümü",
+  "onceki": "Önceki",
+  "sonucYok": "Sonuç bulunamadı",
+  "veriOkunamadi": "İçerik yüklenemedi. Uygulamayı kapatıp yeniden açmayı deneyin.",
+  "artir": "{ad}: artır",
+  "@artir": {
+    "placeholders": {
+      "ad": {
+        "type": "String"
+      }
+    }
+  },
+  "azalt": "{ad}: azalt",
+  "@azalt": {
+    "placeholders": {
+      "ad": {
+        "type": "String"
+      }
+    }
+  },
+  "yuzdeDeger": "%{yuzde}",
+  "@yuzdeDeger": {
+    "placeholders": {
+      "yuzde": {
+        "type": "int"
+      }
+    }
+  },
+  "kaynakSatiri": "Kaynak: {kaynak}",
+  "@kaynakSatiri": {
+    "placeholders": {
+      "kaynak": {
+        "type": "String"
+      }
+    }
+  },
+  "okunus": "Okunuşu",
+  "anlam": "Anlamı",
+  "namaz": "Namaz",
+  "abdest": "Abdest",
+  "oruc": "Oruç",
+  "menuEtiketi": "Ana menü",
+  "menuAnaSayfa": "Ana Sayfa",
+  "menuVakitler": "Vakitler",
+  "menuKuran": "Kur'an",
+  "menuDualar": "Dualar",
+  "menuGunler": "Günler",
+  "ekranVakitler": "Namaz Vakitleri",
+  "ekranKuran": "Kur'an-ı Kerim",
+  "ekranDualar": "Dualar ve Zikir",
+  "ekranGunler": "Önemli Günler",
+  "vakitImsak": "İmsak",
+  "vakitGunes": "Güneş",
+  "vakitOgle": "Öğle",
+  "vakitIkindi": "İkindi",
+  "vakitAksam": "Akşam",
+  "vakitYatsi": "Yatsı",
+  "siradakiVakit": "Sıradaki vakit · {vakit}",
+  "@siradakiVakit": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "siradakiVakitOkuma": "Sıradaki vakit {vakit}, saat {saat}, {kalan}",
+  "@siradakiVakitOkuma": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "saat": {
+        "type": "String"
+      },
+      "kalan": {
+        "type": "String"
+      }
+    }
+  },
+  "kalanSaatDakika": "{saat} saat {dakika} dakika kaldı",
+  "@kalanSaatDakika": {
+    "placeholders": {
+      "saat": {
+        "type": "int"
+      },
+      "dakika": {
+        "type": "int"
+      }
+    }
+  },
+  "kalanDakika": "{dakika} dakika kaldı",
+  "@kalanDakika": {
+    "placeholders": {
+      "dakika": {
+        "type": "int"
+      }
+    }
+  },
+  "vakitCipiOkuma": "{vakit} {saat}",
+  "@vakitCipiOkuma": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "saat": {
+        "type": "String"
+      }
+    }
+  },
+  "vakitCipiSiradakiOkuma": "{vakit} {saat}, sıradaki vakit",
+  "@vakitCipiSiradakiOkuma": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "saat": {
+        "type": "String"
+      }
+    }
+  },
+  "vakitCipiSimdikiOkuma": "{vakit} {saat}, şu anki vakit",
+  "@vakitCipiSimdikiOkuma": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "saat": {
+        "type": "String"
+      }
+    }
+  },
+  "siradakiVakitRozet": "Sıradaki vakit",
+  "suAnkiVakitRozet": "Şu anki vakit",
+  "tarihSatiri": "{hicri} · {miladi}",
+  "@tarihSatiri": {
+    "placeholders": {
+      "hicri": {
+        "type": "String"
+      },
+      "miladi": {
+        "type": "String"
+      }
+    }
+  },
+  "hicriTarih": "{gun} {ay} {yil}",
+  "@hicriTarih": {
+    "placeholders": {
+      "gun": {
+        "type": "int"
+      },
+      "ay": {
+        "type": "String"
+      },
+      "yil": {
+        "type": "int"
+      }
+    }
+  },
+  "hicriAylar": "Muharrem,Safer,Rebiülevvel,Rebiülâhir,Cemâziyelevvel,Cemâziyelâhir,Receb,Şâban,Ramazan,Şevval,Zilkade,Zilhicce",
+  "vakteKalan": "{vakit} vaktine kalan",
+  "@vakteKalan": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "vakteKalanOkuma": "{vakit} vaktine {kalan}",
+  "@vakteKalanOkuma": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "kalan": {
+        "type": "String"
+      }
+    }
+  },
+  "oncekiGun": "Önceki gün",
+  "sonrakiGun": "Sonraki gün",
+  "buguneDon": "Bugüne dönmek için dokunun",
+  "oncekiAy": "Önceki ay",
+  "sonrakiAy": "Sonraki ay",
+  "aylikImsakiye": "Aylık imsakiye",
+  "ezanBildirimiAcik": "{vakit} ezan bildirimi açık",
+  "@ezanBildirimiAcik": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "ezanBildirimiKapali": "{vakit} ezan bildirimi kapalı",
+  "@ezanBildirimiKapali": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "hesaplamaYontemiNotu": "Hesaplama yöntemi: {yontem} · Ayarlardan değiştirilebilir",
+  "@hesaplamaYontemiNotu": {
+    "placeholders": {
+      "yontem": {
+        "type": "String"
+      }
+    }
+  },
+  "yontemDiyanet": "Diyanet İşleri Başkanlığı",
+  "yontemDunyaIslamBirligi": "Dünya İslam Birliği",
+  "yontemKuzeyAmerika": "Kuzey Amerika (ISNA)",
+  "yontemMisir": "Mısır",
+  "bildirimler": "Bildirimler",
+  "kibleBaslik": "Kıble",
+  "kibleYonu": "Kıble yönü",
+  "kibleDerece": "{derece}° {yon}",
+  "@kibleDerece": {
+    "placeholders": {
+      "derece": {
+        "type": "int"
+      },
+      "yon": {
+        "type": "String"
+      }
+    }
+  },
+  "kibleKartOkuma": "Kıble yönü {derece} derece {yon}. Pusulayı açmak için dokunun",
+  "@kibleKartOkuma": {
+    "placeholders": {
+      "derece": {
+        "type": "int"
+      },
+      "yon": {
+        "type": "String"
+      }
+    }
+  },
+  "pusulayiAc": "Pusulayı aç",
+  "kibleHizada": "Kıbleye döndünüz",
+  "kibleSagaDon": "{derece}° sağa dönün",
+  "@kibleSagaDon": {
+    "placeholders": {
+      "derece": {
+        "type": "int"
+      }
+    }
+  },
+  "kibleSolaDon": "{derece}° sola dönün",
+  "@kibleSolaDon": {
+    "placeholders": {
+      "derece": {
+        "type": "int"
+      }
+    }
+  },
+  "kibleTitresim": "Kıbleye dönünce titreşim",
+  "kibleTitresimAciklama": "Telefon kıbleye hizalanınca hafifçe titrer.",
+  "pusulaIpucu": "Telefonu yere paralel tutun. Yön şaşıyorsa telefonu havada 8 çizer gibi hareket ettirerek kalibre edin.",
+  "pusulaYokBaslik": "Pusula sensörü bulunamadı",
+  "pusulaYokMetin": "Bu telefonda pusula kullanılamıyor. Kıble yönünüz kuzeyden saat yönünde {derece}° ({yon}).",
+  "@pusulaYokMetin": {
+    "placeholders": {
+      "derece": {
+        "type": "int"
+      },
+      "yon": {
+        "type": "String"
+      }
+    }
+  },
+  "kalibrasyonBaslik": "Pusula kalibrasyonu gerekiyor",
+  "kalibrasyonMetin": "Telefonu havada 8 çizer gibi birkaç kez hareket ettirin. Mıknatıs, hoparlör ve metal eşyalardan uzak tutun.",
+  "kuzeyKisaltma": "K",
+  "yonKuzey": "Kuzey",
+  "yonKuzeydogu": "Kuzeydoğu",
+  "yonDogu": "Doğu",
+  "yonGuneydogu": "Güneydoğu",
+  "yonGuney": "Güney",
+  "yonGuneybati": "Güneybatı",
+  "yonBati": "Batı",
+  "yonKuzeybati": "Kuzeybatı",
+  "konum": "Konum",
+  "konumSec": "Konum Seç",
+  "konumDegistirOkuma": "Konum: {sehir}. Değiştirmek için dokunun",
+  "@konumDegistirOkuma": {
+    "placeholders": {
+      "sehir": {
+        "type": "String"
+      }
+    }
+  },
+  "konumOtomatik": "Otomatik · {sehir}",
+  "@konumOtomatik": {
+    "placeholders": {
+      "sehir": {
+        "type": "String"
+      }
+    }
+  },
+  "sehirAraIpucu": "İl, ilçe veya şehir ara",
+  "sehirBulunamadi": "Aradığınız yer bulunamadı. Yakındaki bir ilçeyi ya da ili deneyin.",
+  "konumumuKullan": "Konumumu kullan",
+  "konumAraniyor": "Konum aranıyor…",
+  "konumMahremiyet": "Konumunuz yalnızca vakitleri hesaplamak için kullanılır ve telefonunuzda kalır.",
+  "konumServisKapali": "Telefonun konum servisi kapalı.",
+  "konumIzinYok": "Konum izni verilmedi. Şehrinizi listeden seçebilirsiniz.",
+  "konumIzinKalici": "Konum izni kapalı. Telefonun ayarlarından açabilir ya da şehrinizi listeden seçebilirsiniz.",
+  "konumBulunamadi": "Konum bulunamadı. Şehrinizi listeden seçebilirsiniz.",
+  "hizliKible": "Kıble",
+  "hizliKuran": "Kur'an",
+  "hizliZikirmatik": "Zikirmatik",
+  "hizliDualar": "Dualar",
+  "devamEt": "Kaldığın yerden devam et",
+  "devamKonum": "{sure} · {ayet}. ayet",
+  "@devamKonum": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      },
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimDurumu": "Hatim %{yuzde} · Sayfa {sayfa} / {toplam}",
+  "@hatimDurumu": {
+    "placeholders": {
+      "yuzde": {
+        "type": "int"
+      },
+      "sayfa": {
+        "type": "int"
+      },
+      "toplam": {
+        "type": "int"
+      }
+    }
+  },
+  "devamOkuma": "Kaldığın yerden devam et: {sure}, {ayet}. ayet. Hatim yüzde {yuzde}",
+  "@devamOkuma": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      },
+      "ayet": {
+        "type": "int"
+      },
+      "yuzde": {
+        "type": "int"
+      }
+    }
+  },
+  "kuranaBasla": "Kur'an okumaya başla",
+  "kuranaBaslaAlt": "Kaldığınız yer burada görünecek",
+  "gununAyeti": "Günün Ayeti",
+  "ayetKaynagi": "{sure} Suresi, {ayet}",
+  "@ayetKaynagi": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      },
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "yaklasanGun": "Yaklaşan mübarek gün",
+  "gunBirimi": "gün",
+  "yaklasanGunOkuma": "Yaklaşan mübarek gün: {ad}, {tarih}, {kalan} gün kaldı",
+  "@yaklasanGunOkuma": {
+    "placeholders": {
+      "ad": {
+        "type": "String"
+      },
+      "tarih": {
+        "type": "String"
+      },
+      "kalan": {
+        "type": "int"
+      }
+    }
+  },
+  "dahaFazlasi": "Daha fazlası",
+  "rehberBaslik": "Namaz ve Abdest Rehberi",
+  "rehberAciklama": "Yeni başlayanlar için adım adım",
+  "kazaAciklama": "Kaza namazı ve oruç sayaçları",
+  "kuranAraIpucu": "Sure adı veya sure:ayet ara",
+  "sekmeSure": "Sure",
+  "sekmeCuz": "Cüz",
+  "sekmeSayfa": "Sayfa",
+  "sekmeImlerim": "İmlerim",
+  "kaldiginYer": "Kaldığın yer",
+  "mekki": "Mekkî",
+  "medeni": "Medenî",
+  "sureBilgisi": "{tur} · {ayet} ayet",
+  "@sureBilgisi": {
+    "placeholders": {
+      "tur": {
+        "type": "String"
+      },
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "sureAdi": "{sure} Suresi",
+  "@sureAdi": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      }
+    }
+  },
+  "sureAyet": "{sure} · {ayet}. ayet",
+  "@sureAyet": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      },
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "sureAyetUzun": "{sure} Suresi · {ayet}. ayet",
+  "@sureAyetUzun": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      },
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "sureUstBilgi": "{no}. sure · {ayet} ayet · {tur} · Sayfa {sayfa}",
+  "@sureUstBilgi": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      },
+      "ayet": {
+        "type": "int"
+      },
+      "tur": {
+        "type": "String"
+      },
+      "sayfa": {
+        "type": "int"
+      }
+    }
+  },
+  "cuzNo": "{no}. Cüz",
+  "@cuzNo": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      }
+    }
+  },
+  "sayfaNo": "Sayfa {no}",
+  "@sayfaNo": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      }
+    }
+  },
+  "sayfaCuz": "Sayfa {sayfa} · {cuz}. cüz",
+  "@sayfaCuz": {
+    "placeholders": {
+      "sayfa": {
+        "type": "int"
+      },
+      "cuz": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimYuzde": "Hatim %{yuzde}",
+  "@hatimYuzde": {
+    "placeholders": {
+      "yuzde": {
+        "type": "int"
+      }
+    }
+  },
+  "yerImiYok": "Henüz yer imi yok. Okurken bir ayetin yanındaki işarete dokunarak ekleyebilirsiniz.",
+  "yerImiEkle": "{ayet}. ayete yer imi ekle",
+  "@yerImiEkle": {
+    "placeholders": {
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "yerImiKaldir": "{ayet}. ayetin yer imini kaldır",
+  "@yerImiKaldir": {
+    "placeholders": {
+      "ayet": {
+        "type": "int"
+      }
+    }
+  },
+  "ayetNo": "{no}. ayet",
+  "@ayetNo": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      }
+    }
+  },
+  "modArapcaMeal": "Arapça + Meal",
+  "modArapca": "Arapça",
+  "modMeal": "Meal",
+  "mealYok": "Meal kaynağı eklenecek. Türkçe meal, lisans izni alındıktan sonra burada görünecek.",
+  "mealYokKisa": "Meal kaynağı eklenecek",
+  "sonrakiSure": "Sonraki sure: {sure}",
+  "@sonrakiSure": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      }
+    }
+  },
+  "tanzilKaynak": "Arapça metin: Tanzil Projesi (tanzil.net)",
+  "yaziBoyutuVeGorunum": "Yazı boyutu ve görünüm",
+  "sayfaGorunumu": "Sayfa görünümü",
+  "ayetGorunumu": "Ayet ayet görünüm",
+  "sayfaSayisi": "Sayfa {sayfa} / {toplam}",
+  "@sayfaSayisi": {
+    "placeholders": {
+      "sayfa": {
+        "type": "int"
+      },
+      "toplam": {
+        "type": "int"
+      }
+    }
+  },
+  "oncekiSayfa": "Önceki sayfa",
+  "sonrakiSayfa": "Sonraki sayfa",
+  "sayfayaGit": "Sayfaya git",
+  "sayfaNoIpucu": "1–604",
+  "yerImiEkleKisa": "Yer imi ekle",
+  "yerImiKaldirKisa": "Yer imini kaldır",
+  "mealSecimi": "Meal",
+  "mealEklenmedi": "Eklenmedi",
+  "kuranGorunumu": "Kur'an görünümü",
+  "lisansMealKaydi": "{ad} — {sahip}. {lisans}",
+  "@lisansMealKaydi": {
+    "placeholders": {
+      "ad": {
+        "type": "String"
+      },
+      "sahip": {
+        "type": "String"
+      },
+      "lisans": {
+        "type": "String"
+      }
+    }
+  },
+  "arapcaYaziBoyutu": "Arapça yazı boyutu",
+  "arapcaYaziBoyutuNot": "Yalnızca Kur'an okuma ekranlarındaki Arapça metni etkiler. Genel yazı boyutu Ayarlar'dan değiştirilir.",
+  "kategoriler": "Kategoriler",
+  "zikirmatik": "Zikirmatik",
+  "namazSonrasiTesbihat": "Namaz sonrası tesbihat",
+  "tesbihatOzet": "Sübhânallah · Elhamdülillah · Allâhu Ekber",
+  "sayaciSifirla": "Sayacı sıfırla",
+  "dokunVeSay": "Dokun ve say",
+  "zikirSayOkuma": "{zikir} say, şu an {sayi}",
+  "@zikirSayOkuma": {
+    "placeholders": {
+      "zikir": {
+        "type": "String"
+      },
+      "sayi": {
+        "type": "int"
+      }
+    }
+  },
+  "turTamamlandi": "{tur} tur tamamlandı · Allah kabul etsin",
+  "@turTamamlandi": {
+    "placeholders": {
+      "tur": {
+        "type": "int"
+      }
+    }
+  },
+  "hedef": "Hedef",
+  "hedefSerbest": "Serbest",
+  "bugunkuToplam": "Bugünkü toplam zikir",
+  "bugunkuToplamOkuma": "Bugünkü toplam zikir: {adet}",
+  "@bugunkuToplamOkuma": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "zikirTitresim": "Dokununca titreşim",
+  "zikirTumEkran": "Ekranın her yerine dokunarak say",
+  "zikirTumEkranAciklama": "Telefona bakmadan sayabilirsiniz.",
+  "zikirEkranAcik": "Ekran kapanmasın",
+  "ozelZikir": "Özel zikir",
+  "ozelZikirEkle": "+ Özel zikir",
+  "ozelZikirIpucu": "Zikri yazın",
+  "gunlerDonem": "Hicrî {yil} · {donem}",
+  "@gunlerDonem": {
+    "placeholders": {
+      "yil": {
+        "type": "int"
+      },
+      "donem": {
+        "type": "String"
+      }
+    }
+  },
+  "siradakiMubarekGun": "Sıradaki mübarek gün",
+  "gunKaldi": "gün kaldı",
+  "kalanGun": "{gun} gün",
+  "@kalanGun": {
+    "placeholders": {
+      "gun": {
+        "type": "int"
+      }
+    }
+  },
+  "hatirlat": "Hatırlat",
+  "hatirlatmaAcik": "Hatırlatma açık",
+  "gunHatirlatmaAcik": "{gun} hatırlatması açık",
+  "@gunHatirlatmaAcik": {
+    "placeholders": {
+      "gun": {
+        "type": "String"
+      }
+    }
+  },
+  "gunHatirlatmaKapali": "{gun} hatırlatması kapalı",
+  "@gunHatirlatmaKapali": {
+    "placeholders": {
+      "gun": {
+        "type": "String"
+      }
+    }
+  },
+  "tarihAraligi": "{ilk}–{son} {ayYil}",
+  "@tarihAraligi": {
+    "placeholders": {
+      "ilk": {
+        "type": "int"
+      },
+      "son": {
+        "type": "int"
+      },
+      "ayYil": {
+        "type": "String"
+      }
+    }
+  },
+  "gunlerNot": "Tarihler resmî dinî günler takvimine göre güncellenir.",
+  "ayarlar": "Ayarlar",
+  "okunabilirlik": "Okunabilirlik",
+  "yaziBoyutu": "Yazı boyutu",
+  "yaziNormal": "Normal",
+  "yaziBuyuk": "Büyük",
+  "yaziCokBuyuk": "Çok büyük",
+  "yaziOrnegi": "Bu metin, seçtiğiniz yazı boyutunun örneğidir.",
+  "yaziBoyutuNot": "Seçtiğiniz boyut bütün ekranlarda, Kur'an ve dualar dahil uygulanır. Telefonun kendi yazı boyutu ayarına da uyar.",
+  "yuksekKontrast": "Yüksek kontrast",
+  "yuksekKontrastAciklama": "Yazı ve zemin arasındaki farkı artırır.",
+  "ezanVeBildirimler": "Ezan ve bildirimler",
+  "alarmOlarakCal": "Ezanı alarm olarak çal",
+  "alarmOlarakCalAciklama": "Medya sesi kısık olsa da, ekran kapalıyken de ezan duyulur.",
+  "onceHatirlat": "Vakitten 15 dk önce hatırlat",
+  "onceHatirlatAciklama": "Özellikle sabah ve sahur için ikinci bir uyarı.",
+  "cumaSessiz": "Cuma namazında sessiz",
+  "cumaSessizAciklama": "Cuma günü öğle vaktinde ezan yerine titreşim.",
+  "vakitBildirimleri": "Vakit bildirimleri",
+  "vakitBildirimleriAciklama": "Her vakit için aç/kapa ve ses seçimi",
+  "sesEzan": "Ezan",
+  "sesKisa": "Kısa uyarı",
+  "sesTitresim": "Titreşim",
+  "ezanSesiYokNot": "Ezan kaydı henüz eklenmedi; \"Ezan\" seçili vakitlerde telefonun varsayılan bildirim sesi çalar.",
+  "bildirimIzniYok": "Bildirim izni verilmedi; ezan vakitlerinde bildirim gelmez.",
+  "bildirimIzniVer": "Bildirimlere izin ver",
+  "tamZamanliYok": "Tam zamanlı alarm izni kapalı; ezan birkaç dakika gecikebilir.",
+  "tamZamanliIzinVer": "Tam zamanlı alarma izin ver",
+  "testBildirimiAciklama": "Ezan bildiriminin telefonunuzda çaldığını hemen doğrulayın.",
+  "testBildirimiGonder": "Test bildirimi gönder",
+  "testBildirimiGonderildi": "Birkaç saniye içinde bildirim gelecek.",
+  "pilBaslik": "Ezanın her durumda çalması için",
+  "pilMetin": "Telefonunuz pil tasarrufu için uygulamayı durdurabilir. Bu uygulama için pil optimizasyonunu kapatın.",
+  "ayariAc": "Ayarı aç",
+  "markaSamsung": "Samsung",
+  "markaSamsungYol": "Ayarlar > Uygulamalar > Abyad > Pil > \"Kısıtlamasız\" seçin.",
+  "markaXiaomi": "Xiaomi",
+  "markaXiaomiYol": "Ayarlar > Uygulamalar > Abyad > Pil tasarrufu > \"Kısıtlama yok\" seçin; ayrıca \"Otomatik başlatma\"yı açın.",
+  "markaHuawei": "Huawei / Honor",
+  "markaHuaweiYol": "Ayarlar > Uygulamalar > Uygulama başlatma > Abyad > \"Elle yönet\" seçip üç seçeneği de açın.",
+  "vakitHesaplama": "Vakit hesaplama",
+  "hesaplamaYontemi": "Hesaplama yöntemi",
+  "dakikaDuzeltme": "Vakitlere dakika ekle/çıkar",
+  "dakikaDuzeltmeAciklama": "Camideki ezan vaktiyle fark varsa her vakit için dakika ekleyip çıkarabilirsiniz.",
+  "dakikaArtir": "{vakit}: bir dakika ekle",
+  "@dakikaArtir": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "dakikaAzalt": "{vakit}: bir dakika çıkar",
+  "@dakikaAzalt": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "dakikaDeger": "{dakika} dakika",
+  "@dakikaDeger": {
+    "placeholders": {
+      "dakika": {
+        "type": "int"
+      }
+    }
+  },
+  "hicriDuzeltme": "Hicrî tarih düzeltmesi",
+  "hicriDuzeltmeAciklama": "Hicrî gün, bulunduğunuz yerdeki takvimden bir gün farklıysa düzeltin.",
+  "gunEksiBir": "−1 gün",
+  "gunFarkiYok": "Düzeltme yok",
+  "gunArtiBir": "+1 gün",
+  "mahremiyetBaslik": "Mahremiyetiniz emanettir",
+  "mahremiyetMetin": "Bu uygulama hiçbir veri toplamaz, reklam göstermez ve hesap istemez. Konumunuz sadece vakitleri hesaplamak için bu telefonda kullanılır, hiçbir yere gönderilmez.",
+  "kaynaklarVeLisanslar": "Kaynaklar ve Lisanslar",
+  "surumBilgisi": "Sürüm {surum} · Ücretsizdir, ücretsiz kalacaktır.",
+  "@surumBilgisi": {
+    "placeholders": {
+      "surum": {
+        "type": "String"
+      }
+    }
+  },
+  "lisansKuranBaslik": "Kur'an-ı Kerim metni",
+  "lisansKuranMetin": "Arapça metin, Tanzil Projesi'nin Uthmani metnidir (sürüm 1.1, tanzil.net). Creative Commons Attribution 3.0 lisansı gereği metin değiştirilmeden kullanılmıştır. Sure, cüz ve sayfa bilgileri de Tanzil üst verisinden gelir.",
+  "lisansMealBaslik": "Türkçe meal",
+  "lisansMealMetin": "Henüz bir meal eklenmedi. Meal, yalnızca hak sahibinden izin alındıktan sonra eklenecektir.",
+  "lisansSehirBaslik": "Şehir koordinatları",
+  "lisansSehirMetin": "İl, ilçe ve yurt dışı şehir koordinatları GeoNames (geonames.org) verisinden alınmıştır. Creative Commons Attribution 4.0.",
+  "lisansYaziBaslik": "Yazı tipleri",
+  "lisansYaziMetin": "Manrope, Fraunces ve Amiri; SIL Open Font License 1.1 ile lisanslıdır.",
+  "lisansEzanBaslik": "Ezan sesi",
+  "lisansEzanMetin": "Henüz ezan kaydı eklenmedi; telefonun varsayılan bildirim sesi kullanılıyor. Kayıt, yalnızca izinli ya da lisanslı bir kaynaktan eklenecektir.",
+  "lisansIcerikBaslik": "Dua ve bilgi metinleri",
+  "lisansIcerikMetin": "Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.",
+  "lisansPaketler": "Kullanılan yazılım paketleri",
+  "kanalEzanAlarm": "Ezan (alarm sesiyle)",
+  "kanalEzan": "Ezan",
+  "kanalHatirlatma": "Hatırlatmalar",
+  "kanalTitresim": "Sessiz (titreşim)",
+  "kanalAciklama": "Namaz vakti bildirimleri",
+  "bildirimVakitBaslik": "{vakit} vakti",
+  "@bildirimVakitBaslik": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      }
+    }
+  },
+  "bildirimVakitGovde": "{sehir} · {saat}",
+  "@bildirimVakitGovde": {
+    "placeholders": {
+      "sehir": {
+        "type": "String"
+      },
+      "saat": {
+        "type": "String"
+      }
+    }
+  },
+  "bildirimOnceBaslik": "{vakit} vaktine {dakika} dakika kaldı",
+  "@bildirimOnceBaslik": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "dakika": {
+        "type": "int"
+      }
+    }
+  },
+  "bildirimGunGovde": "Bugün mübarek bir gün. Hayırlara vesile olsun.",
+  "bildirimTestBaslik": "Test bildirimi",
+  "bildirimTestGovde": "Bu bildirimi duyduysanız ezan bildirimleri çalışıyor.",
+  "ilkAdim": "Adım {adim} / {toplam}",
+  "@ilkAdim": {
+    "placeholders": {
+      "adim": {
+        "type": "int"
+      },
+      "toplam": {
+        "type": "int"
+      }
+    }
+  },
+  "ilkVaatBaslik": "Reklam yok, veri yok, hesap yok.",
+  "ilkVaatMetin": "Abyad tamamen ücretsizdir ve öyle kalacak. Hiçbir verinizi toplamaz, internete bağlanmaz, sizden hesap istemez. Vakitler, Kur'an ve dualar telefonunuzun içindedir.",
+  "ilkKonumBaslik": "Vakitler için konumunuz",
+  "ilkKonumMetin": "Namaz vakitlerini bulunduğunuz yere göre hesaplamak için konumunuzu kullanırız. Konumunuz yalnızca vakitleri hesaplamak içindir, telefonunuzda kalır ve hiçbir yere gönderilmez. İsterseniz konum izni vermeden şehrinizi listeden seçebilirsiniz.",
+  "ilkKonumAlinamadi": "Konum alınamadı. Şehrinizi listeden seçebilirsiniz.",
+  "sehrimiSecerim": "Şehrimi listeden seçeyim",
+  "simdilikAtla": "Şimdilik atla (İstanbul ile devam et)",
+  "ilkBildirimBaslik": "Ezan vaktinde haber verelim",
+  "ilkBildirimMetin": "Vakit girdiğinde ezan bildirimi gönderebilmemiz için bildirim iznine ihtiyacımız var. Hangi vakitlerde bildirim alacağınızı sonra Ayarlar'dan değiştirebilirsiniz.",
+  "ilkBildirimMetinAndroid": "Vakit girdiğinde ezan bildirimi gönderebilmemiz için bildirim iznine ihtiyacımız var. Ezanın tam vaktinde çalması için telefonunuz \"Alarmlar ve hatırlatıcılar\" iznini de sorabilir. Bazı telefonlar pil tasarrufu için uygulamayı durdurur; bunu Ayarlar'daki yönergelerle kapatabilirsiniz.",
+  "kazaTakibi": "Kaza Takibi",
+  "gizle": "Gizle",
+  "goster": "Göster",
+  "sayilariGizle": "Sayıları gizle",
+  "sayilariGoster": "Sayıları göster",
+  "kalanKaza": "Kalan kaza namazı",
+  "tahminiBitis": "Tahmini bitiş",
+  "kazaYok": "Borç yok",
+  "kazaOzetGizli": "Kaza sayıları gizli",
+  "kazaOzetOkuma": "Kalan kaza namazı {adet}. Tahmini bitiş: {sure}",
+  "@kazaOzetOkuma": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      },
+      "sure": {
+        "type": "String"
+      }
+    }
+  },
+  "gundeKacVakit": "Günde kaç vakit kaza kılarım?",
+  "gundeVakit": "Günde {adet} vakit",
+  "@gundeVakit": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "bugunKazaKildiniz": "Bugün {adet} kaza kıldınız. Allah kabul etsin.",
+  "@bugunKazaKildiniz": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "kazaSabah": "Sabah",
+  "kazaVitir": "Vitir",
+  "kazaOruc": "Ramazan kazası",
+  "kazaKaldi": "{adet} kaldı",
+  "@kazaKaldi": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "orucKaldi": "{adet} gün kaldı",
+  "@orucKaldi": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "kazaEkle": "{namaz} kazası ekle",
+  "@kazaEkle": {
+    "placeholders": {
+      "namaz": {
+        "type": "String"
+      }
+    }
+  },
+  "kazaKildimOkuma": "Bir {namaz} kazası kıldım",
+  "@kazaKildimOkuma": {
+    "placeholders": {
+      "namaz": {
+        "type": "String"
+      }
+    }
+  },
+  "kildim": "Kıldım",
+  "tuttum": "Tuttum",
+  "orucEkle": "Kaza orucu ekle",
+  "orucTuttumOkuma": "Bir kaza orucu tuttum",
+  "kazaNasilHesaplarim": "Kaza borcumu nasıl hesaplarım?",
+  "kazaHesapAlt": "Adım adım hesaplama ve kısa fıkıh bilgisi",
+  "kazaMahremiyet": "Bu bilgiler sadece bu telefonda saklanır.",
+  "sureYilAy": "yaklaşık {yil} yıl {ay} ay",
+  "@sureYilAy": {
+    "placeholders": {
+      "yil": {
+        "type": "int"
+      },
+      "ay": {
+        "type": "int"
+      }
+    }
+  },
+  "sureYil": "yaklaşık {yil} yıl",
+  "@sureYil": {
+    "placeholders": {
+      "yil": {
+        "type": "int"
+      }
+    }
+  },
+  "sureAyGun": "yaklaşık {ay} ay {gun} gün",
+  "@sureAyGun": {
+    "placeholders": {
+      "ay": {
+        "type": "int"
+      },
+      "gun": {
+        "type": "int"
+      }
+    }
+  },
+  "sureAy": "yaklaşık {ay} ay",
+  "@sureAy": {
+    "placeholders": {
+      "ay": {
+        "type": "int"
+      }
+    }
+  },
+  "sureGun": "{gun} gün",
+  "@sureGun": {
+    "placeholders": {
+      "gun": {
+        "type": "int"
+      }
+    }
+  },
+  "kazaHesaplama": "Kaza Borcu Hesaplama",
+  "kazaHesaplamaGiris": "Kaç yıl namaz kılmadığınızı ve oruç tutmadığınızı girin; yaklaşık kaza sayınızı hesaplayalım. Sonuç bir tahmindir, sayaçları sonradan elle düzeltebilirsiniz.",
+  "sihirbazNamazYil": "Namaz kılmadığım yıl",
+  "sihirbazNamazYilAciklama": "Buluğ çağından sonra namaz kılmadığınız süre.",
+  "sihirbazNamazAy": "Ek ay",
+  "sihirbazOzurGun": "Aylık özür günü (kadınlar)",
+  "sihirbazOzurGunAciklama": "Âdet günlerinde kılınmayan namazların kazası yoktur; bu günler hesaptan düşülür.",
+  "sihirbazOrucYil": "Oruç tutmadığım Ramazan sayısı",
+  "sihirbazOrucYilAciklama": "Her Ramazan 30 gün sayılır.",
+  "sihirbazSonuc": "Tahmini kaza borcu",
+  "sihirbazSonucNamaz": "Her vakit ve vitir için {adet} namaz",
+  "@sihirbazSonucNamaz": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "sihirbazSonucOruc": "{adet} gün oruç",
+  "@sihirbazSonucOruc": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "sihirbazUygula": "Sayaçlara uygula",
+  "sihirbazOnayBaslik": "Sayaçlar değiştirilsin mi?",
+  "sihirbazOnayMetin": "Mevcut kaza sayılarınız bu hesaplamanın sonucuyla değiştirilecek.",
+  "kisaFikihBilgisi": "Kısa fıkıh bilgisi",
+  "fikihNot": "Bu bilgiler Hanefi mezhebine göre özettir. Özel durumunuz için bir din görevlisine danışın.",
+  "adimNo": "Adım {adim} / {toplam}",
+  "@adimNo": {
+    "placeholders": {
+      "adim": {
+        "type": "int"
+      },
+      "toplam": {
+        "type": "int"
+      }
+    }
+  },
+  "cizimAlani": "Çizim alanı · {adim}",
+  "@cizimAlani": {
+    "placeholders": {
+      "adim": {
+        "type": "String"
+      }
+    }
+  },
+  "sonrakiAdim": "Sonraki adım",
+  "bastanBasla": "Baştan başla",
+  "esmaBaslik": "Esmâ-ül Hüsnâ",
+  "esmaAltBaslik": "Allah'ın en güzel 99 ismi",
+  "esmaAraIpucu": "İsim veya anlam ara",
+  "gununIsmi": "Günün ismi",
+  "isimNo": "{no}. isim",
+  "@isimNo": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      }
+    }
+  },
+  "zikirmatikteZikret": "Zikirmatik'te zikret"
+}

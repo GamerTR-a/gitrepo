@@ -1,0 +1,2 @@
+Bu klasöre yalnızca kullanım izni alınmış meal dosyaları konur.
+Biçim: her satır sure|ayet|metin (UTF-8). Ayrıntı: assets/data/quran/README.md

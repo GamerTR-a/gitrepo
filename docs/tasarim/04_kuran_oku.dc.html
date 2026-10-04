@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Fâtiha Suresi</title>
+<script src="fce10562-e7ca-47a5-955a-ce770d2192c4"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #FBFBF8; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; align-items: center; gap: 8px; padding: 48px 12px 12px; background: #FBFBF8; border-bottom: 1px solid #E1E5DF; flex-shrink: 0">
+<a href="Kuran.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 1px">
+<span style="font-size: 17px; font-weight: 700">Fâtiha Suresi</span>
+<span style="font-size: 12px; color: #56625D">1. sure · 7 ayet · Mekkî · Sayfa 1</span>
+</div>
+<button aria-label="Yer imi ekle" style="width: 44px; height: 44px; border-radius: 14px; border: none; background: transparent; color: #0F3D33; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h12V21l-6-4-6 4z"></path></svg></button>
+<button aria-label="Yazı boyutu ve görünüm" style="width: 44px; height: 44px; border-radius: 14px; border: none; background: transparent; color: #0F3D33; font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; cursor: pointer">Aa</button>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: 16px 20px 24px">
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: #EEF1EC; padding: 4px; border-radius: 14px">
+<sc-for list="{{modes}}" as="m" hint-placeholder-count="3">
+<button sc-camel-on-click="{{m.pick}}" aria-pressed="{{m.pressed}}" style="{{m.style}}">{{m.label}}</button>
+</sc-for>
+</div>
+
+<div style="display: flex; align-items: center; gap: 12px; color: #B9944A; padding: 6px 0">
+<span style="flex-grow: 1; height: 1px; background: #E4D6B4"></span>
+<svg aria-hidden="true" width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect><circle cx="12" cy="12" r="2.4"></circle></svg>
+<span style="flex-grow: 1; height: 1px; background: #E4D6B4"></span>
+</div>
+
+<sc-for list="{{ayetler}}" as="a" hint-placeholder-count="7">
+<article style="{{a.cardStyle}}">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<span style="{{a.noStyle}}">{{a.no}}</span>
+<sc-if value="{{a.active}}" hint-placeholder-val="{{false}}">
+<span style="font-size: 12px; font-weight: 700; color: #8A6316">Okunuyor</span>
+</sc-if>
+</div>
+<sc-if value="{{showAr}}" hint-placeholder-val="{{true}}">
+<p dir="rtl" lang="ar" style="margin: 0; font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 27px; line-height: 2; text-align: right; color: #0F3D33">{{a.ar}} <span style="color: #B9944A">{{a.marker}}</span></p>
+</sc-if>
+<sc-if value="{{showMeal}}" hint-placeholder-val="{{true}}">
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2A3631">{{a.meal}}</p>
+</sc-if>
+</article>
+</sc-for>
+
+<p style="margin: 0; font-size: 12px; color: #56625D; text-align: center">Meal: [LİSANSLI MEAL KAYNAĞI]</p>
+</main>
+
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px 26px; background: #0F3D33; color: #FFFFFF; flex-shrink: 0">
+<button aria-label="{{playLabel}}" sc-camel-on-click="{{togglePlay}}" style="width: 48px; height: 48px; border-radius: 24px; border: none; background: #E2C27A; color: #0F3D33; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0">
+<sc-if value="{{paused}}" hint-placeholder-val="{{true}}">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"></path></svg>
+</sc-if>
+<sc-if value="{{playing}}" hint-placeholder-val="{{false}}">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="currentColor"><rect x="6.5" y="5" width="4" height="14" rx="1"></rect><rect x="13.5" y="5" width="4" height="14" rx="1"></rect></svg>
+</sc-if>
+</button>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="font-weight: 700">Kâri: [KÂRİ ADI]</span><span style="color: #CFE0D8">2. ayet</span></div>
+<span style="height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); overflow: hidden"><span style="display: block; width: 28%; height: 4px; background: #E2C27A"></span></span>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: 'ikisi', playing: false };
+  }
+  renderVals() {
+    const mode = this.state.mode;
+    const defs = [
+      { id: 'ikisi', label: 'Arapça + Meal' },
+      { id: 'ar', label: 'Arapça' },
+      { id: 'meal', label: 'Meal' }
+    ];
+    const modes = defs.map((d) => {
+      const on = mode === d.id;
+      return Object.assign({}, d, {
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 40px; border: none; border-radius: 10px; font-family: inherit; font-size: 13px; cursor: pointer; font-weight: ' + (on ? '700' : '600') + '; background: ' + (on ? '#FFFFFF' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#56625D'),
+        pick: () => this.setState({ mode: d.id })
+      });
+    });
+    const digits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+    const raw = [
+      { ar: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ', meal: 'Rahmân ve Rahîm olan Allah\'ın adıyla.' },
+      { ar: 'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ', meal: 'Hamd, âlemlerin Rabbi olan Allah\'a mahsustur.' },
+      { ar: 'الرَّحْمَٰنِ الرَّحِيمِ', meal: 'O, Rahmân\'dır, Rahîm\'dir.' },
+      { ar: 'مَالِكِ يَوْمِ الدِّينِ', meal: 'Din gününün sahibidir.' },
+      { ar: 'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ', meal: 'Yalnız sana kulluk eder, yalnız senden yardım dileriz.' },
+      { ar: 'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ', meal: 'Bizi dosdoğru yola ilet.' },
+      { ar: 'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ', meal: 'Kendilerine nimet verdiklerinin yoluna; gazaba uğrayanların ve yolunu şaşıranların yoluna değil.' }
+    ];
+    const ayetler = raw.map((a, i) => {
+      const active = i === 1;
+      return Object.assign({}, a, {
+        no: String(i + 1),
+        marker: '﴿' + digits[i + 1] + '﴾',
+        active: active,
+        cardStyle: 'display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 18px; border: 1px solid ' + (active ? '#E4D6B4' : '#E9ECE6') + '; background: ' + (active ? '#FBF5E7' : '#FFFFFF'),
+        noStyle: 'min-width: 28px; height: 28px; padding: 0 6px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: ' + (active ? '#E2C27A' : '#E3ECE7') + '; color: #0F3D33'
+      });
+    });
+    const playing = !!this.state.playing;
+    return {
+      modes,
+      ayetler,
+      showAr: mode !== 'meal',
+      showMeal: mode !== 'ar',
+      playing: playing,
+      paused: !playing,
+      playLabel: playing ? 'Duraklat' : 'Dinle',
+      togglePlay: () => this.setState({ playing: !this.state.playing })
+    };
+  }
+}
+</script>
+
+
+</body></html>

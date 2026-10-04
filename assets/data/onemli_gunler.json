@@ -1,0 +1,16 @@
+{
+  "aciklama": "Diyanet İşleri Başkanlığı'nın resmî dinî günler takvimine göre doldurulacak. Aşağıdaki kayıtlar tasarım taslağındaki ÖRNEK tarihlerdir; resmî takvimle karşılaştırılıp 'kaynak_dogrulandi' true yapılmalıdır. 'tarih' günün miladî tarihidir (kandillerde gecenin bağlandığı gün); 'bitis' yalnızca birden fazla gün süren bayramlar içindir.",
+  "donem": {"hicri": 1448, "miladi": "2026–2027"},
+  "gunler": [
+    {"id": "mevlid_1448", "ad": "Mevlid Kandili", "tarih": "2026-08-24", "bitis": null, "tur": "kandil", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "regaip_1448", "ad": "Regaip Kandili", "tarih": "2026-12-10", "bitis": null, "tur": "kandil", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "mirac_1448", "ad": "Miraç Kandili", "tarih": "2027-01-05", "bitis": null, "tur": "kandil", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "berat_1448", "ad": "Berat Kandili", "tarih": "2027-01-23", "bitis": null, "tur": "kandil", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "ramazan_1448", "ad": "Ramazan Başlangıcı", "tarih": "2027-02-08", "bitis": null, "tur": "gun", "aciklama": "İlk oruç", "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "kadir_1448", "ad": "Kadir Gecesi", "tarih": "2027-03-05", "bitis": null, "tur": "kandil", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "ramazan_bayrami_1448", "ad": "Ramazan Bayramı", "tarih": "2027-03-09", "bitis": "2027-03-11", "tur": "bayram", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "kurban_bayrami_1448", "ad": "Kurban Bayramı", "tarih": "2027-05-16", "bitis": "2027-05-19", "tur": "bayram", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "hicri_yilbasi_1449", "ad": "Hicrî Yılbaşı", "tarih": "2027-06-06", "bitis": null, "tur": "gun", "aciklama": "1449", "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false},
+    {"id": "asure_1449", "ad": "Aşure Günü", "tarih": "2027-06-15", "bitis": null, "tur": "gun", "aciklama": null, "kaynak": "Tasarım taslağı", "kaynak_dogrulandi": false}
+  ]
+}

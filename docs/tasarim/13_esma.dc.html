@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Esmâ-ül Hüsnâ</title>
+<script src="760bb872-388a-4338-bc4e-04c7954d8908"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; align-items: center; gap: 8px; padding: 48px 12px 8px; flex-shrink: 0">
+<a href="Dualar.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<div style="display: flex; flex-direction: column; gap: 1px">
+<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 600; color: #0F3D33">Esmâ-ül Hüsnâ</h1>
+<span style="font-size: 12px; color: #56625D">Allah'ın en güzel 99 ismi</span>
+</div>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding: 8px 20px 28px">
+
+<section style="position: relative; overflow: hidden; background: #0F3D33; color: #FFFFFF; border-radius: 24px; padding: 22px 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+<svg aria-hidden="true" width="260" height="260" sc-camel-view-box="0 0 24 24" fill="none" stroke="#E2C27A" stroke-width="0.22" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); opacity: 0.35"><rect x="5" y="5" width="14" height="14"></rect><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="12" cy="12" r="9.9"></circle></svg>
+<span style="position: relative; font-size: 12px; color: #E2C27A; font-weight: 700">{{featLabel}}</span>
+<p dir="rtl" lang="ar" style="position: relative; margin: 0; font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 52px; line-height: 1.5">{{feat.ar}}</p>
+<span style="position: relative; font-size: 22px; font-weight: 700">{{feat.ad}}</span>
+<p style="position: relative; margin: 0; font-size: 15px; line-height: 1.55; color: #E4EEE9; max-width: 290px">{{feat.anlam}}</p>
+<a href="Zikirmatik.dc.html" style="position: relative; margin-top: 6px; min-height: 44px; padding: 0 16px; border-radius: 22px; background: #E2C27A; color: #0F3D33; text-decoration: none; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="4"></rect><path d="M9 8h6"></path><circle cx="12" cy="15" r="2.5"></circle></svg>Zikirmatik'te zikret</a>
+</section>
+
+<label style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 16px; color: #56625D">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">İsim ara</span>
+<input type="search" placeholder="İsim veya anlam ara" style="flex-grow: 1; border: none; outline: none; background: transparent; font-family: inherit; font-size: 15px; color: #17231F">
+</label>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{names}}" as="n" hint-placeholder-count="8">
+<button sc-camel-on-click="{{n.pick}}" aria-pressed="{{n.pressed}}" style="{{n.style}}">
+<span style="display: flex; justify-content: space-between; align-items: center; width: 100%">
+<span style="font-size: 12px; font-weight: 700; color: #8A6316">{{n.no}}</span>
+<span dir="rtl" lang="ar" style="font-family: 'Amiri', serif; font-size: 26px; color: #0F3D33; line-height: 1.3">{{n.ar}}</span>
+</span>
+<span style="font-size: 15px; font-weight: 700; text-align: left">{{n.ad}}</span>
+<span style="font-size: 12px; color: #56625D; line-height: 1.4; text-align: left">{{n.kisa}}</span>
+</button>
+</sc-for>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 1 };
+  }
+  renderVals() {
+    const list = [
+      { ar: 'اللّٰه', ad: 'Allah', kisa: 'Bütün güzel isimleri kendinde toplayan', anlam: 'Bütün güzel isimleri ve sıfatları kendinde toplayan, kendisinden başka ilah olmayan.' },
+      { ar: 'الرَّحْمٰنُ', ad: 'er-Rahmân', kisa: 'Rahmeti bütün varlıkları kuşatan', anlam: 'Dünyada inanan inanmayan ayırt etmeden bütün varlıklara merhamet eden.' },
+      { ar: 'الرَّحِيمُ', ad: 'er-Rahîm', kisa: 'Müminlere sonsuz merhamet eden', anlam: 'Ahirette müminlere sonsuz rahmetiyle muamele eden.' },
+      { ar: 'الْمَلِكُ', ad: 'el-Melik', kisa: 'Mülkün gerçek sahibi', anlam: 'Bütün kâinatın ve mülkün gerçek sahibi ve hükümdarı.' },
+      { ar: 'الْقُدُّوسُ', ad: 'el-Kuddûs', kisa: 'Her türlü eksiklikten uzak', anlam: 'Her türlü eksiklikten, kusurdan ve yakışmayan şeyden uzak olan.' },
+      { ar: 'السَّلَامُ', ad: 'es-Selâm', kisa: 'Esenlik veren', anlam: 'Kullarını tehlikelerden kurtaran, esenlik ve selamet veren.' },
+      { ar: 'الْمُؤْمِنُ', ad: 'el-Mü\'min', kisa: 'Güven veren', anlam: 'Kalplere iman ve güven veren, sığınanları emniyete alan.' },
+      { ar: 'الْمُهَيْمِنُ', ad: 'el-Müheymin', kisa: 'Gözetip koruyan', anlam: 'Her şeyi görüp gözeten, koruyup kollayan.' }
+    ];
+    const sel = this.state.sel;
+    const names = list.map((n, i) => {
+      const on = i === sel;
+      return Object.assign({}, n, {
+        no: String(i + 1),
+        pressed: on ? 'true' : 'false',
+        style: 'display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px; min-height: 132px; border-radius: 18px; font-family: inherit; color: #17231F; cursor: pointer; background: ' + (on ? '#FBF5E7' : '#FFFFFF') + '; border: 1.5px solid ' + (on ? '#B9944A' : '#E1E5DF'),
+        pick: () => this.setState({ sel: i })
+      });
+    });
+    const f = list[sel];
+    return {
+      names,
+      feat: f,
+      featLabel: sel === 1 ? 'Günün ismi' : (sel + 1) + '. isim'
+    };
+  }
+}
+</script>
+
+
+</body></html>

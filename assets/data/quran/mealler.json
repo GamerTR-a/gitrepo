@@ -1,0 +1,12 @@
+{
+  "aciklama": "Uygulamaya gömülü Türkçe mealler. Bir meal YALNIZCA hak sahibinden yazılı izin alındıktan (ya da kamu malı olduğu hukuken teyit edildikten) sonra eklenir. Her kayıt: id, ad, sahip (mütercim/kurum), lisans (iznin özeti; Kaynaklar ve Lisanslar ekranında gösterilir), izinBelgesi (docs/lisanslar/ altındaki belgenin adı), dosya (assets/data/quran/meal/ altında, her satır sure|ayet|metin). Ayrıntı: assets/data/quran/README.md",
+  "ornek": {
+    "id": "ornek",
+    "ad": "Meal adı",
+    "sahip": "Mütercim ya da kurum",
+    "lisans": "… tarihli yazılı izinle kullanılmaktadır.",
+    "izinBelgesi": "docs/lisanslar/ornek_izin.pdf",
+    "dosya": "ornek.txt"
+  },
+  "mealler": []
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<title>Namaz ve Abdest Rehberi</title>
+<script src="2c002f50-84a7-456d-9e9d-87f87188976f"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style></style>
+<style>
+body{margin:0}
+a{color:#0F3D33}a:hover{color:#0A2B24}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F3F4EF; font-family: 'Manrope', 'Segoe UI', sans-serif; color: #17231F; overflow: hidden">
+
+<header style="display: flex; flex-direction: column; gap: 12px; padding: 48px 16px 12px; flex-shrink: 0">
+<div style="display: flex; align-items: center; gap: 8px">
+<a href="Dualar.dc.html" aria-label="Geri" style="width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #0F3D33; margin-left: -4px"><svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"></path></svg></a>
+<div style="display: flex; flex-direction: column; gap: 1px">
+<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-weight: 600; color: #0F3D33">{{title}}</h1>
+<span style="font-size: 12px; color: #56625D">{{subtitle}}</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; background: #E6EAE4; padding: 4px; border-radius: 14px">
+<sc-for list="{{modes}}" as="m" hint-placeholder-count="2">
+<button sc-camel-on-click="{{m.pick}}" aria-pressed="{{m.pressed}}" style="{{m.style}}">{{m.label}}</button>
+</sc-for>
+</div>
+<div style="display: flex; gap: 4px" aria-hidden="true">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="9">
+<span style="{{d.style}}"></span>
+</sc-for>
+</div>
+</header>
+
+<main style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: 4px 16px 16px">
+<article style="background: #FFFFFF; border: 1px solid #E1E5DF; border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="height: 168px; border-radius: 18px; background: #EEF1EC; border: 1px dashed #C3CCC6; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #56625D">
+<svg width="34" height="34" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"></circle><path d="M12 7v7"></path><path d="M8 10h8"></path><path d="m12 14-3 6.5M12 14l3 6.5"></path></svg>
+<span style="font-size: 12px; font-weight: 600">Çizim alanı · {{step.title}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 700; color: #8A6316">{{stepLabel}}</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 700">{{step.title}}</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2A3631">{{step.desc}}</p>
+</div>
+<sc-if value="{{hasRecite}}" hint-placeholder-val="{{true}}">
+<div style="background: #FBF5E7; border: 1px solid #E4D6B4; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{hasAr}}" hint-placeholder-val="{{true}}">
+<p dir="rtl" lang="ar" style="margin: 0; font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 28px; line-height: 1.8; text-align: right; color: #0F3D33">{{step.ar}}</p>
+</sc-if>
+<p style="margin: 0; font-size: 16px; font-weight: 700; color: #17231F">{{step.ok}}</p>
+<sc-if value="{{hasMeaning}}" hint-placeholder-val="{{true}}">
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #56625D">{{step.anlam}}</p>
+</sc-if>
+<button style="align-self: flex-start; min-height: 44px; padding: 0 16px; border-radius: 22px; border: none; background: #0F3D33; color: #FFFFFF; font-family: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer"><svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"></path></svg>Okunuşu dinle</button>
+</div>
+</sc-if>
+</article>
+</main>
+
+<div style="display: flex; gap: 10px; padding: 12px 16px 28px; background: #FFFFFF; border-top: 1px solid #E1E5DF; flex-shrink: 0">
+<button sc-camel-on-click="{{prev}}" disabled="{{isFirst}}" style="{{prevStyle}}">Önceki</button>
+<button sc-camel-on-click="{{next}}" style="flex-grow: 1; min-height: 52px; border-radius: 16px; border: none; background: #0F3D33; color: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">{{nextText}}</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: 'namaz', idx: 3 };
+  }
+  data() {
+    return {
+      namaz: {
+        title: 'Namaz Rehberi',
+        subtitle: 'Örnek: sabah namazının farzı · 2 rekat',
+        steps: [
+          { title: 'Niyet', desc: 'Hangi namazı kılacağınızı kalben belirleyin. Niyeti dil ile de söylemek güzeldir.', ok: 'Niyet ettim Allah rızası için bugünkü sabah namazının farzını kılmaya.' },
+          { title: 'İftitah Tekbiri', desc: 'Kıbleye dönün ve ellerinizi kaldırarak tekbir alın. Erkekler ellerini kulak hizasına, kadınlar omuz hizasına kaldırır.', ar: 'اللّٰهُ أَكْبَرُ', ok: 'Allâhu Ekber', anlam: 'Allah en büyüktür.' },
+          { title: 'Kıyam', desc: 'Ayakta durarak sırasıyla Sübhâneke, Eûzü-Besmele, Fâtiha ve kısa bir sure okuyun.', ar: 'سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ', ok: 'Sübhâneke\'llâhümme ve bi-hamdik', anlam: 'Allah\'ım, seni her türlü noksanlıktan uzak tutar, sana hamd ederim.' },
+          { title: 'Rükû', desc: 'Tekbir alarak eğilin, ellerinizi dizlerinize koyun ve sırtınızı düz tutun. Aşağıdaki tesbihi üç kez okuyun.', ar: 'سُبْحَانَ رَبِّيَ الْعَظِيمِ', ok: 'Sübhâne Rabbiye\'l-azîm', anlam: 'Yüce Rabbimi her türlü noksanlıktan uzak tutarım.' },
+          { title: 'Kavme', desc: 'Rükûdan doğrulurken bunu söyleyin; tam doğrulunca "Rabbenâ leke\'l-hamd" deyin.', ar: 'سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ', ok: 'Semiallâhü limen hamideh', anlam: 'Allah, kendisine hamd edeni işitir.' },
+          { title: 'Secde', desc: 'Tekbirle secdeye varın; alın, burun, eller, dizler ve ayak parmakları yere değsin. Tesbihi üç kez okuyun. Kısa bir oturuştan sonra ikinci secdeyi yapın.', ar: 'سُبْحَانَ رَبِّيَ الْأَعْلَى', ok: 'Sübhâne Rabbiye\'l-a\'lâ', anlam: 'Yüce Rabbimi her türlü noksanlıktan uzak tutarım.' },
+          { title: 'İkinci Rekat', desc: 'Ayağa kalkın; Besmele, Fâtiha ve bir sure okuyun. Rükû ve iki secdeyi aynı şekilde tekrarlayın.' },
+          { title: 'Son Oturuş', desc: 'Oturarak Ettehiyyâtü, Allâhümme Salli, Allâhümme Bârik ve Rabbenâ dualarını okuyun.', ar: 'التَّحِيَّاتُ لِلّٰهِ', ok: 'Ettehiyyâtü lillâhi…', anlam: 'Bütün tazimler Allah\'adır…' },
+          { title: 'Selam', desc: 'Başınızı önce sağa, sonra sola çevirerek selam verin. Namazınız tamamlandı.', ar: 'السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ', ok: 'Esselâmü aleyküm ve rahmetullâh', anlam: 'Selam ve Allah\'ın rahmeti üzerinize olsun.' }
+        ]
+      },
+      abdest: {
+        title: 'Abdest Rehberi',
+        subtitle: 'Abdestin adım adım alınışı',
+        steps: [
+          { title: 'Niyet ve Besmele', desc: 'Abdest almaya niyet edin ve Besmele çekin.', ar: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ', ok: 'Bismillâhirrahmânirrahîm', anlam: 'Rahmân ve Rahîm olan Allah\'ın adıyla.' },
+          { title: 'Eller', desc: 'Ellerinizi bileklere kadar üç kez yıkayın, parmak aralarını ovun. Yüzük varsa oynatın.' },
+          { title: 'Ağız', desc: 'Sağ elinizle ağzınıza üç kez su alıp iyice çalkalayın.' },
+          { title: 'Burun', desc: 'Sağ elinizle burnunuza üç kez su çekin, sol elinizle temizleyin.' },
+          { title: 'Yüz', desc: 'Yüzünüzü alından çene altına, bir kulak yumuşağından diğerine kadar üç kez yıkayın.' },
+          { title: 'Kollar', desc: 'Önce sağ, sonra sol kolunuzu dirseklerle beraber üç kez yıkayın.' },
+          { title: 'Baş, Kulak ve Boyun', desc: 'Islak elle başınızın en az dörtte birini mesh edin; ardından kulaklarınızı ve boynunuzu mesh edin.' },
+          { title: 'Ayaklar', desc: 'Önce sağ, sonra sol ayağınızı topuklarla beraber, parmak aralarını ovarak üç kez yıkayın. Abdestiniz tamamlandı.' }
+        ]
+      }
+    };
+  }
+  renderVals() {
+    const st = this.state;
+    const all = this.data();
+    const cur = all[st.mode];
+    const n = cur.steps.length;
+    const idx = Math.min(st.idx, n - 1);
+    const step = cur.steps[idx];
+    const modes = [
+      { id: 'namaz', label: 'Namaz' },
+      { id: 'abdest', label: 'Abdest' }
+    ].map((m) => {
+      const on = m.id === st.mode;
+      return {
+        label: m.label,
+        pressed: on ? 'true' : 'false',
+        style: 'min-height: 40px; border: none; border-radius: 10px; font-family: inherit; font-size: 14px; cursor: pointer; font-weight: ' + (on ? '700' : '600') + '; background: ' + (on ? '#FFFFFF' : 'transparent') + '; color: ' + (on ? '#0F3D33' : '#56625D'),
+        pick: () => this.setState({ mode: m.id, idx: 0 })
+      };
+    });
+    const dots = cur.steps.map((s, i) => ({
+      style: 'flex-grow: 1; height: 5px; border-radius: 3px; background: ' + (i < idx ? '#0F3D33' : (i === idx ? '#B9944A' : '#D5DBD6'))
+    }));
+    const isFirst = idx === 0;
+    const isLast = idx === n - 1;
+    return {
+      title: cur.title,
+      subtitle: cur.subtitle,
+      modes,
+      dots,
+      step: { title: step.title, desc: step.desc, ar: step.ar || '', ok: step.ok || '', anlam: step.anlam || '' },
+      stepLabel: 'Adım ' + (idx + 1) + ' / ' + n,
+      hasRecite: !!step.ok,
+      hasAr: !!step.ar,
+      hasMeaning: !!step.anlam,
+      isFirst: isFirst,
+      prevStyle: 'min-height: 52px; padding: 0 20px; border-radius: 16px; border: 1px solid #E1E5DF; background: #FFFFFF; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; color: ' + (isFirst ? '#A3ADA8' : '#0F3D33'),
+      nextText: isLast ? 'Baştan başla' : 'Sonraki adım',
+      prev: () => this.setState({ idx: Math.max(0, idx - 1) }),
+      next: () => this.setState({ idx: isLast ? 0 : idx + 1 })
+    };
+  }
+}
+</script>
+
+
+</body></html>

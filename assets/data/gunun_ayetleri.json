@@ -1,0 +1,11 @@
+{
+  "aciklama": "Ana Sayfa'daki 'Günün Ayeti' için sure:ayet listesi. Metin gömülü Tanzil dosyasından okunur; burada ayet metni tutulmaz. Seçim, yılın gününe göre deterministiktir. Liste yayın öncesi incelenmelidir.",
+  "incelendi": false,
+  "inceleyen": null,
+  "ayetler": [
+    "13:28", "2:286", "94:5", "94:6", "2:152", "2:153", "2:186", "3:139",
+    "3:159", "39:53", "65:3", "14:7", "40:60", "29:45", "20:14", "49:13",
+    "16:90", "17:23", "31:17", "2:45", "3:200", "8:46", "9:51", "11:88",
+    "12:87", "21:87", "25:63", "33:41", "50:16", "57:4", "93:5"
+  ]
+}
