@@ -24,7 +24,8 @@ Faz planı: [CLAUDE_CODE_PROMPTLARI.md](CLAUDE_CODE_PROMPTLARI.md).
 | Namaz ve abdest rehberi (5 vakit, bölüm bölüm; ezber modu) | Yazıldı; çizimler geçici şematik, ses yok, Kunut ve Cuma yer tutucu ([liste](docs/rehber_varliklari.md)) |
 | Esmâ-ül Hüsnâ | Yazıldı |
 | Toplu hatim | Cihaz içi kısmı yazıldı (hatim, pay alma, okudum); linkle paylaşım sunucu kararını bekliyor: [docs/surum3_kararlar.md](docs/surum3_kararlar.md) |
-| Kırk Hadis (Nevevî, 42 hadis: Arapça, tercüme, temsilî hikâye) | Yazıldı; tercüme ve hikâyeler taslak, tamamı hoca incelemesi bekliyor |
+| Kırk Hadis (Nevevî, 42 hadis: Arapça, tercüme) | Yazıldı; tercümeler taslak, hoca incelemesi bekliyor. Temsilî hikâyeler veride duruyor ama kapalı (`hikayeler_gosterilsin`) |
+| Kerahat, işrak/duhâ ve teheccüd vakitleri; yüksek enlem açıklaması | Yazıldı; süreler taslak (`assets/data/ek_vakitler.json`), hoca incelemesi bekliyor |
 | Sesli tilavet | Karar bekliyor: [docs/surum3_kararlar.md](docs/surum3_kararlar.md) |
 | iOS | Derlenmedi, denenmedi; widget'lar yazılmadı |
 
@@ -56,6 +57,8 @@ dart run tool/inceleme_raporu.dart
 - **Gömülü veriler** (şehirler, Kur'an üst verisi): `python tool/veri_uret.py KAYNAK`
   — ayrıntı betiğin başında. Esmâ: `python tool/esma_uret.py`.
 - **İnceleme raporu:** `incelendi: false` kayıtları sayar; yayın öncesi sıfır olmalı.
+- **Hoca inceleme belgesi** (yazdırılabilir tablo): `dart run tool/hoca_belgesi.dart`
+  — çıktı ve hazırlık notları [docs/hoca/](docs/hoca/OKU.md).
 - **Ekran görüntüleri** (gerçek yazı tipleriyle, tasarımla karşılaştırmak için):
   `ABYAD_GORUNTU_KLASORU=build/goruntu flutter test test/ekran_goruntusu_test.dart`
 
@@ -94,6 +97,7 @@ veya projeye analitik/reklam paketi eklenirse testleri kırar.
 - [docs/cihaz_testi.md](docs/cihaz_testi.md) — gerçek cihazda denenecek senaryolar
 - [docs/bildirim.md](docs/bildirim.md) — ezan bildirimi tasarımı, tam zamanlı alarm izni
 - [docs/surum3_kararlar.md](docs/surum3_kararlar.md) — toplu hatim, tilavet, hadis
+- [docs/hoca/OKU.md](docs/hoca/OKU.md) — hoca görüşmesi: inceleme belgesi ve danışılacak konular
 - [docs/gizlilik.md](docs/gizlilik.md) — gizlilik politikası taslağı (TR + EN)
 - [docs/magaza.md](docs/magaza.md) — mağaza metni ve yayın öncesi liste
 - [assets/data/quran/README.md](assets/data/quran/README.md) — Tanzil lisansı
