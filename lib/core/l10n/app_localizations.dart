@@ -1336,48 +1336,6 @@ abstract class AppLocalizations {
   /// **'{dakika} dk'**
   String dakikaKisa(int dakika);
 
-  /// No description provided for @manzaraKabe.
-  ///
-  /// In tr, this message translates to:
-  /// **'Kâbe'**
-  String get manzaraKabe;
-
-  /// No description provided for @manzaraMekke.
-  ///
-  /// In tr, this message translates to:
-  /// **'Mekke'**
-  String get manzaraMekke;
-
-  /// No description provided for @manzaraMedine.
-  ///
-  /// In tr, this message translates to:
-  /// **'Medine'**
-  String get manzaraMedine;
-
-  /// No description provided for @manzaraKudus.
-  ///
-  /// In tr, this message translates to:
-  /// **'Kudüs'**
-  String get manzaraKudus;
-
-  /// No description provided for @manzaraSelimiye.
-  ///
-  /// In tr, this message translates to:
-  /// **'Selimiye Camii'**
-  String get manzaraSelimiye;
-
-  /// No description provided for @manzaraAyasofya.
-  ///
-  /// In tr, this message translates to:
-  /// **'Ayasofya'**
-  String get manzaraAyasofya;
-
-  /// No description provided for @manzaraUlucami.
-  ///
-  /// In tr, this message translates to:
-  /// **'Ulu Cami'**
-  String get manzaraUlucami;
-
   /// No description provided for @ozelZikir.
   ///
   /// In tr, this message translates to:
@@ -1891,7 +1849,7 @@ abstract class AppLocalizations {
   /// No description provided for @lisansIcerikMetin.
   ///
   /// In tr, this message translates to:
-  /// **'Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.'**
+  /// **'Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır ve Diyanet İşleri Başkanlığı\'nın yayımladığı vakitlerle karşılaştırılmıştır. Dinî günlerin tarihleri ve hicrî ay başlangıçları Diyanet İşleri Başkanlığı\'nın dinî günler listesinden alınmıştır.'**
   String get lisansIcerikMetin;
 
   /// No description provided for @lisansHadisBaslik.

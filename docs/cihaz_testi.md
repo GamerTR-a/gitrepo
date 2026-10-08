@@ -62,6 +62,12 @@ Sonuçları tabloya `✓` / `✗` ve kısa notla işleyin.
 |---|---------|----------|
 | R1 | Rehber > Öğle > Farz; adımları sona kadar yana kaydırın | 30 adım; çizimler görünür; "2. rekat · Rükû" göstergesi doğru ilerler |
 | R2 | Göz düğmesiyle ezber modunu açın | Arapça ve okunuş gizlenir; "Göstermek için dokunun" ile açılır |
+| V1 | Vakitler > "Kerahat, işrak ve teheccüd vakitleri" | Sayfa açılır; saatler o günün vakitleriyle tutarlı; kerahat vaktindeyken "Şu an kerahat vakti" yazar |
+| V2 | Konum olarak bir Avrupa şehri (ör. Berlin) seçin, yatsıyı caminin (Diyanet) takvimiyle karşılaştırın | Ekim–Mart arasında fark en çok 2 dakika |
+| V3 | Aynı şehirde gün seçiciyle Haziran'a gidin | "Bu vakitler neden farklı olabilir?" kartı görünür ve cami takvimine yönlendirir |
+| V4 | Ana sayfadaki hicrî tarihi duvar takvimiyle karşılaştırın | Aynı gün |
+| Q1 | Kur'an başlığındaki bilgi düğmesi | "Metin ve İşaretler" açılır; sekiz işaret kutularının içinde, okunaklı çizilir |
+| L1 | Ana ekrandaki uygulama ikonu | Mushafın sağ sayfası boş (yazı yok), ikon düzgün |
 | R3 | TalkBack ile bir adımı dinleyin | Çizim tarifi, başlık, açıklama ve okunuş okunur; Arapça harfler okunmaz |
 | R4 | Rehber > Abdest | 9 adım ve "Abdesti bozan durumlar" listesi |
 | H1 | Toplu Hatim > Hatim başlat; bir cüze dokunun, "Okudum" deyin | Cüz "Senin", sonra "Okundu" olur; ilerleme çubuğu artar |

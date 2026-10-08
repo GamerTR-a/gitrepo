@@ -8,7 +8,7 @@ Faz planı: [CLAUDE_CODE_PROMPTLARI.md](CLAUDE_CODE_PROMPTLARI.md).
 
 | Özellik | Durum |
 |---------|-------|
-| Vakit hesaplama motoru (internetsiz) | Yazıldı; Diyanet referanslarıyla doğrulama bekliyor |
+| Vakit hesaplama motoru (internetsiz) | Yazıldı; Türkiye'de sekiz şehirde bir yıl boyunca Diyanet vakitleriyle ±2 dk içinde. Avrupa'da yaz aylarında imsak ve yatsı Diyanet'ten farklı: [docs/vakit_dogrulama.md](docs/vakit_dogrulama.md) |
 | Konum ve şehir seçimi (81 il, 940 ilçe, 303 Avrupa şehri) | Yazıldı |
 | Ezan bildirimi | Yazıldı, emülatörde denendi; gerçek cihaz testi ve ezan kaydı bekliyor |
 | Ana Sayfa, Vakitler, aylık imsakiye, Kıble | Yazıldı |
@@ -16,7 +16,8 @@ Faz planı: [CLAUDE_CODE_PROMPTLARI.md](CLAUDE_CODE_PROMPTLARI.md).
 | Kur'an > Metin ve İşaretler (metnin kaynağı, rivayeti, yazımı; durak ve secde işaretleri) | Yazıldı; bilgiler taslak (`assets/data/kuran_metni.json`), hoca incelemesi bekliyor |
 | Meal altyapısı (dosya biçimi, seçim, gösterim) | Yazıldı; meal metni lisans bekliyor ([nasıl eklenir](assets/data/quran/README.md)) |
 | Tefsir | Ertelendi |
-| Dualar, Zikirmatik, Önemli Günler | Yazıldı; içerik hoca incelemesi bekliyor |
+| Dualar, Zikirmatik | Yazıldı; içerik hoca incelemesi bekliyor |
+| Önemli Günler ve hicrî tarih | Yazıldı; tarihler ve ay başlangıçları Diyanet'in 2026–2027 dinî günler listesinden. 2028 listesi yayımlanınca eklenmeli |
 | Ayarlar (kısa ana sayfa + alt sayfalar), büyük yazı, yüksek kontrast, ekran okuyucu etiketleri | Yazıldı |
 | Koyu tema (Ayarlar > Tema; varsayılan açık) | Yazıldı |
 | Zikirmatik arka planında değişen manzara görselleri (varsayılan kapalı) | Yazıldı; 16 görsel yapay zekâ ile üretildi, `tool/manzara_uret.py` ile küçültülüp gömülür (2,3 MB) |
@@ -70,8 +71,12 @@ dart run tool/inceleme_raporu.dart
   app.dill" hatası verir; debug derleme ve `flutter run` çalışır. Çözüm:
   projeyi `C:\dev\abyad` gibi bir klasöre taşımak. `android/gradle.properties`
   içindeki `android.overridePathCheck=true` yalnızca debug içindir.
-- **Logodaki Mushaf yazısı** gerçek bir ayet değil, bozuk harfler gibi
-  görünüyor; ikon boyutunda okunmuyor ama büyük kullanımda düzeltilmeli.
+  Taşımadan derlemek için: PowerShell'de `subst Y: "<proje yolu>"`, `Y:\`
+  içinden `flutter build appbundle --release`, sonra `subst Y: /D`.
+- **Mağaza görseli (`docs/feature_graphic_1024x500.png`) kullanılmamalı.**
+  Yapay zekâ ile üretilmiş; içindeki telefon ekranı gerçek uygulama değil ve
+  Fâtiha diye gösterilen Arapça satırlar bozuk. Gerçek ekran görüntüsüyle
+  yeniden hazırlanmalı. (Logodaki benzer yazı `tool/logo_duzelt.py` ile silindi.)
 - **Kurulu Flutter 3.41.5** ile drift 2.35+, Riverpod 3 ve permission_handler
   14 çözülmüyor/derlenmiyor; sürümler buna göre sabitlendi.
 
@@ -96,6 +101,7 @@ veya projeye analitik/reklam paketi eklenirse testleri kırar.
 ## Belgeler
 
 - [docs/cihaz_testi.md](docs/cihaz_testi.md) — gerçek cihazda denenecek senaryolar
+- [docs/vakit_dogrulama.md](docs/vakit_dogrulama.md) — vakit hesabının Diyanet'le karşılaştırması ve kalan farklar
 - [docs/bildirim.md](docs/bildirim.md) — ezan bildirimi tasarımı, tam zamanlı alarm izni
 - [docs/surum3_kararlar.md](docs/surum3_kararlar.md) — toplu hatim, tilavet, hadis
 - [docs/hoca/OKU.md](docs/hoca/OKU.md) — hoca görüşmesi: inceleme belgesi, danışılacak konular, demo sırası

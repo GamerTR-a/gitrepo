@@ -415,6 +415,36 @@ void main() {
     await ekraniKapat(tester, ortam);
   });
 
+  testWidgets("kur'an: bilgi düğmesi metin ve işaretler sayfasını açar", (
+    tester,
+  ) async {
+    final tutamac = tester.ensureSemantics();
+    final ortam = await ekraniKur(tester, const AbyadKabuk());
+    // Alt menüdeki sekme (ana sayfadaki hızlı erişimde de aynı ad var)
+    await tester.tap(find.text("Kur'an").last);
+    await yuklenmeyiBekle(tester);
+    await tester.tap(find.byTooltip("Kur'an metni ve işaretler hakkında"));
+    await yuklenmeyiBekle(tester);
+    await yuklenmeyiBekle(tester);
+    expect(find.text('Metin ve İşaretler'), findsOneWidget);
+    expect(find.text('Âsım kıraati, Hafs rivayeti'), findsOneWidget);
+    expect(find.text('114 sure, 6236 ayet'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Secde işareti'), 300);
+    expect(
+      find.bySemanticsLabel(RegExp('^Secde işareti: .*15 ayette')),
+      findsOneWidget,
+    );
+    // İncelenmemiş içerik onaylıymış gibi görünmez
+    await tester.scrollUntilVisible(
+      find.textContaining('henüz bir hoca tarafından incelenmedi'),
+      300,
+    );
+    await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    tutamac.dispose();
+    await ekraniKapat(tester, ortam);
+  });
+
   testWidgets('rehber: animasyonlar kapalıysa duruş geçişi oynatılmaz', (
     tester,
   ) async {

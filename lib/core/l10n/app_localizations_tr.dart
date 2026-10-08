@@ -756,27 +756,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get manzaraKabe => 'Kâbe';
-
-  @override
-  String get manzaraMekke => 'Mekke';
-
-  @override
-  String get manzaraMedine => 'Medine';
-
-  @override
-  String get manzaraKudus => 'Kudüs';
-
-  @override
-  String get manzaraSelimiye => 'Selimiye Camii';
-
-  @override
-  String get manzaraAyasofya => 'Ayasofya';
-
-  @override
-  String get manzaraUlucami => 'Ulu Cami';
-
-  @override
   String get ozelZikir => 'Özel zikir';
 
   @override
@@ -1076,7 +1055,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get lisansIcerikMetin =>
-      'Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.';
+      'Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır ve Diyanet İşleri Başkanlığı\'nın yayımladığı vakitlerle karşılaştırılmıştır. Dinî günlerin tarihleri ve hicrî ay başlangıçları Diyanet İşleri Başkanlığı\'nın dinî günler listesinden alınmıştır.';
 
   @override
   String get lisansHadisBaslik => 'Kırk Hadis';

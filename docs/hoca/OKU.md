@@ -21,9 +21,10 @@ açın (başka klasöre kopyalarsanız Arapça metin sistem yazı tipiyle basıl
 
 ## Görüşmeden önce
 
-- **Logoyu düzeltin ya da göstermeyin.** Logodaki mushaf yazısı gerçek bir
-  metin değil, anlamsız harflerdir; mushaf yazımı uzmanı bunu ilk bakışta
-  görür.
+- **Mağaza görselini göstermeyin.** `docs/feature_graphic_1024x500.png`
+  içindeki telefon ekranında Fâtiha diye gösterilen satırlar bozuk harflerdir;
+  mushaf yazımı uzmanı bunu ilk bakışta görür. (Logodaki benzer yazı silindi;
+  telefona yeni sürümü kurduktan sonra ikon temizdir.)
 - Yalnızca A grubunu ve danışılacak konuları basmanız yeterli olabilir; B
   grubunu isterse verirsiniz.
 - Tanzil metnini nereden, hangi ayarlarla indirdiğinizi bilin

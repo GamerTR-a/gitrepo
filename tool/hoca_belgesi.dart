@@ -425,8 +425,8 @@ void main() {
     ),
     _Bolum(
       'Önemli günler (${(gunler['donem'] as Map)['miladi']})',
-      'Bu tarihler tasarım taslağındaki örneklerdir; Diyanet\'in resmî dinî '
-          'günler takvimiyle karşılaştırılacaktır.',
+      "Tarihler Diyanet İşleri Başkanlığı'nın resmî dinî günler listesinden "
+          'alınmıştır; bilgi için eklenmiştir, incelemeniz gerekmez.',
       [
         for (final g in _liste(gunler, 'gunler'))
           _Satir(

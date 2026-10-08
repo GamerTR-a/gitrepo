@@ -85,13 +85,19 @@ kelimelere dair açıklamalar.
 ## 7. Namaz vakitleri, kerahat vakitleri ve kaza hesabı
 
 Vakitler internetsiz, telefonda hesaplanıyor (imsak 18°, yatsı 17°; güneşe
-−7, öğleye +5, ikindiye +4, akşama +7 dakika temkin). Yüksek enlemlerde yatsı
-ve imsak oluşmayan günlerde "gecenin yedide biri" kuralı uygulanıyor. Kerahat
+−7, öğleye +5, ikindiye +4, akşama +7 dakika temkin). Bu hesap Türkiye'de
+sekiz şehirde bir yıl boyunca Diyanet'in yayımladığı vakitlerle karşılaştırıldı
+ve hiçbir gün iki dakikadan fazla fark çıkmadı. Avrupa'da ise Diyanet yaz
+aylarında imsak ve yatsıyı kısaltılmış bir süreyle yayımlıyor; uygulama bu
+kuralı bilmediği için o günlerde "gecenin yedide biri" kuralını ya da açıyı
+kullanıyor ve Diyanet'ten yarım saatten fazla ayrılabiliyor. Kerahat
 vakitleri için güneş doğduktan sonra 45, öğleden önce 10, akşamdan önce 45
 dakika alındı; bu süreler taslaktır. Kaza sihirbazı her gün için beş farz ve
 vitir, her yıl için 30 gün oruç hesaplıyor.
 
 - Bu konuları fıkıh alanından kime danışmamızı önerirsiniz?
+- Diyanet'in yüksek enlemler için uyguladığı kuralın tanımına nereden
+  ulaşabiliriz?
 
 ## 8. Kırk Hadis ve namaz rehberi
 
