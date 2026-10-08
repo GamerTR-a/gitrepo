@@ -22,7 +22,7 @@ import '../domain/ayarlar.dart';
 import 'lisanslar_ekrani.dart';
 
 /// Uygulama sürümü (pubspec.yaml ile birlikte güncellenir)
-const uygulamaSurumu = '1.2.2';
+const uygulamaSurumu = '1.3.0';
 
 /// Sistem uygulama ayarlarını açar. Testlerde ezilir.
 final sistemAyarlariProvider = Provider<Future<void> Function()>(

@@ -1,9 +1,19 @@
 import 'dart:io';
 
+import 'package:abyad/features/ayarlar/ui/ayarlar_ekrani.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// CLAUDE.md §2'deki Değişmez İlkelerin yanlışlıkla bozulmasını yakalar.
 void main() {
+  test('Ayarlar ekranındaki sürüm pubspec.yaml ile aynı', () {
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    final surum = RegExp(
+      r'^version:\s*(\d+\.\d+\.\d+)\+\d+',
+      multiLine: true,
+    ).firstMatch(pubspec)!.group(1);
+    expect(uygulamaSurumu, surum);
+  });
+
   test('ana AndroidManifest.xml INTERNET izni içermez', () {
     final manifest = File(
       'android/app/src/main/AndroidManifest.xml',
