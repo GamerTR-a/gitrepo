@@ -401,14 +401,26 @@ class _Cizim extends StatelessWidget {
         borderRadius: BorderRadius.circular(AbyadRadius.dugme),
         border: Border.all(color: AbyadColors.kenarlik),
       ),
-      child: adim.cizim == null
-          ? yerTutucu
-          : SvgPicture.asset(
-              '$rehberCizimKlasoru/${adim.cizim}',
-              height: 150,
-              semanticsLabel: adim.cizimTarifi,
-              errorBuilder: (_, _, _) => yerTutucu,
-            ),
+      child: switch (adim.cizim) {
+        null => yerTutucu,
+        final ad when ad.endsWith('.svg') => SvgPicture.asset(
+          '$rehberCizimKlasoru/$ad',
+          height: 150,
+          semanticsLabel: adim.cizimTarifi,
+          errorBuilder: (_, _, _) => yerTutucu,
+        ),
+        // Gerçek görsel (3:2): çizimden büyük gösterilir ki ayrıntı seçilsin
+        final ad => ClipRRect(
+          borderRadius: BorderRadius.circular(AbyadRadius.cip),
+          child: Image.asset(
+            '$rehberCizimKlasoru/$ad',
+            height: 210,
+            fit: BoxFit.contain,
+            semanticLabel: adim.cizimTarifi,
+            errorBuilder: (_, _, _) => yerTutucu,
+          ),
+        ),
+      },
     );
   }
 }

@@ -259,7 +259,7 @@ const zorunluNamazAdimlari = [
 ];
 
 const _incelemeAlanlari = ['kaynak', 'incelendi', 'inceleyen', 'not'];
-final _cizimAdi = RegExp(r'^(abdest|namaz)_\d{2}_[a-z_]+\.svg$');
+final _cizimAdi = RegExp(r'^(abdest|namaz)_\d{2}_[a-z_]+\.(svg|webp)$');
 final _sesAdi = RegExp(r'^[a-z_]+\.mp3$');
 
 /// Üç rehber dosyasının şemasını denetler; bulduğu hataları döndürür

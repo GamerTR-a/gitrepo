@@ -13,6 +13,11 @@ Denetim: `dart run tool/rehber_dogrula.dart` eksik çizim ve sesleri listeler.
 çizimlerdir (çöp adam ve basit şekiller). Gerçek çizimler geldiğinde aynı
 adlarla üzerlerine yazılacak.
 
+Gerçekçi görseller (WebP) de desteklenir: üretim tarifi, duruş başına
+istemler ve kabul listesi [rehber_gorsel_istemleri.md](rehber_gorsel_istemleri.md)
+içindedir; `python tool/rehber_gorsel_uret.py KLASOR` onları uygulamaya ekler.
+Aşağıdaki kurallar yalnızca SVG çizim teslim edecek bir çizer içindir.
+
 ### İllüstratör için kurallar
 
 - Biçim: SVG, `viewBox="0 0 240 160"` (yatay, 3:2). Metin, gömülü resim,
@@ -48,7 +53,7 @@ adlarla üzerlerine yazılacak.
 |---|---|---|---|
 | `namaz_01_niyet.svg` | Niyet | Kıbleye dönük, ayakta, kollar iki yanda | Niyet |
 | `namaz_02_tekbir.svg` | Tekbir | Ayakta, eller kulak hizasında, avuçlar kıbleye dönük | İftitah tekbiri, Kunut tekbiri |
-| `namaz_03_kiyam.svg` | Kıyam | Ayakta, eller göbek hizasında bağlı, bakış secde yerinde | Kıyam, Kıraat, Kunut |
+| `namaz_03_kiyam.svg` | Kıyam | Ayakta, sağ el sol elin üstünde göbeğin altında bağlı, bakış secde yerinde | Kıyam, Kıraat, Kunut |
 | `namaz_04_ruku.svg` | Rükû | Belden eğilmiş, sırt düz, eller dizlerde | Rükû |
 | `namaz_05_kavme.svg` | Kavme | Rükûdan doğrulmuş, dik, kollar iki yanda | Kavme |
 | `namaz_06_secde.svg` | Secde | Alın, burun, eller, dizler ve ayak parmakları yerde | Secde, İkinci secde |
