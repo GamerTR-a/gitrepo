@@ -1,0 +1,196 @@
+{
+  "aciklama": "Her namazın bölümleri ve rekat sayıları (Hanefi, Diyanet uygulaması). 'tur': farz | sunnet | sunnet_gayri_muekked | vitir. Ekran adım listesini bu veriden üretir. 'zammi_sureler' Fâtiha'dan sonra örnek olarak gösterilen surelerin dualar.json kimlikleridir (rekat sırasıyla). Cuma namazı içerik hocadan gelene kadar yer tutucudur.",
+  "zammi_sureler": [
+    "kevser",
+    "ihlas",
+    "felak",
+    "nas"
+  ],
+  "vakitler": [
+    {
+      "id": "sabah",
+      "ad": "Sabah",
+      "yer_tutucu": false,
+      "bolumler": [
+        {
+          "id": "sunnet",
+          "ad": "Sünnet",
+          "tur": "sunnet",
+          "rekat": 2,
+          "niyet": "Niyet ettim Allah rızası için bugünkü sabah namazının sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        },
+        {
+          "id": "farz",
+          "ad": "Farz",
+          "tur": "farz",
+          "rekat": 2,
+          "niyet": "Niyet ettim Allah rızası için bugünkü sabah namazının farzını kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        }
+      ]
+    },
+    {
+      "id": "ogle",
+      "ad": "Öğle",
+      "yer_tutucu": false,
+      "bolumler": [
+        {
+          "id": "ilk_sunnet",
+          "ad": "İlk sünnet",
+          "tur": "sunnet",
+          "rekat": 4,
+          "niyet": "Niyet ettim Allah rızası için bugünkü öğle namazının ilk sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        },
+        {
+          "id": "farz",
+          "ad": "Farz",
+          "tur": "farz",
+          "rekat": 4,
+          "niyet": "Niyet ettim Allah rızası için bugünkü öğle namazının farzını kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        },
+        {
+          "id": "son_sunnet",
+          "ad": "Son sünnet",
+          "tur": "sunnet",
+          "rekat": 2,
+          "niyet": "Niyet ettim Allah rızası için bugünkü öğle namazının son sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        }
+      ]
+    },
+    {
+      "id": "ikindi",
+      "ad": "İkindi",
+      "yer_tutucu": false,
+      "bolumler": [
+        {
+          "id": "sunnet",
+          "ad": "Sünnet",
+          "tur": "sunnet_gayri_muekked",
+          "rekat": 4,
+          "niyet": "Niyet ettim Allah rızası için bugünkü ikindi namazının sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": "Gayr-i müekked sünnet: ilk oturuşta salavat okunur, üçüncü rekata Sübhâneke ile başlanır. Doğrulanmalı."
+        },
+        {
+          "id": "farz",
+          "ad": "Farz",
+          "tur": "farz",
+          "rekat": 4,
+          "niyet": "Niyet ettim Allah rızası için bugünkü ikindi namazının farzını kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        }
+      ]
+    },
+    {
+      "id": "aksam",
+      "ad": "Akşam",
+      "yer_tutucu": false,
+      "bolumler": [
+        {
+          "id": "farz",
+          "ad": "Farz",
+          "tur": "farz",
+          "rekat": 3,
+          "niyet": "Niyet ettim Allah rızası için bugünkü akşam namazının farzını kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        },
+        {
+          "id": "sunnet",
+          "ad": "Sünnet",
+          "tur": "sunnet",
+          "rekat": 2,
+          "niyet": "Niyet ettim Allah rızası için bugünkü akşam namazının sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        }
+      ]
+    },
+    {
+      "id": "yatsi",
+      "ad": "Yatsı",
+      "yer_tutucu": false,
+      "bolumler": [
+        {
+          "id": "ilk_sunnet",
+          "ad": "İlk sünnet",
+          "tur": "sunnet_gayri_muekked",
+          "rekat": 4,
+          "niyet": "Niyet ettim Allah rızası için bugünkü yatsı namazının ilk sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": "Gayr-i müekked sünnet: ilk oturuşta salavat okunur, üçüncü rekata Sübhâneke ile başlanır. Doğrulanmalı."
+        },
+        {
+          "id": "farz",
+          "ad": "Farz",
+          "tur": "farz",
+          "rekat": 4,
+          "niyet": "Niyet ettim Allah rızası için bugünkü yatsı namazının farzını kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        },
+        {
+          "id": "son_sunnet",
+          "ad": "Son sünnet",
+          "tur": "sunnet",
+          "rekat": 2,
+          "niyet": "Niyet ettim Allah rızası için bugünkü yatsı namazının son sünnetini kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": ""
+        },
+        {
+          "id": "vitir",
+          "ad": "Vitir",
+          "tur": "vitir",
+          "rekat": 3,
+          "niyet": "Niyet ettim Allah rızası için bugünkü vitir namazını kılmaya.",
+          "kaynak": "Taslak (Hanefi mezhebi, Diyanet uygulaması); kaynak inceleyen hoca tarafından eklenecek",
+          "incelendi": false,
+          "inceleyen": null,
+          "not": "Üçüncü rekatta sureden sonra tekbir alınıp Kunut duaları okunur. Kunut metni yer tutucudur."
+        }
+      ]
+    },
+    {
+      "id": "cuma",
+      "ad": "Cuma",
+      "yer_tutucu": true,
+      "bolumler": [],
+      "not": "YER TUTUCU: Cuma namazı içeriği hocadan gelmeden eklenmeyecek (CLAUDE.md §6.14)."
+    }
+  ]
+}

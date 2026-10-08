@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/icerik/icerik.dart';
 import '../../../core/l10n/app_localizations.dart';
 import '../../../core/theme/abyad_colors.dart';
 import '../../../core/theme/abyad_text.dart';
-import '../../../core/theme/abyad_tokens.dart';
-import '../../../core/widgets/abyad_icon.dart';
 import '../../../core/widgets/abyad_kart.dart';
 import '../../../core/widgets/ortak.dart';
+import '../data/rehber_saglayici.dart';
+import '../domain/rehber.dart';
+import 'rehber_adim_ekrani.dart';
 
-/// Tasarım: docs/tasarim/06_rehber
+/// Rehberin girişi: abdest ya da namaz, namazda vakit ve bölüm seçimi.
 class RehberEkrani extends ConsumerStatefulWidget {
   const RehberEkrani({super.key});
 
@@ -19,184 +19,162 @@ class RehberEkrani extends ConsumerStatefulWidget {
 }
 
 class _RehberEkraniState extends ConsumerState<RehberEkrani> {
-  String _rehberId = 'namaz';
-  int _adim = 0;
+  bool _abdest = false;
+
+  void _ac(String baslik, String altBaslik, List<SiraliAdim> adimlar) =>
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => RehberAdimEkrani(
+            baslik: baslik,
+            altBaslik: altBaslik,
+            adimlar: adimlar,
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final rehberler = ref.watch(rehberlerProvider).valueOrNull;
-    if (rehberler == null) {
-      return const Scaffold(
-        backgroundColor: AbyadColors.zemin,
-        body: Yukleniyor(),
-      );
-    }
-    final rehber = rehberler.firstWhere((r) => r.id == _rehberId);
-    final adim = rehber.adimlar[_adim];
-    final sonAdim = _adim == rehber.adimlar.length - 1;
-
     return AbyadSayfa(
-      altCubuk: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: AbyadColors.yuzey,
-          border: Border(top: BorderSide(color: AbyadColors.kenarlik)),
-        ),
-        child: SafeArea(
-          top: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-            child: Row(
-              children: [
-                Opacity(
-                  opacity: _adim == 0 ? 0.45 : 1,
-                  child: AbyadDugme(
-                    metin: l10n.onceki,
-                    ikincil: true,
-                    onTap: _adim == 0 ? null : () => setState(() => _adim--),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: AbyadDugme(
-                    metin: sonAdim ? l10n.bastanBasla : l10n.sonrakiAdim,
-                    onTap: () =>
-                        setState(() => _adim = sonAdim ? 0 : _adim + 1),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
       children: [
-        SayfaBasligi(baslik: rehber.ad, altBaslik: rehber.altBaslik),
+        SayfaBasligi(baslik: l10n.rehberBaslik, altBaslik: l10n.rehberAciklama),
         const SizedBox(height: 14),
-        AbyadSegment<String>(
-          secenekler: {'namaz': l10n.namaz, 'abdest': l10n.abdest},
-          secili: _rehberId,
-          onSec: (id) => setState(() {
-            _rehberId = id;
-            _adim = 0;
-          }),
+        AbyadSegment<bool>(
+          secenekler: {false: l10n.namaz, true: l10n.abdest},
+          secili: _abdest,
+          onSec: (v) => setState(() => _abdest = v),
         ),
-        const SizedBox(height: 12),
-        ExcludeSemantics(
-          child: Row(
-            children: [
-              for (var i = 0; i < rehber.adimlar.length; i++) ...[
-                if (i > 0) const SizedBox(width: 4),
-                Expanded(
-                  child: Container(
-                    height: 5,
-                    decoration: BoxDecoration(
-                      color: i < _adim
-                          ? AbyadColors.zumrut
-                          : (i == _adim
-                                ? AbyadColors.pirincSus
-                                : AbyadColors.segmentZemin),
-                      borderRadius: BorderRadius.circular(3),
-                    ),
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 14),
+        if (_abdest) ..._abdestBolumu(l10n) else ..._namazBolumu(l10n),
+        const SizedBox(height: 14),
+        Text(l10n.fikihNot, style: AbyadText.kucuk),
+      ],
+    );
+  }
+
+  List<Widget> _namazBolumu(AppLocalizations l10n) {
+    final rehber = ref.watch(namazRehberiProvider);
+    if (rehber.hasError) return const [YuklemeHatasi()];
+    final veri = rehber.valueOrNull;
+    if (veri == null) return const [Yukleniyor()];
+    return [
+      Text(l10n.rehberNamazSec, style: AbyadText.govde),
+      const SizedBox(height: 12),
+      for (final vakit in veri.vakitler) ...[
         AbyadKart(
-          yaricap: AbyadRadius.buyukKart,
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Çizimler assets/rehber/ altına eklenince burada gösterilecek
-              ExcludeSemantics(
-                child: Container(
-                  constraints: const BoxConstraints(minHeight: 150),
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: AbyadColors.segmentZemin,
-                    borderRadius: BorderRadius.circular(AbyadRadius.dugme),
-                    border: Border.all(color: AbyadColors.kenarlik),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const AbyadIcon(
-                        'person',
-                        renk: AbyadColors.metinIkincil,
-                        boyut: 36,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        l10n.cizimAlani(adim.baslik),
-                        textAlign: TextAlign.center,
-                        style: AbyadText.etiket,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 14),
-              Semantics(
-                liveRegion: true,
-                child: Text(
-                  l10n.adimNo(_adim + 1, rehber.adimlar.length),
-                  style: abyadStil(
-                    AbyadFonts.metin,
-                    12,
-                    700,
-                    color: AbyadColors.pirincYazi,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 6),
               Semantics(
                 header: true,
-                child: Text(
-                  adim.baslik,
-                  style: abyadStil(AbyadFonts.metin, 22, 700),
-                ),
+                child: Text(vakit.ad, style: AbyadText.kartBasligi),
               ),
-              const SizedBox(height: 6),
-              Text(adim.aciklama, style: AbyadText.govde),
-              if (adim.arapca != null ||
-                  adim.okunus != null ||
-                  adim.anlam != null) ...[
-                const SizedBox(height: 14),
-                Container(
-                  padding: const EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    color: AbyadColors.pirincAcik,
-                    borderRadius: BorderRadius.circular(AbyadRadius.dugme),
-                    border: Border.all(color: AbyadColors.pirincKenar),
+              if (vakit.yerTutucu)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6, bottom: 10),
+                  child: Text(
+                    l10n.rehberIcerikBekleniyor,
+                    style: AbyadText.kucuk,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      if (adim.arapca != null)
-                        ArapcaMetin(
-                          adim.arapca!,
-                          boyut: 28,
-                          satirYuksekligi: 1.8,
-                        ),
-                      if (adim.okunus != null)
-                        Text(adim.okunus!, style: AbyadText.kartBasligi),
-                      if (adim.anlam != null) ...[
-                        const SizedBox(height: 4),
-                        Text(
-                          adim.anlam!,
-                          style: AbyadText.kucuk.copyWith(fontSize: 14),
-                        ),
-                      ],
-                    ],
+                ),
+              for (final (i, bolum) in vakit.bolumler.indexed) ...[
+                if (i > 0) Divider(height: 1, color: AbyadColors.ayrac),
+                GezinmeSatiri(
+                  baslik: bolum.ad,
+                  deger: l10n.rekatSayisi(bolum.rekat),
+                  onTap: () => _ac(
+                    l10n.rehberBolumBasligi(vakit.ad, bolum.ad),
+                    l10n.rekatSayisi(bolum.rekat),
+                    veri.adimlariUret(bolum),
                   ),
                 ),
               ],
             ],
           ),
         ),
+        const SizedBox(height: 10),
       ],
-    );
+    ];
+  }
+
+  List<Widget> _abdestBolumu(AppLocalizations l10n) {
+    final rehber = ref.watch(abdestRehberiProvider);
+    if (rehber.hasError) return const [YuklemeHatasi()];
+    final veri = rehber.valueOrNull;
+    if (veri == null) return const [Yukleniyor()];
+    return [
+      AbyadKart(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Semantics(
+              header: true,
+              child: Text(l10n.abdestRehberi, style: AbyadText.kartBasligi),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              l10n.abdestRehberiAciklama(veri.adimlar.length),
+              style: AbyadText.kucuk,
+            ),
+            const SizedBox(height: 12),
+            AbyadDugme(
+              metin: l10n.abdestBasla,
+              onTap: () =>
+                  _ac(l10n.abdestRehberi, l10n.abdestAltBaslik, veri.adimlar),
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 10),
+      AbyadKart(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Semantics(
+              header: true,
+              child: Text(l10n.abdestiBozanlar, style: AbyadText.kartBasligi),
+            ),
+            const SizedBox(height: 8),
+            for (final madde in veri.bozanlar)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ExcludeSemantics(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.textScalerOf(context).scale(7),
+                          right: 10,
+                        ),
+                        child: Container(
+                          width: 6,
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: AbyadColors.pirincSus,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        madde,
+                        style: abyadStil(
+                          AbyadFonts.metin,
+                          14,
+                          400,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      ),
+    ];
   }
 }
