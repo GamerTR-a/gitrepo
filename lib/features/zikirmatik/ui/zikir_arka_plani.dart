@@ -24,8 +24,6 @@ const zikirManzaralari = [
   'buhara',
   'isfahan',
   'halep',
-  'kurtuba',
-  'tac_mahal',
 ];
 
 /// Değişme aralığı seçenekleri (saniye)

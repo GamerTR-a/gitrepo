@@ -4,7 +4,7 @@
     python tool/manzara_uret.py [KAYNAK_KLASOR]
 
 Kaynak görseller (yapay zekâ ile üretilmiş, 2752x1536 JPEG) depoya konmaz;
-bu betik onları 1280 piksel genişliğinde WebP'ye çevirip
+bu betik onları en çok 1280 piksel genişliğinde WebP'ye çevirip
 assets/zikir_arkaplan/ altına yazar. KAYNAK_KLASOR verilmezse proje kökü
 kullanılır. Yeni görsel eklerken aşağıdaki tabloya bir satır ve
 lib/features/zikirmatik/ui/zikir_arka_plani.dart içindeki listeye aynı adı
@@ -37,8 +37,14 @@ GORSELLER = {
     "sc0yud": "buhara",
     "wpihxo": "isfahan",
     "5qhri6": "halep",
-    "bgbgpp": "kurtuba",
-    "3dkqln": "tac_mahal",
+}
+
+# Kaynak görselin yalnızca bir bölümü kullanılacaksa: (sol, üst, sağ, alt),
+# görselin eni ve boyuna oranla. Kudüs'te yalnızca Kubbetü's-Sahra ve
+# avlusu, Medine'de avludaki hatalı çizilmiş yapının üstünde kalan bölüm.
+KIRPMA = {
+    "kudus": (0.383, 0.133, 0.727, 0.707),
+    "medine": (0.234, 0.0, 0.766, 0.749),
 }
 
 
@@ -52,14 +58,19 @@ def main():
         if len(eslesen) != 1:
             sys.exit(f"{ad}: '{parca}' içeren tek bir kaynak dosya bulunamadı ({len(eslesen)})")
         resim = Image.open(os.path.join(kaynak, eslesen[0])).convert("RGB")
-        yukseklik = round(resim.height * GENISLIK / resim.width)
-        resim = resim.resize((GENISLIK, yukseklik), Image.LANCZOS)
+        if ad in KIRPMA:
+            sol, ust, sag, alt = KIRPMA[ad]
+            resim = resim.crop((round(sol * resim.width), round(ust * resim.height),
+                                round(sag * resim.width), round(alt * resim.height)))
+        genislik = min(GENISLIK, resim.width)
+        yukseklik = round(resim.height * genislik / resim.width)
+        resim = resim.resize((genislik, yukseklik), Image.LANCZOS)
         hedef = os.path.join(HEDEF, ad + ".webp")
         # Üst veri (EXIF vb.) yazılmaz
         resim.save(hedef, "WEBP", quality=KALITE, method=6)
         boyut = os.path.getsize(hedef)
         toplam += boyut
-        print(f"{ad:12} {GENISLIK}x{yukseklik} {boyut // 1024:4} KB")
+        print(f"{ad:12} {genislik}x{yukseklik} {boyut // 1024:4} KB")
     print(f"{len(GORSELLER)} görsel, toplam {toplam / 1024 / 1024:.1f} MB")
 
 
