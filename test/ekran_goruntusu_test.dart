@@ -15,6 +15,7 @@ import 'package:abyad/features/kaza/ui/kaza_ekrani.dart';
 import 'package:abyad/features/kaza/ui/kaza_sihirbazi.dart';
 import 'package:abyad/features/kible/ui/kible_ekrani.dart';
 import 'package:abyad/features/konum/ui/sehir_sec_ekrani.dart';
+import 'package:abyad/features/kuran/ui/kuran_metni_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_oku_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_sayfa_ekrani.dart';
 import 'package:abyad/features/rehber/ui/rehber_ekrani.dart';
@@ -82,6 +83,7 @@ void main() {
     '27_hatim_olustur': () => const HatimOlusturEkrani(),
     '28_zikirmatik_manzara': () => const ZikirmatikEkrani(),
     '29_ayarlar_bildirim': () => const BildirimAyarEkrani(),
+    '33_kuran_metni': () => const KuranMetniEkrani(),
     '31_ek_vakitler': () => const EkVakitlerEkrani(),
     '32_vakitler_yuksek_enlem': () => sekmede(Sekme.vakitler),
     '30_hadis_detay': () => Consumer(

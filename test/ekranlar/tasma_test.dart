@@ -13,6 +13,7 @@ import 'package:abyad/features/kaza/ui/kaza_sihirbazi.dart';
 import 'package:abyad/features/kible/ui/kible_ekrani.dart';
 import 'package:abyad/features/konum/ui/sehir_sec_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_liste_ekrani.dart';
+import 'package:abyad/features/kuran/ui/kuran_metni_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_oku_ekrani.dart';
 import 'package:abyad/features/onemli_gunler/ui/onemli_gunler_ekrani.dart';
 import 'package:abyad/features/rehber/ui/rehber_ekrani.dart';
@@ -72,6 +73,7 @@ final _ekranlar = <String, Widget Function()>{
   'kıble': () => const KibleEkrani(),
   'şehir seç': () => const SehirSecEkrani(),
   "kur'an liste": () => _sekme(const KuranListeEkrani()),
+  "kur'an metni ve işaretler": () => const KuranMetniEkrani(),
   "kur'an oku (Fâtiha)": () => const KuranOkuEkrani(sure: 1),
   "kur'an oku (Bakara 255)": () => const KuranOkuEkrani(sure: 2, ayet: 255),
   'dualar': () => _sekme(const DualarEkrani()),

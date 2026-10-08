@@ -4,7 +4,7 @@ import 'gunluk_vakitler.dart';
 ///
 /// Varsayılanlar taslaktır ve `assets/data/ek_vakitler.json` içindeki
 /// `sureler` alanından okunur; inceleyen hoca farklı bir süre uygun görürse
-/// yalnızca o dosya değişir (bkz. docs/hoca/fikhi_sorular.md).
+/// yalnızca o dosya değişir (bkz. docs/hoca/danisilacak_konular.md).
 class EkVakitSureleri {
   const EkVakitSureleri({
     this.dogusDakika = 45,

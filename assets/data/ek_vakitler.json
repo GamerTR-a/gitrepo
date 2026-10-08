@@ -1,5 +1,5 @@
 {
-  "aciklama": "Vakitler ekranındaki 'Kerahat, işrak ve teheccüd' sayfasının verisi (Hanefi, Diyanet uygulaması esas alınarak yazılmış TASLAK). 'sureler' saatlerin hesabında kullanılan dakika değerleridir: 'dogus_dakika' güneş doğduktan sonra kerahatin kaç dakika sürdüğü, 'istiva_dakika' öğle vaktinden kaç dakika önce kerahatin başladığı, 'batis_dakika' akşamdan kaç dakika önce kerahatin başladığıdır. Gecenin son üçte biri, akşam ile ertesi günün imsakı arası üçe bölünerek bulunur. Süreler ve metinler yayın öncesi bir hoca tarafından incelenmelidir (CLAUDE.md §8); sorular docs/hoca/fikhi_sorular.md içindedir.",
+  "aciklama": "Vakitler ekranındaki 'Kerahat, işrak ve teheccüd' sayfasının verisi (Hanefi, Diyanet uygulaması esas alınarak yazılmış TASLAK). 'sureler' saatlerin hesabında kullanılan dakika değerleridir: 'dogus_dakika' güneş doğduktan sonra kerahatin kaç dakika sürdüğü, 'istiva_dakika' öğle vaktinden kaç dakika önce kerahatin başladığı, 'batis_dakika' akşamdan kaç dakika önce kerahatin başladığıdır. Gecenin son üçte biri, akşam ile ertesi günün imsakı arası üçe bölünerek bulunur. Süreler ve metinler yayın öncesi bir hoca tarafından incelenmelidir (CLAUDE.md §8); sorular docs/hoca/danisilacak_konular.md içindedir.",
   "sureler": {
     "dogus_dakika": 45,
     "istiva_dakika": 10,

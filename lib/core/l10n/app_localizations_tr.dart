@@ -218,6 +218,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get aylikImsakiye => 'Aylık imsakiye';
 
   @override
+  String get kuranMetniBaslik => 'Metin ve İşaretler';
+
+  @override
+  String get kuranMetniDugme => 'Kur\'an metni ve işaretler hakkında';
+
+  @override
+  String get kuranMetniBolum => 'Bu metin hakkında';
+
+  @override
+  String get kuranIsaretBolum => 'Durak ve secde işaretleri';
+
+  @override
+  String get icerikIncelenmedi =>
+      'Bu sayfadaki bilgiler henüz bir hoca tarafından incelenmedi.';
+
+  @override
   String get ekVakitlerKart => 'Kerahat, işrak ve teheccüd vakitleri';
 
   @override

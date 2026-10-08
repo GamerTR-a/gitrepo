@@ -1,0 +1,157 @@
+{
+  "aciklama": "Kur'an sekmesindeki 'Metin ve İşaretler' sayfasının verisi: uygulamadaki Kur'an metninin kaynağı, rivayeti, yazımı ve metinde geçen durak/secde işaretlerinin açıklaması. Sayılar (sure, ayet, sayfa, cüz, secde işareti) test/domain/icerik_test.dart içinde gömülü metinle karşılaştırılır. Bütün kayıtlar TASLAKTIR; yayın öncesi Kur'an ve kıraat alanından bir hoca tarafından incelenmelidir (CLAUDE.md §8). 'isaret' alanı işaretin Unicode karakteridir; ekranda bir uzatma çizgisinin üstünde gösterilir.",
+  "ozellikler": [
+    {
+      "id": "kaynak",
+      "baslik": "Metnin kaynağı",
+      "deger": "Tanzil Projesi, Osmanî (Uthmani) metin, sürüm 1.1",
+      "aciklama": "tanzil.net adresinden; durak işaretleri, secde işaretleri ve uzatma çizgileri açık olarak indirildi.",
+      "kaynak": "assets/data/quran/README.md; Tanzil Project (tanzil.net)",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "rivayet",
+      "baslik": "Kıraat ve rivayet",
+      "deger": "Âsım kıraati, Hafs rivayeti",
+      "aciklama": null,
+      "kaynak": "Tanzil Project belgeleri; inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "resm",
+      "baslik": "Yazım (resm)",
+      "deger": "Resm-i Osmânî",
+      "aciklama": "Tanzil'in bildirdiğine göre Medine Mushafı'nın yazımı esas alınmıştır. Türkiye'de basılan mushaflardaki yazımdan bazı kelimelerde ve işaretlerde farklıdır.",
+      "kaynak": "Tanzil Project belgeleri; inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": "Türkiye'deki okuyucunun alıştığı yazımla farkların nasıl anlatılacağı hocaya sorulacak (docs/hoca/danisilacak_konular.md)."
+    },
+    {
+      "id": "sayim",
+      "baslik": "Sure ve ayet sayısı",
+      "deger": "114 sure, 6236 ayet",
+      "aciklama": "Ayetler Kûfe sayımına göre numaralanır. Fâtiha'nın ilk ayeti besmeledir.",
+      "kaynak": "Gömülü metinden sayıldı; sayım usulünün adı inceleyen tarafından doğrulanacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "sayfa",
+      "baslik": "Sayfa düzeni",
+      "deger": "604 sayfa, 30 cüz, 60 hizip",
+      "aciklama": "Sayfa, cüz ve hizip yerleri Tanzil üst verisinden gelir; Medine Mushafı'ndaki gibi her sayfa bir ayetin sonunda biter.",
+      "kaynak": "Tanzil üst verisi (quran-data.xml)",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "butunluk",
+      "baslik": "Metne dokunulmaz",
+      "deger": "Metin değiştirilmeden gösterilir",
+      "aciklama": "Fâtiha ve Tevbe dışındaki surelerin başındaki besmele yalnızca ekranda ayrı bir satır olarak sunulur; dosyadaki metin aynen korunur.",
+      "kaynak": "Tanzil lisansı (CC BY 3.0) ve uygulama testleri",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "yazi_tipi",
+      "baslik": "Yazı tipi",
+      "deger": "Amiri",
+      "aciklama": "Nesih hattına dayalı açık kaynaklı bir yazı tipi (SIL Open Font License).",
+      "kaynak": "fonts/OFL-Amiri.txt",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": "İşaretlerin bu yazı tipiyle doğru çizilip çizilmediğine hoca bakacak."
+    }
+  ],
+  "isaretler": [
+    {
+      "id": "lazim",
+      "isaret": "ۘ",
+      "ad": "Mîm",
+      "aciklama": "Durmak gerekir.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "la",
+      "isaret": "ۙ",
+      "ad": "Lâ",
+      "aciklama": "Burada durulmaz. Nefes yetmeyip durulursa biraz geriden alınarak devam edilir.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "caiz",
+      "isaret": "ۚ",
+      "ad": "Cîm",
+      "aciklama": "Durmak da geçmek de câizdir.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "vasl_evla",
+      "isaret": "ۖ",
+      "ad": "Sâd-lâm (sılâ)",
+      "aciklama": "Durulabilir, fakat durmadan geçmek daha iyidir.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "vakf_evla",
+      "isaret": "ۗ",
+      "ad": "Kâf-lâm (kılâ)",
+      "aciklama": "Geçilebilir, fakat durmak daha iyidir.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "muanaka",
+      "isaret": "ۛ",
+      "ad": "Üç nokta (muânaka)",
+      "aciklama": "Birbirine yakın iki yerde çift olarak bulunur; bu iki yerden yalnızca birinde durulur.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": ""
+    },
+    {
+      "id": "kucuk_sin",
+      "isaret": "ۜ",
+      "ad": "Küçük sîn",
+      "aciklama": "Bazı yerlerde sekteyi, yani nefes almadan yapılan kısa duruşu gösterir; bazı kelimelerde ise sâd harfinin sîn gibi okunacağını bildirir.",
+      "kaynak": "Taslak; Medine Mushafı'nın işaret açıklamalarına göre yazıldı, inceleyen doğrulayacak",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": "Metinde 7 yerde geçer; hangilerinin sekte, hangilerinin sîn okunuşu olduğu ayrıca gösterilmiyor."
+    },
+    {
+      "id": "secde",
+      "isaret": "۩",
+      "ad": "Secde işareti",
+      "aciklama": "Tilavet secdesi ayetini gösterir. Bu metinde 15 ayette bulunur.",
+      "kaynak": "Gömülü metinden sayıldı; açıklama taslaktır",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": "Mezheplere göre secde ayeti sayısındaki fark (Hanefî uygulaması) bilerek yazılmadı; hocaya sorulacak."
+    }
+  ]
+}

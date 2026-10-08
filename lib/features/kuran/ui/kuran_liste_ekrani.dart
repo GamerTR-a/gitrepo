@@ -11,6 +11,7 @@ import '../../../core/widgets/ortak.dart';
 import '../../../core/widgets/sekiz_kose_yildiz.dart';
 import '../../konum/ui/sehir_sec_ekrani.dart' show AramaKutusu;
 import '../data/kuran_deposu.dart';
+import 'kuran_metni_ekrani.dart';
 import 'kuran_sayfa_ekrani.dart';
 
 final okumaDurumuProvider = StreamProvider<OkumaDurumuData?>(
@@ -62,6 +63,17 @@ class _KuranListeEkraniState extends ConsumerState<KuranListeEkrani> {
                       baslik: l10n.ekranKuran,
                       buyuk: true,
                       geri: false,
+                      sagda: [
+                        KareIkonDugme(
+                          ikon: 'info',
+                          etiket: l10n.kuranMetniDugme,
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (_) => const KuranMetniEkrani(),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 16),
                     AramaKutusu(

@@ -233,6 +233,45 @@ void main() {
       }
     });
 
+    test("kur'an metni bilgisi: sayılar gömülü metinle aynı, işaretler "
+        'metinde geçiyor', () {
+      final j = _oku('assets/data/kuran_metni.json');
+      final ozellikler = {
+        for (final o in (j['ozellikler'] as List).cast<Map<String, dynamic>>())
+          o['id'] as String: o,
+      };
+      final metin = File(
+        'assets/data/quran/quran-uthmani.txt',
+      ).readAsStringSync();
+      final ayetSayisi = kuran.sureler.fold(0, (t, s) => t + s.ayetSayisi);
+      expect(
+        ozellikler['sayim']!['deger'],
+        '${kuran.sureler.length} sure, $ayetSayisi ayet',
+      );
+      expect(
+        ozellikler['sayfa']!['deger'],
+        '${kuran.sayfalar.length} sayfa, ${kuran.cuzler.length} cüz, 60 hizip',
+      );
+      final isaretler = (j['isaretler'] as List).cast<Map<String, dynamic>>();
+      expect(isaretler.map((i) => i['isaret']).toSet(), hasLength(8));
+      for (final i in isaretler) {
+        final isaret = i['isaret'] as String;
+        expect(isaret.runes, hasLength(1), reason: '${i['id']}');
+        expect(metin, contains(isaret), reason: '${i['id']}');
+      }
+      final secde = isaretler.firstWhere((i) => i['id'] == 'secde');
+      expect(
+        secde['aciklama'],
+        contains('${'۩'.allMatches(metin).length} ayette'),
+      );
+      for (final k in [...ozellikler.values, ...isaretler]) {
+        for (final alan in _incelemeAlanlari) {
+          expect(k.containsKey(alan), isTrue, reason: '${k['id']}: $alan');
+        }
+        expect(k['incelendi'], isFalse, reason: '${k['id']}');
+      }
+    });
+
     test('günün ayeti: geçerli başvurular ve deterministik seçim', () {
       final liste = (_oku('assets/data/gunun_ayetleri.json')['ayetler'] as List)
           .cast<String>();

@@ -7,7 +7,7 @@
 //   docs/hoca/ek_temsili_hikayeler.html   uygulamada kapalı olan hikâyeler
 //
 // Belge gömülü veri dosyalarından üretilir; elle düzenlenmez. Sorular
-// docs/hoca/fikhi_sorular.md içinden okunur.
+// docs/hoca/danisilacak_konular.md içinden okunur.
 // ignore_for_file: avoid_print
 import 'dart:convert';
 import 'dart:io';
@@ -69,7 +69,10 @@ class _Satir {
 }
 
 class _Bolum {
-  _Bolum(this.baslik, this.aciklama, this.satirlar);
+  _Bolum(this.baslik, this.aciklama, this.satirlar, {this.kuran = false});
+
+  /// Kur'an metni ya da Arapça yazımla ilgili bölüm; belgede öne alınır
+  final bool kuran;
   final String baslik;
   final String aciklama;
   final List<_Satir> satirlar;
@@ -123,7 +126,7 @@ String _tablo(_Bolum b, int no) {
   return s.toString();
 }
 
-/// fikhi_sorular.md için küçük bir çevirici: başlık, paragraf ve madde.
+/// danisilacak_konular.md için küçük bir çevirici: başlık, paragraf ve madde.
 /// Her maddenin altına cevap için boş satır bırakır.
 String _sorular(String md) {
   final s = StringBuffer();
@@ -241,7 +244,33 @@ void main() {
     not: a['not'] as String?,
   );
 
-  final bolumler = [
+  final kuranMetni = _oku('kuran_metni');
+
+  final tumBolumler = [
+    _Bolum(
+      "Kur'an metni ve işaretler",
+      "Kur'an sekmesindeki 'Metin ve İşaretler' sayfasında gösterilen "
+          'bilgiler. Hepsi taslaktır; özellikle rivayet, resm ve sayım '
+          'ifadelerine ve işaret açıklamalarına bakmanızı rica ederiz.',
+      [
+        for (final o in _liste(kuranMetni, 'ozellikler'))
+          _Satir(
+            o['baslik'] as String,
+            turkce: [('', o['deger']), ('', o['aciklama'])],
+            kaynak: o['kaynak'] as String?,
+            not: o['not'] as String?,
+          ),
+        for (final i in _liste(kuranMetni, 'isaretler'))
+          _Satir(
+            i['ad'] as String,
+            arapca: 'ـ${i['isaret']}',
+            turkce: [('', i['aciklama'])],
+            kaynak: i['kaynak'] as String?,
+            not: i['not'] as String?,
+          ),
+      ],
+      kuran: true,
+    ),
     _Bolum('Dualar ve namaz sureleri', taslakNotu, [
       for (final d in _liste(dualar, 'dualar'))
         _Satir(
@@ -257,7 +286,7 @@ void main() {
           kaynak: d['kaynak'] as String?,
           not: d['not'] as String?,
         ),
-    ]),
+    ], kuran: true),
     _Bolum('Zikirler', taslakNotu, [
       for (final z in _liste(_oku('zikirler'), 'zikirler'))
         _Satir(
@@ -267,11 +296,12 @@ void main() {
           kaynak: z['kaynak'] as String?,
           not: z['not'] as String?,
         ),
-    ]),
+    ], kuran: true),
     _Bolum(
       'Namaz rehberi: adımlar',
-      'Hanefî mezhebine göre yazılmış taslak. Sure ve dua metinleri 1. '
-          'bölümdedir; burada yalnızca tarif ve kısa tesbihler vardır.',
+      'Hanefî mezhebine göre yazılmış taslak. Sure ve dua metinleri "Dualar '
+          've namaz sureleri" bölümündedir; burada yalnızca tarif ve kısa '
+          'tesbihler vardır.',
       _liste(adimlar, 'adimlar').map(adim).toList(),
     ),
     _Bolum(
@@ -304,7 +334,7 @@ void main() {
     ]),
     _Bolum(
       'Kerahat, işrak ve teheccüd vakitleri',
-      'Süreler ve açıklamalar taslaktır (bkz. danışılacak konular 3 ve 4).',
+      'Süreler ve açıklamalar taslaktır (bkz. danışılacak konular).',
       [
         () {
           final s = ekVakit['sureler'] as Map<String, dynamic>;
@@ -357,6 +387,7 @@ void main() {
         for (final a in (_oku('gunun_ayetleri')['ayetler'] as List))
           _Satir('Ayet $a', arapca: kuran.metin(a as String)),
       ],
+      kuran: true,
     ),
     _Bolum(
       'Kırk Hadis (İmam Nevevî)',
@@ -390,6 +421,7 @@ void main() {
             not: e['not'] as String?,
           ),
       ],
+      kuran: true,
     ),
     _Bolum(
       'Önemli günler (${(gunler['donem'] as Map)['miladi']})',
@@ -409,6 +441,8 @@ void main() {
       ],
     ),
   ];
+  final kuranBolumleri = tumBolumler.where((b) => b.kuran).toList();
+  final bolumler = [...kuranBolumleri, ...tumBolumler.where((b) => !b.kuran)];
 
   final toplam = bolumler.fold(0, (t, b) => t + b.satirlar.length);
   final bugun = DateTime.now();
@@ -431,6 +465,12 @@ void main() {
       'olarak işaretlenmeyecektir.</p>',
     )
     ..writeln(
+      '<p><b>Sizden ricamız:</b> A grubundaki bölümler Kur\'an metni ve '
+      'Arapça yazımla ilgilidir; öncelikle bunlara bakmanızı rica ederiz. '
+      'B grubundaki bölümler fıkıh ve hadis alanındadır; uygun gördüğünüz '
+      'bir hocaya yönlendirmeniz bizim için yeterlidir.</p>',
+    )
+    ..writeln(
       '<p><b>Nasıl işaretlenir:</b> her satırın sonunda üç kutu vardır. '
       'Uygun bulduğunuz metinde "Uygun"u işaretlemeniz yeterlidir. '
       'Düzeltme gerekiyorsa metnin üstüne ya da not sütununa yazabilirsiniz. '
@@ -438,6 +478,11 @@ void main() {
     )
     ..writeln('<table>');
   for (final (i, b) in bolumler.indexed) {
+    if (i == 0 || i == kuranBolumleri.length) {
+      govde.writeln(
+        '<tr><td colspan="2"><b>${i == 0 ? 'A. Kur\'an ve Arapça metin' : 'B. Fıkıh, hadis ve diğer içerik'}</b></td></tr>',
+      );
+    }
     govde.writeln(
       '<tr><td>${i + 1}. ${_kacis(b.baslik)}</td>'
       '<td>${b.satirlar.length} kayıt</td></tr>',
@@ -453,7 +498,9 @@ void main() {
     ..writeln('</section>')
     ..writeln('<section class="danisma">')
     ..writeln('<h2>Danışmak istediğimiz konular</h2>')
-    ..writeln(_sorular(File('docs/hoca/fikhi_sorular.md').readAsStringSync()))
+    ..writeln(
+      _sorular(File('docs/hoca/danisilacak_konular.md').readAsStringSync()),
+    )
     ..writeln('</section>');
   for (final (i, b) in bolumler.indexed) {
     govde.writeln(_tablo(b, i + 1));

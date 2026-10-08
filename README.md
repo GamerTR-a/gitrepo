@@ -13,6 +13,7 @@ Faz planı: [CLAUDE_CODE_PROMPTLARI.md](CLAUDE_CODE_PROMPTLARI.md).
 | Ezan bildirimi | Yazıldı, emülatörde denendi; gerçek cihaz testi ve ezan kaydı bekliyor |
 | Ana Sayfa, Vakitler, aylık imsakiye, Kıble | Yazıldı |
 | Kur'an: sayfa sayfa (Mushaf düzeni) ve ayet ayet okuma, yer imi, kalınan yer | Yazıldı |
+| Kur'an > Metin ve İşaretler (metnin kaynağı, rivayeti, yazımı; durak ve secde işaretleri) | Yazıldı; bilgiler taslak (`assets/data/kuran_metni.json`), hoca incelemesi bekliyor |
 | Meal altyapısı (dosya biçimi, seçim, gösterim) | Yazıldı; meal metni lisans bekliyor ([nasıl eklenir](assets/data/quran/README.md)) |
 | Tefsir | Ertelendi |
 | Dualar, Zikirmatik, Önemli Günler | Yazıldı; içerik hoca incelemesi bekliyor |
@@ -97,7 +98,7 @@ veya projeye analitik/reklam paketi eklenirse testleri kırar.
 - [docs/cihaz_testi.md](docs/cihaz_testi.md) — gerçek cihazda denenecek senaryolar
 - [docs/bildirim.md](docs/bildirim.md) — ezan bildirimi tasarımı, tam zamanlı alarm izni
 - [docs/surum3_kararlar.md](docs/surum3_kararlar.md) — toplu hatim, tilavet, hadis
-- [docs/hoca/OKU.md](docs/hoca/OKU.md) — hoca görüşmesi: inceleme belgesi ve danışılacak konular
+- [docs/hoca/OKU.md](docs/hoca/OKU.md) — hoca görüşmesi: inceleme belgesi, danışılacak konular, demo sırası
 - [docs/gizlilik.md](docs/gizlilik.md) — gizlilik politikası taslağı (TR + EN)
 - [docs/magaza.md](docs/magaza.md) — mağaza metni ve yayın öncesi liste
 - [assets/data/quran/README.md](assets/data/quran/README.md) — Tanzil lisansı

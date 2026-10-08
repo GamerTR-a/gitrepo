@@ -448,6 +448,36 @@ abstract class AppLocalizations {
   /// **'Aylık imsakiye'**
   String get aylikImsakiye;
 
+  /// No description provided for @kuranMetniBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metin ve İşaretler'**
+  String get kuranMetniBaslik;
+
+  /// No description provided for @kuranMetniDugme.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kur\'an metni ve işaretler hakkında'**
+  String get kuranMetniDugme;
+
+  /// No description provided for @kuranMetniBolum.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu metin hakkında'**
+  String get kuranMetniBolum;
+
+  /// No description provided for @kuranIsaretBolum.
+  ///
+  /// In tr, this message translates to:
+  /// **'Durak ve secde işaretleri'**
+  String get kuranIsaretBolum;
+
+  /// No description provided for @icerikIncelenmedi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu sayfadaki bilgiler henüz bir hoca tarafından incelenmedi.'**
+  String get icerikIncelenmedi;
+
   /// No description provided for @ekVakitlerKart.
   ///
   /// In tr, this message translates to:
