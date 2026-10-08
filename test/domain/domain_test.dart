@@ -64,6 +64,44 @@ void main() {
       expect(geri.ay, 6);
       expect(geri.gun, greaterThanOrEqualTo(29));
     });
+
+    test("Diyanet'in ay başlangıçlarıyla aynı günü gösterir", () {
+      (int, int, int) h(int y, int a, int g) {
+        final t = hicriTarih(DateTime(y, a, g));
+        return (t.yil, t.ay, t.gun);
+      }
+
+      // Ümmü'l-Kurâ hesabının bir gün farklı düştüğü iki ay
+      expect(h(2026, 2, 19), (1447, 9, 1)); // 1 Ramazan 1447
+      expect(h(2026, 11, 10), (1448, 6, 1)); // 1 Cemâziyelâhir 1448
+      expect(h(2026, 11, 9), (1448, 5, 29));
+      // Dinî günler listesindeki günler
+      expect(h(2027, 2, 8), (1448, 9, 1)); // Ramazan başlangıcı
+      expect(h(2027, 3, 5), (1448, 9, 26)); // Kadir Gecesi
+      expect(h(2027, 3, 9), (1448, 10, 1)); // Ramazan Bayramı
+      expect(h(2027, 5, 16), (1448, 12, 10)); // Kurban Bayramı
+      expect(h(2027, 6, 6), (1449, 1, 1)); // Hicrî yılbaşı
+      expect(h(2027, 12, 24), (1449, 7, 26)); // Miraç Kandili
+    });
+
+    test('tablonun dışındaki tarihlerde hesaba döner ve kesintisiz sürer', () {
+      // Tablodan önce ve sonra da geçerli bir tarih verir
+      for (final gun in [DateTime(2025, 6, 1), DateTime(2029, 1, 1)]) {
+        final t = hicriTarih(gun);
+        expect(t.ay, inInclusiveRange(1, 12));
+        expect(t.gun, inInclusiveRange(1, 30));
+      }
+      // Tablonun son ayından hesaba geçerken gün atlamaz ya da tekrarlamaz
+      var onceki = hicriTarih(DateTime(2027, 12, 29));
+      for (var i = 1; i <= 45; i++) {
+        final t = hicriTarih(DateTime(2027, 12, 29 + i));
+        final ardisik =
+            (t.ay == onceki.ay && t.gun == onceki.gun + 1) ||
+            (t.gun == 1 && onceki.gun >= 29);
+        expect(ardisik, isTrue, reason: 'gün $i: ${t.yil}-${t.ay}-${t.gun}');
+        onceki = t;
+      }
+    });
   });
 
   group('bildirim planı', () {
