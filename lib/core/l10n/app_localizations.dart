@@ -2332,6 +2332,12 @@ abstract class AppLocalizations {
   /// **'Sonraki adım'**
   String get sonrakiAdim;
 
+  /// No description provided for @hareketiTekrarla.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hareketi tekrar göster'**
+  String get hareketiTekrarla;
+
   /// No description provided for @bastanBasla.
   ///
   /// In tr, this message translates to:

@@ -1350,6 +1350,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sonrakiAdim => 'Sonraki adım';
 
   @override
+  String get hareketiTekrarla => 'Hareketi tekrar göster';
+
+  @override
   String get bastanBasla => 'Baştan başla';
 
   @override

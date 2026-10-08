@@ -338,6 +338,8 @@ void main() {
       find.bySemanticsLabel('Niyet: kıbleye dönük, ayakta, kollar iki yanda'),
       findsOneWidget,
     );
+    // İlk adımın öncesi yoktur; geçiş oynatılmaz
+    expect(find.byTooltip('Hareketi tekrar göster'), findsNothing);
 
     await tester.tap(find.text('Sonraki adım'));
     await tester.pumpAndSettle();
@@ -345,6 +347,23 @@ void main() {
       find.text('Adım 2 / 17 · 1. rekat · İftitah Tekbiri'),
       findsOneWidget,
     );
+    // Niyet duruşundan tekbir duruşuna geçiş: sonunda yalnızca tekbir
+    // görünür, düğme geçişi baştan oynatır
+    FadeTransition yeniDurus() => tester.widget(
+      find
+          .ancestor(
+            of: find.bySemanticsLabel(RegExp('^Tekbir: ')),
+            matching: find.byType(FadeTransition),
+          )
+          .first,
+    );
+    expect(yeniDurus().opacity.value, 1);
+    await tester.tap(find.byTooltip('Hareketi tekrar göster'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(yeniDurus().opacity.value, 0, reason: 'önce eski duruş görünür');
+    await tester.pumpAndSettle();
+    expect(yeniDurus().opacity.value, 1);
     expect(find.text('Allâhu Ekber'), findsOneWidget);
     expect(find.text('Kadınlar için'), findsOneWidget);
 
@@ -373,6 +392,23 @@ void main() {
     await ekraniKapat(tester, ortam);
   });
 
+  testWidgets('rehber: animasyonlar kapalıysa duruş geçişi oynatılmaz', (
+    tester,
+  ) async {
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+    final ortam = await ekraniKur(
+      tester,
+      const RehberAdimlari(vakit: 'sabah', bolum: 'farz'),
+    );
+    await tester.tap(find.text('Sonraki adım'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('İftitah Tekbiri'), findsWidgets);
+    expect(find.bySemanticsLabel(RegExp('^Tekbir: ')), findsOneWidget);
+    expect(find.byTooltip('Hareketi tekrar göster'), findsNothing);
+    await ekraniKapat(tester, ortam);
+  });
+
   testWidgets('rehber: abdest sekmesi bozan durumları ve adımları gösterir', (
     tester,
   ) async {
@@ -395,6 +431,8 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Eller'), findsOneWidget);
     expect(find.text('3 kez'), findsOneWidget);
+    // Abdest adımları ayrı uzuvlardır; aralarında geçiş yoktur
+    expect(find.byTooltip('Hareketi tekrar göster'), findsNothing);
     await ekraniKapat(tester, ortam);
   });
 

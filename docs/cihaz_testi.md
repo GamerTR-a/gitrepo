@@ -80,6 +80,8 @@ Sonuçları tabloya `✓` / `✗` ve kısa notla işleyin.
 | T4 | Koyu tema + yüksek kontrast + "Çok büyük" yazı | Metinler rahat okunur, taşma yok |
 | Z1 | Zikirmatik (ilk hâli) | Arka plan boş ve sade; eskisiyle aynı |
 | Z2 | Zikirmatik > "Arka planda manzara" açık, aralık 15 sn | Sayacın arkasında manzara görseli görünür, 15 saniyede bir yumuşakça değişir; sayaçtaki sayı rahat okunur, sayma ve titreşim etkilenmez; eski/az bellekli telefonda takılma olmaz |
+| R1 | Rehber > bir namaz bölümü, "Sonraki adım" ile ilerleyin | Duruş değişen adımlarda önce eski duruş görünür, yaklaşık 2 saniyede yenisine geçer; sağ üstteki düğme tekrar oynatır; eski telefonda takılma yok |
+| R2 | Telefon ayarlarından animasyonları kapatın, Rehber'i açın | Geçiş oynatılmaz, tekrar düğmesi görünmez; yalnızca adımın duruşu görünür |
 | Z3 | Z2 açıkken ekranı kapatıp açın, başka ekrana gidip dönün | Çizim göstermeye devam eder; pil tüketiminde belirgin artış yok |
 
 ## Bilinen sınırlar (doğrulanacak)

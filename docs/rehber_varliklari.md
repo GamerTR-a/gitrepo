@@ -18,6 +18,10 @@ istemler ve kabul listesi [rehber_gorsel_istemleri.md](rehber_gorsel_istemleri.m
 içindedir; `python tool/rehber_gorsel_uret.py KLASOR` onları uygulamaya ekler.
 Aşağıdaki kurallar yalnızca SVG çizim teslim edecek bir çizer içindir.
 
+Namaz adımlarında bir önceki duruştan bu duruşa kısa bir geçiş oynatılır;
+ilerideki gerçek animasyon planı [rehber_animasyon_plani.md](rehber_animasyon_plani.md)
+içindedir.
+
 ### İllüstratör için kurallar
 
 - Biçim: SVG, `viewBox="0 0 240 160"` (yatay, 3:2). Metin, gömülü resim,

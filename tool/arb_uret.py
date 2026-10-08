@@ -415,6 +415,7 @@ m("fikihNot", "Bu bilgiler Hanefi mezhebine göre özettir. Özel durumunuz içi
 m("adimNo", "Adım {adim#} / {toplam#}")
 m("cizimAlani", "Çizim alanı · {adim}")
 m("sonrakiAdim", "Sonraki adım")
+m("hareketiTekrarla", "Hareketi tekrar göster")
 m("bastanBasla", "Baştan başla")
 
 m("rehberNamazSec", "Öğrenmek istediğiniz namazı ve bölümünü seçin.")

@@ -165,7 +165,12 @@ class _RehberAdimEkraniState extends ConsumerState<RehberAdimEkrani> {
                   ),
                   children: [
                     _AdimKarti(
+                      // Her adım kendi geçişini baştan oynatır
+                      key: ValueKey(i),
                       sirali: widget.adimlar[i],
+                      oncekiCizim: i == 0
+                          ? null
+                          : widget.adimlar[i - 1].adim.cizim,
                       no: i + 1,
                       toplam: toplam,
                       ezber: _ezber,
@@ -195,9 +200,14 @@ class _AdimKarti extends ConsumerWidget {
     required this.no,
     required this.toplam,
     required this.ezber,
+    this.oncekiCizim,
+    super.key,
   });
 
   final SiraliAdim sirali;
+
+  /// Bir önceki adımın duruş çizimi; geçiş bundan başlar
+  final String? oncekiCizim;
   final int no;
   final int toplam;
   final bool ezber;
@@ -255,7 +265,7 @@ class _AdimKarti extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _Cizim(adim: adim),
+          _Cizim(adim: adim, onceki: oncekiCizim),
           const SizedBox(height: 14),
           Semantics(
             liveRegion: true,
@@ -371,13 +381,59 @@ class _AdimKarti extends ConsumerWidget {
 }
 
 /// Duruş çizimi; ekran okuyucuya duruşu tarif eder.
-class _Cizim extends StatelessWidget {
-  const _Cizim({required this.adim});
+///
+/// Namazda duruş bir önceki adımdan farklıysa önce o duruş görünür, sonra
+/// yumuşakça bu adımın duruşuna geçilir; düğmeyle tekrar oynatılır.
+/// Telefonda animasyonlar kapalıysa yalnızca bu adımın duruşu gösterilir.
+class _Cizim extends StatefulWidget {
+  const _Cizim({required this.adim, this.onceki});
   final RehberAdimi adim;
+  final String? onceki;
+
+  @override
+  State<_Cizim> createState() => _CizimState();
+}
+
+class _CizimState extends State<_Cizim> with SingleTickerProviderStateMixin {
+  late final _oynatici = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1800),
+  );
+
+  /// Önce eski duruş kısa bir an durur, sonra geçiş başlar
+  late final _gecis = CurvedAnimation(
+    parent: _oynatici,
+    curve: const Interval(0.35, 1, curve: Curves.easeInOut),
+  );
+
+  /// Abdest adımları ayrı uzuvlardır; aralarında geçiş anlam taşımaz
+  bool get _gecisVar {
+    final simdiki = widget.adim.cizim;
+    final onceki = widget.onceki;
+    return simdiki != null &&
+        onceki != null &&
+        onceki != simdiki &&
+        simdiki.startsWith('namaz_') &&
+        onceki.startsWith('namaz_');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (_gecisVar) _oynatici.forward();
+  }
+
+  @override
+  void dispose() {
+    _gecis.dispose();
+    _oynatici.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final adim = widget.adim;
     final yerTutucu = ExcludeSemantics(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -392,35 +448,62 @@ class _Cizim extends StatelessWidget {
         ],
       ),
     );
+    Widget gorsel(String ad, {String? tarif, Widget? yoksa}) =>
+        ad.endsWith('.svg')
+        ? SvgPicture.asset(
+            '$rehberCizimKlasoru/$ad',
+            height: 150,
+            semanticsLabel: tarif,
+            excludeFromSemantics: tarif == null,
+            errorBuilder: (_, _, _) => yoksa ?? const SizedBox.shrink(),
+          )
+        // Gerçek görsel (3:2): çizimden büyük gösterilir ki ayrıntı seçilsin
+        : ClipRRect(
+            borderRadius: BorderRadius.circular(AbyadRadius.cip),
+            child: Image.asset(
+              '$rehberCizimKlasoru/$ad',
+              height: 210,
+              fit: BoxFit.contain,
+              semanticLabel: tarif,
+              excludeFromSemantics: tarif == null,
+              errorBuilder: (_, _, _) => yoksa ?? const SizedBox.shrink(),
+            ),
+          );
+
+    final simdiki = adim.cizim == null
+        ? yerTutucu
+        : gorsel(adim.cizim!, tarif: adim.cizimTarifi, yoksa: yerTutucu);
+    final hareketli = _gecisVar && !MediaQuery.disableAnimationsOf(context);
+
     return Container(
       constraints: const BoxConstraints(minHeight: 150),
       padding: const EdgeInsets.all(12),
-      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AbyadColors.cizimZemini,
         borderRadius: BorderRadius.circular(AbyadRadius.dugme),
         border: Border.all(color: AbyadColors.kenarlik),
       ),
-      child: switch (adim.cizim) {
-        null => yerTutucu,
-        final ad when ad.endsWith('.svg') => SvgPicture.asset(
-          '$rehberCizimKlasoru/$ad',
-          height: 150,
-          semanticsLabel: adim.cizimTarifi,
-          errorBuilder: (_, _, _) => yerTutucu,
-        ),
-        // Gerçek görsel (3:2): çizimden büyük gösterilir ki ayrıntı seçilsin
-        final ad => ClipRRect(
-          borderRadius: BorderRadius.circular(AbyadRadius.cip),
-          child: Image.asset(
-            '$rehberCizimKlasoru/$ad',
-            height: 210,
-            fit: BoxFit.contain,
-            semanticLabel: adim.cizimTarifi,
-            errorBuilder: (_, _, _) => yerTutucu,
-          ),
-        ),
-      },
+      child: !hareketli
+          ? Center(child: simdiki)
+          : Stack(
+              alignment: Alignment.center,
+              children: [
+                FadeTransition(
+                  opacity: ReverseAnimation(_gecis),
+                  child: gorsel(widget.onceki!),
+                ),
+                FadeTransition(opacity: _gecis, child: simdiki),
+                PositionedDirectional(
+                  top: 0,
+                  end: 0,
+                  child: KareIkonDugme(
+                    ikon: 'play',
+                    etiket: l10n.hareketiTekrarla,
+                    onTap: () => _oynatici.forward(from: 0),
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
