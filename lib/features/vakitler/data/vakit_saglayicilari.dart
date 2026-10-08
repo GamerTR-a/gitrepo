@@ -49,6 +49,7 @@ class VakitServisi {
         12,
       ).timeZoneOffset,
       ayar: ayar,
+      yurtDisi: konum.yurtDisi,
     );
   }
 

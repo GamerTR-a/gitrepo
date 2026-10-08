@@ -18,6 +18,7 @@ import '../../kible/ui/kible_ekrani.dart';
 import '../../konum/ui/sehir_sec_ekrani.dart';
 import '../data/vakit_saglayicilari.dart';
 import '../domain/gunluk_vakitler.dart';
+import '../domain/vakit_hesaplama.dart';
 import 'ek_vakitler_ekrani.dart';
 import 'imsakiye_ekrani.dart';
 import 'vakit_adlari.dart';
@@ -105,6 +106,13 @@ class _VakitlerEkraniState extends ConsumerState<VakitlerEkrani> {
           if (vakitler.tahminiVakitler.isNotEmpty) ...[
             const SizedBox(height: 12),
             _YuksekEnlemNotu(tahmini: vakitler.tahminiVakitler),
+          ] else if (konum.yurtDisi &&
+              // Kısaltma, verisine bakılan 44,8° ve üstü şehirlerde görüldü
+              konum.enlem.abs() >= 44.5 &&
+              ayarlar.yontem == HesapYontemi.diyanet &&
+              diyanetYazKisaltmasi(vakitler)) ...[
+            const SizedBox(height: 12),
+            const _YuksekEnlemNotu(tahmini: {}),
           ],
           const SizedBox(height: 18),
           _GecisKarti(
@@ -239,6 +247,8 @@ class _GecisKarti extends StatelessWidget {
 /// Yatsı/imsak oluşmayan günlerde vakitlerin nasıl belirlendiğini anlatır.
 class _YuksekEnlemNotu extends StatelessWidget {
   const _YuksekEnlemNotu({required this.tahmini});
+
+  /// Kuralla belirlenen vakitler; boşsa yaz kısaltması açıklanır
   final Set<VakitTuru> tahmini;
 
   @override
@@ -248,8 +258,8 @@ class _YuksekEnlemNotu extends StatelessWidget {
       for (final tur in VakitTuru.values)
         if (tahmini.contains(tur)) l10n.vakitAdi(tur),
     ];
-    final vakitler = adlar.length == 1
-        ? adlar.single
+    final vakitler = adlar.length <= 1
+        ? adlar.join()
         : l10n.listeVe(
             adlar.sublist(0, adlar.length - 1).join(', '),
             adlar.last,
@@ -263,7 +273,9 @@ class _YuksekEnlemNotu extends StatelessWidget {
           Text(l10n.yuksekEnlemBaslik, style: AbyadText.kartBasligi),
           const SizedBox(height: 6),
           Text(
-            l10n.yuksekEnlemMetin(vakitler),
+            tahmini.isEmpty
+                ? l10n.yazFarkiMetin
+                : l10n.yuksekEnlemMetin(vakitler),
             style: AbyadText.kucuk.copyWith(color: AbyadColors.metin),
           ),
         ],

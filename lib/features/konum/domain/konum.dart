@@ -26,6 +26,11 @@ class Konum {
   /// Cihazın konum servisinden mi alındı?
   final bool otomatik;
 
+  /// Ülkesi bilinen ve Türkiye dışında olan bir konum mu? Listede olmayan
+  /// bir yerde otomatik bulunan konumun ülkesi boştur ve Türkiye gibi
+  /// hesaplanır.
+  bool get yurtDisi => ulke.isNotEmpty && ulke != 'Türkiye';
+
   /// Konum seçilmeden önceki varsayılan
   static const istanbul = Konum(
     ad: 'İstanbul',

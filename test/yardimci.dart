@@ -189,6 +189,21 @@ final yuksekEnlemAyarlari = <String, Object>{
   }),
 };
 
+/// Test anında (2 Ekim) Diyanet'in yaz kısaltmasını uyguladığı türden bir
+/// gün: ülkesi bilinen, Türkiye dışında, 60° enlemde bir konum (güney
+/// yarımkürede bahar; şafak oluşur ama gecenin büyük bölümünü kaplar).
+final yazFarkiAyarlari = <String, Object>{
+  'ayarlar_v1': jsonEncode({
+    'konum': {
+      'ad': 'Yurt dışı (örnek)',
+      'ulke': 'Örnek',
+      'enlem': -60.0,
+      'boylam': 0.0,
+      'dilim': 'UTC',
+    },
+  }),
+};
+
 const ornekHatimKodu = 'ornekhatim23';
 
 /// Kayıtlı bir hatimle başlayan ayarlar: 1–3. paylar okunmuş, 4. pay bu

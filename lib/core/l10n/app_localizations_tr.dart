@@ -274,8 +274,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String yuksekEnlemMetin(String vakitler) {
-    return 'Bulunduğunuz enlemde bu tarihte $vakitler vakti astronomik olarak oluşmuyor; yüksek enlemlerde yaz gecelerinde gökyüzü tam kararmaz. Abyad bu günlerde \"gecenin yedide biri\" kuralını uygular: geceyi yediye böler, yatsıyı akşamdan bir pay sonra, imsakı güneş doğmadan bir pay önce alır. Caminizin takvimi başka bir kural kullanıyorsa saatler farklı olabilir; Ayarlar\'dan her vakte dakika düzeltmesi ekleyebilirsiniz.';
+    return 'Bulunduğunuz enlemde bu tarihte $vakitler vakti astronomik olarak oluşmuyor; yüksek enlemlerde yaz gecelerinde gökyüzü tam kararmaz. Abyad bu günlerde \"gecenin yedide biri\" kuralını uygular: geceyi yediye böler, yatsıyı akşamdan bir pay sonra, imsakı güneş doğmadan bir pay önce alır. Diyanet bu enlemler için başka bir usul uyguladığından onun takvimiyle fark yarım saati aşabilir; oruç ve namaz için caminizin takvimini esas alın. Ayarlar\'dan her vakte dakika düzeltmesi ekleyebilirsiniz.';
   }
+
+  @override
+  String get yazFarkiMetin =>
+      'Diyanet, bu enlemde yaz aylarında imsak ve yatsıyı kısaltılmış bir süreyle yayımlıyor. Abyad ise güneşin açısına göre hesaplar; bu yüzden burada imsak Diyanet takviminden daha erken, yatsı daha geç görünebilir ve fark bir saati aşabilir. Caminizin takvimini esas alın; Ayarlar\'dan her vakte dakika düzeltmesi ekleyebilirsiniz.';
 
   @override
   String listeVe(String ilk, String son) {

@@ -252,5 +252,127 @@ void main() {
         }
       });
     }
+
+    test('en az sekiz Türkiye şehri ve yaz saati olan şehirler var', () {
+      final adlar = kayitlar.map((k) => k['sehir']).toSet();
+      expect(
+        adlar,
+        containsAll([
+          'İstanbul',
+          'Ankara',
+          'İzmir',
+          'Erzurum',
+          'Van',
+          'Trabzon',
+          'Berlin',
+          'Amsterdam',
+        ]),
+      );
+    });
+
+    // Avrupa'da yaz günlerinde Diyanet imsak ve yatsıyı açıyla değil,
+    // kısaltılmış bir süreyle yayımlar; motor bunu taklit etmez
+    // (docs/vakit_dogrulama.md). Güneşe bağlı dört vakit yine tutmalıdır.
+    for (final k
+        in (dosya['yaz_farklari'] as List).cast<Map<String, dynamic>>()) {
+      test('yaz: ${k['sehir']} ${k['tarih']} (güneş, öğle, ikindi, akşam)', () {
+        final konum = sehirler.firstWhere(
+          (s) => s.ad == k['sehir'] && s.ust.isEmpty,
+        );
+        final v = VakitServisi(
+          konum,
+          const HesapAyarlari(),
+        ).gunluk(DateTime.parse(k['tarih'] as String));
+        for (final tur in [
+          VakitTuru.gunes,
+          VakitTuru.ogle,
+          VakitTuru.ikindi,
+          VakitTuru.aksam,
+        ]) {
+          final beklenen = (k[tur.name] as String).split(':').map(int.parse);
+          expect(
+            _dakika(v[tur]),
+            closeTo(beklenen.first * 60 + beklenen.last, 2),
+            reason: '${tur.name}: hesaplanan ${v[tur].metin}',
+          );
+        }
+      });
+    }
+  });
+
+  group('yurt dışında Diyanet yatsı açısı', () {
+    GunlukVakitler berlin({required bool yurtDisi, HesapYontemi? yontem}) =>
+        vakitleriHesapla(
+          enlem: 52.5244,
+          boylam: 13.4105,
+          gun: DateTime(2027, 1, 15),
+          utcFarki: const Duration(hours: 1),
+          ayar: HesapAyarlari(yontem: yontem ?? HesapYontemi.diyanet),
+          yurtDisi: yurtDisi,
+        );
+
+    test('16° ile yatsı daha erken girer, diğer vakitler değişmez', () {
+      final tr = berlin(yurtDisi: false);
+      final ab = berlin(yurtDisi: true);
+      expect(
+        _dakika(tr[VakitTuru.yatsi]) - _dakika(ab[VakitTuru.yatsi]),
+        inInclusiveRange(5, 12),
+      );
+      for (final tur in VakitTuru.values.where((t) => t != VakitTuru.yatsi)) {
+        expect(ab[tur].metin, tr[tur].metin, reason: tur.name);
+      }
+    });
+
+    test('diğer yöntemleri etkilemez', () {
+      for (final y in HesapYontemi.values.where(
+        (y) => y != HesapYontemi.diyanet,
+      )) {
+        expect(
+          berlin(yurtDisi: true, yontem: y)[VakitTuru.yatsi].metin,
+          berlin(yurtDisi: false, yontem: y)[VakitTuru.yatsi].metin,
+          reason: y.name,
+        );
+      }
+    });
+
+    test('yaz kısaltması ölçütü: fecir gecenin yüzde 23\'ünü aşınca', () {
+      GunlukVakitler lyon(DateTime gun, int utc) => vakitleriHesapla(
+        enlem: 45.7491,
+        boylam: 4.8479,
+        gun: gun,
+        utcFarki: Duration(hours: utc),
+        yurtDisi: true,
+      );
+      // Diyanet Lyon'da 10 Mayıs'ta açıyla, 21 Haziran'da kısaltarak yayımlar
+      expect(diyanetYazKisaltmasi(lyon(DateTime(2027, 1, 15), 1)), isFalse);
+      expect(diyanetYazKisaltmasi(lyon(DateTime(2027, 5, 10), 2)), isFalse);
+      expect(diyanetYazKisaltmasi(lyon(DateTime(2027, 6, 21), 2)), isTrue);
+      // Kuralla belirlenen günlerde ayrı açıklama gösterilir
+      final berlin = vakitleriHesapla(
+        enlem: 52.5244,
+        boylam: 13.4105,
+        gun: DateTime(2027, 6, 21),
+        utcFarki: const Duration(hours: 2),
+        yurtDisi: true,
+      );
+      expect(berlin.tahminiVakitler, isNotEmpty);
+      expect(diyanetYazKisaltmasi(berlin), isFalse);
+    });
+
+    test('ülkesi bilinmeyen konum Türkiye gibi hesaplanır', () {
+      const bilinmeyen = Konum(ad: 'X', enlem: 50, boylam: 10, dilim: 'UTC');
+      expect(bilinmeyen.yurtDisi, isFalse);
+      expect(Konum.istanbul.yurtDisi, isFalse);
+      expect(
+        const Konum(
+          ad: 'Berlin',
+          ulke: 'Almanya',
+          enlem: 52.5,
+          boylam: 13.4,
+          dilim: 'Europe/Berlin',
+        ).yurtDisi,
+        isTrue,
+      );
+    });
   });
 }

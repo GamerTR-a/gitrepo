@@ -159,6 +159,29 @@ void main() {
       findsOneWidget,
     );
     expect(find.textContaining('gecenin yedide biri'), findsOneWidget);
+    expect(
+      find.textContaining('caminizin takvimini esas alın'),
+      findsOneWidget,
+    );
+    await ekraniKapat(tester, ortam);
+  });
+
+  testWidgets('vakitler: yurt dışında yaz kısaltması günlerinde Diyanet '
+      'farkı açıklanır', (tester) async {
+    final ortam = await ekraniKur(
+      tester,
+      const Scaffold(body: VakitlerEkrani()),
+      ortam: await TestOrtami.olustur(ayarlar: yazFarkiAyarlari),
+    );
+    await tester.scrollUntilVisible(
+      find.text('Bu vakitler neden farklı olabilir?'),
+      200,
+    );
+    expect(
+      find.textContaining('kısaltılmış bir süreyle yayımlıyor'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('gecenin yedide biri'), findsNothing);
     await ekraniKapat(tester, ortam);
   });
 

@@ -6,13 +6,15 @@ import 'gunluk_vakitler.dart';
 ///
 /// [diyanet] parametreleri (imsak 18°, yatsı 17° ve temkin dakikaları),
 /// açık kaynaklı Adhan kütüphanesinin "Turkey" yöntemindeki değerlerdir
-/// (github.com/batoulapps/adhan-js, CalculationMethod.Turkey). Diyanet'in
-/// kendi yayımladığı vakitlerle `test/fixtures/diyanet_referans.json`
-/// üzerinden doğrulanmalıdır.
+/// (github.com/batoulapps/adhan-js, CalculationMethod.Turkey). Türkiye'de
+/// sekiz şehirde bir yıl boyunca Diyanet'in yayımladığı vakitlerle ±2 dakika
+/// içinde tutar. Diyanet, uygulamadaki Avrupa ülkelerinde yatsıyı 16° ile
+/// yayımlıyor ([yatsiAcisiYurtDisi]); ayrıntı: docs/vakit_dogrulama.md.
 enum HesapYontemi {
   diyanet(
     imsakAcisi: 18,
     yatsiAcisi: 17,
+    yatsiAcisiYurtDisi: 16,
     temkin: {
       VakitTuru.gunes: -7,
       VakitTuru.ogle: 5,
@@ -27,12 +29,16 @@ enum HesapYontemi {
   const HesapYontemi({
     required this.imsakAcisi,
     required this.yatsiAcisi,
+    this.yatsiAcisiYurtDisi,
     this.temkin = const {},
   });
 
   /// Güneşin ufkun altındaki açısı (derece)
   final double imsakAcisi;
   final double yatsiAcisi;
+
+  /// Türkiye dışındaki konumlarda kullanılan yatsı açısı; yoksa [yatsiAcisi]
+  final double? yatsiAcisiYurtDisi;
 
   /// Hesaplanan vakte eklenen ihtiyat payı (dakika)
   final Map<VakitTuru, int> temkin;
@@ -56,6 +62,7 @@ const _ufukAcisi = 0.833;
 /// Verilen konum ve gün için vakitleri hesaplar. İnternet gerektirmez.
 ///
 /// [utcFarki], konumun o günkü saat dilimi farkıdır (yaz saati dahil).
+/// [yurtDisi], konumun Türkiye dışında olduğu biliniyorsa `true` verilir.
 /// Yatsı/imsak oluşmayan yüksek enlem günlerinde "gecenin yedide biri"
 /// kuralı uygulanır; hiçbir girdi için hata fırlatmaz.
 GunlukVakitler vakitleriHesapla({
@@ -64,6 +71,7 @@ GunlukVakitler vakitleriHesapla({
   required DateTime gun,
   required Duration utcFarki,
   HesapAyarlari ayar = const HesapAyarlari(),
+  bool yurtDisi = false,
 }) {
   final jd = _julianGunu(gun.year, gun.month, gun.day) - boylam / 360;
   final yontem = ayar.yontem;
@@ -73,7 +81,10 @@ GunlukVakitler vakitleriHesapla({
   final gunes = _aciZamani(jd, enlem, _ufukAcisi, 6 / 24, -1);
   final aksam = _aciZamani(jd, enlem, _ufukAcisi, 18 / 24, 1);
   var imsak = _aciZamani(jd, enlem, yontem.imsakAcisi, 5 / 24, -1);
-  var yatsi = _aciZamani(jd, enlem, yontem.yatsiAcisi, 18 / 24, 1);
+  final yatsiAcisi = yurtDisi
+      ? (yontem.yatsiAcisiYurtDisi ?? yontem.yatsiAcisi)
+      : yontem.yatsiAcisi;
+  var yatsi = _aciZamani(jd, enlem, yatsiAcisi, 18 / 24, 1);
   final ikindi = _ikindi(jd, enlem, 13 / 24);
 
   // Kutup gündüzü/gecesi: doğuş-batış yoksa öğleye göre 6'şar saat varsay
@@ -115,6 +126,22 @@ GunlukVakitler vakitleriHesapla({
         ),
     ],
   );
+}
+
+/// Diyanet'in Avrupa'da yaz aylarında imsak ve yatsıyı açıyla değil,
+/// kısaltılmış bir süreyle yayımladığı günleri yaklaşık olarak tanır:
+/// fecir süresi gecenin yüzde 23'ünü aşınca kısaltma başlar (yayımlanan
+/// vakitlerden çıkarılan ölçüt; docs/vakit_dogrulama.md). Motor bu günlerde
+/// açıyla hesaplamayı sürdürür; ekran farkı kullanıcıya bildirir.
+bool diyanetYazKisaltmasi(GunlukVakitler v) {
+  if (v.tahminiVakitler.isNotEmpty) return false;
+  int dakika(VakitTuru t) => v[t].saat * 60 + v[t].dakika;
+  // Güneş ve akşam temkinli gösterilir (−7 / +7 dakika)
+  final dogus = dakika(VakitTuru.gunes) + 7;
+  final batis = dakika(VakitTuru.aksam) - 7;
+  final gece = 1440 - (batis - dogus);
+  final fecir = (dogus - dakika(VakitTuru.imsak)) % 1440;
+  return fecir > gece * 0.23;
 }
 
 Vakit _vakit(VakitTuru tur, double saat, int ekDakika) {

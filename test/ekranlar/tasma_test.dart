@@ -52,6 +52,7 @@ const _ornekHadis = Hadis(
 /// Kayıtlı veriyle açılan ekranların başlangıç ayarları
 final _ayarlar = <String, Map<String, Object>>{
   'vakitler (yüksek enlem)': yuksekEnlemAyarlari,
+  'vakitler (yaz farkı)': yazFarkiAyarlari,
   'zikirmatik (manzaralı)': {'ayarlar_v1': '{"zikirArkaPlan": true}'},
   'toplu hatim': ornekHatimAyarlari(BolmeSekli.cuz),
   'hatim (cüz)': ornekHatimAyarlari(BolmeSekli.cuz),
@@ -68,6 +69,7 @@ final _ekranlar = <String, Widget Function()>{
   'kabuk (ana sayfa)': () => const AbyadKabuk(),
   'vakitler': () => _sekme(const VakitlerEkrani()),
   'vakitler (yüksek enlem)': () => _sekme(const VakitlerEkrani()),
+  'vakitler (yaz farkı)': () => _sekme(const VakitlerEkrani()),
   'imsakiye': () => const ImsakiyeEkrani(),
   'kerahat, işrak ve teheccüd': () => const EkVakitlerEkrani(),
   'kıble': () => const KibleEkrani(),
