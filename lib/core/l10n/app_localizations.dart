@@ -1192,6 +1192,78 @@ abstract class AppLocalizations {
   /// **'Ekran kapanmasın'**
   String get zikirEkranAcik;
 
+  /// No description provided for @zikirArkaPlan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Arka planda manzara'**
+  String get zikirArkaPlan;
+
+  /// No description provided for @zikirArkaPlanAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kâbe, Medine, Kudüs ve camilerin silik çizimleri sırayla görünür.'**
+  String get zikirArkaPlanAciklama;
+
+  /// No description provided for @zikirArkaPlanSure.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değişme aralığı'**
+  String get zikirArkaPlanSure;
+
+  /// No description provided for @saniyeKisa.
+  ///
+  /// In tr, this message translates to:
+  /// **'{saniye} sn'**
+  String saniyeKisa(int saniye);
+
+  /// No description provided for @dakikaKisa.
+  ///
+  /// In tr, this message translates to:
+  /// **'{dakika} dk'**
+  String dakikaKisa(int dakika);
+
+  /// No description provided for @manzaraKabe.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kâbe'**
+  String get manzaraKabe;
+
+  /// No description provided for @manzaraMekke.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mekke'**
+  String get manzaraMekke;
+
+  /// No description provided for @manzaraMedine.
+  ///
+  /// In tr, this message translates to:
+  /// **'Medine'**
+  String get manzaraMedine;
+
+  /// No description provided for @manzaraKudus.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kudüs'**
+  String get manzaraKudus;
+
+  /// No description provided for @manzaraSelimiye.
+  ///
+  /// In tr, this message translates to:
+  /// **'Selimiye Camii'**
+  String get manzaraSelimiye;
+
+  /// No description provided for @manzaraAyasofya.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ayasofya'**
+  String get manzaraAyasofya;
+
+  /// No description provided for @manzaraUlucami.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ulu Cami'**
+  String get manzaraUlucami;
+
   /// No description provided for @ozelZikir.
   ///
   /// In tr, this message translates to:
@@ -1335,6 +1407,42 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Ezan ve bildirimler'**
   String get ezanVeBildirimler;
+
+  /// No description provided for @ezanVeBildirimlerOzet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Vakit sesleri, hatırlatma ve test bildirimi'**
+  String get ezanVeBildirimlerOzet;
+
+  /// No description provided for @konumVeVakitler.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konum ve vakitler'**
+  String get konumVeVakitler;
+
+  /// No description provided for @kuranAyarOzet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okuma görünümü ve meal'**
+  String get kuranAyarOzet;
+
+  /// No description provided for @tema.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tema'**
+  String get tema;
+
+  /// No description provided for @temaAcik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Açık'**
+  String get temaAcik;
+
+  /// No description provided for @temaKoyu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Koyu'**
+  String get temaKoyu;
 
   /// No description provided for @alarmOlarakCal.
   ///
@@ -1671,6 +1779,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.'**
   String get lisansIcerikMetin;
+
+  /// No description provided for @lisansHadisBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kırk Hadis'**
+  String get lisansHadisBaslik;
+
+  /// No description provided for @lisansHadisMetin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler ve her hadisin altındaki temsilî hikâyeler Abyad için hazırlanmıştır; hikâyeler kurgusaldır. Tamamı yayın öncesinde bir hoca tarafından incelenecektir.'**
+  String get lisansHadisMetin;
+
+  /// No description provided for @lisansCizimBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çizimler'**
+  String get lisansCizimBaslik;
+
+  /// No description provided for @lisansCizimMetin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Namaz ve abdest rehberindeki çizimler ile zikirmatik arka planındaki manzara çizimleri Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır.'**
+  String get lisansCizimMetin;
 
   /// No description provided for @lisansPaketler.
   ///
@@ -2127,6 +2259,462 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Baştan başla'**
   String get bastanBasla;
+
+  /// No description provided for @rehberNamazSec.
+  ///
+  /// In tr, this message translates to:
+  /// **'Öğrenmek istediğiniz namazı ve bölümünü seçin.'**
+  String get rehberNamazSec;
+
+  /// No description provided for @rehberIcerikBekleniyor.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu bölümün içeriği hazırlanıyor.'**
+  String get rehberIcerikBekleniyor;
+
+  /// No description provided for @rekatSayisi.
+  ///
+  /// In tr, this message translates to:
+  /// **'{rekat} rekat'**
+  String rekatSayisi(int rekat);
+
+  /// No description provided for @rehberBolumBasligi.
+  ///
+  /// In tr, this message translates to:
+  /// **'{vakit} – {bolum}'**
+  String rehberBolumBasligi(String vakit, String bolum);
+
+  /// No description provided for @rekatAdim.
+  ///
+  /// In tr, this message translates to:
+  /// **'{rekat}. rekat · {adim}'**
+  String rekatAdim(int rekat, String adim);
+
+  /// No description provided for @tekrarSayisi.
+  ///
+  /// In tr, this message translates to:
+  /// **'{adet} kez'**
+  String tekrarSayisi(int adet);
+
+  /// No description provided for @ornekSure.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örnek sure: {sure}'**
+  String ornekSure(String sure);
+
+  /// No description provided for @kadinlarIcin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kadınlar için'**
+  String get kadinlarIcin;
+
+  /// No description provided for @okunusuDinle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okunuşu dinle'**
+  String get okunusuDinle;
+
+  /// No description provided for @ezberAc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ezber modunu aç'**
+  String get ezberAc;
+
+  /// No description provided for @ezberKapat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ezber modunu kapat'**
+  String get ezberKapat;
+
+  /// No description provided for @ezberAcik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ezber modu açık: Arapça metin ve okunuş gizli, görmek için dokunun.'**
+  String get ezberAcik;
+
+  /// No description provided for @ezberGoster.
+  ///
+  /// In tr, this message translates to:
+  /// **'Göstermek için dokunun'**
+  String get ezberGoster;
+
+  /// No description provided for @abdestRehberi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Abdest Rehberi'**
+  String get abdestRehberi;
+
+  /// No description provided for @abdestAltBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Abdestin adım adım alınışı'**
+  String get abdestAltBaslik;
+
+  /// No description provided for @abdestRehberiAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'Abdestin alınışı {adet} adımda, çizimlerle anlatılır.'**
+  String abdestRehberiAciklama(int adet);
+
+  /// No description provided for @abdestBasla.
+  ///
+  /// In tr, this message translates to:
+  /// **'Abdest adımlarına başla'**
+  String get abdestBasla;
+
+  /// No description provided for @abdestiBozanlar.
+  ///
+  /// In tr, this message translates to:
+  /// **'Abdesti bozan durumlar'**
+  String get abdestiBozanlar;
+
+  /// No description provided for @hadisBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kırk Hadis'**
+  String get hadisBaslik;
+
+  /// No description provided for @hadisAltBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hz. Peygamber\'in (s.a.v.) sözlerinden'**
+  String get hadisAltBaslik;
+
+  /// No description provided for @hadisAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'İmam Nevevî\'nin derlemesi, hikâyeleriyle'**
+  String get hadisAciklama;
+
+  /// No description provided for @hadisBekleniyorBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'İçerik hazırlanıyor'**
+  String get hadisBekleniyorBaslik;
+
+  /// No description provided for @hadisBekleniyorMetin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hadisleri kaynağı ve tercümesi belli olmadan eklemiyoruz. Derleme seçilip bir hoca tarafından incelendikten sonra kırk hadis burada yer alacak.'**
+  String get hadisBekleniyorMetin;
+
+  /// No description provided for @hadisNo.
+  ///
+  /// In tr, this message translates to:
+  /// **'{no}. hadis'**
+  String hadisNo(int no);
+
+  /// No description provided for @hadisRavi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Rivayet eden: {ravi}'**
+  String hadisRavi(String ravi);
+
+  /// No description provided for @hadisTercume.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tercüme: {kaynak}'**
+  String hadisTercume(String kaynak);
+
+  /// No description provided for @hadisHikayeEtiket.
+  ///
+  /// In tr, this message translates to:
+  /// **'Temsilî hikâye'**
+  String get hadisHikayeEtiket;
+
+  /// No description provided for @hadisHikayeNot.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu hikâye, hadisin daha iyi anlaşılması için yazılmış kurgusal bir anlatıdır; yaşanmış bir olay ya da rivayet değildir.'**
+  String get hadisHikayeNot;
+
+  /// No description provided for @hatimBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Toplu Hatim'**
+  String get hatimBaslik;
+
+  /// No description provided for @hatimAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hatmi cüz cüz, sayfa sayfa takip edin'**
+  String get hatimAciklama;
+
+  /// No description provided for @hatimYeni.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni hatim'**
+  String get hatimYeni;
+
+  /// No description provided for @hatimBaslat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hatim başlat'**
+  String get hatimBaslat;
+
+  /// No description provided for @hatimBosBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz hatim yok'**
+  String get hatimBosBaslik;
+
+  /// No description provided for @hatimBosMetin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir hatim başlatın; cüzleri ya da sayfaları pay pay alın, okudukça işaretleyin.'**
+  String get hatimBosMetin;
+
+  /// No description provided for @hatimYerelNotBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Linkle paylaşım henüz açık değil'**
+  String get hatimYerelNotBaslik;
+
+  /// No description provided for @hatimYerelNot.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hatmi aileniz ve arkadaşlarınızla linkle paylaşma özelliği hazırlanıyor. Şimdilik hatmi bu telefonda başlatıp payları kendiniz takip edebilirsiniz. Bilgileriniz telefonunuzda kalır, hiçbir yere gönderilmez.'**
+  String get hatimYerelNot;
+
+  /// No description provided for @hatimDevamEden.
+  ///
+  /// In tr, this message translates to:
+  /// **'Devam eden hatim'**
+  String get hatimDevamEden;
+
+  /// No description provided for @hatimTamamlandi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hatim tamamlandı'**
+  String get hatimTamamlandi;
+
+  /// No description provided for @hatimIlerlemeCuz.
+  ///
+  /// In tr, this message translates to:
+  /// **'{okunan} / {toplam} cüz okundu'**
+  String hatimIlerlemeCuz(int okunan, int toplam);
+
+  /// No description provided for @hatimIlerlemePay.
+  ///
+  /// In tr, this message translates to:
+  /// **'{okunan} / {toplam} pay okundu'**
+  String hatimIlerlemePay(int okunan, int toplam);
+
+  /// No description provided for @hatimHedef.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef: {tarih}'**
+  String hatimHedef(String tarih);
+
+  /// No description provided for @hatimAdi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hatmin adı'**
+  String get hatimAdi;
+
+  /// No description provided for @hatimAdiIpucu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örnek: Ramazan Aile Hatmi'**
+  String get hatimAdiIpucu;
+
+  /// No description provided for @hatimNotu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Niyet notu (isteğe bağlı)'**
+  String get hatimNotu;
+
+  /// No description provided for @hatimNotuIpucu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örnek: Annemizin ruhu için'**
+  String get hatimNotuIpucu;
+
+  /// No description provided for @hatimBolme.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bölme şekli'**
+  String get hatimBolme;
+
+  /// No description provided for @hatimCuzCuz.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cüz cüz'**
+  String get hatimCuzCuz;
+
+  /// No description provided for @hatimSayfaSayfa.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa sayfa'**
+  String get hatimSayfaSayfa;
+
+  /// No description provided for @hatimBolmeCuzAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'{pay} pay; her pay bir cüz.'**
+  String hatimBolmeCuzAciklama(int pay);
+
+  /// No description provided for @hatimBolmeSayfaAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'{pay} pay; her pay {sayfa} sayfa.'**
+  String hatimBolmeSayfaAciklama(int pay, int sayfa);
+
+  /// No description provided for @hatimHedefTarih.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef tarih'**
+  String get hatimHedefTarih;
+
+  /// No description provided for @hatimHedefYok.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belirlenmedi'**
+  String get hatimHedefYok;
+
+  /// No description provided for @hatimHedefKaldir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef tarihi kaldır'**
+  String get hatimHedefKaldir;
+
+  /// No description provided for @hataBos.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu alan boş bırakılamaz.'**
+  String get hataBos;
+
+  /// No description provided for @hataUzun.
+  ///
+  /// In tr, this message translates to:
+  /// **'En fazla {sinir} karakter yazabilirsiniz.'**
+  String hataUzun(int sinir);
+
+  /// No description provided for @hataLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu alana link yazılamaz.'**
+  String get hataLink;
+
+  /// No description provided for @hatimCuzSec.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir cüz seç'**
+  String get hatimCuzSec;
+
+  /// No description provided for @hatimCuzSecAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boş bir cüze dokunarak sorumluluğu al.'**
+  String get hatimCuzSecAciklama;
+
+  /// No description provided for @hatimSayfaSec.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir sayfa aralığı seç'**
+  String get hatimSayfaSec;
+
+  /// No description provided for @hatimSayfaSecAciklama.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boş bir sayfa aralığına dokunarak sorumluluğu al.'**
+  String get hatimSayfaSecAciklama;
+
+  /// No description provided for @durumOkundu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okundu'**
+  String get durumOkundu;
+
+  /// No description provided for @durumAlindi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alındı'**
+  String get durumAlindi;
+
+  /// No description provided for @durumSenin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Senin'**
+  String get durumSenin;
+
+  /// No description provided for @durumBos.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boş'**
+  String get durumBos;
+
+  /// No description provided for @hatimCuzAdi.
+  ///
+  /// In tr, this message translates to:
+  /// **'{no}. cüz'**
+  String hatimCuzAdi(int no);
+
+  /// No description provided for @hatimSayfaAdi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sayfa {bas}–{bit}'**
+  String hatimSayfaAdi(int bas, int bit);
+
+  /// No description provided for @seninPayin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Senin payın'**
+  String get seninPayin;
+
+  /// No description provided for @okumayaBasla.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okumaya başla'**
+  String get okumayaBasla;
+
+  /// No description provided for @okudum.
+  ///
+  /// In tr, this message translates to:
+  /// **'Okudum'**
+  String get okudum;
+
+  /// No description provided for @payiBirak.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bırak'**
+  String get payiBirak;
+
+  /// No description provided for @geriAl.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geri al'**
+  String get geriAl;
+
+  /// No description provided for @hatimAlinmis.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu pay az önce alındı.'**
+  String get hatimAlinmis;
+
+  /// No description provided for @hatimSil.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hatmi sil'**
+  String get hatimSil;
+
+  /// No description provided for @hatimSilOnay.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu hatim ve işaretlediğiniz paylar bu telefondan silinecek.'**
+  String get hatimSilOnay;
+
+  /// No description provided for @hatimTamamMetin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bütün paylar okundu. Allah kabul etsin.'**
+  String get hatimTamamMetin;
+
+  /// No description provided for @hatimAltNot.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hesap gerekmez. Hatim bilgileri yalnızca bu telefonda durur.'**
+  String get hatimAltNot;
 
   /// No description provided for @esmaBaslik.
   ///

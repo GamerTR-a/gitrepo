@@ -89,7 +89,7 @@ class _EsmaEkraniState extends ConsumerState<EsmaEkrani> {
                             ArapcaMetin(
                               one.arapca,
                               boyut: 40,
-                              renk: AbyadColors.yuzey,
+                              renk: AbyadColors.koyuUstu,
                               satirYuksekligi: 1.6,
                               hizalama: TextAlign.center,
                             ),
@@ -100,7 +100,7 @@ class _EsmaEkraniState extends ConsumerState<EsmaEkrani> {
                                 AbyadFonts.baslik,
                                 22,
                                 600,
-                                color: AbyadColors.yuzey,
+                                color: AbyadColors.koyuUstu,
                               ),
                             ),
                             const SizedBox(height: 4),

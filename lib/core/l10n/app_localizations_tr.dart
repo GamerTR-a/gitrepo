@@ -667,6 +667,47 @@ class AppLocalizationsTr extends AppLocalizations {
   String get zikirEkranAcik => 'Ekran kapanmasın';
 
   @override
+  String get zikirArkaPlan => 'Arka planda manzara';
+
+  @override
+  String get zikirArkaPlanAciklama =>
+      'Kâbe, Medine, Kudüs ve camilerin silik çizimleri sırayla görünür.';
+
+  @override
+  String get zikirArkaPlanSure => 'Değişme aralığı';
+
+  @override
+  String saniyeKisa(int saniye) {
+    return '$saniye sn';
+  }
+
+  @override
+  String dakikaKisa(int dakika) {
+    return '$dakika dk';
+  }
+
+  @override
+  String get manzaraKabe => 'Kâbe';
+
+  @override
+  String get manzaraMekke => 'Mekke';
+
+  @override
+  String get manzaraMedine => 'Medine';
+
+  @override
+  String get manzaraKudus => 'Kudüs';
+
+  @override
+  String get manzaraSelimiye => 'Selimiye Camii';
+
+  @override
+  String get manzaraAyasofya => 'Ayasofya';
+
+  @override
+  String get manzaraUlucami => 'Ulu Cami';
+
+  @override
   String get ozelZikir => 'Özel zikir';
 
   @override
@@ -750,6 +791,25 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get ezanVeBildirimler => 'Ezan ve bildirimler';
+
+  @override
+  String get ezanVeBildirimlerOzet =>
+      'Vakit sesleri, hatırlatma ve test bildirimi';
+
+  @override
+  String get konumVeVakitler => 'Konum ve vakitler';
+
+  @override
+  String get kuranAyarOzet => 'Okuma görünümü ve meal';
+
+  @override
+  String get tema => 'Tema';
+
+  @override
+  String get temaAcik => 'Açık';
+
+  @override
+  String get temaKoyu => 'Koyu';
 
   @override
   String get alarmOlarakCal => 'Ezanı alarm olarak çal';
@@ -948,6 +1008,20 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get lisansIcerikMetin =>
       'Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.';
+
+  @override
+  String get lisansHadisBaslik => 'Kırk Hadis';
+
+  @override
+  String get lisansHadisMetin =>
+      'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler ve her hadisin altındaki temsilî hikâyeler Abyad için hazırlanmıştır; hikâyeler kurgusaldır. Tamamı yayın öncesinde bir hoca tarafından incelenecektir.';
+
+  @override
+  String get lisansCizimBaslik => 'Çizimler';
+
+  @override
+  String get lisansCizimMetin =>
+      'Namaz ve abdest rehberindeki çizimler ile zikirmatik arka planındaki manzara çizimleri Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır.';
 
   @override
   String get lisansPaketler => 'Kullanılan yazılım paketleri';
@@ -1228,6 +1302,276 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get bastanBasla => 'Baştan başla';
+
+  @override
+  String get rehberNamazSec => 'Öğrenmek istediğiniz namazı ve bölümünü seçin.';
+
+  @override
+  String get rehberIcerikBekleniyor => 'Bu bölümün içeriği hazırlanıyor.';
+
+  @override
+  String rekatSayisi(int rekat) {
+    return '$rekat rekat';
+  }
+
+  @override
+  String rehberBolumBasligi(String vakit, String bolum) {
+    return '$vakit – $bolum';
+  }
+
+  @override
+  String rekatAdim(int rekat, String adim) {
+    return '$rekat. rekat · $adim';
+  }
+
+  @override
+  String tekrarSayisi(int adet) {
+    return '$adet kez';
+  }
+
+  @override
+  String ornekSure(String sure) {
+    return 'Örnek sure: $sure';
+  }
+
+  @override
+  String get kadinlarIcin => 'Kadınlar için';
+
+  @override
+  String get okunusuDinle => 'Okunuşu dinle';
+
+  @override
+  String get ezberAc => 'Ezber modunu aç';
+
+  @override
+  String get ezberKapat => 'Ezber modunu kapat';
+
+  @override
+  String get ezberAcik =>
+      'Ezber modu açık: Arapça metin ve okunuş gizli, görmek için dokunun.';
+
+  @override
+  String get ezberGoster => 'Göstermek için dokunun';
+
+  @override
+  String get abdestRehberi => 'Abdest Rehberi';
+
+  @override
+  String get abdestAltBaslik => 'Abdestin adım adım alınışı';
+
+  @override
+  String abdestRehberiAciklama(int adet) {
+    return 'Abdestin alınışı $adet adımda, çizimlerle anlatılır.';
+  }
+
+  @override
+  String get abdestBasla => 'Abdest adımlarına başla';
+
+  @override
+  String get abdestiBozanlar => 'Abdesti bozan durumlar';
+
+  @override
+  String get hadisBaslik => 'Kırk Hadis';
+
+  @override
+  String get hadisAltBaslik => 'Hz. Peygamber\'in (s.a.v.) sözlerinden';
+
+  @override
+  String get hadisAciklama => 'İmam Nevevî\'nin derlemesi, hikâyeleriyle';
+
+  @override
+  String get hadisBekleniyorBaslik => 'İçerik hazırlanıyor';
+
+  @override
+  String get hadisBekleniyorMetin =>
+      'Hadisleri kaynağı ve tercümesi belli olmadan eklemiyoruz. Derleme seçilip bir hoca tarafından incelendikten sonra kırk hadis burada yer alacak.';
+
+  @override
+  String hadisNo(int no) {
+    return '$no. hadis';
+  }
+
+  @override
+  String hadisRavi(String ravi) {
+    return 'Rivayet eden: $ravi';
+  }
+
+  @override
+  String hadisTercume(String kaynak) {
+    return 'Tercüme: $kaynak';
+  }
+
+  @override
+  String get hadisHikayeEtiket => 'Temsilî hikâye';
+
+  @override
+  String get hadisHikayeNot =>
+      'Bu hikâye, hadisin daha iyi anlaşılması için yazılmış kurgusal bir anlatıdır; yaşanmış bir olay ya da rivayet değildir.';
+
+  @override
+  String get hatimBaslik => 'Toplu Hatim';
+
+  @override
+  String get hatimAciklama => 'Hatmi cüz cüz, sayfa sayfa takip edin';
+
+  @override
+  String get hatimYeni => 'Yeni hatim';
+
+  @override
+  String get hatimBaslat => 'Hatim başlat';
+
+  @override
+  String get hatimBosBaslik => 'Henüz hatim yok';
+
+  @override
+  String get hatimBosMetin =>
+      'Bir hatim başlatın; cüzleri ya da sayfaları pay pay alın, okudukça işaretleyin.';
+
+  @override
+  String get hatimYerelNotBaslik => 'Linkle paylaşım henüz açık değil';
+
+  @override
+  String get hatimYerelNot =>
+      'Hatmi aileniz ve arkadaşlarınızla linkle paylaşma özelliği hazırlanıyor. Şimdilik hatmi bu telefonda başlatıp payları kendiniz takip edebilirsiniz. Bilgileriniz telefonunuzda kalır, hiçbir yere gönderilmez.';
+
+  @override
+  String get hatimDevamEden => 'Devam eden hatim';
+
+  @override
+  String get hatimTamamlandi => 'Hatim tamamlandı';
+
+  @override
+  String hatimIlerlemeCuz(int okunan, int toplam) {
+    return '$okunan / $toplam cüz okundu';
+  }
+
+  @override
+  String hatimIlerlemePay(int okunan, int toplam) {
+    return '$okunan / $toplam pay okundu';
+  }
+
+  @override
+  String hatimHedef(String tarih) {
+    return 'Hedef: $tarih';
+  }
+
+  @override
+  String get hatimAdi => 'Hatmin adı';
+
+  @override
+  String get hatimAdiIpucu => 'Örnek: Ramazan Aile Hatmi';
+
+  @override
+  String get hatimNotu => 'Niyet notu (isteğe bağlı)';
+
+  @override
+  String get hatimNotuIpucu => 'Örnek: Annemizin ruhu için';
+
+  @override
+  String get hatimBolme => 'Bölme şekli';
+
+  @override
+  String get hatimCuzCuz => 'Cüz cüz';
+
+  @override
+  String get hatimSayfaSayfa => 'Sayfa sayfa';
+
+  @override
+  String hatimBolmeCuzAciklama(int pay) {
+    return '$pay pay; her pay bir cüz.';
+  }
+
+  @override
+  String hatimBolmeSayfaAciklama(int pay, int sayfa) {
+    return '$pay pay; her pay $sayfa sayfa.';
+  }
+
+  @override
+  String get hatimHedefTarih => 'Hedef tarih';
+
+  @override
+  String get hatimHedefYok => 'Belirlenmedi';
+
+  @override
+  String get hatimHedefKaldir => 'Hedef tarihi kaldır';
+
+  @override
+  String get hataBos => 'Bu alan boş bırakılamaz.';
+
+  @override
+  String hataUzun(int sinir) {
+    return 'En fazla $sinir karakter yazabilirsiniz.';
+  }
+
+  @override
+  String get hataLink => 'Bu alana link yazılamaz.';
+
+  @override
+  String get hatimCuzSec => 'Bir cüz seç';
+
+  @override
+  String get hatimCuzSecAciklama => 'Boş bir cüze dokunarak sorumluluğu al.';
+
+  @override
+  String get hatimSayfaSec => 'Bir sayfa aralığı seç';
+
+  @override
+  String get hatimSayfaSecAciklama =>
+      'Boş bir sayfa aralığına dokunarak sorumluluğu al.';
+
+  @override
+  String get durumOkundu => 'Okundu';
+
+  @override
+  String get durumAlindi => 'Alındı';
+
+  @override
+  String get durumSenin => 'Senin';
+
+  @override
+  String get durumBos => 'Boş';
+
+  @override
+  String hatimCuzAdi(int no) {
+    return '$no. cüz';
+  }
+
+  @override
+  String hatimSayfaAdi(int bas, int bit) {
+    return 'Sayfa $bas–$bit';
+  }
+
+  @override
+  String get seninPayin => 'Senin payın';
+
+  @override
+  String get okumayaBasla => 'Okumaya başla';
+
+  @override
+  String get okudum => 'Okudum';
+
+  @override
+  String get payiBirak => 'Bırak';
+
+  @override
+  String get geriAl => 'Geri al';
+
+  @override
+  String get hatimAlinmis => 'Bu pay az önce alındı.';
+
+  @override
+  String get hatimSil => 'Hatmi sil';
+
+  @override
+  String get hatimSilOnay =>
+      'Bu hatim ve işaretlediğiniz paylar bu telefondan silinecek.';
+
+  @override
+  String get hatimTamamMetin => 'Bütün paylar okundu. Allah kabul etsin.';
+
+  @override
+  String get hatimAltNot =>
+      'Hesap gerekmez. Hatim bilgileri yalnızca bu telefonda durur.';
 
   @override
   String get esmaBaslik => 'Esmâ-ül Hüsnâ';

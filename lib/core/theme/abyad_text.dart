@@ -15,7 +15,7 @@ TextStyle abyadStil(
   String aile,
   double boyut,
   int kalinlik, {
-  Color color = AbyadColors.metin,
+  Color? color,
   double? height,
   double? letterSpacing,
 }) {
@@ -24,7 +24,7 @@ TextStyle abyadStil(
     fontSize: boyut,
     fontWeight: FontWeight.values[(kalinlik ~/ 100) - 1],
     fontVariations: [FontVariation('wght', kalinlik.toDouble())],
-    color: color,
+    color: color ?? AbyadColors.metin,
     height: height,
     letterSpacing: letterSpacing,
   );
@@ -35,52 +35,41 @@ TextStyle abyadStil(
 class AbyadText {
   AbyadText._();
 
-  static final saatDev = abyadStil(
+  static TextStyle get saatDev => abyadStil(
     AbyadFonts.baslik,
     68,
     500,
-    color: AbyadColors.yuzey,
+    color: AbyadColors.koyuUstu,
     height: 1.05,
     letterSpacing: -1,
   );
-  static final sayiBuyuk = abyadStil(
+  static TextStyle get sayiBuyuk => abyadStil(
     AbyadFonts.baslik,
     28,
     600,
     color: AbyadColors.zumrut,
     height: 1,
   );
-  static final ekranBasligi = abyadStil(
-    AbyadFonts.baslik,
-    30,
-    600,
-    color: AbyadColors.zumrut,
-  );
+  static TextStyle get ekranBasligi =>
+      abyadStil(AbyadFonts.baslik, 30, 600, color: AbyadColors.zumrut);
 
-  static final kartBasligi = abyadStil(AbyadFonts.metin, 16, 700);
-  static final govde = abyadStil(AbyadFonts.metin, 15, 400, height: 1.55);
-  static final kucuk = abyadStil(
-    AbyadFonts.metin,
-    13,
-    400,
-    color: AbyadColors.metinIkincil,
-  );
-  static final etiket = abyadStil(
-    AbyadFonts.metin,
-    12,
-    600,
-    color: AbyadColors.metinIkincil,
-  );
-  static final menu = abyadStil(AbyadFonts.metin, 11, 600);
+  static TextStyle get kartBasligi => abyadStil(AbyadFonts.metin, 16, 700);
+  static TextStyle get govde =>
+      abyadStil(AbyadFonts.metin, 15, 400, height: 1.55);
+  static TextStyle get kucuk =>
+      abyadStil(AbyadFonts.metin, 13, 400, color: AbyadColors.metinIkincil);
+  static TextStyle get etiket =>
+      abyadStil(AbyadFonts.metin, 12, 600, color: AbyadColors.metinIkincil);
+  static TextStyle get menu => abyadStil(AbyadFonts.metin, 11, 600);
 
-  static final arapcaAyet = abyadStil(
+  static TextStyle get arapcaAyet => abyadStil(
     AbyadFonts.arapca,
     28,
     400,
     color: AbyadColors.zumrut,
     height: 1.9,
   );
-  static final arapcaOkuma = abyadStil(
+  static TextStyle get arapcaOkuma => abyadStil(
     AbyadFonts.arapca,
     27,
     400,

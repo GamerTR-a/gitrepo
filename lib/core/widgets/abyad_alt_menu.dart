@@ -30,7 +30,7 @@ class AbyadAltMenu extends StatelessWidget {
       container: true,
       label: l10n.menuEtiketi,
       child: DecoratedBox(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AbyadColors.yuzey,
           border: Border(top: BorderSide(color: AbyadColors.kenarlik)),
         ),

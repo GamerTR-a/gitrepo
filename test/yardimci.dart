@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:abyad/core/icerik/icerik.dart';
@@ -6,7 +7,10 @@ import 'package:abyad/core/storage/ayarlar_deposu.dart';
 import 'package:abyad/core/storage/veritabani.dart';
 import 'package:abyad/core/theme/abyad_theme.dart';
 import 'package:abyad/features/ayarlar/ui/ayarlar_ekrani.dart';
+import 'package:abyad/features/hatim/domain/hatim.dart';
 import 'package:abyad/features/kible/ui/kible_ekrani.dart';
+import 'package:abyad/features/rehber/data/rehber_saglayici.dart';
+import 'package:abyad/features/rehber/ui/rehber_adim_ekrani.dart';
 import 'package:abyad/features/vakitler/data/vakit_saglayicilari.dart';
 import 'package:abyad/features/zikirmatik/ui/zikirmatik_ekrani.dart';
 import 'package:drift/native.dart';
@@ -141,4 +145,58 @@ Future<void> ekraniKapat(WidgetTester tester, TestOrtami ortam) async {
   await tester.pump(const Duration(seconds: 1));
   await tester.runAsync(ortam.veritabani.close);
   await tester.pump(const Duration(seconds: 1));
+}
+
+/// Rehberin adım ekranını gömülü veriden kurar; [vakit] verilmezse abdest.
+class RehberAdimlari extends ConsumerWidget {
+  const RehberAdimlari({super.key, this.vakit, this.bolum});
+  final String? vakit;
+  final String? bolum;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (vakit == null) {
+      final abdest = ref.watch(abdestRehberiProvider).valueOrNull;
+      if (abdest == null) return const SizedBox.shrink();
+      return RehberAdimEkrani(
+        baslik: 'Abdest Rehberi',
+        altBaslik: 'Abdestin adım adım alınışı',
+        adimlar: abdest.adimlar,
+      );
+    }
+    final rehber = ref.watch(namazRehberiProvider).valueOrNull;
+    if (rehber == null) return const SizedBox.shrink();
+    final v = rehber.vakitler.firstWhere((v) => v.id == vakit);
+    final b = v.bolumler.firstWhere((b) => b.id == bolum);
+    return RehberAdimEkrani(
+      baslik: '${v.ad} – ${b.ad}',
+      altBaslik: '${b.rekat} rekat',
+      adimlar: rehber.adimlariUret(b),
+    );
+  }
+}
+
+const ornekHatimKodu = 'ornekhatim23';
+
+/// Kayıtlı bir hatimle başlayan ayarlar: 1–3. paylar okunmuş, 4. pay bu
+/// cihazda, 5. pay başka bir katılımcıda.
+Map<String, Object> ornekHatimAyarlari(BolmeSekli bolme) {
+  final an = testAni();
+  var hatim = Hatim.yeni(
+    kod: ornekHatimKodu,
+    baslik: 'Ramazan Aile Hatmi',
+    not: 'Annemizin ruhu için',
+    bolmeSekli: bolme,
+    hedefTarih: DateTime(2027, 3, 1),
+    simdi: an,
+  );
+  for (var no = 1; no <= 4; no++) {
+    (hatim, _) = hatim.payAl(no, 'ben', an);
+    if (no < 4) (hatim, _) = hatim.okundu(no, 'ben', an);
+  }
+  (hatim, _) = hatim.payAl(5, 'baskasi', an);
+  return {
+    'hatim.katilimci': 'ben',
+    'hatim.liste': jsonEncode([hatim.toJson()]),
+  };
 }

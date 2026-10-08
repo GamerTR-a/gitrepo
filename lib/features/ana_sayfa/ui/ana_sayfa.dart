@@ -17,6 +17,8 @@ import '../../../core/widgets/sekiz_kose_yildiz.dart';
 import '../../ayarlar/data/ayarlar_saglayici.dart';
 import '../../ayarlar/ui/ayarlar_ekrani.dart';
 import '../../esma/ui/esma_ekrani.dart';
+import '../../hadis/ui/hadis_ekrani.dart';
+import '../../hatim/ui/hatim_ekrani.dart';
 import '../../kaza/ui/kaza_ekrani.dart';
 import '../../kible/ui/kible_ekrani.dart';
 import '../../kuran/data/kuran_deposu.dart';
@@ -92,19 +94,33 @@ class AnaSayfa extends ConsumerWidget {
                         aciklama: l10n.rehberAciklama,
                         onTap: () => ac(const RehberEkrani()),
                       ),
-                      const Divider(height: 1, color: AbyadColors.ayrac),
+                      Divider(height: 1, color: AbyadColors.ayrac),
                       GezinmeSatiri(
                         ikon: 'check',
                         baslik: l10n.kazaTakibi,
                         aciklama: l10n.kazaAciklama,
                         onTap: () => ac(const KazaEkrani()),
                       ),
-                      const Divider(height: 1, color: AbyadColors.ayrac),
+                      Divider(height: 1, color: AbyadColors.ayrac),
                       GezinmeSatiri(
                         ikon: 'star',
                         baslik: l10n.esmaBaslik,
                         aciklama: l10n.esmaAltBaslik,
                         onTap: () => ac(const EsmaEkrani()),
+                      ),
+                      Divider(height: 1, color: AbyadColors.ayrac),
+                      GezinmeSatiri(
+                        ikon: 'rows',
+                        baslik: l10n.hatimBaslik,
+                        aciklama: l10n.hatimAciklama,
+                        onTap: () => ac(const HatimEkrani()),
+                      ),
+                      Divider(height: 1, color: AbyadColors.ayrac),
+                      GezinmeSatiri(
+                        ikon: 'book',
+                        baslik: l10n.hadisBaslik,
+                        aciklama: l10n.hadisAciklama,
+                        onTap: () => ac(const HadisEkrani()),
                       ),
                     ],
                   ),
@@ -151,8 +167,8 @@ class _BaslikAlani extends ConsumerWidget {
 
     return Container(
       clipBehavior: Clip.antiAlias,
-      decoration: const BoxDecoration(
-        color: AbyadColors.zumrut,
+      decoration: BoxDecoration(
+        color: AbyadColors.koyuZemin,
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(AbyadRadius.baslikAlt),
         ),
@@ -270,7 +286,7 @@ class _BaslikAlani extends ConsumerWidget {
                           AbyadFonts.metin,
                           14,
                           500,
-                          color: AbyadColors.yuzey,
+                          color: AbyadColors.koyuUstu,
                         ),
                       ),
                     ],
@@ -369,9 +385,9 @@ class _VakitCipi extends StatelessWidget {
         ? AbyadColors.pirinc
         : (simdiki ? AbyadColors.koyuUstuSecili : AbyadColors.koyuUstuKart);
     final adRengi = sirada
-        ? AbyadColors.zumrut
-        : (simdiki ? AbyadColors.yuzey : AbyadColors.koyuUstuIkincil);
-    final saatRengi = sirada ? AbyadColors.zumrut : AbyadColors.yuzey;
+        ? AbyadColors.pirincUstu
+        : (simdiki ? AbyadColors.koyuUstu : AbyadColors.koyuUstuIkincil);
+    final saatRengi = sirada ? AbyadColors.pirincUstu : AbyadColors.koyuUstu;
     final okuma = sirada
         ? l10n.vakitCipiSiradakiOkuma(ad, vakit.metin)
         : (simdiki
@@ -440,7 +456,7 @@ class _YuvarlakIkonDugme extends StatelessWidget {
         tooltip: etiket, // ekran okuyucu bu etiketi okur
         onPressed: onTap,
         constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        icon: AbyadIcon(ikon, renk: AbyadColors.yuzey, boyut: 20),
+        icon: AbyadIcon(ikon, renk: AbyadColors.koyuUstu, boyut: 20),
       ),
     );
   }
@@ -558,7 +574,7 @@ class _DevamKarti extends ConsumerWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const AbyadIcon(
+              AbyadIcon(
                 'chevron_right',
                 renk: AbyadColors.metinIkincil,
                 boyut: 20,
@@ -611,7 +627,7 @@ class _DevamKarti extends ConsumerWidget {
               ),
             ),
             const SizedBox(width: 8),
-            const AbyadIcon(
+            AbyadIcon(
               'chevron_right',
               renk: AbyadColors.metinIkincil,
               boyut: 20,
@@ -661,7 +677,7 @@ class _GununAyeti extends ConsumerWidget {
         children: [
           Row(
             children: [
-              const SekizKoseYildiz(
+              SekizKoseYildiz(
                 boyut: 16,
                 renk: AbyadColors.pirincYazi,
                 cizgiKalinligi: 1.1,

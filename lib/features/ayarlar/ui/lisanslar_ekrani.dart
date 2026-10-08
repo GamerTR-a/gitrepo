@@ -31,6 +31,8 @@ class LisanslarEkrani extends ConsumerWidget {
       (l10n.lisansYaziBaslik, l10n.lisansYaziMetin),
       (l10n.lisansEzanBaslik, l10n.lisansEzanMetin),
       (l10n.lisansIcerikBaslik, l10n.lisansIcerikMetin),
+      (l10n.lisansHadisBaslik, l10n.lisansHadisMetin),
+      (l10n.lisansCizimBaslik, l10n.lisansCizimMetin),
     ];
     return AbyadSayfa(
       children: [

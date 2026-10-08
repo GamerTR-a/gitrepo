@@ -9,8 +9,8 @@ class AbyadKart extends StatelessWidget {
     required this.child,
     this.onTap,
     this.padding = const EdgeInsets.all(AbyadSpace.l),
-    this.renk = AbyadColors.yuzey,
-    this.kenarRengi = AbyadColors.kenarlik,
+    this.renk,
+    this.kenarRengi,
     this.yaricap = AbyadRadius.kart,
     this.semanticLabel,
   });
@@ -18,8 +18,10 @@ class AbyadKart extends StatelessWidget {
   final Widget child;
   final VoidCallback? onTap;
   final EdgeInsetsGeometry padding;
-  final Color renk;
-  final Color kenarRengi;
+
+  /// Verilmezse kart yüzeyi ve standart kenarlık
+  final Color? renk;
+  final Color? kenarRengi;
   final double yaricap;
   final String? semanticLabel;
 
@@ -27,7 +29,7 @@ class AbyadKart extends StatelessWidget {
   Widget build(BuildContext context) {
     final sekil = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(yaricap),
-      side: BorderSide(color: kenarRengi),
+      side: BorderSide(color: kenarRengi ?? AbyadColors.kenarlik),
     );
     Widget icerik = Padding(padding: padding, child: child);
     if (onTap != null) {
@@ -38,7 +40,7 @@ class AbyadKart extends StatelessWidget {
       button: onTap != null,
       container: true,
       child: Material(
-        color: renk,
+        color: renk ?? AbyadColors.yuzey,
         shape: sekil,
         clipBehavior: Clip.antiAlias,
         child: icerik,

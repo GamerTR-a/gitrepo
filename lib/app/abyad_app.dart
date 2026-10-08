@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/l10n/app_localizations.dart';
+import '../core/theme/abyad_colors.dart';
 import '../core/theme/abyad_theme.dart';
 import '../features/ayarlar/data/ayarlar_saglayici.dart';
 import '../features/bildirim/data/bildirim_servisi.dart';
@@ -23,6 +25,8 @@ class AbyadApp extends ConsumerWidget {
       ayarlarProvider.select((a) => a.yaziBoyutu.carpan),
     );
     final kontrast = ref.watch(ayarlarProvider.select((a) => a.yuksekKontrast));
+    final koyu = ref.watch(ayarlarProvider.select((a) => a.koyuTema));
+    temayiUygula(koyu: koyu);
     final ilkAcilisTamam = ref.watch(
       ayarlarProvider.select((a) => a.ilkAcilisTamam),
     );
@@ -30,7 +34,7 @@ class AbyadApp extends ConsumerWidget {
     return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context).uygulamaAdi,
       debugShowCheckedModeBanner: false,
-      theme: AbyadTheme.light(),
+      theme: AbyadTheme.olustur(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
@@ -51,7 +55,12 @@ class AbyadApp extends ConsumerWidget {
             child: icerik,
           );
         }
-        return icerik;
+        // Durum çubuğu ikonları zemine göre; koyu başlıklı ekranlar
+        // kendi bölgelerinde açık ikon ister.
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: koyu ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+          child: icerik,
+        );
       },
       home: arkaPlanIsleri
           ? ArkaPlanIsleri(
@@ -62,6 +71,23 @@ class AbyadApp extends ConsumerWidget {
           : (ilkAcilisTamam ? const AbyadKabuk() : const IlkAcilisEkrani()),
     );
   }
+}
+
+/// Renk paletini seçer. Renkler statik olduğu için, palet değiştiyse
+/// ekrandaki bütün öğeler (sabit olanlar dahil) yeniden kurulur; gezinme
+/// durumu korunur.
+void temayiUygula({required bool koyu}) {
+  final palet = koyu ? AbyadPalet.karanlik : AbyadPalet.acik;
+  if (identical(AbyadColors.palet, palet)) return;
+  AbyadColors.palet = palet;
+  void yenile(Element e) {
+    e.markNeedsBuild();
+    e.visitChildren(yenile);
+  }
+
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.rootElement?.visitChildren(yenile);
+  });
 }
 
 /// Sistemin yazı ölçeğini uygulama içi seçimle çarpar.

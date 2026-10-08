@@ -5,16 +5,21 @@ import 'abyad_text.dart';
 class AbyadTheme {
   AbyadTheme._();
 
-  static ThemeData light() {
+  /// Seçili palete ([AbyadColors.palet]) göre Material teması. İletişim
+  /// kutuları, tarih seçici ve metin düğmeleri renklerini buradan alır.
+  static ThemeData olustur() {
+    final parlaklik = AbyadColors.palet.koyu
+        ? Brightness.dark
+        : Brightness.light;
     final scheme =
         ColorScheme.fromSeed(
-          seedColor: AbyadColors.zumrut,
-          brightness: Brightness.light,
+          seedColor: AbyadPalet.acik.zumrut,
+          brightness: parlaklik,
         ).copyWith(
           primary: AbyadColors.zumrut,
           onPrimary: AbyadColors.yuzey,
           secondary: AbyadColors.pirinc,
-          onSecondary: AbyadColors.zumrut,
+          onSecondary: AbyadColors.pirincUstu,
           surface: AbyadColors.yuzey,
           onSurface: AbyadColors.metin,
           outline: AbyadColors.kenarlik,
@@ -22,6 +27,7 @@ class AbyadTheme {
 
     return ThemeData(
       useMaterial3: true,
+      brightness: parlaklik,
       colorScheme: scheme,
       scaffoldBackgroundColor: AbyadColors.zemin,
       fontFamily: AbyadFonts.metin,
@@ -36,4 +42,6 @@ class AbyadTheme {
       materialTapTargetSize: MaterialTapTargetSize.padded,
     );
   }
+
+  static ThemeData light() => olustur();
 }

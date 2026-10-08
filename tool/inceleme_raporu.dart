@@ -27,9 +27,10 @@ void _tara(Object? dugum, void Function(Map<String, dynamic>) kayit) {
 }
 
 void main() {
+  // Kur'an klasöründe inceleme alanı yok; alt klasörler (rehber/) dahil
   final dosyalar =
       Directory('assets/data')
-          .listSync()
+          .listSync(recursive: true)
           .whereType<File>()
           .where((f) => f.path.endsWith('.json'))
           .toList()
@@ -54,9 +55,9 @@ void main() {
     if (dosyaToplam == 0) continue;
     toplam += dosyaToplam;
     eksik += incelenmemis.length;
-    final ad = dosya.uri.pathSegments.last;
+    final ad = dosya.uri.pathSegments.skip(2).join('/');
     print(
-      '${ad.padRight(24)} ${incelenmemis.length.toString().padLeft(4)} / '
+      '${ad.padRight(28)} ${incelenmemis.length.toString().padLeft(4)} / '
       '${dosyaToplam.toString().padLeft(4)} incelenmemiş',
     );
     if (incelenmemis.isNotEmpty && incelenmemis.length <= 20) {

@@ -92,6 +92,34 @@
       "not": "Okunuş doğrulanmalı."
     },
     {
+      "id": "fatiha",
+      "kategori": "namaz",
+      "ad": "Fâtiha Suresi",
+      "arapcaKisa": "الفاتحة",
+      "arapca": null,
+      "ayetler": "1:1-7",
+      "okunus": "Bismillâhirrahmânirrahîm. Elhamdü lillâhi Rabbi'l-âlemîn. Er-Rahmâni'r-Rahîm. Mâliki yevmi'd-dîn. İyyâke na'büdü ve iyyâke nestaîn. İhdina's-sırâta'l-müstakîm. Sırâta'llezîne en'amte aleyhim ğayri'l-mağdûbi aleyhim ve le'd-dâllîn.",
+      "anlam": null,
+      "kaynak": "Fâtiha Suresi",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": "Namaz rehberi de bu kayda başvurur. Okunuş doğrulanmalı."
+    },
+    {
+      "id": "kevser",
+      "kategori": "namaz",
+      "ad": "Kevser Suresi",
+      "arapcaKisa": "الكوثر",
+      "arapca": null,
+      "ayetler": "108:1-3",
+      "okunus": "İnnâ a'taynâke'l-kevser. Fe salli li-Rabbike ve'nhar. İnne şânieke hüve'l-ebter.",
+      "anlam": null,
+      "kaynak": "Kevser Suresi",
+      "incelendi": false,
+      "inceleyen": null,
+      "not": "Namaz rehberi de bu kayda başvurur. Okunuş doğrulanmalı."
+    },
+    {
       "id": "ayetel_kursi",
       "kategori": "sabah_aksam",
       "ad": "Âyetü'l-Kürsî",

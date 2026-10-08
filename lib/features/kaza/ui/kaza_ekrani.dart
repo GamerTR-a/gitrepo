@@ -64,10 +64,7 @@ class KazaEkrani extends ConsumerWidget {
     final guncelle = ref.read(ayarlarProvider.notifier).guncelle;
 
     if (sayaclar == null) {
-      return const Scaffold(
-        backgroundColor: AbyadColors.zemin,
-        body: Yukleniyor(),
-      );
+      return Scaffold(backgroundColor: AbyadColors.zemin, body: Yukleniyor());
     }
 
     final toplam = kazaNamazlari.fold(0, (t, tur) => t + sayaclar[tur]!);
@@ -101,7 +98,7 @@ class KazaEkrani extends ConsumerWidget {
               excludeSemantics: true,
               child: Material(
                 color: AbyadColors.yuzey,
-                shape: const StadiumBorder(
+                shape: StadiumBorder(
                   side: BorderSide(color: AbyadColors.kenarlik),
                 ),
                 clipBehavior: Clip.antiAlias,
@@ -227,8 +224,8 @@ class KazaEkrani extends ConsumerWidget {
                                     14,
                                     700,
                                     color: tempo == n
-                                        ? AbyadColors.zumrut
-                                        : AbyadColors.yuzey,
+                                        ? AbyadColors.pirincUstu
+                                        : AbyadColors.koyuUstu,
                                   ),
                                 ),
                               ),
@@ -267,7 +264,7 @@ class KazaEkrani extends ConsumerWidget {
           child: Column(
             children: [
               for (final (i, tur) in kazaNamazlari.indexed) ...[
-                if (i > 0) const Divider(height: 1, color: AbyadColors.ayrac),
+                if (i > 0) Divider(height: 1, color: AbyadColors.ayrac),
                 _SayacSatiri(
                   ad: l10n.kazaAdi(tur),
                   durum: maske(l10n.kazaKaldi(sayaclar[tur]!)),
@@ -308,7 +305,7 @@ class KazaEkrani extends ConsumerWidget {
           child: ExcludeSemantics(
             child: Row(
               children: [
-                const AbyadIcon('info', renk: AbyadColors.pirincYazi),
+                AbyadIcon('info', renk: AbyadColors.pirincYazi),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -323,7 +320,7 @@ class KazaEkrani extends ConsumerWidget {
                     ],
                   ),
                 ),
-                const AbyadIcon(
+                AbyadIcon(
                   'chevron_right',
                   renk: AbyadColors.metinIkincil,
                   boyut: 20,
@@ -369,7 +366,7 @@ class _Ozet extends StatelessWidget {
           AbyadFonts.baslik,
           kucuk ? 20 : 34,
           600,
-          color: AbyadColors.yuzey,
+          color: AbyadColors.koyuUstu,
           height: 1.15,
         ),
       ),

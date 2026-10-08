@@ -139,7 +139,7 @@ class _KuranOkuEkraniState extends ConsumerState<KuranOkuEkrani> {
                     ],
                   ),
                 ),
-                const Divider(height: 1, color: AbyadColors.kenarlik),
+                Divider(height: 1, color: AbyadColors.kenarlik),
                 Expanded(
                   child: NotificationListener<ScrollEndNotification>(
                     onNotification: (_) {
@@ -348,7 +348,7 @@ class MealYerTutucu extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AbyadIcon('info', renk: AbyadColors.pirincYazi, boyut: 20),
+          AbyadIcon('info', renk: AbyadColors.pirincYazi, boyut: 20),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
@@ -366,7 +366,7 @@ class _Ayrac extends StatelessWidget {
   const _Ayrac();
 
   @override
-  Widget build(BuildContext context) => const Row(
+  Widget build(BuildContext context) => Row(
     children: [
       Expanded(child: Divider(color: AbyadColors.kenarlik)),
       Padding(

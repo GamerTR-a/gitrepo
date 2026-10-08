@@ -19,6 +19,7 @@ class Ayarlar {
     this.ilkAcilisTamam = false,
     this.yaziBoyutu = YaziBoyutu.normal,
     this.yuksekKontrast = false,
+    this.koyuTema = false,
     this.konum = Konum.istanbul,
     this.yontem = HesapYontemi.diyanet,
     this.duzeltmeler = const {},
@@ -28,6 +29,8 @@ class Ayarlar {
     this.zikirTitresim = true,
     this.zikirTumEkran = false,
     this.zikirEkranAcik = false,
+    this.zikirArkaPlan = false,
+    this.zikirArkaPlanSaniye = 30,
     this.kibleTitresim = true,
     this.kazaGizli = false,
     this.kazaTempo = 2,
@@ -41,6 +44,7 @@ class Ayarlar {
   final bool ilkAcilisTamam;
   final YaziBoyutu yaziBoyutu;
   final bool yuksekKontrast;
+  final bool koyuTema;
   final Konum konum;
   final HesapYontemi yontem;
   final Map<VakitTuru, int> duzeltmeler;
@@ -54,6 +58,10 @@ class Ayarlar {
   final bool zikirTitresim;
   final bool zikirTumEkran;
   final bool zikirEkranAcik;
+
+  /// Zikirmatik'in arkasında silik manzara çizimleri ve değişme aralığı
+  final bool zikirArkaPlan;
+  final int zikirArkaPlanSaniye;
   final bool kibleTitresim;
   final bool kazaGizli;
   final int kazaTempo;
@@ -78,6 +86,7 @@ class Ayarlar {
     bool? ilkAcilisTamam,
     YaziBoyutu? yaziBoyutu,
     bool? yuksekKontrast,
+    bool? koyuTema,
     Konum? konum,
     HesapYontemi? yontem,
     Map<VakitTuru, int>? duzeltmeler,
@@ -87,6 +96,8 @@ class Ayarlar {
     bool? zikirTitresim,
     bool? zikirTumEkran,
     bool? zikirEkranAcik,
+    bool? zikirArkaPlan,
+    int? zikirArkaPlanSaniye,
     bool? kibleTitresim,
     bool? kazaGizli,
     int? kazaTempo,
@@ -99,6 +110,7 @@ class Ayarlar {
     ilkAcilisTamam: ilkAcilisTamam ?? this.ilkAcilisTamam,
     yaziBoyutu: yaziBoyutu ?? this.yaziBoyutu,
     yuksekKontrast: yuksekKontrast ?? this.yuksekKontrast,
+    koyuTema: koyuTema ?? this.koyuTema,
     konum: konum ?? this.konum,
     yontem: yontem ?? this.yontem,
     duzeltmeler: duzeltmeler ?? this.duzeltmeler,
@@ -108,6 +120,8 @@ class Ayarlar {
     zikirTitresim: zikirTitresim ?? this.zikirTitresim,
     zikirTumEkran: zikirTumEkran ?? this.zikirTumEkran,
     zikirEkranAcik: zikirEkranAcik ?? this.zikirEkranAcik,
+    zikirArkaPlan: zikirArkaPlan ?? this.zikirArkaPlan,
+    zikirArkaPlanSaniye: zikirArkaPlanSaniye ?? this.zikirArkaPlanSaniye,
     kibleTitresim: kibleTitresim ?? this.kibleTitresim,
     kazaGizli: kazaGizli ?? this.kazaGizli,
     kazaTempo: kazaTempo ?? this.kazaTempo,
@@ -122,6 +136,7 @@ class Ayarlar {
     'ilkAcilisTamam': ilkAcilisTamam,
     'yaziBoyutu': yaziBoyutu.name,
     'yuksekKontrast': yuksekKontrast,
+    'koyuTema': koyuTema,
     'konum': konum.toJson(),
     'yontem': yontem.name,
     'duzeltmeler': {for (final e in duzeltmeler.entries) e.key.name: e.value},
@@ -138,6 +153,8 @@ class Ayarlar {
     'zikirTitresim': zikirTitresim,
     'zikirTumEkran': zikirTumEkran,
     'zikirEkranAcik': zikirEkranAcik,
+    'zikirArkaPlan': zikirArkaPlan,
+    'zikirArkaPlanSaniye': zikirArkaPlanSaniye,
     'kibleTitresim': kibleTitresim,
     'kazaGizli': kazaGizli,
     'kazaTempo': kazaTempo,
@@ -184,6 +201,7 @@ class Ayarlar {
       ilkAcilisTamam: (j['ilkAcilisTamam'] as bool?) ?? v.ilkAcilisTamam,
       yaziBoyutu: secenek(YaziBoyutu.values, j['yaziBoyutu'], v.yaziBoyutu),
       yuksekKontrast: (j['yuksekKontrast'] as bool?) ?? v.yuksekKontrast,
+      koyuTema: (j['koyuTema'] as bool?) ?? v.koyuTema,
       konum: k is Map<String, dynamic> ? Konum.fromJson(k) : v.konum,
       yontem: secenek(HesapYontemi.values, j['yontem'], v.yontem),
       duzeltmeler: {
@@ -197,6 +215,9 @@ class Ayarlar {
       zikirTitresim: (j['zikirTitresim'] as bool?) ?? v.zikirTitresim,
       zikirTumEkran: (j['zikirTumEkran'] as bool?) ?? v.zikirTumEkran,
       zikirEkranAcik: (j['zikirEkranAcik'] as bool?) ?? v.zikirEkranAcik,
+      zikirArkaPlan: (j['zikirArkaPlan'] as bool?) ?? v.zikirArkaPlan,
+      zikirArkaPlanSaniye:
+          (j['zikirArkaPlanSaniye'] as int?) ?? v.zikirArkaPlanSaniye,
       kibleTitresim: (j['kibleTitresim'] as bool?) ?? v.kibleTitresim,
       kazaGizli: (j['kazaGizli'] as bool?) ?? v.kazaGizli,
       kazaTempo: (j['kazaTempo'] as int?) ?? v.kazaTempo,

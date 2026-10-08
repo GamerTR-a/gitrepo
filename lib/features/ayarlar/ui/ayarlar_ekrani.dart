@@ -22,7 +22,7 @@ import '../domain/ayarlar.dart';
 import 'lisanslar_ekrani.dart';
 
 /// Uygulama sürümü (pubspec.yaml ile birlikte güncellenir)
-const uygulamaSurumu = '1.0.0';
+const uygulamaSurumu = '1.2.2';
 
 /// Sistem uygulama ayarlarını açar. Testlerde ezilir.
 final sistemAyarlariProvider = Provider<Future<void> Function()>(
@@ -31,7 +31,15 @@ final sistemAyarlariProvider = Provider<Future<void> Function()>(
   },
 );
 
-/// Tasarım: docs/tasarim/10_ayarlar
+void _git(BuildContext context, Widget ekran) =>
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ekran));
+
+const _kartIci = EdgeInsets.symmetric(horizontal: 16, vertical: 4);
+
+Widget _ayrac() => Divider(height: 1, color: AbyadColors.ayrac);
+
+/// Ayarların ana sayfası: en sık değişen görünüm seçenekleri ve
+/// ayrıntı sayfalarına giden kısa bir menü.
 class AyarlarEkrani extends ConsumerWidget {
   const AyarlarEkrani({super.key});
 
@@ -40,33 +48,11 @@ class AyarlarEkrani extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final ayarlar = ref.watch(ayarlarProvider);
     final guncelle = ref.read(ayarlarProvider.notifier).guncelle;
-    final ornekAyet = ref.watch(kuranProvider).valueOrNull?.ayetMetni(1, 2);
-    final meal = ref.watch(mealKaynagiProvider);
-    final mealler =
-        ref.watch(meallerProvider).valueOrNull ?? const <MealBilgisi>[];
-
-    BildirimAyarlari bildirim({int? onceDakika, bool? cumaSessiz}) =>
-        BildirimAyarlari(
-          vakitler: ayarlar.bildirim.vakitler,
-          onceDakika: onceDakika ?? ayarlar.bildirim.onceDakika,
-          cumaSessiz: cumaSessiz ?? ayarlar.bildirim.cumaSessiz,
-        );
-
-    void git(Widget ekran) => Navigator.of(
-      context,
-    ).push(MaterialPageRoute<void>(builder: (_) => ekran));
-
-    const ayrac = Divider(height: 1, color: AbyadColors.ayrac);
-    const kartIci = EdgeInsets.symmetric(horizontal: 16, vertical: 4);
 
     return AbyadSayfa(
       children: [
         SayfaBasligi(baslik: l10n.ayarlar),
         const SizedBox(height: 18),
-
-        // --- Okunabilirlik --------------------------------------------------
-        BolumBasligi(l10n.okunabilirlik),
-        const SizedBox(height: 10),
         AbyadKart(
           yaricap: AbyadRadius.buyukKart,
           child: Column(
@@ -83,36 +69,16 @@ class AyarlarEkrani extends ConsumerWidget {
                 secili: ayarlar.yaziBoyutu,
                 onSec: (y) => guncelle((a) => a.copyWith(yaziBoyutu: y)),
               ),
-              const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.all(14),
-                decoration: BoxDecoration(
-                  color: AbyadColors.okumaZemini,
-                  borderRadius: BorderRadius.circular(AbyadRadius.dugme),
-                  border: Border.all(color: AbyadColors.ayrac),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (ornekAyet != null)
-                      ExcludeSemantics(
-                        child: ArapcaMetin(
-                          ornekAyet,
-                          boyut: 26,
-                          satirYuksekligi: 1.8,
-                        ),
-                      ),
-                    Text(
-                      l10n.yaziOrnegi,
-                      style: abyadStil(AbyadFonts.metin, 16, 400, height: 1.5),
-                    ),
-                  ],
-                ),
-              ),
+              const SizedBox(height: 16),
+              Text(l10n.tema, style: AbyadText.kartBasligi),
               const SizedBox(height: 10),
-              Text(l10n.yaziBoyutuNot, style: AbyadText.etiket),
-              const SizedBox(height: 4),
-              ayrac,
+              AbyadSegment<bool>(
+                secenekler: {false: l10n.temaAcik, true: l10n.temaKoyu},
+                secili: ayarlar.koyuTema,
+                onSec: (v) => guncelle((a) => a.copyWith(koyuTema: v)),
+              ),
+              const SizedBox(height: 6),
+              _ayrac(),
               AnahtarSatiri(
                 baslik: l10n.yuksekKontrast,
                 aciklama: l10n.yuksekKontrastAciklama,
@@ -122,13 +88,236 @@ class AyarlarEkrani extends ConsumerWidget {
             ],
           ),
         ),
-        const SizedBox(height: 22),
-
-        // --- Kur'an ---------------------------------------------------------
-        BolumBasligi(l10n.ekranKuran),
-        const SizedBox(height: 10),
+        const SizedBox(height: 14),
         AbyadKart(
-          padding: kartIci,
+          padding: _kartIci,
+          yaricap: AbyadRadius.buyukKart,
+          child: Column(
+            children: [
+              GezinmeSatiri(
+                ikon: 'bell',
+                baslik: l10n.ezanVeBildirimler,
+                aciklama: l10n.ezanVeBildirimlerOzet,
+                onTap: () => _git(context, const BildirimAyarEkrani()),
+              ),
+              _ayrac(),
+              GezinmeSatiri(
+                ikon: 'pin',
+                baslik: l10n.konumVeVakitler,
+                aciklama: ayarlar.konum.ad,
+                onTap: () => _git(context, const VakitAyarEkrani()),
+              ),
+              _ayrac(),
+              GezinmeSatiri(
+                ikon: 'book',
+                baslik: l10n.ekranKuran,
+                aciklama: l10n.kuranAyarOzet,
+                onTap: () => _git(context, const KuranAyarEkrani()),
+              ),
+              _ayrac(),
+              GezinmeSatiri(
+                ikon: 'info',
+                baslik: l10n.kaynaklarVeLisanslar,
+                onTap: () => _git(context, const LisanslarEkrani()),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 14),
+        AbyadKart(
+          renk: AbyadColors.yesilZemin,
+          kenarRengi: AbyadColors.yesilZemin,
+          yaricap: AbyadRadius.buyukKart,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AbyadIcon('shield', renk: AbyadColors.zumrut),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.mahremiyetBaslik, style: AbyadText.kartBasligi),
+                    const SizedBox(height: 4),
+                    Text(
+                      l10n.mahremiyetMetin,
+                      style: abyadStil(AbyadFonts.metin, 13, 400, height: 1.5),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          l10n.surumBilgisi(uygulamaSurumu),
+          textAlign: TextAlign.center,
+          style: AbyadText.etiket,
+        ),
+      ],
+    );
+  }
+}
+
+/// Ezan ve bildirim seçenekleri, izin durumu ve pil ayarı.
+class BildirimAyarEkrani extends ConsumerWidget {
+  const BildirimAyarEkrani({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final ayarlar = ref.watch(ayarlarProvider);
+    final guncelle = ref.read(ayarlarProvider.notifier).guncelle;
+
+    BildirimAyarlari bildirim({int? onceDakika, bool? cumaSessiz}) =>
+        BildirimAyarlari(
+          vakitler: ayarlar.bildirim.vakitler,
+          onceDakika: onceDakika ?? ayarlar.bildirim.onceDakika,
+          cumaSessiz: cumaSessiz ?? ayarlar.bildirim.cumaSessiz,
+        );
+
+    return AbyadSayfa(
+      children: [
+        SayfaBasligi(baslik: l10n.ezanVeBildirimler),
+        const SizedBox(height: 16),
+        AbyadKart(
+          padding: _kartIci,
+          yaricap: AbyadRadius.buyukKart,
+          child: Column(
+            children: [
+              GezinmeSatiri(
+                baslik: l10n.vakitBildirimleri,
+                aciklama: l10n.vakitBildirimleriAciklama,
+                onTap: () => _git(context, const VakitBildirimEkrani()),
+              ),
+              _ayrac(),
+              AnahtarSatiri(
+                baslik: l10n.alarmOlarakCal,
+                aciklama: l10n.alarmOlarakCalAciklama,
+                deger: ayarlar.alarmOlarakCal,
+                onDegis: (v) => guncelle((a) => a.copyWith(alarmOlarakCal: v)),
+              ),
+              _ayrac(),
+              AnahtarSatiri(
+                baslik: l10n.onceHatirlat,
+                aciklama: l10n.onceHatirlatAciklama,
+                deger: ayarlar.bildirim.onceDakika > 0,
+                onDegis: (v) => guncelle(
+                  (a) => a.copyWith(bildirim: bildirim(onceDakika: v ? 15 : 0)),
+                ),
+              ),
+              _ayrac(),
+              AnahtarSatiri(
+                baslik: l10n.cumaSessiz,
+                aciklama: l10n.cumaSessizAciklama,
+                deger: ayarlar.bildirim.cumaSessiz,
+                onDegis: (v) => guncelle(
+                  (a) => a.copyWith(bildirim: bildirim(cumaSessiz: v)),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        const _BildirimDurumu(),
+        const SizedBox(height: 12),
+        const _PilKarti(),
+      ],
+    );
+  }
+}
+
+/// Konum, hesaplama yöntemi ve düzeltmeler.
+class VakitAyarEkrani extends ConsumerWidget {
+  const VakitAyarEkrani({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final ayarlar = ref.watch(ayarlarProvider);
+    final guncelle = ref.read(ayarlarProvider.notifier).guncelle;
+
+    return AbyadSayfa(
+      children: [
+        SayfaBasligi(baslik: l10n.konumVeVakitler),
+        const SizedBox(height: 16),
+        AbyadKart(
+          padding: _kartIci,
+          yaricap: AbyadRadius.buyukKart,
+          child: Column(
+            children: [
+              GezinmeSatiri(
+                baslik: l10n.konum,
+                deger: ayarlar.konum.otomatik
+                    ? l10n.konumOtomatik(ayarlar.konum.ad)
+                    : ayarlar.konum.ad,
+                onTap: () => _git(context, const SehirSecEkrani()),
+              ),
+              _ayrac(),
+              GezinmeSatiri(
+                baslik: l10n.hesaplamaYontemi,
+                deger: l10n.yontemAdi(ayarlar.yontem),
+                onTap: () => _yontemSec(context, ref),
+              ),
+              _ayrac(),
+              GezinmeSatiri(
+                baslik: l10n.dakikaDuzeltme,
+                deger: ayarlar.duzeltmeler.isEmpty ? l10n.kapali : l10n.acik,
+                onTap: () => _git(context, const DuzeltmeEkrani()),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        AbyadKart(
+          yaricap: AbyadRadius.buyukKart,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                l10n.hicriDuzeltme,
+                style: abyadStil(AbyadFonts.metin, 15, 700),
+              ),
+              const SizedBox(height: 3),
+              Text(l10n.hicriDuzeltmeAciklama, style: AbyadText.kucuk),
+              const SizedBox(height: 10),
+              AbyadSegment<int>(
+                secenekler: {
+                  -1: l10n.gunEksiBir,
+                  0: l10n.gunFarkiYok,
+                  1: l10n.gunArtiBir,
+                },
+                secili: ayarlar.hicriDuzeltme,
+                onSec: (g) => guncelle((a) => a.copyWith(hicriDuzeltme: g)),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Kur'an okuma görünümü ve meal seçimi.
+class KuranAyarEkrani extends ConsumerWidget {
+  const KuranAyarEkrani({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final ayarlar = ref.watch(ayarlarProvider);
+    final guncelle = ref.read(ayarlarProvider.notifier).guncelle;
+    final meal = ref.watch(mealKaynagiProvider);
+    final mealler =
+        ref.watch(meallerProvider).valueOrNull ?? const <MealBilgisi>[];
+
+    return AbyadSayfa(
+      children: [
+        SayfaBasligi(baslik: l10n.ekranKuran),
+        const SizedBox(height: 16),
+        AbyadKart(
+          padding: _kartIci,
           yaricap: AbyadRadius.buyukKart,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -149,300 +338,143 @@ class AyarlarEkrani extends ConsumerWidget {
                     guncelle((a) => a.copyWith(kuranSayfaGorunumu: v)),
               ),
               const SizedBox(height: 12),
-              ayrac,
+              _ayrac(),
               GezinmeSatiri(
                 baslik: l10n.mealSecimi,
                 deger: meal.ad ?? l10n.mealEklenmedi,
                 onTap: () => mealler.length > 1
                     ? _mealSec(context, ref, mealler)
-                    : git(const LisanslarEkrani()),
+                    : _git(context, const LisanslarEkrani()),
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 22),
-
-        // --- Ezan ve bildirimler --------------------------------------------
-        BolumBasligi(l10n.ezanVeBildirimler),
-        const SizedBox(height: 10),
-        AbyadKart(
-          padding: kartIci,
-          yaricap: AbyadRadius.buyukKart,
-          child: Column(
-            children: [
-              AnahtarSatiri(
-                baslik: l10n.alarmOlarakCal,
-                aciklama: l10n.alarmOlarakCalAciklama,
-                deger: ayarlar.alarmOlarakCal,
-                onDegis: (v) => guncelle((a) => a.copyWith(alarmOlarakCal: v)),
-              ),
-              ayrac,
-              AnahtarSatiri(
-                baslik: l10n.onceHatirlat,
-                aciklama: l10n.onceHatirlatAciklama,
-                deger: ayarlar.bildirim.onceDakika > 0,
-                onDegis: (v) => guncelle(
-                  (a) => a.copyWith(bildirim: bildirim(onceDakika: v ? 15 : 0)),
-                ),
-              ),
-              ayrac,
-              AnahtarSatiri(
-                baslik: l10n.cumaSessiz,
-                aciklama: l10n.cumaSessizAciklama,
-                deger: ayarlar.bildirim.cumaSessiz,
-                onDegis: (v) => guncelle(
-                  (a) => a.copyWith(bildirim: bildirim(cumaSessiz: v)),
-                ),
-              ),
-              ayrac,
-              GezinmeSatiri(
-                baslik: l10n.vakitBildirimleri,
-                aciklama: l10n.vakitBildirimleriAciklama,
-                onTap: () => git(const VakitBildirimEkrani()),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
-        const _BildirimDurumu(),
-        const SizedBox(height: 12),
-        const _PilKarti(),
-        const SizedBox(height: 22),
-
-        // --- Vakit hesaplama ------------------------------------------------
-        BolumBasligi(l10n.vakitHesaplama),
-        const SizedBox(height: 10),
-        AbyadKart(
-          padding: kartIci,
-          yaricap: AbyadRadius.buyukKart,
-          child: Column(
-            children: [
-              GezinmeSatiri(
-                baslik: l10n.konum,
-                deger: ayarlar.konum.otomatik
-                    ? l10n.konumOtomatik(ayarlar.konum.ad)
-                    : ayarlar.konum.ad,
-                onTap: () => git(const SehirSecEkrani()),
-              ),
-              ayrac,
-              GezinmeSatiri(
-                baslik: l10n.hesaplamaYontemi,
-                deger: l10n.yontemAdi(ayarlar.yontem),
-                onTap: () => _yontemSec(context, ref),
-              ),
-              ayrac,
-              GezinmeSatiri(
-                baslik: l10n.dakikaDuzeltme,
-                deger: ayarlar.duzeltmeler.isEmpty ? l10n.kapali : l10n.acik,
-                onTap: () => git(const DuzeltmeEkrani()),
-              ),
-              ayrac,
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      l10n.hicriDuzeltme,
-                      style: abyadStil(AbyadFonts.metin, 15, 700),
-                    ),
-                    const SizedBox(height: 3),
-                    Text(l10n.hicriDuzeltmeAciklama, style: AbyadText.kucuk),
-                    const SizedBox(height: 10),
-                    AbyadSegment<int>(
-                      secenekler: {
-                        -1: l10n.gunEksiBir,
-                        0: l10n.gunFarkiYok,
-                        1: l10n.gunArtiBir,
-                      },
-                      secili: ayarlar.hicriDuzeltme,
-                      onSec: (g) =>
-                          guncelle((a) => a.copyWith(hicriDuzeltme: g)),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 22),
-
-        // --- Mahremiyet -----------------------------------------------------
-        AbyadKart(
-          renk: AbyadColors.yesilZemin,
-          kenarRengi: AbyadColors.yesilZemin,
-          yaricap: AbyadRadius.buyukKart,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const AbyadIcon('shield', renk: AbyadColors.zumrut),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(l10n.mahremiyetBaslik, style: AbyadText.kartBasligi),
-                    const SizedBox(height: 4),
-                    Text(
-                      l10n.mahremiyetMetin,
-                      style: abyadStil(AbyadFonts.metin, 13, 400, height: 1.5),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
-        AbyadKart(
-          padding: kartIci,
-          child: GezinmeSatiri(
-            baslik: l10n.kaynaklarVeLisanslar,
-            onTap: () => git(const LisanslarEkrani()),
-          ),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          l10n.surumBilgisi(uygulamaSurumu),
-          textAlign: TextAlign.center,
-          style: AbyadText.etiket,
         ),
       ],
     );
   }
+}
 
-  void _mealSec(
-    BuildContext context,
-    WidgetRef ref,
-    List<MealBilgisi> mealler,
-  ) {
-    showModalBottomSheet<void>(
-      context: context,
-      backgroundColor: AbyadColors.yuzey,
-      showDragHandle: true,
-      isScrollControlled: true,
-      builder: (context) {
-        final l10n = AppLocalizations.of(context);
-        final seciliAd = ref.read(mealKaynagiProvider).ad;
-        return SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(l10n.mealSecimi, style: AbyadText.kartBasligi),
-                const SizedBox(height: 8),
-                for (final m in mealler)
-                  Semantics(
-                    button: true,
-                    selected: m.ad == seciliAd,
-                    child: InkWell(
-                      onTap: () {
-                        ref
-                            .read(ayarlarProvider.notifier)
-                            .guncelle((a) => a.copyWith(mealId: m.id));
-                        Navigator.of(context).pop();
-                      },
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(minHeight: 56),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    m.ad,
-                                    style: abyadStil(
-                                      AbyadFonts.metin,
-                                      15,
-                                      m.ad == seciliAd ? 700 : 500,
-                                    ),
+void _mealSec(BuildContext context, WidgetRef ref, List<MealBilgisi> mealler) {
+  showModalBottomSheet<void>(
+    context: context,
+    backgroundColor: AbyadColors.yuzey,
+    showDragHandle: true,
+    isScrollControlled: true,
+    builder: (context) {
+      final l10n = AppLocalizations.of(context);
+      final seciliAd = ref.read(mealKaynagiProvider).ad;
+      return SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(l10n.mealSecimi, style: AbyadText.kartBasligi),
+              const SizedBox(height: 8),
+              for (final m in mealler)
+                Semantics(
+                  button: true,
+                  selected: m.ad == seciliAd,
+                  child: InkWell(
+                    onTap: () {
+                      ref
+                          .read(ayarlarProvider.notifier)
+                          .guncelle((a) => a.copyWith(mealId: m.id));
+                      Navigator.of(context).pop();
+                    },
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 56),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  m.ad,
+                                  style: abyadStil(
+                                    AbyadFonts.metin,
+                                    15,
+                                    m.ad == seciliAd ? 700 : 500,
                                   ),
-                                  Text(m.sahip, style: AbyadText.kucuk),
-                                ],
-                              ),
-                            ),
-                            if (m.ad == seciliAd)
-                              const AbyadIcon(
-                                'check',
-                                renk: AbyadColors.zumrut,
-                              ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  void _yontemSec(BuildContext context, WidgetRef ref) {
-    showModalBottomSheet<void>(
-      context: context,
-      backgroundColor: AbyadColors.yuzey,
-      showDragHandle: true,
-      isScrollControlled: true,
-      builder: (context) {
-        final l10n = AppLocalizations.of(context);
-        final secili = ref.read(ayarlarProvider).yontem;
-        return SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(l10n.hesaplamaYontemi, style: AbyadText.kartBasligi),
-                const SizedBox(height: 8),
-                for (final y in HesapYontemi.values)
-                  Semantics(
-                    button: true,
-                    selected: y == secili,
-                    child: InkWell(
-                      onTap: () {
-                        ref
-                            .read(ayarlarProvider.notifier)
-                            .guncelle((a) => a.copyWith(yontem: y));
-                        Navigator.of(context).pop();
-                      },
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(minHeight: 52),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                l10n.yontemAdi(y),
-                                style: abyadStil(
-                                  AbyadFonts.metin,
-                                  15,
-                                  y == secili ? 700 : 500,
                                 ),
-                              ),
+                                Text(m.sahip, style: AbyadText.kucuk),
+                              ],
                             ),
-                            if (y == secili)
-                              const AbyadIcon(
-                                'check',
-                                renk: AbyadColors.zumrut,
-                              ),
-                          ],
-                        ),
+                          ),
+                          if (m.ad == seciliAd)
+                            AbyadIcon('check', renk: AbyadColors.zumrut),
+                        ],
                       ),
                     ),
                   ),
-              ],
-            ),
+                ),
+            ],
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
+}
+
+void _yontemSec(BuildContext context, WidgetRef ref) {
+  showModalBottomSheet<void>(
+    context: context,
+    backgroundColor: AbyadColors.yuzey,
+    showDragHandle: true,
+    isScrollControlled: true,
+    builder: (context) {
+      final l10n = AppLocalizations.of(context);
+      final secili = ref.read(ayarlarProvider).yontem;
+      return SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(l10n.hesaplamaYontemi, style: AbyadText.kartBasligi),
+              const SizedBox(height: 8),
+              for (final y in HesapYontemi.values)
+                Semantics(
+                  button: true,
+                  selected: y == secili,
+                  child: InkWell(
+                    onTap: () {
+                      ref
+                          .read(ayarlarProvider.notifier)
+                          .guncelle((a) => a.copyWith(yontem: y));
+                      Navigator.of(context).pop();
+                    },
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 52),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              l10n.yontemAdi(y),
+                              style: abyadStil(
+                                AbyadFonts.metin,
+                                15,
+                                y == secili ? 700 : 500,
+                              ),
+                            ),
+                          ),
+                          if (y == secili)
+                            AbyadIcon('check', renk: AbyadColors.zumrut),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }
 
 /// Bildirim izni, tam zamanlı alarm izni ve test bildirimi.
@@ -585,7 +617,7 @@ class _PilKarti extends ConsumerWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const AbyadIcon('battery', renk: AbyadColors.pirincYazi),
+              AbyadIcon('battery', renk: AbyadColors.pirincYazi),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -729,7 +761,7 @@ class DuzeltmeEkrani extends ConsumerWidget {
           child: Column(
             children: [
               for (final (i, tur) in VakitTuru.values.indexed) ...[
-                if (i > 0) const Divider(height: 1, color: AbyadColors.ayrac),
+                if (i > 0) Divider(height: 1, color: AbyadColors.ayrac),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: Row(

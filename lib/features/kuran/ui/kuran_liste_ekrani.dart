@@ -121,7 +121,7 @@ class _KuranListeEkraniState extends ConsumerState<KuranListeEkrani> {
                       sliver: SliverList.separated(
                         itemCount: satirlar.length,
                         separatorBuilder: (_, _) =>
-                            const Divider(height: 1, color: AbyadColors.ayrac),
+                            Divider(height: 1, color: AbyadColors.ayrac),
                         itemBuilder: (context, i) => satirlar[i],
                       ),
                     ),
@@ -241,7 +241,7 @@ class _KaldiginYer extends StatelessWidget {
               AbyadFonts.metin,
               18,
               700,
-              color: AbyadColors.yuzey,
+              color: AbyadColors.koyuUstu,
             ),
           ),
           const SizedBox(height: 4),
@@ -315,7 +315,7 @@ class _Satir extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      const SekizKoseYildiz(
+                      SekizKoseYildiz(
                         boyut: 40,
                         renk: AbyadColors.pirincSus,
                         cizgiKalinligi: 1.2,
@@ -350,7 +350,7 @@ class _Satir extends StatelessWidget {
                   const SizedBox(width: 8),
                   ArapcaMetin(arapca!, boyut: 22, satirYuksekligi: 1.4),
                 ] else
-                  const AbyadIcon(
+                  AbyadIcon(
                     'chevron_right',
                     renk: AbyadColors.metinIkincil,
                     boyut: 20,

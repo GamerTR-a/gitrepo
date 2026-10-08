@@ -94,7 +94,7 @@ class _IlkAcilisEkraniState extends ConsumerState<IlkAcilisEkrani> {
     };
 
     return Scaffold(
-      backgroundColor: AbyadColors.zumrut,
+      backgroundColor: AbyadColors.koyuZemin,
       body: SafeArea(
         child: Stack(
           children: [
@@ -163,7 +163,7 @@ class _IlkAcilisEkraniState extends ConsumerState<IlkAcilisEkrani> {
                               AbyadFonts.baslik,
                               32,
                               600,
-                              color: AbyadColors.yuzey,
+                              color: AbyadColors.koyuUstu,
                               height: 1.2,
                             ),
                           ),
@@ -237,7 +237,7 @@ class _IlkAcilisEkraniState extends ConsumerState<IlkAcilisEkrani> {
                           onPressed: _mesgul ? null : _ileri,
                           style: TextButton.styleFrom(
                             minimumSize: const Size(48, 48),
-                            foregroundColor: AbyadColors.yuzey,
+                            foregroundColor: AbyadColors.koyuUstu,
                           ),
                           child: Text(
                             _adim == 1 ? l10n.simdilikAtla : l10n.atla,
@@ -245,7 +245,7 @@ class _IlkAcilisEkraniState extends ConsumerState<IlkAcilisEkrani> {
                               AbyadFonts.metin,
                               15,
                               600,
-                              color: AbyadColors.yuzey,
+                              color: AbyadColors.koyuUstu,
                             ),
                           ),
                         ),

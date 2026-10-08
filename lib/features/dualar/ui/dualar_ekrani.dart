@@ -155,7 +155,7 @@ class _ZikirmatikKarti extends StatelessWidget {
                 AbyadFonts.baslik,
                 20,
                 600,
-                color: AbyadColors.yuzey,
+                color: AbyadColors.koyuUstu,
               ),
             ),
           ),
@@ -180,7 +180,7 @@ class _ZikirmatikKarti extends StatelessWidget {
                     AbyadFonts.metin,
                     16,
                     700,
-                    color: AbyadColors.yuzey,
+                    color: AbyadColors.koyuUstu,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -196,7 +196,11 @@ class _ZikirmatikKarti extends StatelessWidget {
               ],
             ),
           ),
-          const AbyadIcon('chevron_right', renk: AbyadColors.yuzey, boyut: 20),
+          const AbyadIcon(
+            'chevron_right',
+            renk: AbyadColors.koyuUstu,
+            boyut: 20,
+          ),
         ],
       ),
     );
@@ -263,7 +267,7 @@ class DuaListesi extends StatelessWidget {
       child: Column(
         children: [
           for (final (i, d) in dualar.indexed) ...[
-            if (i > 0) const Divider(height: 1, color: AbyadColors.ayrac),
+            if (i > 0) Divider(height: 1, color: AbyadColors.ayrac),
             Semantics(
               button: true,
               label: d.ad,
@@ -286,7 +290,7 @@ class DuaListesi extends StatelessWidget {
                         satirYuksekligi: 1.6,
                       ),
                       const SizedBox(width: 8),
-                      const AbyadIcon(
+                      AbyadIcon(
                         'chevron_right',
                         renk: AbyadColors.metinIkincil,
                         boyut: 20,

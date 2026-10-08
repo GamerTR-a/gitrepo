@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:abyad/core/icerik/icerik.dart';
 import 'package:abyad/features/kuran/data/kuran_deposu.dart';
+import 'package:abyad/features/rehber/data/rehber_saglayici.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -135,11 +136,10 @@ void main() {
           expect(z.containsKey(alan), isTrue);
         }
       }
-      final rehberler = (_oku('assets/data/rehber.json')['rehberler'] as List)
-          .cast<Map<String, dynamic>>();
-      expect(rehberler.map((r) => r['id']), ['namaz', 'abdest']);
-      for (final r in rehberler) {
-        for (final a in (r['adimlar'] as List).cast<Map<String, dynamic>>()) {
+      for (final dosya in ['abdest', 'namaz_adimlari']) {
+        for (final a
+            in (_oku('assets/data/rehber/$dosya.json')['adimlar'] as List)
+                .cast<Map<String, dynamic>>()) {
           for (final alan in _incelemeAlanlari) {
             expect(a.containsKey(alan), isTrue, reason: '${a['id']}');
           }
@@ -154,6 +154,49 @@ void main() {
       for (final i in isimler) {
         expect(i.containsKey('incelendi'), isTrue);
       }
+    });
+
+    test('hadisler: 42 kayıt, her biri Arapça, tercüme, kaynak, temsilî '
+        'hikâye ve inceleme alanlarıyla', () {
+      final j = _oku('assets/data/hadisler.json');
+      expect(j['derleme'], isNotEmpty);
+      expect(j['tercume'], isNotEmpty);
+      final hadisler = (j['hadisler'] as List).cast<Map<String, dynamic>>();
+      expect(hadisler, hasLength(42));
+      expect(hadisler.map((h) => h['no']), [for (var i = 1; i <= 42; i++) i]);
+      final arapcaHarf = RegExp('[؀-ۿ]');
+      for (final h in hadisler) {
+        final neden = '${h['no']}';
+        for (final alan in _incelemeAlanlari) {
+          expect(h.containsKey(alan), isTrue, reason: '$neden: $alan');
+        }
+        // Hoca incelemesinden geçmeden onaylı görünmemeli
+        expect(h['incelendi'], isFalse, reason: neden);
+        for (final alan in [
+          'baslik',
+          'arapca',
+          'ravi',
+          'anlam',
+          'hikaye_baslik',
+          'hikaye',
+          'kaynak',
+        ]) {
+          expect(h[alan], isA<String>(), reason: '$neden: $alan');
+          expect(
+            (h[alan] as String).trim(),
+            isNotEmpty,
+            reason: '$neden: $alan',
+          );
+        }
+        bool arapcaVar(String alan) => arapcaHarf.hasMatch(h[alan] as String);
+        expect(arapcaVar('arapca'), isTrue, reason: neden);
+        // Tercüme ve hikâye Türkçe; içine Arapça metin karışmamalı
+        expect(arapcaVar('anlam'), isFalse, reason: neden);
+        expect(arapcaVar('hikaye'), isFalse, reason: neden);
+        expect(h['kaynak'], startsWith('Nevevî, Kırk Hadis, ${h['no']} ('));
+      }
+      expect(hadisler.map((h) => h['baslik']).toSet(), hasLength(42));
+      expect(hadisler.map((h) => h['hikaye']).toSet(), hasLength(42));
     });
 
     test('günün ayeti: geçerli başvurular ve deterministik seçim', () {
@@ -217,8 +260,19 @@ void main() {
       expect(dualar.kategoride('namaz'), isNotEmpty);
       expect(await kap.read(zikirlerProvider.future), hasLength(4));
       expect(await kap.read(esmaProvider.future), hasLength(99));
-      expect(await kap.read(rehberlerProvider.future), hasLength(2));
+      expect(
+        (await kap.read(namazRehberiProvider.future)).vakitler,
+        hasLength(6),
+      );
+      expect(
+        (await kap.read(abdestRehberiProvider.future)).adimlar,
+        hasLength(9),
+      );
+      expect(await kap.read(rehberSesleriProvider.future), isEmpty);
       expect(await kap.read(kazaBilgileriProvider.future), isNotEmpty);
+      final hadisler = await kap.read(hadislerProvider.future);
+      expect(hadisler.hadisler, hasLength(42));
+      expect(hadisler.hadisler.first.hikaye, isNotEmpty);
       expect((await kap.read(kuranProvider.future)).sureler, hasLength(114));
 
       final gunler = await kap.read(onemliGunlerProvider.future);

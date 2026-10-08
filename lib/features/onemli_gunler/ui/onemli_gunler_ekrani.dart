@@ -68,8 +68,7 @@ class OnemliGunlerEkrani extends ConsumerWidget {
                 child: Column(
                   children: [
                     for (final (i, g) in veri.gunler.indexed) ...[
-                      if (i > 0)
-                        const Divider(height: 1, color: AbyadColors.ayrac),
+                      if (i > 0) Divider(height: 1, color: AbyadColors.ayrac),
                       _GunSatiri(
                         gun: g,
                         kalan: g.kalanGun(bugun),
@@ -149,7 +148,7 @@ class _SiradakiKart extends StatelessWidget {
                           AbyadFonts.baslik,
                           24,
                           600,
-                          color: AbyadColors.yuzey,
+                          color: AbyadColors.koyuUstu,
                         ),
                       ),
                       const SizedBox(height: 4),

@@ -142,7 +142,7 @@ class _SehirSecEkraniState extends ConsumerState<SehirSecEkrani> {
                           child: Container(
                             constraints: const BoxConstraints(minHeight: 56),
                             padding: const EdgeInsets.symmetric(vertical: 8),
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               border: Border(
                                 bottom: BorderSide(color: AbyadColors.ayrac),
                               ),
@@ -169,10 +169,7 @@ class _SehirSecEkraniState extends ConsumerState<SehirSecEkrani> {
                                   ),
                                 ),
                                 if (seciliMi)
-                                  const AbyadIcon(
-                                    'check',
-                                    renk: AbyadColors.zumrut,
-                                  ),
+                                  AbyadIcon('check', renk: AbyadColors.zumrut),
                               ],
                             ),
                           ),
@@ -215,7 +212,7 @@ class AramaKutusu extends StatelessWidget {
           400,
           color: AbyadColors.metinIkincil,
         ),
-        prefixIcon: const Padding(
+        prefixIcon: Padding(
           padding: EdgeInsets.only(left: 14, right: 8),
           child: AbyadIcon('search', renk: AbyadColors.metinIkincil, boyut: 20),
         ),

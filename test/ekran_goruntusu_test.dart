@@ -3,8 +3,13 @@ import 'dart:ui' as ui;
 
 import 'package:abyad/app/abyad_kabuk.dart';
 import 'package:abyad/app/sekme.dart';
+import 'package:abyad/core/icerik/icerik.dart';
+import 'package:abyad/core/theme/abyad_colors.dart';
 import 'package:abyad/features/ayarlar/ui/ayarlar_ekrani.dart';
 import 'package:abyad/features/esma/ui/esma_ekrani.dart';
+import 'package:abyad/features/hadis/ui/hadis_ekrani.dart';
+import 'package:abyad/features/hatim/domain/hatim.dart';
+import 'package:abyad/features/hatim/ui/hatim_ekrani.dart';
 import 'package:abyad/features/ilk_acilis/ui/ilk_acilis_ekrani.dart';
 import 'package:abyad/features/kaza/ui/kaza_ekrani.dart';
 import 'package:abyad/features/kaza/ui/kaza_sihirbazi.dart';
@@ -26,10 +31,18 @@ import 'yardimci.dart';
 /// karşılaştırması içindir. Yalnızca hedef klasör verilince çalışır:
 ///
 ///   ABYAD_GORUNTU_KLASORU=build/goruntu flutter test test/ekran_goruntusu_test.dart
+///
+/// ABYAD_GORUNTU_TEMA=koyu verilirse ekranlar koyu temayla kaydedilir.
 void main() {
   final klasor = Platform.environment['ABYAD_GORUNTU_KLASORU'];
 
-  setUpAll(testOrtaminiKur);
+  final koyu = Platform.environment['ABYAD_GORUNTU_TEMA'] == 'koyu';
+
+  setUpAll(() async {
+    await testOrtaminiKur();
+    if (koyu) AbyadColors.palet = AbyadPalet.karanlik;
+  });
+  tearDownAll(() => AbyadColors.palet = AbyadPalet.acik);
 
   Widget sekmede(Sekme sekme) => Consumer(
     builder: (context, ref, _) {
@@ -59,6 +72,23 @@ void main() {
     '19_kuran_sayfa_1': () => const KuranSayfaEkrani(sure: 1),
     '20_kuran_sayfa_3': () => const KuranSayfaEkrani(sure: 2, ayet: 6),
     '21_kuran_sayfa_604': () => const KuranSayfaEkrani(sure: 114),
+    '22_rehber_ogle_farz': () =>
+        const RehberAdimlari(vakit: 'ogle', bolum: 'farz'),
+    '23_rehber_abdest': () => const RehberAdimlari(),
+    '24_hadis': () => const HadisEkrani(),
+    '25_hatim_liste': () => const HatimEkrani(),
+    '26_hatim_cuz': () => const HatimDetayEkrani(kod: ornekHatimKodu),
+    '27_hatim_olustur': () => const HatimOlusturEkrani(),
+    '28_zikirmatik_manzara': () => const ZikirmatikEkrani(),
+    '29_ayarlar_bildirim': () => const BildirimAyarEkrani(),
+    '30_hadis_detay': () => Consumer(
+      builder: (context, ref, _) {
+        final veri = ref.watch(hadislerProvider).valueOrNull;
+        return veri == null
+            ? const SizedBox.shrink()
+            : HadisDetayEkrani(hadis: veri.hadisler[12]);
+      },
+    ),
   };
 
   for (final MapEntry(key: ad, value: kur) in ekranlar.entries) {
@@ -69,6 +99,13 @@ void main() {
           tester,
           RepaintBoundary(key: anahtar, child: kur()),
           yaziOlcegi: olcek,
+          ortam: await TestOrtami.olustur(
+            ayarlar: ad.contains('hatim')
+                ? ornekHatimAyarlari(BolmeSekli.cuz)
+                : (ad.contains('manzara')
+                      ? {'ayarlar_v1': '{"zikirArkaPlan": true}'}
+                      : const {}),
+          ),
         );
         await tester.runAsync(() async {
           // SVG ikonların çözülmesini bekle
@@ -84,7 +121,7 @@ void main() {
           final bayt = await resim.toByteData(format: ui.ImageByteFormat.png);
           Directory(klasor!).createSync(recursive: true);
           File(
-            '$klasor/${ad}_$olcek.png',
+            '$klasor/${ad}_$olcek${koyu ? '_koyu' : ''}.png',
           ).writeAsBytesSync(bayt!.buffer.asUint8List());
         });
         await ekraniKapat(tester, ortam);

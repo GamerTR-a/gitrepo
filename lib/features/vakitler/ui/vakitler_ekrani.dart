@@ -108,12 +108,12 @@ class _VakitlerEkraniState extends ConsumerState<VakitlerEkrani> {
             ),
             child: Row(
               children: [
-                const AbyadIcon('calendar', renk: AbyadColors.zumrut),
+                AbyadIcon('calendar', renk: AbyadColors.zumrut),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(l10n.aylikImsakiye, style: AbyadText.kartBasligi),
                 ),
-                const AbyadIcon(
+                AbyadIcon(
                   'chevron_right',
                   renk: AbyadColors.metinIkincil,
                   boyut: 20,
@@ -141,7 +141,7 @@ class _VakitlerEkraniState extends ConsumerState<VakitlerEkrani> {
                       borderRadius: BorderRadius.circular(AbyadRadius.dugme),
                     ),
                     alignment: Alignment.center,
-                    child: const AbyadIcon(
+                    child: AbyadIcon(
                       'compass',
                       renk: AbyadColors.zumrut,
                       boyut: 22,
@@ -218,9 +218,7 @@ class _SehirDugmesi extends StatelessWidget {
       excludeSemantics: true,
       child: Material(
         color: AbyadColors.yuzey,
-        shape: const StadiumBorder(
-          side: BorderSide(color: AbyadColors.kenarlik),
-        ),
+        shape: StadiumBorder(side: BorderSide(color: AbyadColors.kenarlik)),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: onTap,
@@ -234,7 +232,7 @@ class _SehirDugmesi extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const AbyadIcon('pin', renk: AbyadColors.zumrut, boyut: 16),
+                  AbyadIcon('pin', renk: AbyadColors.zumrut, boyut: 16),
                   const SizedBox(width: 6),
                   Flexible(
                     child: Text(
@@ -379,7 +377,7 @@ class _GeriSayim extends StatelessWidget {
                       AbyadFonts.baslik,
                       40,
                       500,
-                      color: AbyadColors.yuzey,
+                      color: AbyadColors.koyuUstu,
                       height: 1.1,
                       letterSpacing: -0.5,
                     ),

@@ -1,7 +1,7 @@
 name: abyad
 description: "Abyad – reklamsız, verisiz, ücretsiz Müslüman rehberi."
 publish_to: 'none'
-version: 1.0.0+2
+version: 1.2.2+5
 
 environment:
   sdk: ^3.11.3
@@ -45,6 +45,10 @@ flutter:
     - assets/icons/
     - assets/ornament/
     - assets/data/
+    - assets/data/rehber/
+    - assets/rehber/
+    - assets/zikir_arkaplan/
+    - assets/audio/rehber/
     - assets/data/quran/quran-uthmani.txt
     - assets/data/quran/quran_meta.json
     - assets/data/quran/mealler.json

@@ -164,7 +164,7 @@ class _KuranSayfaEkraniState extends ConsumerState<KuranSayfaEkrani> {
                     ],
                   ),
                 ),
-                const Divider(height: 1, color: AbyadColors.kenarlik),
+                Divider(height: 1, color: AbyadColors.kenarlik),
                 Expanded(
                   // Mushaf sağdan sola çevrilir: sonraki sayfa soldadır.
                   child: PageView.builder(
@@ -176,7 +176,7 @@ class _KuranSayfaEkraniState extends ConsumerState<KuranSayfaEkrani> {
                         _MushafSayfasi(veri: veri, sayfa: i + 1),
                   ),
                 ),
-                const Divider(height: 1, color: AbyadColors.kenarlik),
+                Divider(height: 1, color: AbyadColors.kenarlik),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 12,
@@ -329,7 +329,7 @@ class _MushafSayfasiState extends ConsumerState<_MushafSayfasi> {
             text: veri.ayetMetni(a.sure, a.ayet),
             recognizer: dokunus,
             style: imler.contains(a)
-                ? const TextStyle(backgroundColor: AbyadColors.pirincZemin)
+                ? TextStyle(backgroundColor: AbyadColors.pirincZemin)
                 : null,
           ),
         )
@@ -337,7 +337,7 @@ class _MushafSayfasiState extends ConsumerState<_MushafSayfasi> {
           TextSpan(
             text: ' ${ayetIsareti(a.ayet)} ',
             recognizer: dokunus,
-            style: const TextStyle(color: AbyadColors.pirincYazi),
+            style: TextStyle(color: AbyadColors.pirincYazi),
           ),
         );
     }

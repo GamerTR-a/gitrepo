@@ -16,12 +16,16 @@ Faz planı: [CLAUDE_CODE_PROMPTLARI.md](CLAUDE_CODE_PROMPTLARI.md).
 | Meal altyapısı (dosya biçimi, seçim, gösterim) | Yazıldı; meal metni lisans bekliyor ([nasıl eklenir](assets/data/quran/README.md)) |
 | Tefsir | Ertelendi |
 | Dualar, Zikirmatik, Önemli Günler | Yazıldı; içerik hoca incelemesi bekliyor |
-| Ayarlar, büyük yazı, yüksek kontrast, ekran okuyucu etiketleri | Yazıldı |
+| Ayarlar (kısa ana sayfa + alt sayfalar), büyük yazı, yüksek kontrast, ekran okuyucu etiketleri | Yazıldı |
+| Koyu tema (Ayarlar > Tema; varsayılan açık) | Yazıldı |
+| Zikirmatik arka planında değişen manzara çizimleri (varsayılan kapalı) | Yazıldı; çizimler özgün siluetlerdir (`tool/manzara_uret.py`) |
 | Ana ekran widget'ları (Android) | Yazıldı; gerçek cihazda denenmedi |
 | Kaza takibi ve hesaplama sihirbazı | Yazıldı |
-| Namaz ve abdest rehberi | Yazıldı; çizimler yok |
+| Namaz ve abdest rehberi (5 vakit, bölüm bölüm; ezber modu) | Yazıldı; çizimler geçici şematik, ses yok, Kunut ve Cuma yer tutucu ([liste](docs/rehber_varliklari.md)) |
 | Esmâ-ül Hüsnâ | Yazıldı |
-| Toplu hatim, sesli tilavet, hadis | Karar bekliyor: [docs/surum3_kararlar.md](docs/surum3_kararlar.md) |
+| Toplu hatim | Cihaz içi kısmı yazıldı (hatim, pay alma, okudum); linkle paylaşım sunucu kararını bekliyor: [docs/surum3_kararlar.md](docs/surum3_kararlar.md) |
+| Kırk Hadis (Nevevî, 42 hadis: Arapça, tercüme, temsilî hikâye) | Yazıldı; tercüme ve hikâyeler taslak, tamamı hoca incelemesi bekliyor |
+| Sesli tilavet | Karar bekliyor: [docs/surum3_kararlar.md](docs/surum3_kararlar.md) |
 | iOS | Derlenmedi, denenmedi; widget'lar yazılmadı |
 
 ## Çalıştırma

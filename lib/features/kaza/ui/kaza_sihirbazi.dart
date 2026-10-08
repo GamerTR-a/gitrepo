@@ -55,14 +55,14 @@ class _KazaSihirbaziState extends ConsumerState<KazaSihirbazi> {
                 azami: 80,
                 onDegis: (v) => setState(() => _yil = v),
               ),
-              const Divider(height: 1, color: AbyadColors.ayrac),
+              Divider(height: 1, color: AbyadColors.ayrac),
               _Adimlayici(
                 baslik: l10n.sihirbazNamazAy,
                 deger: _ay,
                 azami: 11,
                 onDegis: (v) => setState(() => _ay = v),
               ),
-              const Divider(height: 1, color: AbyadColors.ayrac),
+              Divider(height: 1, color: AbyadColors.ayrac),
               _Adimlayici(
                 baslik: l10n.sihirbazOzurGun,
                 aciklama: l10n.sihirbazOzurGunAciklama,
@@ -70,7 +70,7 @@ class _KazaSihirbaziState extends ConsumerState<KazaSihirbazi> {
                 azami: 10,
                 onDegis: (v) => setState(() => _ozurGun = v),
               ),
-              const Divider(height: 1, color: AbyadColors.ayrac),
+              Divider(height: 1, color: AbyadColors.ayrac),
               _Adimlayici(
                 baslik: l10n.sihirbazOrucYil,
                 aciklama: l10n.sihirbazOrucYilAciklama,

@@ -56,6 +56,32 @@ Sonuçları tabloya `✓` / `✗` ve kısa notla işleyin.
 | E4 | Yüksek kontrast açık | Bütün metinler rahat okunur |
 | E5 | Kıble: pusulayı çevirin | Kıbleye gelince titreşim; yön metni güncellenir |
 
+## Rehber, Toplu Hatim ve Hadis
+
+| # | Senaryo | Beklenen |
+|---|---------|----------|
+| R1 | Rehber > Öğle > Farz; adımları sona kadar yana kaydırın | 30 adım; çizimler görünür; "2. rekat · Rükû" göstergesi doğru ilerler |
+| R2 | Göz düğmesiyle ezber modunu açın | Arapça ve okunuş gizlenir; "Göstermek için dokunun" ile açılır |
+| R3 | TalkBack ile bir adımı dinleyin | Çizim tarifi, başlık, açıklama ve okunuş okunur; Arapça harfler okunmaz |
+| R4 | Rehber > Abdest | 9 adım ve "Abdesti bozan durumlar" listesi |
+| H1 | Toplu Hatim > Hatim başlat; bir cüze dokunun, "Okudum" deyin | Cüz "Senin", sonra "Okundu" olur; ilerleme çubuğu artar |
+| H2 | Uygulamayı kapatıp açın | Hatim ve paylar yerinde |
+| H3 | "Okumaya başla" | Kur'an o cüzün ilk sayfasından açılır |
+| H4 | Uçak modunda H1–H3 | Aynı şekilde çalışır (internet gerekmez) |
+| K1 | Kırk Hadis > bir hadis | 42 hadis listelenir; detayda Arapça metin düzgün (sağdan sola, harfler bitişik), tercüme, kaynak ve "Temsilî hikâye" kartı görünür |
+
+## Tema ve Zikirmatik arka planı
+
+| # | Senaryo | Beklenen |
+|---|---------|----------|
+| T1 | Ayarlar > Tema > Koyu | Bulunduğunuz ekran değişmeden bütün uygulama koyu renklere geçer; durum çubuğu ikonları açık renk olur |
+| T2 | Koyu temada bütün sekmeleri ve alt sayfaları gezin | Okunmayan yazı, kaybolan ikon ya da açık kalmış zemin yok |
+| T3 | Uygulamayı kapatıp açın | Seçilen tema korunur |
+| T4 | Koyu tema + yüksek kontrast + "Çok büyük" yazı | Metinler rahat okunur, taşma yok |
+| Z1 | Zikirmatik (ilk hâli) | Arka plan boş ve sade; eskisiyle aynı |
+| Z2 | Zikirmatik > "Arka planda manzara" açık, aralık 15 sn | Sayacın arkasında silik çizim görünür, 15 saniyede bir yumuşakça değişir; sayma ve titreşim etkilenmez |
+| Z3 | Z2 açıkken ekranı kapatıp açın, başka ekrana gidip dönün | Çizim göstermeye devam eder; pil tüketiminde belirgin artış yok |
+
 ## Bilinen sınırlar (doğrulanacak)
 
 - **7 günlük pencere:** Android'de bildirimler 7 gün önceden kurulur ve

@@ -8,12 +8,11 @@
 
 **BAŞVURAN (GELİŞTİRİCİ) BİLGİLERİ**
 * **Adı Soyadı:** Abdurrahman Turan Özcan
-* **T.C. Kimlik No:** [T.C. KİMLİK NUMARANIZI YAZINIZ]
+* **T.C. Kimlik No:** 10680020502
 * **Tüzel Kişilik / Kurum (Varsa):** Şahsi Geliştirici (Bireysel Kamu Yararı Projesi)
 * **E-Posta:** abdurrahmanturanozcan9191@gmail.com
 * **Telefon:** 0553 883 26 57
 * **Adres:** [TEBLİGAT VE RESMİ YAZIŞMA ADRESİNİZ]
-* **KEP Adresi (Varsa):** [VARSA KEP ADRESİNİZ]
 
 ---
 

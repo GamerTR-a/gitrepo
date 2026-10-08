@@ -615,6 +615,32 @@
   "zikirTumEkran": "Ekranın her yerine dokunarak say",
   "zikirTumEkranAciklama": "Telefona bakmadan sayabilirsiniz.",
   "zikirEkranAcik": "Ekran kapanmasın",
+  "zikirArkaPlan": "Arka planda manzara",
+  "zikirArkaPlanAciklama": "Kâbe, Medine, Kudüs ve camilerin silik çizimleri sırayla görünür.",
+  "zikirArkaPlanSure": "Değişme aralığı",
+  "saniyeKisa": "{saniye} sn",
+  "@saniyeKisa": {
+    "placeholders": {
+      "saniye": {
+        "type": "int"
+      }
+    }
+  },
+  "dakikaKisa": "{dakika} dk",
+  "@dakikaKisa": {
+    "placeholders": {
+      "dakika": {
+        "type": "int"
+      }
+    }
+  },
+  "manzaraKabe": "Kâbe",
+  "manzaraMekke": "Mekke",
+  "manzaraMedine": "Medine",
+  "manzaraKudus": "Kudüs",
+  "manzaraSelimiye": "Selimiye Camii",
+  "manzaraAyasofya": "Ayasofya",
+  "manzaraUlucami": "Ulu Cami",
   "ozelZikir": "Özel zikir",
   "ozelZikirEkle": "+ Özel zikir",
   "ozelZikirIpucu": "Zikri yazın",
@@ -683,6 +709,12 @@
   "yuksekKontrast": "Yüksek kontrast",
   "yuksekKontrastAciklama": "Yazı ve zemin arasındaki farkı artırır.",
   "ezanVeBildirimler": "Ezan ve bildirimler",
+  "ezanVeBildirimlerOzet": "Vakit sesleri, hatırlatma ve test bildirimi",
+  "konumVeVakitler": "Konum ve vakitler",
+  "kuranAyarOzet": "Okuma görünümü ve meal",
+  "tema": "Tema",
+  "temaAcik": "Açık",
+  "temaKoyu": "Koyu",
   "alarmOlarakCal": "Ezanı alarm olarak çal",
   "alarmOlarakCalAciklama": "Medya sesi kısık olsa da, ekran kapalıyken de ezan duyulur.",
   "onceHatirlat": "Vakitten 15 dk önce hatırlat",
@@ -767,6 +799,10 @@
   "lisansEzanMetin": "Henüz ezan kaydı eklenmedi; telefonun varsayılan bildirim sesi kullanılıyor. Kayıt, yalnızca izinli ya da lisanslı bir kaynaktan eklenecektir.",
   "lisansIcerikBaslik": "Dua ve bilgi metinleri",
   "lisansIcerikMetin": "Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.",
+  "lisansHadisBaslik": "Kırk Hadis",
+  "lisansHadisMetin": "Hadislerin Arapça metni İmam Nevevî'nin Kırk Hadis'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler ve her hadisin altındaki temsilî hikâyeler Abyad için hazırlanmıştır; hikâyeler kurgusaldır. Tamamı yayın öncesinde bir hoca tarafından incelenecektir.",
+  "lisansCizimBaslik": "Çizimler",
+  "lisansCizimMetin": "Namaz ve abdest rehberindeki çizimler ile zikirmatik arka planındaki manzara çizimleri Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır.",
   "lisansPaketler": "Kullanılan yazılım paketleri",
   "kanalEzanAlarm": "Ezan (alarm sesiyle)",
   "kanalEzan": "Ezan",
@@ -1004,6 +1040,219 @@
   },
   "sonrakiAdim": "Sonraki adım",
   "bastanBasla": "Baştan başla",
+  "rehberNamazSec": "Öğrenmek istediğiniz namazı ve bölümünü seçin.",
+  "rehberIcerikBekleniyor": "Bu bölümün içeriği hazırlanıyor.",
+  "rekatSayisi": "{rekat} rekat",
+  "@rekatSayisi": {
+    "placeholders": {
+      "rekat": {
+        "type": "int"
+      }
+    }
+  },
+  "rehberBolumBasligi": "{vakit} – {bolum}",
+  "@rehberBolumBasligi": {
+    "placeholders": {
+      "vakit": {
+        "type": "String"
+      },
+      "bolum": {
+        "type": "String"
+      }
+    }
+  },
+  "rekatAdim": "{rekat}. rekat · {adim}",
+  "@rekatAdim": {
+    "placeholders": {
+      "rekat": {
+        "type": "int"
+      },
+      "adim": {
+        "type": "String"
+      }
+    }
+  },
+  "tekrarSayisi": "{adet} kez",
+  "@tekrarSayisi": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "ornekSure": "Örnek sure: {sure}",
+  "@ornekSure": {
+    "placeholders": {
+      "sure": {
+        "type": "String"
+      }
+    }
+  },
+  "kadinlarIcin": "Kadınlar için",
+  "okunusuDinle": "Okunuşu dinle",
+  "ezberAc": "Ezber modunu aç",
+  "ezberKapat": "Ezber modunu kapat",
+  "ezberAcik": "Ezber modu açık: Arapça metin ve okunuş gizli, görmek için dokunun.",
+  "ezberGoster": "Göstermek için dokunun",
+  "abdestRehberi": "Abdest Rehberi",
+  "abdestAltBaslik": "Abdestin adım adım alınışı",
+  "abdestRehberiAciklama": "Abdestin alınışı {adet} adımda, çizimlerle anlatılır.",
+  "@abdestRehberiAciklama": {
+    "placeholders": {
+      "adet": {
+        "type": "int"
+      }
+    }
+  },
+  "abdestBasla": "Abdest adımlarına başla",
+  "abdestiBozanlar": "Abdesti bozan durumlar",
+  "hadisBaslik": "Kırk Hadis",
+  "hadisAltBaslik": "Hz. Peygamber'in (s.a.v.) sözlerinden",
+  "hadisAciklama": "İmam Nevevî'nin derlemesi, hikâyeleriyle",
+  "hadisBekleniyorBaslik": "İçerik hazırlanıyor",
+  "hadisBekleniyorMetin": "Hadisleri kaynağı ve tercümesi belli olmadan eklemiyoruz. Derleme seçilip bir hoca tarafından incelendikten sonra kırk hadis burada yer alacak.",
+  "hadisNo": "{no}. hadis",
+  "@hadisNo": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      }
+    }
+  },
+  "hadisRavi": "Rivayet eden: {ravi}",
+  "@hadisRavi": {
+    "placeholders": {
+      "ravi": {
+        "type": "String"
+      }
+    }
+  },
+  "hadisTercume": "Tercüme: {kaynak}",
+  "@hadisTercume": {
+    "placeholders": {
+      "kaynak": {
+        "type": "String"
+      }
+    }
+  },
+  "hadisHikayeEtiket": "Temsilî hikâye",
+  "hadisHikayeNot": "Bu hikâye, hadisin daha iyi anlaşılması için yazılmış kurgusal bir anlatıdır; yaşanmış bir olay ya da rivayet değildir.",
+  "hatimBaslik": "Toplu Hatim",
+  "hatimAciklama": "Hatmi cüz cüz, sayfa sayfa takip edin",
+  "hatimYeni": "Yeni hatim",
+  "hatimBaslat": "Hatim başlat",
+  "hatimBosBaslik": "Henüz hatim yok",
+  "hatimBosMetin": "Bir hatim başlatın; cüzleri ya da sayfaları pay pay alın, okudukça işaretleyin.",
+  "hatimYerelNotBaslik": "Linkle paylaşım henüz açık değil",
+  "hatimYerelNot": "Hatmi aileniz ve arkadaşlarınızla linkle paylaşma özelliği hazırlanıyor. Şimdilik hatmi bu telefonda başlatıp payları kendiniz takip edebilirsiniz. Bilgileriniz telefonunuzda kalır, hiçbir yere gönderilmez.",
+  "hatimDevamEden": "Devam eden hatim",
+  "hatimTamamlandi": "Hatim tamamlandı",
+  "hatimIlerlemeCuz": "{okunan} / {toplam} cüz okundu",
+  "@hatimIlerlemeCuz": {
+    "placeholders": {
+      "okunan": {
+        "type": "int"
+      },
+      "toplam": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimIlerlemePay": "{okunan} / {toplam} pay okundu",
+  "@hatimIlerlemePay": {
+    "placeholders": {
+      "okunan": {
+        "type": "int"
+      },
+      "toplam": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimHedef": "Hedef: {tarih}",
+  "@hatimHedef": {
+    "placeholders": {
+      "tarih": {
+        "type": "String"
+      }
+    }
+  },
+  "hatimAdi": "Hatmin adı",
+  "hatimAdiIpucu": "Örnek: Ramazan Aile Hatmi",
+  "hatimNotu": "Niyet notu (isteğe bağlı)",
+  "hatimNotuIpucu": "Örnek: Annemizin ruhu için",
+  "hatimBolme": "Bölme şekli",
+  "hatimCuzCuz": "Cüz cüz",
+  "hatimSayfaSayfa": "Sayfa sayfa",
+  "hatimBolmeCuzAciklama": "{pay} pay; her pay bir cüz.",
+  "@hatimBolmeCuzAciklama": {
+    "placeholders": {
+      "pay": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimBolmeSayfaAciklama": "{pay} pay; her pay {sayfa} sayfa.",
+  "@hatimBolmeSayfaAciklama": {
+    "placeholders": {
+      "pay": {
+        "type": "int"
+      },
+      "sayfa": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimHedefTarih": "Hedef tarih",
+  "hatimHedefYok": "Belirlenmedi",
+  "hatimHedefKaldir": "Hedef tarihi kaldır",
+  "hataBos": "Bu alan boş bırakılamaz.",
+  "hataUzun": "En fazla {sinir} karakter yazabilirsiniz.",
+  "@hataUzun": {
+    "placeholders": {
+      "sinir": {
+        "type": "int"
+      }
+    }
+  },
+  "hataLink": "Bu alana link yazılamaz.",
+  "hatimCuzSec": "Bir cüz seç",
+  "hatimCuzSecAciklama": "Boş bir cüze dokunarak sorumluluğu al.",
+  "hatimSayfaSec": "Bir sayfa aralığı seç",
+  "hatimSayfaSecAciklama": "Boş bir sayfa aralığına dokunarak sorumluluğu al.",
+  "durumOkundu": "Okundu",
+  "durumAlindi": "Alındı",
+  "durumSenin": "Senin",
+  "durumBos": "Boş",
+  "hatimCuzAdi": "{no}. cüz",
+  "@hatimCuzAdi": {
+    "placeholders": {
+      "no": {
+        "type": "int"
+      }
+    }
+  },
+  "hatimSayfaAdi": "Sayfa {bas}–{bit}",
+  "@hatimSayfaAdi": {
+    "placeholders": {
+      "bas": {
+        "type": "int"
+      },
+      "bit": {
+        "type": "int"
+      }
+    }
+  },
+  "seninPayin": "Senin payın",
+  "okumayaBasla": "Okumaya başla",
+  "okudum": "Okudum",
+  "payiBirak": "Bırak",
+  "geriAl": "Geri al",
+  "hatimAlinmis": "Bu pay az önce alındı.",
+  "hatimSil": "Hatmi sil",
+  "hatimSilOnay": "Bu hatim ve işaretlediğiniz paylar bu telefondan silinecek.",
+  "hatimTamamMetin": "Bütün paylar okundu. Allah kabul etsin.",
+  "hatimAltNot": "Hesap gerekmez. Hatim bilgileri yalnızca bu telefonda durur.",
   "esmaBaslik": "Esmâ-ül Hüsnâ",
   "esmaAltBaslik": "Allah'ın en güzel 99 ismi",
   "esmaAraIpucu": "İsim veya anlam ara",

@@ -151,49 +151,68 @@ final esmaProvider = FutureProvider<List<EsmaIsmi>>((ref) async {
 });
 
 // ---------------------------------------------------------------------------
-// Namaz ve abdest rehberi
+// Hadisler
 // ---------------------------------------------------------------------------
-class RehberAdimi {
-  const RehberAdimi({
+class Hadis {
+  const Hadis({
+    required this.no,
     required this.baslik,
-    required this.aciklama,
+    required this.anlam,
+    required this.kaynak,
     this.arapca,
-    this.okunus,
-    this.anlam,
-    this.cizim,
+    this.ravi,
+    this.aciklama,
+    this.hikayeBaslik,
+    this.hikaye,
   });
+  final int no;
   final String baslik;
-  final String aciklama;
   final String? arapca;
-  final String? okunus;
-  final String? anlam;
-  final String? cizim;
+
+  /// Türkçe tercüme
+  final String anlam;
+  final String? ravi;
+  final String kaynak;
+
+  /// Hadisin bağlamına dair kısa not
+  final String? aciklama;
+
+  /// Hadisin anlaşılmasına yardımcı, kurgusal (temsilî) hikâye; rivayet
+  /// değildir ve ekranda böyle belirtilir.
+  final String? hikayeBaslik;
+  final String? hikaye;
 }
 
-class Rehber {
-  const Rehber(this.id, this.ad, this.altBaslik, this.adimlar);
-  final String id;
-  final String ad;
-  final String altBaslik;
-  final List<RehberAdimi> adimlar;
+class HadisVerisi {
+  const HadisVerisi({this.derleme, this.tercume, required this.hadisler});
+
+  /// Hadislerin alındığı derleme ve tercümenin kaynağı; içerik gelene
+  /// kadar boştur.
+  final String? derleme;
+  final String? tercume;
+  final List<Hadis> hadisler;
 }
 
-final rehberlerProvider = FutureProvider<List<Rehber>>((ref) async {
-  final j = await _json(ref, 'assets/data/rehber.json');
-  return [
-    for (final r in _liste(j, 'rehberler'))
-      Rehber(r['id'] as String, r['ad'] as String, r['altBaslik'] as String, [
-        for (final a in _liste(r, 'adimlar'))
-          RehberAdimi(
-            baslik: a['baslik'] as String,
-            aciklama: a['aciklama'] as String,
-            arapca: a['arapca'] as String?,
-            okunus: a['okunus'] as String?,
-            anlam: a['anlam'] as String?,
-            cizim: a['cizim'] as String?,
-          ),
-      ]),
-  ];
+final hadislerProvider = FutureProvider<HadisVerisi>((ref) async {
+  final j = await _json(ref, 'assets/data/hadisler.json');
+  return HadisVerisi(
+    derleme: j['derleme'] as String?,
+    tercume: j['tercume'] as String?,
+    hadisler: [
+      for (final h in _liste(j, 'hadisler'))
+        Hadis(
+          no: h['no'] as int,
+          baslik: h['baslik'] as String,
+          arapca: h['arapca'] as String?,
+          anlam: h['anlam'] as String,
+          ravi: h['ravi'] as String?,
+          kaynak: h['kaynak'] as String,
+          aciklama: h['aciklama'] as String?,
+          hikayeBaslik: h['hikaye_baslik'] as String?,
+          hikaye: h['hikaye'] as String?,
+        ),
+    ],
+  );
 });
 
 // ---------------------------------------------------------------------------

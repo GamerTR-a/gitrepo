@@ -4,6 +4,9 @@ import 'package:abyad/features/ayarlar/ui/ayarlar_ekrani.dart';
 import 'package:abyad/features/ayarlar/ui/lisanslar_ekrani.dart';
 import 'package:abyad/features/dualar/ui/dualar_ekrani.dart';
 import 'package:abyad/features/esma/ui/esma_ekrani.dart';
+import 'package:abyad/features/hadis/ui/hadis_ekrani.dart';
+import 'package:abyad/features/hatim/domain/hatim.dart';
+import 'package:abyad/features/hatim/ui/hatim_ekrani.dart';
 import 'package:abyad/features/ilk_acilis/ui/ilk_acilis_ekrani.dart';
 import 'package:abyad/features/kaza/ui/kaza_ekrani.dart';
 import 'package:abyad/features/kaza/ui/kaza_sihirbazi.dart';
@@ -31,6 +34,27 @@ const _ornekDua = Dua(
   kaynak: 'Bakara, 255',
 );
 
+/// Düzen denemesi içindir; gerçek bir hadis metni değildir.
+const _ornekHadis = Hadis(
+  no: 12,
+  baslik: 'Örnek başlık: uzun bir hadis başlığı',
+  arapca: 'نَصٌّ تَجْرِيبِيٌّ',
+  anlam: 'Düzen denemesi için örnek metin. Örnek cümle. Örnek cümle.',
+  ravi: 'Örnek râvi',
+  kaynak: 'Örnek kaynak, 1',
+  aciklama: 'Örnek açıklama.',
+  hikayeBaslik: 'Örnek hikâye başlığı',
+  hikaye: 'Düzen denemesi için örnek hikâye metni. Örnek cümle.',
+);
+
+/// Kayıtlı veriyle açılan ekranların başlangıç ayarları
+final _ayarlar = <String, Map<String, Object>>{
+  'zikirmatik (manzaralı)': {'ayarlar_v1': '{"zikirArkaPlan": true}'},
+  'toplu hatim': ornekHatimAyarlari(BolmeSekli.cuz),
+  'hatim (cüz)': ornekHatimAyarlari(BolmeSekli.cuz),
+  'hatim (sayfa)': ornekHatimAyarlari(BolmeSekli.sayfa),
+};
+
 /// Sekme ekranları kendi Scaffold'larını kurmaz.
 Widget _sekme(Widget w) => Scaffold(body: w);
 
@@ -49,14 +73,28 @@ final _ekranlar = <String, Widget Function()>{
   'dualar': () => _sekme(const DualarEkrani()),
   'dua detay': () => const DuaDetayEkrani(dua: _ornekDua),
   'zikirmatik': () => const ZikirmatikEkrani(),
+  'zikirmatik (manzaralı)': () => const ZikirmatikEkrani(),
   'önemli günler': () => _sekme(const OnemliGunlerEkrani()),
   'ayarlar': () => const AyarlarEkrani(),
+  'bildirim ayarları': () => const BildirimAyarEkrani(),
+  'konum ve vakit ayarları': () => const VakitAyarEkrani(),
+  "kur'an ayarları": () => const KuranAyarEkrani(),
   'vakit bildirimleri': () => const VakitBildirimEkrani(),
   'dakika düzeltme': () => const DuzeltmeEkrani(),
   'lisanslar': () => const LisanslarEkrani(),
   'kaza takibi': () => const KazaEkrani(),
   'kaza sihirbazı': () => const KazaSihirbazi(),
   'rehber': () => const RehberEkrani(),
+  'rehber adımları (öğle farz)': () =>
+      const RehberAdimlari(vakit: 'ogle', bolum: 'farz'),
+  'rehber adımları (abdest)': () => const RehberAdimlari(),
+  'hadis': () => const HadisEkrani(),
+  'hadis detay': () => const HadisDetayEkrani(hadis: _ornekHadis),
+  'toplu hatim (boş)': () => const HatimEkrani(),
+  'toplu hatim': () => const HatimEkrani(),
+  'hatim oluştur': () => const HatimOlusturEkrani(),
+  'hatim (cüz)': () => const HatimDetayEkrani(kod: ornekHatimKodu),
+  'hatim (sayfa)': () => const HatimDetayEkrani(kod: ornekHatimKodu),
   'esmâ': () => const EsmaEkrani(),
   'ilk açılış': () => const IlkAcilisEkrani(),
 };
@@ -74,6 +112,7 @@ void main() {
             kur(),
             boyut: boyut,
             yaziOlcegi: olcek,
+            ortam: await TestOrtami.olustur(ayarlar: _ayarlar[ad] ?? const {}),
           );
           expect(tester.takeException(), isNull);
 

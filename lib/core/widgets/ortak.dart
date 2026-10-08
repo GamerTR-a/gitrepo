@@ -81,8 +81,8 @@ class KareIkonDugme extends StatelessWidget {
     required this.ikon,
     required this.etiket,
     required this.onTap,
-    this.zemin = AbyadColors.yuzey,
-    this.renk = AbyadColors.zumrut,
+    this.zemin,
+    this.renk,
     this.kenarlik = true,
     this.ikonBoyutu = 20,
   });
@@ -90,8 +90,8 @@ class KareIkonDugme extends StatelessWidget {
   final String ikon;
   final String etiket;
   final VoidCallback? onTap;
-  final Color zemin;
-  final Color renk;
+  final Color? zemin;
+  final Color? renk;
   final bool kenarlik;
   final double ikonBoyutu;
 
@@ -100,7 +100,7 @@ class KareIkonDugme extends StatelessWidget {
     final sekil = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AbyadRadius.dugme),
       side: kenarlik
-          ? const BorderSide(color: AbyadColors.kenarlik)
+          ? BorderSide(color: AbyadColors.kenarlik)
           : BorderSide.none,
     );
     return Tooltip(
@@ -111,7 +111,7 @@ class KareIkonDugme extends StatelessWidget {
         label: etiket,
         excludeSemantics: true,
         child: Material(
-          color: zemin,
+          color: zemin ?? AbyadColors.yuzey,
           shape: sekil,
           clipBehavior: Clip.antiAlias,
           child: InkWell(
@@ -120,7 +120,11 @@ class KareIkonDugme extends StatelessWidget {
               width: AbyadSize.minDokunma,
               height: AbyadSize.minDokunma,
               child: Center(
-                child: AbyadIcon(ikon, renk: renk, boyut: ikonBoyutu),
+                child: AbyadIcon(
+                  ikon,
+                  renk: renk ?? AbyadColors.zumrut,
+                  boyut: ikonBoyutu,
+                ),
               ),
             ),
           ),
@@ -259,7 +263,7 @@ class KoyuKart extends StatelessWidget {
       button: onTap != null,
       excludeSemantics: semanticLabel != null,
       child: Material(
-        color: AbyadColors.zumrut,
+        color: AbyadColors.koyuZemin,
         shape: sekil,
         clipBehavior: Clip.antiAlias,
         child: icerik,
@@ -393,7 +397,7 @@ class GezinmeSatiri extends StatelessWidget {
                   ),
                 ],
                 const SizedBox(width: 4),
-                const AbyadIcon(
+                AbyadIcon(
                   'chevron_right',
                   renk: AbyadColors.metinIkincil,
                   boyut: 20,
@@ -431,15 +435,15 @@ class AbyadDugme extends StatelessWidget {
     final zemin = koyuZeminde
         ? AbyadColors.pirinc
         : (ikincil ? AbyadColors.yuzey : AbyadColors.zumrut);
-    final renk = koyuZeminde || ikincil
-        ? AbyadColors.zumrut
-        : AbyadColors.yuzey;
+    final renk = koyuZeminde
+        ? AbyadColors.pirincUstu
+        : (ikincil ? AbyadColors.zumrut : AbyadColors.yuzey);
     return Material(
       color: zemin,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AbyadRadius.dugme),
         side: ikincil
-            ? const BorderSide(color: AbyadColors.kenarlik)
+            ? BorderSide(color: AbyadColors.kenarlik)
             : BorderSide.none,
       ),
       clipBehavior: Clip.antiAlias,
@@ -524,14 +528,14 @@ class ArapcaMetin extends StatelessWidget {
     this.metin, {
     super.key,
     this.boyut = 27,
-    this.renk = AbyadColors.zumrut,
+    this.renk,
     this.satirYuksekligi = 2.0,
     this.hizalama = TextAlign.right,
   });
 
   final String metin;
   final double boyut;
-  final Color renk;
+  final Color? renk;
   final double satirYuksekligi;
   final TextAlign hizalama;
 
@@ -545,7 +549,7 @@ class ArapcaMetin extends StatelessWidget {
       AbyadFonts.arapca,
       boyut,
       400,
-      color: renk,
+      color: renk ?? AbyadColors.zumrut,
       height: satirYuksekligi,
     ),
   );
@@ -556,7 +560,7 @@ class Yukleniyor extends StatelessWidget {
   const Yukleniyor({super.key});
 
   @override
-  Widget build(BuildContext context) => const Center(
+  Widget build(BuildContext context) => Center(
     child: Padding(
       padding: EdgeInsets.all(32),
       child: CircularProgressIndicator(color: AbyadColors.zumrut),
@@ -586,17 +590,17 @@ class AbyadSayfa extends StatelessWidget {
     super.key,
     required this.children,
     this.altCubuk,
-    this.zemin = AbyadColors.zemin,
+    this.zemin,
   });
 
   final List<Widget> children;
   final Widget? altCubuk;
-  final Color zemin;
+  final Color? zemin;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: zemin,
+      backgroundColor: zemin ?? AbyadColors.zemin,
       bottomNavigationBar: altCubuk,
       body: SafeArea(
         bottom: false,
