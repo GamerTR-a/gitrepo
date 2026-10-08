@@ -15,6 +15,7 @@ import '../../../core/widgets/abyad_kart.dart';
 import '../../../core/widgets/ortak.dart';
 import '../../ayarlar/data/ayarlar_saglayici.dart';
 import '../../vakitler/data/vakit_saglayicilari.dart';
+import 'zikir_arka_plani.dart';
 
 const _gunlukAnahtar = 'zikir';
 
@@ -143,10 +144,7 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
     final ayarlar = ref.watch(ayarlarProvider);
     final toplam = ref.watch(_bugunkuZikirProvider).valueOrNull ?? 0;
     if (hazir == null) {
-      return const Scaffold(
-        backgroundColor: AbyadColors.zemin,
-        body: Yukleniyor(),
-      );
+      return Scaffold(backgroundColor: AbyadColors.zemin, body: Yukleniyor());
     }
 
     final zikirler = [
@@ -159,6 +157,8 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
       (z) => z.id == _seciliId,
       orElse: () => zikirler.first,
     );
+
+    final manzara = ayarlar.zikirArkaPlan;
 
     final govde = ListView(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
@@ -226,12 +226,33 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
           ),
         ],
         const SizedBox(height: 20),
-        Center(
-          child: _SayacDugmesi(
-            sayac: _sayac,
-            etiket: l10n.zikirSayOkuma(secili.ad, _sayac.sayi),
-            onTap: _say,
-          ),
+        // Manzara, sayacın arkasında ekranın iki kenarına kadar uzanır;
+        // sayaç hafif saydamlaşır ki çizim içinden de seçilsin.
+        Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.bottomCenter,
+          children: [
+            if (manzara)
+              Positioned(
+                left: -20,
+                right: -20,
+                bottom: 0,
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 460),
+                    child: ZikirArkaPlani(saniye: ayarlar.zikirArkaPlanSaniye),
+                  ),
+                ),
+              ),
+            Center(
+              child: _SayacDugmesi(
+                sayac: _sayac,
+                etiket: l10n.zikirSayOkuma(secili.ad, _sayac.sayi),
+                saydam: manzara,
+                onTap: _say,
+              ),
+            ),
+          ],
         ),
         if (_sayac.tur > 0) ...[
           const SizedBox(height: 12),
@@ -275,6 +296,7 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
         AbyadKart(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               AnahtarSatiri(
                 baslik: l10n.zikirTitresim,
@@ -283,7 +305,7 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
                     .read(ayarlarProvider.notifier)
                     .guncelle((a) => a.copyWith(zikirTitresim: v)),
               ),
-              const Divider(height: 1, color: AbyadColors.ayrac),
+              Divider(height: 1, color: AbyadColors.ayrac),
               AnahtarSatiri(
                 baslik: l10n.zikirTumEkran,
                 aciklama: l10n.zikirTumEkranAciklama,
@@ -292,7 +314,7 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
                     .read(ayarlarProvider.notifier)
                     .guncelle((a) => a.copyWith(zikirTumEkran: v)),
               ),
-              const Divider(height: 1, color: AbyadColors.ayrac),
+              Divider(height: 1, color: AbyadColors.ayrac),
               AnahtarSatiri(
                 baslik: l10n.zikirEkranAcik,
                 deger: ayarlar.zikirEkranAcik,
@@ -303,6 +325,38 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
                       .guncelle((a) => a.copyWith(zikirEkranAcik: v));
                 },
               ),
+              Divider(height: 1, color: AbyadColors.ayrac),
+              AnahtarSatiri(
+                baslik: l10n.zikirArkaPlan,
+                aciklama: l10n.zikirArkaPlanAciklama,
+                deger: manzara,
+                onDegis: (v) => ref
+                    .read(ayarlarProvider.notifier)
+                    .guncelle((a) => a.copyWith(zikirArkaPlan: v)),
+              ),
+              if (manzara) ...[
+                Text(
+                  l10n.zikirArkaPlanSure,
+                  style: abyadStil(AbyadFonts.metin, 13, 700),
+                ),
+                const SizedBox(height: 8),
+                AbyadSegment<int>(
+                  secenekler: {
+                    for (final sn in zikirManzaraSureleri)
+                      sn: sn < 60
+                          ? l10n.saniyeKisa(sn)
+                          : l10n.dakikaKisa(sn ~/ 60),
+                  },
+                  secili:
+                      zikirManzaraSureleri.contains(ayarlar.zikirArkaPlanSaniye)
+                      ? ayarlar.zikirArkaPlanSaniye
+                      : 30,
+                  onSec: (sn) => ref
+                      .read(ayarlarProvider.notifier)
+                      .guncelle((a) => a.copyWith(zikirArkaPlanSaniye: sn)),
+                ),
+                const SizedBox(height: 12),
+              ],
             ],
           ),
         ),
@@ -381,11 +435,15 @@ class _SayacDugmesi extends StatelessWidget {
     required this.sayac,
     required this.etiket,
     required this.onTap,
+    this.saydam = false,
   });
 
   final ZikirSayaci sayac;
   final String etiket;
   final VoidCallback onTap;
+
+  /// Arkadaki manzara görünsün diye zemin hafif saydam
+  final bool saydam;
 
   @override
   Widget build(BuildContext context) {
@@ -401,7 +459,7 @@ class _SayacDugmesi extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 1,
           child: Material(
-            color: AbyadColors.yuzey,
+            color: AbyadColors.yuzey.withValues(alpha: saydam ? 0.8 : 1),
             shape: const CircleBorder(),
             clipBehavior: Clip.antiAlias,
             child: InkWell(
