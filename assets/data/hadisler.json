@@ -1,5 +1,6 @@
 {
-  "aciklama": "Kırk Hadis bölümünün verisi. Derleme: İmam Nevevî'nin el-Erbaûn'u (geleneksel adıyla Kırk Hadis; 42 hadis içerir). 'arapca' metinleri Vikikaynak'taki (ar.wikisource.org, الأربعون النووية) kamu malı metinden alınmıştır; yalnızca uzatma çizgileri ve birkaç yazım hatası düzeltilmiştir. 'anlam' (tercüme), 'aciklama' ve 'hikaye' Abyad için yazılmış taslaklardır. 'hikaye' hadisin anlaşılmasına yardımcı olmak için yazılmış TEMSİLÎ, kurgusal bir anlatıdır; yaşanmış bir olay ya da rivayet değildir ve ekranda böyle belirtilir. Her kayıt yayın öncesi bir hoca tarafından incelenmelidir (CLAUDE.md §8).",
+  "aciklama": "Kırk Hadis bölümünün verisi. Derleme: İmam Nevevî'nin el-Erbaûn'u (geleneksel adıyla Kırk Hadis; 42 hadis içerir). 'arapca' metinleri Vikikaynak'taki (ar.wikisource.org, الأربعون النووية) kamu malı metinden alınmıştır; yalnızca uzatma çizgileri ve birkaç yazım hatası düzeltilmiştir. 'anlam' (tercüme), 'aciklama' ve 'hikaye' Abyad için yazılmış taslaklardır. 'hikaye' hadisin anlaşılmasına yardımcı olmak için yazılmış TEMSİLÎ, kurgusal bir anlatıdır; yaşanmış bir olay ya da rivayet değildir ve ekranda böyle belirtilir. Hikâyeler 'hikayeler_gosterilsin' true yapılmadıkça uygulamada GÖSTERİLMEZ; bu karar inceleyen hocaya bırakılmıştır. Her kayıt yayın öncesi bir hoca tarafından incelenmelidir (CLAUDE.md §8).",
+  "hikayeler_gosterilsin": false,
   "derleme": "İmam Nevevî'nin Kırk Hadis'i",
   "tercume": "Abyad için hazırlanan taslak tercüme; hoca incelemesi bekliyor",
   "hadisler": [

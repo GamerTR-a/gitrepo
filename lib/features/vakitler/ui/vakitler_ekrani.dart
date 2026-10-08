@@ -18,6 +18,7 @@ import '../../kible/ui/kible_ekrani.dart';
 import '../../konum/ui/sehir_sec_ekrani.dart';
 import '../data/vakit_saglayicilari.dart';
 import '../domain/gunluk_vakitler.dart';
+import 'ek_vakitler_ekrani.dart';
 import 'imsakiye_ekrani.dart';
 import 'vakit_adlari.dart';
 
@@ -101,24 +102,26 @@ class _VakitlerEkraniState extends ConsumerState<VakitlerEkrani> {
               onBildirim: _bildirimDegistir,
             ),
           ),
+          if (vakitler.tahminiVakitler.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            _YuksekEnlemNotu(tahmini: vakitler.tahminiVakitler),
+          ],
           const SizedBox(height: 18),
-          AbyadKart(
+          _GecisKarti(
+            ikon: 'calendar',
+            baslik: l10n.aylikImsakiye,
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const ImsakiyeEkrani()),
             ),
-            child: Row(
-              children: [
-                AbyadIcon('calendar', renk: AbyadColors.zumrut),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(l10n.aylikImsakiye, style: AbyadText.kartBasligi),
-                ),
-                AbyadIcon(
-                  'chevron_right',
-                  renk: AbyadColors.metinIkincil,
-                  boyut: 20,
-                ),
-              ],
+          ),
+          const SizedBox(height: 12),
+          _GecisKarti(
+            ikon: 'sun',
+            baslik: l10n.ekVakitlerKart,
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => EkVakitlerEkrani(gun: gun),
+              ),
             ),
           ),
           const SizedBox(height: 18),
@@ -202,6 +205,70 @@ class _VakitlerEkraniState extends ConsumerState<VakitlerEkrani> {
         ),
       );
     });
+  }
+}
+
+/// Başka bir vakit sayfasına götüren tek satırlık kart.
+class _GecisKarti extends StatelessWidget {
+  const _GecisKarti({
+    required this.ikon,
+    required this.baslik,
+    required this.onTap,
+  });
+
+  final String ikon;
+  final String baslik;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return AbyadKart(
+      onTap: onTap,
+      child: Row(
+        children: [
+          AbyadIcon(ikon, renk: AbyadColors.zumrut),
+          const SizedBox(width: 12),
+          Expanded(child: Text(baslik, style: AbyadText.kartBasligi)),
+          AbyadIcon('chevron_right', renk: AbyadColors.metinIkincil, boyut: 20),
+        ],
+      ),
+    );
+  }
+}
+
+/// Yatsı/imsak oluşmayan günlerde vakitlerin nasıl belirlendiğini anlatır.
+class _YuksekEnlemNotu extends StatelessWidget {
+  const _YuksekEnlemNotu({required this.tahmini});
+  final Set<VakitTuru> tahmini;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final adlar = [
+      for (final tur in VakitTuru.values)
+        if (tahmini.contains(tur)) l10n.vakitAdi(tur),
+    ];
+    final vakitler = adlar.length == 1
+        ? adlar.single
+        : l10n.listeVe(
+            adlar.sublist(0, adlar.length - 1).join(', '),
+            adlar.last,
+          );
+    return AbyadKart(
+      renk: AbyadColors.pirincAcik,
+      kenarRengi: AbyadColors.pirincKenar,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(l10n.yuksekEnlemBaslik, style: AbyadText.kartBasligi),
+          const SizedBox(height: 6),
+          Text(
+            l10n.yuksekEnlemMetin(vakitler),
+            style: AbyadText.kucuk.copyWith(color: AbyadColors.metin),
+          ),
+        ],
+      ),
+    );
   }
 }
 

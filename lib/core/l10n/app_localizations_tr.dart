@@ -218,6 +218,55 @@ class AppLocalizationsTr extends AppLocalizations {
   String get aylikImsakiye => 'Aylık imsakiye';
 
   @override
+  String get ekVakitlerKart => 'Kerahat, işrak ve teheccüd vakitleri';
+
+  @override
+  String get ekVakitlerBaslik => 'Kerahat, İşrak ve Teheccüd';
+
+  @override
+  String get ekNafileBolum => 'Nafile namaz vakitleri';
+
+  @override
+  String get ekKerahatBolum => 'Kerahat vakitleri';
+
+  @override
+  String saatAraligi(String bas, String bit) {
+    return '$bas – $bit';
+  }
+
+  @override
+  String saatAraligiOkuma(String bas, String bit) {
+    return '$bas ile $bit arası';
+  }
+
+  @override
+  String get ekVakitYok => 'Bu tarihte hesaplanamıyor';
+
+  @override
+  String get suAnKerahat => 'Şu an kerahat vakti';
+
+  @override
+  String get ekVakitlerYaklasik =>
+      'Bu saatler namaz vakitlerinden türetilen yaklaşık değerlerdir.';
+
+  @override
+  String get ekVakitlerIncelenmedi =>
+      'Süreler ve açıklamalar henüz bir hoca tarafından incelenmedi.';
+
+  @override
+  String get yuksekEnlemBaslik => 'Bu vakitler neden farklı olabilir?';
+
+  @override
+  String yuksekEnlemMetin(String vakitler) {
+    return 'Bulunduğunuz enlemde bu tarihte $vakitler vakti astronomik olarak oluşmuyor; yüksek enlemlerde yaz gecelerinde gökyüzü tam kararmaz. Abyad bu günlerde \"gecenin yedide biri\" kuralını uygular: geceyi yediye böler, yatsıyı akşamdan bir pay sonra, imsakı güneş doğmadan bir pay önce alır. Caminizin takvimi başka bir kural kullanıyorsa saatler farklı olabilir; Ayarlar\'dan her vakte dakika düzeltmesi ekleyebilirsiniz.';
+  }
+
+  @override
+  String listeVe(String ilk, String son) {
+    return '$ilk ve $son';
+  }
+
+  @override
   String ezanBildirimiAcik(String vakit) {
     return '$vakit ezan bildirimi açık';
   }
@@ -1014,7 +1063,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get lisansHadisMetin =>
-      'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler ve her hadisin altındaki temsilî hikâyeler Abyad için hazırlanmıştır; hikâyeler kurgusaldır. Tamamı yayın öncesinde bir hoca tarafından incelenecektir.';
+      'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler Abyad için hazırlanmıştır ve yayın öncesinde bir hoca tarafından incelenecektir.';
 
   @override
   String get lisansCizimBaslik => 'Çizimler';
@@ -1377,7 +1426,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get hadisAltBaslik => 'Hz. Peygamber\'in (s.a.v.) sözlerinden';
 
   @override
-  String get hadisAciklama => 'İmam Nevevî\'nin derlemesi, hikâyeleriyle';
+  String get hadisAciklama => 'İmam Nevevî\'nin derlemesi';
 
   @override
   String get hadisBekleniyorBaslik => 'İçerik hazırlanıyor';

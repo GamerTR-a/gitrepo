@@ -194,6 +194,56 @@
   "oncekiAy": "Önceki ay",
   "sonrakiAy": "Sonraki ay",
   "aylikImsakiye": "Aylık imsakiye",
+  "ekVakitlerKart": "Kerahat, işrak ve teheccüd vakitleri",
+  "ekVakitlerBaslik": "Kerahat, İşrak ve Teheccüd",
+  "ekNafileBolum": "Nafile namaz vakitleri",
+  "ekKerahatBolum": "Kerahat vakitleri",
+  "saatAraligi": "{bas} – {bit}",
+  "@saatAraligi": {
+    "placeholders": {
+      "bas": {
+        "type": "String"
+      },
+      "bit": {
+        "type": "String"
+      }
+    }
+  },
+  "saatAraligiOkuma": "{bas} ile {bit} arası",
+  "@saatAraligiOkuma": {
+    "placeholders": {
+      "bas": {
+        "type": "String"
+      },
+      "bit": {
+        "type": "String"
+      }
+    }
+  },
+  "ekVakitYok": "Bu tarihte hesaplanamıyor",
+  "suAnKerahat": "Şu an kerahat vakti",
+  "ekVakitlerYaklasik": "Bu saatler namaz vakitlerinden türetilen yaklaşık değerlerdir.",
+  "ekVakitlerIncelenmedi": "Süreler ve açıklamalar henüz bir hoca tarafından incelenmedi.",
+  "yuksekEnlemBaslik": "Bu vakitler neden farklı olabilir?",
+  "yuksekEnlemMetin": "Bulunduğunuz enlemde bu tarihte {vakitler} vakti astronomik olarak oluşmuyor; yüksek enlemlerde yaz gecelerinde gökyüzü tam kararmaz. Abyad bu günlerde \"gecenin yedide biri\" kuralını uygular: geceyi yediye böler, yatsıyı akşamdan bir pay sonra, imsakı güneş doğmadan bir pay önce alır. Caminizin takvimi başka bir kural kullanıyorsa saatler farklı olabilir; Ayarlar'dan her vakte dakika düzeltmesi ekleyebilirsiniz.",
+  "@yuksekEnlemMetin": {
+    "placeholders": {
+      "vakitler": {
+        "type": "String"
+      }
+    }
+  },
+  "listeVe": "{ilk} ve {son}",
+  "@listeVe": {
+    "placeholders": {
+      "ilk": {
+        "type": "String"
+      },
+      "son": {
+        "type": "String"
+      }
+    }
+  },
   "ezanBildirimiAcik": "{vakit} ezan bildirimi açık",
   "@ezanBildirimiAcik": {
     "placeholders": {
@@ -800,7 +850,7 @@
   "lisansIcerikBaslik": "Dua ve bilgi metinleri",
   "lisansIcerikMetin": "Dualar, okunuşlar, Esmâ-ül Hüsnâ anlamları ve rehber metinleri yayın öncesinde bir hoca tarafından incelenecektir. Vakit hesaplama parametreleri açık kaynaklı Adhan kütüphanesindeki Türkiye yöntemine dayanır.",
   "lisansHadisBaslik": "Kırk Hadis",
-  "lisansHadisMetin": "Hadislerin Arapça metni İmam Nevevî'nin Kırk Hadis'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler ve her hadisin altındaki temsilî hikâyeler Abyad için hazırlanmıştır; hikâyeler kurgusaldır. Tamamı yayın öncesinde bir hoca tarafından incelenecektir.",
+  "lisansHadisMetin": "Hadislerin Arapça metni İmam Nevevî'nin Kırk Hadis'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler Abyad için hazırlanmıştır ve yayın öncesinde bir hoca tarafından incelenecektir.",
   "lisansCizimBaslik": "Çizimler",
   "lisansCizimMetin": "Namaz ve abdest rehberindeki çizimler ile zikirmatik arka planındaki manzara çizimleri Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır.",
   "lisansPaketler": "Kullanılan yazılım paketleri",
@@ -1108,7 +1158,7 @@
   "abdestiBozanlar": "Abdesti bozan durumlar",
   "hadisBaslik": "Kırk Hadis",
   "hadisAltBaslik": "Hz. Peygamber'in (s.a.v.) sözlerinden",
-  "hadisAciklama": "İmam Nevevî'nin derlemesi, hikâyeleriyle",
+  "hadisAciklama": "İmam Nevevî'nin derlemesi",
   "hadisBekleniyorBaslik": "İçerik hazırlanıyor",
   "hadisBekleniyorMetin": "Hadisleri kaynağı ve tercümesi belli olmadan eklemiyoruz. Derleme seçilip bir hoca tarafından incelendikten sonra kırk hadis burada yer alacak.",
   "hadisNo": "{no}. hadis",

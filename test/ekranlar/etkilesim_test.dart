@@ -106,6 +106,62 @@ void main() {
     await ekraniKapat(tester, ortam);
   });
 
+  testWidgets('vakitler: kerahat, işrak ve teheccüd sayfası açılır', (
+    tester,
+  ) async {
+    final tutamac = tester.ensureSemantics();
+    final ortam = await ekraniKur(
+      tester,
+      const Scaffold(body: VakitlerEkrani()),
+    );
+    // İstanbul'da vakitler astronomik olarak oluşur; açıklama çıkmaz
+    expect(find.text('Bu vakitler neden farklı olabilir?'), findsNothing);
+    final kart = find.text('Kerahat, işrak ve teheccüd vakitleri');
+    await tester.ensureVisible(kart);
+    await tester.pump();
+    await tester.tap(kart);
+    await yuklenmeyiBekle(tester);
+    await yuklenmeyiBekle(tester);
+    expect(find.text('Kerahat, İşrak ve Teheccüd'), findsOneWidget);
+    expect(find.textContaining('İstanbul · 2 Ekim'), findsOneWidget);
+    expect(
+      find.bySemanticsLabel(
+        RegExp(r'^Güneş doğarken, 0\d:\d\d ile 0\d:\d\d arası, '),
+      ),
+      findsOneWidget,
+    );
+    // 13:52 hiçbir kerahat vaktine denk gelmez
+    expect(find.text('Şu an kerahat vakti'), findsNothing);
+    // İncelenmemiş içerik onaylıymış gibi görünmez
+    await tester.scrollUntilVisible(
+      find.textContaining('henüz bir hoca tarafından incelenmedi'),
+      200,
+    );
+    await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+    tutamac.dispose();
+    await ekraniKapat(tester, ortam);
+  });
+
+  testWidgets('vakitler: yatsı oluşmayan enlemde kural açıklanır', (
+    tester,
+  ) async {
+    final ortam = await ekraniKur(
+      tester,
+      const Scaffold(body: VakitlerEkrani()),
+      ortam: await TestOrtami.olustur(ayarlar: yuksekEnlemAyarlari),
+    );
+    await tester.scrollUntilVisible(
+      find.text('Bu vakitler neden farklı olabilir?'),
+      200,
+    );
+    expect(
+      find.textContaining('İmsak ve Yatsı vakti astronomik olarak oluşmuyor'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('gecenin yedide biri'), findsOneWidget);
+    await ekraniKapat(tester, ortam);
+  });
+
   testWidgets('şehir seçimi: arama ve seçim konumu değiştirir', (tester) async {
     final ortam = await ekraniKur(
       tester,

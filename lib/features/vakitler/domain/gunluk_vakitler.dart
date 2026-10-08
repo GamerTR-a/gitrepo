@@ -19,13 +19,21 @@ class Vakit {
 /// Bir günün vakitleri. Bütün saatler, konumun kendi saat dilimindeki
 /// duvar saatidir.
 class GunlukVakitler {
-  const GunlukVakitler({required this.gun, required this.vakitler});
+  const GunlukVakitler({
+    required this.gun,
+    required this.vakitler,
+    this.tahminiVakitler = const {},
+  });
 
   /// Vakitlerin ait olduğu gün (saat kısmı kullanılmaz)
   final DateTime gun;
 
   /// Sırası: İmsak, Güneş, Öğle, İkindi, Akşam, Yatsı
   final List<Vakit> vakitler;
+
+  /// O gün astronomik olarak oluşmadığı için yüksek enlem kuralıyla
+  /// (gecenin yedide biri) belirlenen vakitler
+  final Set<VakitTuru> tahminiVakitler;
 
   Vakit operator [](VakitTuru tur) => vakitler[tur.index];
 

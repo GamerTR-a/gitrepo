@@ -195,6 +195,8 @@ class HadisVerisi {
 
 final hadislerProvider = FutureProvider<HadisVerisi>((ref) async {
   final j = await _json(ref, 'assets/data/hadisler.json');
+  // Temsilî hikâyeler hoca onayına kadar veride durur ama gösterilmez
+  final hikayeli = j['hikayeler_gosterilsin'] == true;
   return HadisVerisi(
     derleme: j['derleme'] as String?,
     tercume: j['tercume'] as String?,
@@ -208,8 +210,8 @@ final hadislerProvider = FutureProvider<HadisVerisi>((ref) async {
           ravi: h['ravi'] as String?,
           kaynak: h['kaynak'] as String,
           aciklama: h['aciklama'] as String?,
-          hikayeBaslik: h['hikaye_baslik'] as String?,
-          hikaye: h['hikaye'] as String?,
+          hikayeBaslik: hikayeli ? h['hikaye_baslik'] as String? : null,
+          hikaye: hikayeli ? h['hikaye'] as String? : null,
         ),
     ],
   );

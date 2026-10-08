@@ -84,6 +84,12 @@ GunlukVakitler vakitleriHesapla({
     imsak = null;
     yatsi = null;
   }
+  final tahmini = {
+    if (imsak == null) VakitTuru.imsak,
+    if (gunes == null) VakitTuru.gunes,
+    if (aksam == null) VakitTuru.aksam,
+    if (yatsi == null) VakitTuru.yatsi,
+  };
   imsak ??= dogus - geceYedideBir;
   yatsi ??= batis + geceYedideBir;
 
@@ -99,6 +105,7 @@ GunlukVakitler vakitleriHesapla({
 
   return GunlukVakitler(
     gun: DateTime(gun.year, gun.month, gun.day),
+    tahminiVakitler: tahmini,
     vakitler: [
       for (final tur in VakitTuru.values)
         _vakit(

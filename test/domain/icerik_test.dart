@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:abyad/core/icerik/icerik.dart';
 import 'package:abyad/features/kuran/data/kuran_deposu.dart';
 import 'package:abyad/features/rehber/data/rehber_saglayici.dart';
+import 'package:abyad/features/vakitler/data/ek_vakit_saglayici.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -161,6 +162,11 @@ void main() {
       final j = _oku('assets/data/hadisler.json');
       expect(j['derleme'], isNotEmpty);
       expect(j['tercume'], isNotEmpty);
+      expect(
+        j['hikayeler_gosterilsin'],
+        isFalse,
+        reason: 'temsilî hikâyeler hoca onayı olmadan açılmamalı',
+      );
       final hadisler = (j['hadisler'] as List).cast<Map<String, dynamic>>();
       expect(hadisler, hasLength(42));
       expect(hadisler.map((h) => h['no']), [for (var i = 1; i <= 42; i++) i]);
@@ -197,6 +203,34 @@ void main() {
       }
       expect(hadisler.map((h) => h['baslik']).toSet(), hasLength(42));
       expect(hadisler.map((h) => h['hikaye']).toSet(), hasLength(42));
+    });
+
+    test('ek vakitler: süreler, beş vakit ve inceleme alanları', () {
+      final j = _oku('assets/data/ek_vakitler.json');
+      final sureler = j['sureler'] as Map<String, dynamic>;
+      for (final alan in ['dogus_dakika', 'istiva_dakika', 'batis_dakika']) {
+        expect(sureler[alan], isA<int>(), reason: alan);
+        expect(sureler[alan], inInclusiveRange(1, 90), reason: alan);
+      }
+      final vakitler = (j['vakitler'] as List).cast<Map<String, dynamic>>();
+      expect(vakitler.map((v) => v['id']), [
+        'duha',
+        'teheccud',
+        'kerahat_dogus',
+        'kerahat_istiva',
+        'kerahat_batis',
+      ]);
+      final not = j['kerahat_notu'] as Map<String, dynamic>;
+      expect(not['metin'], isNotEmpty);
+      for (final k in [sureler, not, ...vakitler]) {
+        for (final alan in _incelemeAlanlari) {
+          expect(k.containsKey(alan), isTrue, reason: '${k['id']}: $alan');
+        }
+      }
+      for (final v in vakitler) {
+        expect(v['ad'], isNotEmpty);
+        expect(v['aciklama'], isNotEmpty);
+      }
     });
 
     test('günün ayeti: geçerli başvurular ve deterministik seçim', () {
@@ -270,9 +304,14 @@ void main() {
       );
       expect(await kap.read(rehberSesleriProvider.future), isEmpty);
       expect(await kap.read(kazaBilgileriProvider.future), isNotEmpty);
+      final ekVakit = await kap.read(ekVakitVerisiProvider.future);
+      expect(ekVakit.bilgiler, hasLength(5));
+      expect(ekVakit.sureler.dogusDakika, 45);
+      expect(ekVakit.incelendi, isFalse);
       final hadisler = await kap.read(hadislerProvider.future);
       expect(hadisler.hadisler, hasLength(42));
-      expect(hadisler.hadisler.first.hikaye, isNotEmpty);
+      // Temsilî hikâyeler hoca onayına kadar kapalı
+      expect(hadisler.hadisler.every((h) => h.hikaye == null), isTrue);
       expect((await kap.read(kuranProvider.future)).sureler, hasLength(114));
 
       final gunler = await kap.read(onemliGunlerProvider.future);

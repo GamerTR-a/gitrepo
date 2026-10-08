@@ -448,6 +448,84 @@ abstract class AppLocalizations {
   /// **'Aylık imsakiye'**
   String get aylikImsakiye;
 
+  /// No description provided for @ekVakitlerKart.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kerahat, işrak ve teheccüd vakitleri'**
+  String get ekVakitlerKart;
+
+  /// No description provided for @ekVakitlerBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kerahat, İşrak ve Teheccüd'**
+  String get ekVakitlerBaslik;
+
+  /// No description provided for @ekNafileBolum.
+  ///
+  /// In tr, this message translates to:
+  /// **'Nafile namaz vakitleri'**
+  String get ekNafileBolum;
+
+  /// No description provided for @ekKerahatBolum.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kerahat vakitleri'**
+  String get ekKerahatBolum;
+
+  /// No description provided for @saatAraligi.
+  ///
+  /// In tr, this message translates to:
+  /// **'{bas} – {bit}'**
+  String saatAraligi(String bas, String bit);
+
+  /// No description provided for @saatAraligiOkuma.
+  ///
+  /// In tr, this message translates to:
+  /// **'{bas} ile {bit} arası'**
+  String saatAraligiOkuma(String bas, String bit);
+
+  /// No description provided for @ekVakitYok.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu tarihte hesaplanamıyor'**
+  String get ekVakitYok;
+
+  /// No description provided for @suAnKerahat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şu an kerahat vakti'**
+  String get suAnKerahat;
+
+  /// No description provided for @ekVakitlerYaklasik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu saatler namaz vakitlerinden türetilen yaklaşık değerlerdir.'**
+  String get ekVakitlerYaklasik;
+
+  /// No description provided for @ekVakitlerIncelenmedi.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süreler ve açıklamalar henüz bir hoca tarafından incelenmedi.'**
+  String get ekVakitlerIncelenmedi;
+
+  /// No description provided for @yuksekEnlemBaslik.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu vakitler neden farklı olabilir?'**
+  String get yuksekEnlemBaslik;
+
+  /// No description provided for @yuksekEnlemMetin.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bulunduğunuz enlemde bu tarihte {vakitler} vakti astronomik olarak oluşmuyor; yüksek enlemlerde yaz gecelerinde gökyüzü tam kararmaz. Abyad bu günlerde \"gecenin yedide biri\" kuralını uygular: geceyi yediye böler, yatsıyı akşamdan bir pay sonra, imsakı güneş doğmadan bir pay önce alır. Caminizin takvimi başka bir kural kullanıyorsa saatler farklı olabilir; Ayarlar\'dan her vakte dakika düzeltmesi ekleyebilirsiniz.'**
+  String yuksekEnlemMetin(String vakitler);
+
+  /// No description provided for @listeVe.
+  ///
+  /// In tr, this message translates to:
+  /// **'{ilk} ve {son}'**
+  String listeVe(String ilk, String son);
+
   /// No description provided for @ezanBildirimiAcik.
   ///
   /// In tr, this message translates to:
@@ -1789,7 +1867,7 @@ abstract class AppLocalizations {
   /// No description provided for @lisansHadisMetin.
   ///
   /// In tr, this message translates to:
-  /// **'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler ve her hadisin altındaki temsilî hikâyeler Abyad için hazırlanmıştır; hikâyeler kurgusaldır. Tamamı yayın öncesinde bir hoca tarafından incelenecektir.'**
+  /// **'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler Abyad için hazırlanmıştır ve yayın öncesinde bir hoca tarafından incelenecektir.'**
   String get lisansHadisMetin;
 
   /// No description provided for @lisansCizimBaslik.
@@ -2383,7 +2461,7 @@ abstract class AppLocalizations {
   /// No description provided for @hadisAciklama.
   ///
   /// In tr, this message translates to:
-  /// **'İmam Nevevî\'nin derlemesi, hikâyeleriyle'**
+  /// **'İmam Nevevî\'nin derlemesi'**
   String get hadisAciklama;
 
   /// No description provided for @hadisBekleniyorBaslik.

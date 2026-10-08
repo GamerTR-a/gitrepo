@@ -18,6 +18,7 @@ import 'package:abyad/features/konum/ui/sehir_sec_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_oku_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_sayfa_ekrani.dart';
 import 'package:abyad/features/rehber/ui/rehber_ekrani.dart';
+import 'package:abyad/features/vakitler/ui/ek_vakitler_ekrani.dart';
 import 'package:abyad/features/vakitler/ui/imsakiye_ekrani.dart';
 import 'package:abyad/features/zikirmatik/ui/zikirmatik_ekrani.dart';
 import 'package:flutter/material.dart';
@@ -81,6 +82,8 @@ void main() {
     '27_hatim_olustur': () => const HatimOlusturEkrani(),
     '28_zikirmatik_manzara': () => const ZikirmatikEkrani(),
     '29_ayarlar_bildirim': () => const BildirimAyarEkrani(),
+    '31_ek_vakitler': () => const EkVakitlerEkrani(),
+    '32_vakitler_yuksek_enlem': () => sekmede(Sekme.vakitler),
     '30_hadis_detay': () => Consumer(
       builder: (context, ref, _) {
         final veri = ref.watch(hadislerProvider).valueOrNull;
@@ -104,7 +107,9 @@ void main() {
                 ? ornekHatimAyarlari(BolmeSekli.cuz)
                 : (ad.contains('manzara')
                       ? {'ayarlar_v1': '{"zikirArkaPlan": true}'}
-                      : const {}),
+                      : (ad.contains('yuksek_enlem')
+                            ? yuksekEnlemAyarlari
+                            : const {})),
           ),
         );
         await tester.runAsync(() async {

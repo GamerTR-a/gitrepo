@@ -176,6 +176,19 @@ class RehberAdimlari extends ConsumerWidget {
   }
 }
 
+/// Test anında (2 Ekim) yatsı ve imsakın astronomik olarak oluşmadığı bir
+/// konumla başlayan ayarlar: güney yarımkürede bahar, 75° enlem.
+final yuksekEnlemAyarlari = <String, Object>{
+  'ayarlar_v1': jsonEncode({
+    'konum': {
+      'ad': 'Yüksek enlem (örnek)',
+      'enlem': -75.0,
+      'boylam': 0.0,
+      'dilim': 'UTC',
+    },
+  }),
+};
+
 const ornekHatimKodu = 'ornekhatim23';
 
 /// Kayıtlı bir hatimle başlayan ayarlar: 1–3. paylar okunmuş, 4. pay bu

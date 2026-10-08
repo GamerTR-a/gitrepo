@@ -16,6 +16,7 @@ import 'package:abyad/features/kuran/ui/kuran_liste_ekrani.dart';
 import 'package:abyad/features/kuran/ui/kuran_oku_ekrani.dart';
 import 'package:abyad/features/onemli_gunler/ui/onemli_gunler_ekrani.dart';
 import 'package:abyad/features/rehber/ui/rehber_ekrani.dart';
+import 'package:abyad/features/vakitler/ui/ek_vakitler_ekrani.dart';
 import 'package:abyad/features/vakitler/ui/imsakiye_ekrani.dart';
 import 'package:abyad/features/vakitler/ui/vakitler_ekrani.dart';
 import 'package:abyad/features/zikirmatik/ui/zikirmatik_ekrani.dart';
@@ -49,6 +50,7 @@ const _ornekHadis = Hadis(
 
 /// Kayıtlı veriyle açılan ekranların başlangıç ayarları
 final _ayarlar = <String, Map<String, Object>>{
+  'vakitler (yüksek enlem)': yuksekEnlemAyarlari,
   'zikirmatik (manzaralı)': {'ayarlar_v1': '{"zikirArkaPlan": true}'},
   'toplu hatim': ornekHatimAyarlari(BolmeSekli.cuz),
   'hatim (cüz)': ornekHatimAyarlari(BolmeSekli.cuz),
@@ -64,7 +66,9 @@ Widget _sekme(Widget w) => Scaffold(body: w);
 final _ekranlar = <String, Widget Function()>{
   'kabuk (ana sayfa)': () => const AbyadKabuk(),
   'vakitler': () => _sekme(const VakitlerEkrani()),
+  'vakitler (yüksek enlem)': () => _sekme(const VakitlerEkrani()),
   'imsakiye': () => const ImsakiyeEkrani(),
+  'kerahat, işrak ve teheccüd': () => const EkVakitlerEkrani(),
   'kıble': () => const KibleEkrani(),
   'şehir seç': () => const SehirSecEkrani(),
   "kur'an liste": () => _sekme(const KuranListeEkrani()),
