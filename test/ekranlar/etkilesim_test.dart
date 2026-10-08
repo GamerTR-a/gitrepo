@@ -552,7 +552,7 @@ void main() {
   });
 
   testWidgets('zikirmatik: manzara varsayılan olarak kapalı; açılınca '
-      'çizimler seçilen aralıkla değişir ve saymayı engellemez', (
+      'görseller seçilen aralıkla değişir ve saymayı engellemez', (
     tester,
   ) async {
     final ortam = await ekraniKur(tester, const ZikirmatikEkrani());
@@ -575,10 +575,11 @@ void main() {
     expect(find.byKey(const ValueKey('kabe')), findsNothing);
     expect(find.byKey(const ValueKey('medine')), findsOneWidget);
     // Bütün manzaralar dolaşılır ve başa dönülür
+    // (her adımda tam 15 sn: geçiş animasyonunu beklemek saati kaydırır)
     for (var i = 1; i < zikirManzaralari.length; i++) {
       await tester.pump(const Duration(seconds: 15));
-      await tester.pumpAndSettle();
     }
+    await tester.pumpAndSettle();
     expect(find.byKey(const ValueKey('kabe')), findsOneWidget);
 
     // Sayaç manzara açıkken de çalışır

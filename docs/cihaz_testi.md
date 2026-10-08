@@ -79,7 +79,7 @@ Sonuçları tabloya `✓` / `✗` ve kısa notla işleyin.
 | T3 | Uygulamayı kapatıp açın | Seçilen tema korunur |
 | T4 | Koyu tema + yüksek kontrast + "Çok büyük" yazı | Metinler rahat okunur, taşma yok |
 | Z1 | Zikirmatik (ilk hâli) | Arka plan boş ve sade; eskisiyle aynı |
-| Z2 | Zikirmatik > "Arka planda manzara" açık, aralık 15 sn | Sayacın arkasında silik çizim görünür, 15 saniyede bir yumuşakça değişir; sayma ve titreşim etkilenmez |
+| Z2 | Zikirmatik > "Arka planda manzara" açık, aralık 15 sn | Sayacın arkasında manzara görseli görünür, 15 saniyede bir yumuşakça değişir; sayaçtaki sayı rahat okunur, sayma ve titreşim etkilenmez; eski/az bellekli telefonda takılma olmaz |
 | Z3 | Z2 açıkken ekranı kapatıp açın, başka ekrana gidip dönün | Çizim göstermeye devam eder; pil tüketiminde belirgin artış yok |
 
 ## Bilinen sınırlar (doğrulanacak)

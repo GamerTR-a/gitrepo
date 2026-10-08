@@ -18,7 +18,7 @@ Faz planı: [CLAUDE_CODE_PROMPTLARI.md](CLAUDE_CODE_PROMPTLARI.md).
 | Dualar, Zikirmatik, Önemli Günler | Yazıldı; içerik hoca incelemesi bekliyor |
 | Ayarlar (kısa ana sayfa + alt sayfalar), büyük yazı, yüksek kontrast, ekran okuyucu etiketleri | Yazıldı |
 | Koyu tema (Ayarlar > Tema; varsayılan açık) | Yazıldı |
-| Zikirmatik arka planında değişen manzara çizimleri (varsayılan kapalı) | Yazıldı; çizimler özgün siluetlerdir (`tool/manzara_uret.py`) |
+| Zikirmatik arka planında değişen manzara görselleri (varsayılan kapalı) | Yazıldı; 18 görsel yapay zekâ ile üretildi, `tool/manzara_uret.py` ile küçültülüp gömülür (2,7 MB) |
 | Ana ekran widget'ları (Android) | Yazıldı; gerçek cihazda denenmedi |
 | Kaza takibi ve hesaplama sihirbazı | Yazıldı |
 | Namaz ve abdest rehberi (5 vakit, bölüm bölüm; ezber modu) | Yazıldı; çizimler geçici şematik, ses yok, Kunut ve Cuma yer tutucu ([liste](docs/rehber_varliklari.md)) |

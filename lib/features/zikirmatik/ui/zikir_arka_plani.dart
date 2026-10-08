@@ -1,28 +1,39 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/theme/abyad_colors.dart';
+import '../../../core/theme/abyad_tokens.dart';
 
 /// Arka planda sırayla gösterilen manzaralar
-/// (assets/zikir_arkaplan/, tool/manzara_uret.py ile üretilir).
+/// (assets/zikir_arkaplan/AD.webp, tool/manzara_uret.py ile hazırlanır).
 const zikirManzaralari = [
   'kabe',
   'medine',
   'kudus',
-  'mekke',
-  'selimiye',
   'ayasofya',
-  'ulucami',
+  'selimiye',
+  'istanbul',
+  'bursa',
+  'divrigi',
+  'diyarbakir',
+  'sam',
+  'kahire',
+  'kayrevan',
+  'semerkant',
+  'buhara',
+  'isfahan',
+  'halep',
+  'kurtuba',
+  'tac_mahal',
 ];
 
 /// Değişme aralığı seçenekleri (saniye)
 const zikirManzaraSureleri = [15, 30, 60, 300];
 
-/// Zikirmatik sayacının arkasında duran silik manzara çizimi.
-/// [saniye] aralığıyla bir sonrakine yumuşakça geçer. Yalnızca süstür:
-/// dokunmaları almaz, ekran okuyucuya görünmez.
+/// Zikirmatik sayacının arkasında duran manzara görseli. Verilen alanı
+/// doldurur ve [saniye] aralığıyla bir sonrakine yumuşakça geçer. Yalnızca
+/// süstür: dokunmaları almaz, ekran okuyucuya görünmez.
 class ZikirArkaPlani extends StatefulWidget {
   const ZikirArkaPlani({super.key, required this.saniye});
   final int saniye;
@@ -66,21 +77,33 @@ class _ZikirArkaPlaniState extends State<ZikirArkaPlani> {
     final ad = zikirManzaralari[_sira];
     return IgnorePointer(
       child: ExcludeSemantics(
-        child: Opacity(
-          opacity: AbyadColors.palet.koyu ? 0.3 : 0.22,
-          // Çizimlerin oranı 400x240
-          child: AspectRatio(
-            aspectRatio: 400 / 240,
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 1200),
-              child: SvgPicture.asset(
-                'assets/zikir_arkaplan/$ad.svg',
-                key: ValueKey(ad),
-                fit: BoxFit.fill,
-                colorFilter: ColorFilter.mode(
-                  AbyadColors.zumrut,
-                  BlendMode.srcIn,
-                ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(AbyadRadius.buyukKart),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ColoredBox(color: AbyadColors.yesilZemin),
+                  AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 1200),
+                    layoutBuilder: (simdiki, oncekiler) => Stack(
+                      fit: StackFit.expand,
+                      children: [...oncekiler, ?simdiki],
+                    ),
+                    child: Image.asset(
+                      'assets/zikir_arkaplan/$ad.webp',
+                      key: ValueKey(ad),
+                      fit: BoxFit.cover,
+                      gaplessPlayback: true,
+                      errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                    ),
+                  ),
+                  // Koyu temada görsel göz almasın
+                  if (AbyadColors.palet.koyu)
+                    const ColoredBox(color: Color(0x66000000)),
+                ],
               ),
             ),
           ),

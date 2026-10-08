@@ -226,30 +226,24 @@ class _ZikirmatikEkraniState extends ConsumerState<ZikirmatikEkrani> {
           ),
         ],
         const SizedBox(height: 20),
-        // Manzara, sayacın arkasında ekranın iki kenarına kadar uzanır;
-        // sayaç hafif saydamlaşır ki çizim içinden de seçilsin.
+        // Manzara, sayacı çerçeveleyen bir kart gibi arkasında durur;
+        // sayaç hafif saydamlaşır ki görsel içinden de seçilsin.
         Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
           children: [
             if (manzara)
-              Positioned(
-                left: -20,
-                right: -20,
-                bottom: 0,
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 460),
-                    child: ZikirArkaPlani(saniye: ayarlar.zikirArkaPlanSaniye),
-                  ),
-                ),
+              Positioned.fill(
+                child: ZikirArkaPlani(saniye: ayarlar.zikirArkaPlanSaniye),
               ),
-            Center(
-              child: _SayacDugmesi(
-                sayac: _sayac,
-                etiket: l10n.zikirSayOkuma(secili.ad, _sayac.sayi),
-                saydam: manzara,
-                onTap: _say,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: manzara ? 20 : 0),
+              child: Center(
+                child: _SayacDugmesi(
+                  sayac: _sayac,
+                  etiket: l10n.zikirSayOkuma(secili.ad, _sayac.sayi),
+                  saydam: manzara,
+                  onTap: _say,
+                ),
               ),
             ),
           ],
@@ -459,7 +453,7 @@ class _SayacDugmesi extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 1,
           child: Material(
-            color: AbyadColors.yuzey.withValues(alpha: saydam ? 0.8 : 1),
+            color: AbyadColors.yuzey.withValues(alpha: saydam ? 0.86 : 1),
             shape: const CircleBorder(),
             clipBehavior: Clip.antiAlias,
             child: InkWell(

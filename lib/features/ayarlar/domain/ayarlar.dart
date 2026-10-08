@@ -59,7 +59,7 @@ class Ayarlar {
   final bool zikirTumEkran;
   final bool zikirEkranAcik;
 
-  /// Zikirmatik'in arkasında silik manzara çizimleri ve değişme aralığı
+  /// Zikirmatik'in arkasında manzara görselleri ve değişme aralığı
   final bool zikirArkaPlan;
   final int zikirArkaPlanSaniye;
   final bool kibleTitresim;

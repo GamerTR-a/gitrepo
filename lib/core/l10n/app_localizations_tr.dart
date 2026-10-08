@@ -720,7 +720,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get zikirArkaPlanAciklama =>
-      'Kâbe, Medine, Kudüs ve camilerin silik çizimleri sırayla görünür.';
+      'Kâbe, Medine, Kudüs ve tarihî camilerin görselleri sayacın arkasında sırayla görünür.';
 
   @override
   String get zikirArkaPlanSure => 'Değişme aralığı';
@@ -1066,11 +1066,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Hadislerin Arapça metni İmam Nevevî\'nin Kırk Hadis\'inden (el-Erbaûn) alınmıştır; eser kamu malıdır. Türkçe tercümeler Abyad için hazırlanmıştır ve yayın öncesinde bir hoca tarafından incelenecektir.';
 
   @override
-  String get lisansCizimBaslik => 'Çizimler';
+  String get lisansCizimBaslik => 'Çizimler ve görseller';
 
   @override
   String get lisansCizimMetin =>
-      'Namaz ve abdest rehberindeki çizimler ile zikirmatik arka planındaki manzara çizimleri Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır.';
+      'Namaz ve abdest rehberindeki çizimler Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır. Zikirmatik arka planındaki manzara görselleri yapay zekâ ile üretilmiştir; fotoğraf değildir, mekânları temsilen gösterir.';
 
   @override
   String get lisansPaketler => 'Kullanılan yazılım paketleri';

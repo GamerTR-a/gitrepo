@@ -96,15 +96,21 @@ void main() {
     },
   );
 
-  test('manzara çizimleri yerinde ve gömülü resim içermez', () {
-    expect(zikirManzaralari.toSet(), hasLength(7));
+  test('manzara görselleri yerinde, listeyle birebir ve küçültülmüş', () {
+    expect(zikirManzaralari.toSet(), hasLength(zikirManzaralari.length));
     for (final ad in zikirManzaralari) {
-      final dosya = File('assets/zikir_arkaplan/$ad.svg');
+      final dosya = File('assets/zikir_arkaplan/$ad.webp');
       expect(dosya.existsSync(), isTrue, reason: ad);
-      final svg = dosya.readAsStringSync();
-      expect(svg, isNot(contains('<image')), reason: ad);
-      expect(svg, isNot(contains('http://www.w3.org/1999/xlink')), reason: ad);
+      // Uygulama boyutu şişmesin: kaynak görseller 3-4 MB'tır
+      expect(dosya.lengthSync(), lessThan(300 * 1024), reason: ad);
     }
+    expect(
+      Directory(
+        'assets/zikir_arkaplan',
+      ).listSync().map((d) => d.uri.pathSegments.last.split('.').first),
+      unorderedEquals(zikirManzaralari),
+      reason: 'klasörde listede olmayan dosya var',
+    );
     expect(zikirManzaraSureleri, contains(const Ayarlar().zikirArkaPlanSaniye));
   });
 }

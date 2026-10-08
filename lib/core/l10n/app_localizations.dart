@@ -1279,7 +1279,7 @@ abstract class AppLocalizations {
   /// No description provided for @zikirArkaPlanAciklama.
   ///
   /// In tr, this message translates to:
-  /// **'Kâbe, Medine, Kudüs ve camilerin silik çizimleri sırayla görünür.'**
+  /// **'Kâbe, Medine, Kudüs ve tarihî camilerin görselleri sayacın arkasında sırayla görünür.'**
   String get zikirArkaPlanAciklama;
 
   /// No description provided for @zikirArkaPlanSure.
@@ -1873,13 +1873,13 @@ abstract class AppLocalizations {
   /// No description provided for @lisansCizimBaslik.
   ///
   /// In tr, this message translates to:
-  /// **'Çizimler'**
+  /// **'Çizimler ve görseller'**
   String get lisansCizimBaslik;
 
   /// No description provided for @lisansCizimMetin.
   ///
   /// In tr, this message translates to:
-  /// **'Namaz ve abdest rehberindeki çizimler ile zikirmatik arka planındaki manzara çizimleri Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır.'**
+  /// **'Namaz ve abdest rehberindeki çizimler Abyad için hazırlanmıştır; başka bir kaynaktan alınmamıştır. Zikirmatik arka planındaki manzara görselleri yapay zekâ ile üretilmiştir; fotoğraf değildir, mekânları temsilen gösterir.'**
   String get lisansCizimMetin;
 
   /// No description provided for @lisansPaketler.

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="#000000">
-  <rect x="0" y="220" width="400" height="20" fill-opacity="0.35"/>
-  <rect x="43.0" y="44" width="10.0" height="176" fill-opacity="1.0"/><rect x="40.0" y="106.88" width="16.0" height="4.0" fill-opacity="1.0"/><path d="M42.0 44 L48 14 L54.0 44 Z" fill-opacity="1.0"/>
-  <rect x="347.0" y="44" width="10.0" height="176" fill-opacity="1.0"/><rect x="344.0" y="106.88" width="16.0" height="4.0" fill-opacity="1.0"/><path d="M346.0 44 L352 14 L358.0 44 Z" fill-opacity="1.0"/>
-  <rect x="96" y="148" width="208" height="14" fill-opacity="0.55"/>
-  <path d="M96 148 A22 15 0 0 1 140 148 Z" fill-opacity="0.55"/><path d="M151 148 A22 15 0 0 1 195 148 Z" fill-opacity="0.55"/><path d="M205 148 A22 15 0 0 1 249 148 Z" fill-opacity="0.55"/><path d="M260 148 A22 15 0 0 1 304 148 Z" fill-opacity="0.55"/>
-  <path d="M66 162 A24 16 0 0 1 114 162 Z" fill-opacity="1.0"/><path d="M121 162 A24 16 0 0 1 169 162 Z" fill-opacity="1.0"/><path d="M176 162 A24 16 0 0 1 224 162 Z" fill-opacity="1.0"/><path d="M231 162 A24 16 0 0 1 279 162 Z" fill-opacity="1.0"/><path d="M286 162 A24 16 0 0 1 334 162 Z" fill-opacity="1.0"/>
-  <path fill-rule="evenodd" d="M62 162 H338 V220 H62 Z M78.008 220 V184.04 A11.592 11.592 0 0 1 101.192 184.04 V220 Z M133.208 220 V184.04 A11.592 11.592 0 0 1 156.39200000000002 184.04 V220 Z M188.408 220 V184.04 A11.592 11.592 0 0 1 211.592 184.04 V220 Z M243.608 220 V184.04 A11.592 11.592 0 0 1 266.79200000000003 184.04 V220 Z M298.808 220 V184.04 A11.592 11.592 0 0 1 321.99199999999996 184.04 V220 Z" fill-opacity="1.0"/>
-</svg>

@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Zikirmatik arka planının kaynak görselleri (tool/manzara_uret.py küçültüp assets altına yazar)
+/Gemini_Generated_Image_*.jpg
